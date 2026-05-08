@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Asman — About Me</title>
+  <title>Asman — Founder & Tech Visionary</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
   <style>
@@ -12,428 +12,197 @@
     :root {
       --bg: #09090f;
       --surface: #111118;
-      --card: #16161f;
-      --border: rgba(255,255,255,0.08);
+      --card: #14141c;
+      --border: rgba(255,255,255,0.06);
       --border-solid: #1e1e2e;
       --white: #ffffff;
-      --text: #e8e8f0;
-      --muted: #6868a0;
-      --muted2: #9898b8;
+      --text: #f0f0f5;
+      --muted: #8a8aa8;
+      --muted2: #a5a5c5;
       --yellow: #f5e642;
       --pink: #ff4d8d;
       --cyan: #00f0ff;
       --purple: #9b5cff;
       --green: #2affa0;
-      --nav-bg: rgba(9,9,15,0.88);
+      --nav-bg: rgba(9,9,15,0.85);
     }
     [data-theme="light"] {
-      --bg: #f3f5fb;
-      --surface: rgba(255,255,255,0.76);
-      --card: #e9edf7;
-      --border: rgba(76,92,150,0.14);
+      --bg: #f5f7fc;
+      --surface: rgba(255,255,255,0.85);
+      --card: #ffffff;
+      --border: rgba(76,92,150,0.1);
       --border-solid: #d9e0f0;
-      --white: #1b2340;
-      --text: #4f5b78;
-      --muted: #7c89a5;
-      --muted2: #5d6986;
-      --yellow: #5b5cf0;
-      --pink: #d946ef;
-      --cyan: #0ea5b7;
-      --purple: #7c4dff;
+      --white: #111827;
+      --text: #374151;
+      --muted: #6b7280;
+      --muted2: #4b5563;
+      --yellow: #4f46e5;
+      --pink: #db2777;
+      --cyan: #0891b2;
+      --purple: #7c3aed;
       --green: #0f766e;
-      --nav-bg: rgba(243,245,251,0.82);
-    }
-
-
-    [data-theme="light"] body::after { opacity:.08; }
-    [data-theme="light"] .hero-grid {
-      background-image:linear-gradient(rgba(91,92,240,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(91,92,240,.05) 1px,transparent 1px);
-    }
-    [data-theme="light"] .orb-y { background:radial-gradient(ellipse,rgba(91,92,240,.10) 0%,transparent 72%); }
-    [data-theme="light"] .orb-p { background:radial-gradient(circle,rgba(217,70,239,.08) 0%,transparent 72%); }
-    [data-theme="light"] .orb-c { background:radial-gradient(circle,rgba(14,165,183,.07) 0%,transparent 72%); }
-    [data-theme="light"] .shape { opacity:.08; }
-    [data-theme="light"] .hero-tag {
-      border-color: rgba(79,70,229,.20);
-      background: rgba(255,255,255,.72);
-      box-shadow: 0 16px 34px rgba(99,102,241,.08);
-    }
-    [data-theme="light"] .tag-pill { color:#ffffff; }
-    [data-theme="light"] .tag-text { color:#4f46e5; }
-    [data-theme="light"] .btn-ghost {
-      background: rgba(255,255,255,.72);
-      color: var(--muted2);
-      border-color: rgba(15,23,42,.10);
-    }
-    [data-theme="light"] .btn-ghost:hover { border-color: rgba(79,70,229,.40); color: var(--white); }
-    [data-theme="light"] .loc-pill,
-    [data-theme="light"] .a-tag,
-    [data-theme="light"] .social-btn,
-    [data-theme="light"] .lang-select,
-    [data-theme="light"] .theme-btn {
-      background: rgba(255,255,255,.68);
-      border-color: rgba(15,23,42,.10);
-      box-shadow: 0 14px 28px rgba(120,131,180,.10);
-      color:#4338ca;
+      --nav-bg: rgba(245,247,252,0.9);
     }
 
     html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      overflow-x: hidden;
-      transition: background .3s, color .3s;
+    body { 
+      background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; 
+      overflow-x:hidden; transition:background .3s,color .3s; 
+      text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased;
     }
 
     #particle-canvas { position:fixed;inset:0;pointer-events:none;z-index:1; }
-
     body::after {
       content:'';position:fixed;inset:0;
       background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
-      pointer-events:none;z-index:500;opacity:.4;
+      pointer-events:none;z-index:500;opacity:.3;
     }
+
+    [data-theme="light"] body::after { opacity:.05; }
+    [data-theme="light"] .hero-grid { background-image:linear-gradient(rgba(79,70,229,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(79,70,229,.04) 1px,transparent 1px); }
+    [data-theme="light"] .orb-y{background:radial-gradient(ellipse,rgba(79,70,229,.08) 0%,transparent 70%)}
+    [data-theme="light"] .orb-p{background:radial-gradient(circle,rgba(219,39,119,.06) 0%,transparent 70%)}
+    [data-theme="light"] .orb-c{background:radial-gradient(circle,rgba(8,145,178,.05) 0%,transparent 70%)}
+    [data-theme="light"] .tag-pill{background:#4f46e5;color:#fff}
+    [data-theme="light"] .tag-text{color:#4f46e5}
+    [data-theme="light"] .btn-ghost, [data-theme="light"] .loc-pill, [data-theme="light"] .a-tag, [data-theme="light"] .social-btn, [data-theme="light"] .lang-select, [data-theme="light"] .theme-btn, [data-theme="light"] .sc, [data-theme="light"] .etag { 
+      background:#fff; border-color:rgba(15,23,42,.1); box-shadow:0 8px 20px rgba(0,0,0,.04); color:#4f46e5; 
+    }
+    [data-theme="light"] .cta-box{background:linear-gradient(135deg,#fff 0%,#f5f7fc 100%);border-color:rgba(79,70,229,.15); box-shadow: 0 20px 40px rgba(0,0,0,.05);}
+    [data-theme="light"] .cta-box h2 { color: #111827; }
 
     /* NAV */
-    nav {
-      position:fixed;top:0;left:0;right:0;z-index:300;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:18px 52px;
-      transition:all .3s;
-    }
-    nav.solid { background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border); }
-    .nav-logo {
-      font-family:'Unbounded',sans-serif;
-      font-size:15px;font-weight:800;color:var(--white);text-decoration:none;
-      display:flex;align-items:center;gap:10px;
-    }
-    .nav-logo-icon {
-      width:32px;height:32px;border-radius:9px;background:var(--yellow);
-      display:flex;align-items:center;justify-content:center;font-size:15px;
-      animation:logoPulse 3s ease-in-out infinite;
-    }
+    nav { position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:16px 40px;transition:all .3s; }
+    nav.solid { background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border); }
+    .nav-logo { font-family:'Unbounded',sans-serif;font-size:16px;font-weight:800;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:10px; }
+    .nav-logo-icon { width:32px;height:32px;border-radius:8px;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:15px; color:#000; animation:logoPulse 3s ease-in-out infinite; }
     @keyframes logoPulse{0%,100%{box-shadow:0 0 0 0 rgba(245,230,66,0)}50%{box-shadow:0 0 0 8px rgba(245,230,66,.15)}}
+    [data-theme="light"] .nav-logo-icon { background: #4f46e5; color: #fff; animation:logoPulseL 3s ease-in-out infinite;}
+    @keyframes logoPulseL{0%,100%{box-shadow:0 0 0 0 rgba(79,70,229,0)}50%{box-shadow:0 0 0 8px rgba(79,70,229,.15)}}
     .nav-right { display:flex;align-items:center;gap:16px; }
-    .nav-links { display:flex;gap:28px;list-style:none; }
-    .nav-links a { font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s; }
+    .nav-links { display:flex;gap:32px;list-style:none; }
+    .nav-links a { font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s; }
     .nav-links a:hover { color:var(--white); }
     .nav-controls { display:flex;align-items:center;gap:8px; }
-    .lang-select {
-      background:var(--surface);border:1px solid var(--border);border-radius:8px;
-      color:var(--muted2);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;
-      padding:7px 10px;cursor:pointer;outline:none;transition:all .2s;
-      appearance:none;-webkit-appearance:none;
-    }
-    .lang-select:hover { border-color:var(--yellow);color:var(--yellow); }
-    .theme-btn {
-      width:34px;height:34px;border-radius:9px;
-      background:var(--surface);border:1px solid var(--border);
-      cursor:pointer;display:flex;align-items:center;justify-content:center;
-      font-size:16px;transition:all .2s;flex-shrink:0;color:var(--white);
-    }
-    .theme-btn:hover { border-color:var(--yellow);transform:scale(1.08); box-shadow:0 0 0 4px rgba(91,92,240,.08); }
+    .lang-select { background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--muted2);font-size:12px;font-weight:600;padding:8px 12px;cursor:pointer;outline:none;transition:all .2s;appearance:none;-webkit-appearance:none; }
+    .theme-btn { width:36px;height:36px;border-radius:8px;background:var(--surface);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s;color:var(--white); }
+    .theme-btn:hover { border-color:var(--yellow);transform:scale(1.05); }
 
     /* HERO */
-    .hero {
-      min-height:100vh;display:flex;flex-direction:column;
-      align-items:center;justify-content:center;
-      text-align:center;padding:120px 40px 80px;
-      position:relative;overflow:hidden;
-    }
-    .hero-grid {
-      position:absolute;inset:0;
-      background-image:linear-gradient(rgba(245,230,66,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(245,230,66,.02) 1px,transparent 1px);
-      background-size:80px 80px;
-      mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,black 30%,transparent 75%);
-    }
+    .hero { min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;position:relative;overflow:hidden; }
+    .hero-grid { position:absolute;inset:0;background-image:linear-gradient(rgba(245,230,66,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(245,230,66,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,black 30%,transparent 75%); }
     .orb { position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none; }
-    .orb-y { width:600px;height:300px;background:radial-gradient(ellipse,rgba(245,230,66,.09) 0%,transparent 70%);top:0;left:50%;transform:translateX(-50%);animation:ob1 9s ease-in-out infinite; }
-    .orb-p { width:400px;height:400px;background:radial-gradient(circle,rgba(155,92,255,.1) 0%,transparent 70%);bottom:10%;left:-5%;animation:ob2 12s ease-in-out infinite; }
-    .orb-c { width:350px;height:350px;background:radial-gradient(circle,rgba(0,240,255,.08) 0%,transparent 70%);bottom:0;right:0;animation:ob3 10s ease-in-out infinite; }
+    .orb-y { width:500px;height:300px;background:radial-gradient(ellipse,rgba(245,230,66,.08) 0%,transparent 70%);top:0;left:50%;transform:translateX(-50%);animation:ob1 9s ease-in-out infinite; }
+    .orb-p { width:400px;height:400px;background:radial-gradient(circle,rgba(155,92,255,.08) 0%,transparent 70%);bottom:10%;left:-5%;animation:ob2 12s ease-in-out infinite; }
+    .orb-c { width:350px;height:350px;background:radial-gradient(circle,rgba(0,240,255,.07) 0%,transparent 70%);bottom:0;right:0;animation:ob3 10s ease-in-out infinite; }
     @keyframes ob1{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.1)}}
     @keyframes ob2{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-20px)}}
     @keyframes ob3{0%,100%{transform:translate(0,0)}50%{transform:translate(-20px,20px)}}
-    .shape { position:absolute;font-family:'Unbounded',sans-serif;font-weight:900;letter-spacing:-2px;opacity:.05;pointer-events:none;user-select:none;animation:drift 20s ease-in-out infinite; }
-    .s1{font-size:180px;color:var(--yellow);top:5%;left:-2%}
-    .s2{font-size:120px;color:var(--pink);top:20%;right:2%;animation-delay:-5s}
-    .s3{font-size:100px;color:var(--cyan);bottom:15%;left:5%;animation-delay:-10s}
-    .s4{font-size:80px;color:var(--purple);top:60%;right:8%;animation-delay:-7s}
-    @keyframes drift{0%,100%{transform:translateY(0)rotate(0deg)}33%{transform:translateY(-20px)rotate(3deg)}66%{transform:translateY(10px)rotate(-2deg)}}
-    .hero::before {
-      content:'';position:absolute;left:0;right:0;height:2px;
-      background:linear-gradient(90deg,transparent,var(--yellow),transparent);
-      animation:scanline 6s linear infinite;z-index:3;opacity:.35;pointer-events:none;
-    }
-    @keyframes scanline{0%{top:-2px;opacity:0}5%{opacity:.35}95%{opacity:.35}100%{top:100%;opacity:0}}
+    
+    .hero-tag { display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:6px 16px 6px 6px;margin-bottom:32px;position:relative;z-index:2;background: var(--surface); animation:fadeUp .7s ease both; }
+    .tag-pill { background:var(--yellow);color:#09090f;font-family:'Unbounded',sans-serif;font-size:10px;font-weight:800;letter-spacing:1px;padding:4px 12px;border-radius:100px; }
+    .tag-text { font-size:12px;font-weight:600;color:var(--text); }
 
-    .hero-tag {
-      display:inline-flex;align-items:center;gap:8px;
-      border:1px solid rgba(245,230,66,.3);border-radius:100px;
-      padding:6px 16px 6px 8px;margin-bottom:32px;
-      position:relative;z-index:2;animation:fadeUp .7s ease both;
-    }
-    .tag-pill { background:var(--yellow);color:#09090f;font-family:'Unbounded',sans-serif;font-size:9px;font-weight:800;letter-spacing:1px;padding:3px 10px;border-radius:100px; }
-    .tag-text { font-size:12px;font-weight:500;color:rgba(245,230,66,.8);letter-spacing:.5px; }
-
-    .hero h1 {
-      font-family:'Unbounded',sans-serif;
-      font-size:clamp(40px,7vw,96px);font-weight:900;line-height:.95;letter-spacing:-3px;
-      color:var(--white);max-width:900px;position:relative;z-index:2;
-      animation:fadeUp .7s .1s ease both;
-    }
-    .h1-gradient {
-      display:block;
-      background:linear-gradient(90deg,var(--yellow) 0%,var(--pink) 50%,var(--cyan) 100%);
-      background-size:200%;
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-      animation:shimmer 4s ease-in-out infinite;
-    }
+    .hero h1 { font-family:'Unbounded',sans-serif;font-size:clamp(38px,6vw,84px);font-weight:900;line-height:1.05;letter-spacing:-2px;color:var(--white);max-width:900px;position:relative;z-index:2;animation:fadeUp .7s .1s ease both; }
+    .h1-gradient { display:block;background:linear-gradient(90deg,var(--yellow) 0%,var(--pink) 50%,var(--cyan) 100%);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 5s ease-in-out infinite; }
     @keyframes shimmer{0%,100%{background-position:0%}50%{background-position:100%}}
-    .hero-sub { margin-top:24px;font-size:17px;color:var(--muted);max-width:500px;line-height:1.7;position:relative;z-index:2;animation:fadeUp .7s .2s ease both; }
-    .hero-sub strong { color:var(--text);font-weight:500; }
+    
+    .hero-sub { margin-top:24px;font-size:18px;color:var(--muted);max-width:600px;line-height:1.6;position:relative;z-index:2;animation:fadeUp .7s .2s ease both; }
+    .hero-sub strong { color:var(--text);font-weight:600; }
+    
+    .hero-location { margin-top:24px;display:flex;align-items:center;justify-content:center;gap:12px;position:relative;z-index:2;animation:fadeUp .7s .25s ease both;flex-wrap:wrap; }
+    .loc-pill { display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:8px 16px;font-size:13px;font-weight:600;color:var(--muted2); }
+    
+    .hero-btns { margin-top:40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;animation:fadeUp .7s .3s ease both; }
+    .btn-y { font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;background:var(--yellow);color:#09090f;border:none;padding:16px 36px;border-radius:12px;cursor:pointer;transition:all .2s;text-decoration:none; }
+    .btn-y:hover { transform:translateY(-2px);box-shadow:0 12px 30px rgba(245,230,66,.2); }
+    [data-theme="light"] .btn-y:hover { box-shadow:0 12px 30px rgba(79,70,229,.2); }
+    [data-theme="light"] .btn-y { color: #fff; }
+    .btn-ghost { font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:16px 36px;border-radius:12px;cursor:pointer;transition:all .2s;text-decoration:none; }
+    .btn-ghost:hover { border-color:var(--yellow); }
 
-    .hero-location {
-      margin-top:20px;display:flex;align-items:center;justify-content:center;gap:12px;
-      position:relative;z-index:2;animation:fadeUp .7s .25s ease both;flex-wrap:wrap;
-    }
-    .loc-pill {
-      display:inline-flex;align-items:center;gap:6px;
-      background:var(--surface);border:1px solid var(--border);border-radius:100px;
-      padding:7px 14px;font-size:12px;font-weight:600;color:var(--muted2);transition:all .2s;
-    }
-    .loc-pill:hover { border-color:var(--yellow);color:var(--yellow); }
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
-    .hero-btns {
-      margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
-      position:relative;z-index:2;animation:fadeUp .7s .3s ease both;
-    }
-    .btn-y {
-      font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;
-      background:var(--yellow);color:#09090f;border:none;padding:14px 32px;border-radius:10px;
-      cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:8px;text-decoration:none;
-    }
-    .btn-y:hover { transform:translateY(-2px);box-shadow:0 12px 40px rgba(245,230,66,.3); }
-    .btn-ghost {
-      font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;
-      background:none;border:1px solid var(--border);color:var(--muted);
-      padding:14px 28px;border-radius:10px;cursor:pointer;transition:all .2s;text-decoration:none;
-    }
-    .btn-ghost:hover { border-color:rgba(255,255,255,.25);color:var(--white); }
-
-    .hero-ticker {
-      display:flex;gap:40px;margin-top:52px;position:relative;z-index:2;
-      animation:fadeUp .7s .5s ease both;flex-wrap:wrap;justify-content:center;
-    }
-    .ticker-item { display:flex;flex-direction:column;align-items:center;gap:4px; }
-    .ticker-num { font-family:'Unbounded',sans-serif;font-size:28px;font-weight:900;letter-spacing:-1px;color:var(--white); }
-    .ticker-label { font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase; }
-
-    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-
-    /* SECTION */
-    .section-eyebrow {
-      font-family:'Unbounded',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;
-      color:var(--yellow);text-transform:uppercase;margin-bottom:16px;
-      position:relative;display:inline-block;
-    }
-    .section-eyebrow::after {
-      content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--yellow);transition:width .6s ease;
-    }
-    .reveal.visible .section-eyebrow::after { width:100%; }
-    .section-h {
-      font-family:'Unbounded',sans-serif;font-size:clamp(26px,3.5vw,44px);
-      font-weight:800;letter-spacing:-2px;line-height:1.05;color:var(--white);margin-bottom:14px;
-    }
+    /* SECTION BASICS */
+    .section-eyebrow { font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--yellow);text-transform:uppercase;margin-bottom:16px;position:relative;display:inline-block; }
+    .section-h { font-family:'Unbounded',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;color:var(--white);margin-bottom:16px; }
 
     /* ABOUT */
-    .about { max-width:1280px;margin:0 auto;padding:100px 52px; }
-    .about-grid { display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;margin-top:60px; }
-    .about-text p { font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:18px; }
-    .about-text p strong { color:var(--text);font-weight:600; }
-    .about-tags { display:flex;flex-wrap:wrap;gap:8px;margin-top:28px; }
-    .a-tag {
-      font-size:12px;font-weight:600;background:var(--surface);border:1px solid var(--border);
-      border-radius:100px;padding:6px 14px;color:var(--muted);transition:all .2s;
-      animation:tagFloat 3s ease-in-out infinite;
-    }
-    .a-tag:nth-child(2n){animation-delay:.4s}
-    .a-tag:nth-child(3n){animation-delay:.8s}
-    .a-tag:hover { border-color:var(--yellow);color:var(--yellow); }
-    @keyframes tagFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+    .about { max-width:1200px;margin:0 auto;padding:100px 40px; }
+    .about-grid { display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-top:40px; }
+    .about-text p { font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:20px; }
+    .about-tags { display:flex;flex-wrap:wrap;gap:10px;margin-top:32px; }
+    .a-tag { font-size:13px;font-weight:600;background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:8px 16px;color:var(--text); }
     .about-right { display:flex;flex-direction:column;gap:16px; }
-    .info-card {
-      background:var(--surface);border:1px solid var(--border);border-radius:20px;
-      padding:28px;position:relative;overflow:hidden;transition:border-color .2s;
-    }
-    .info-card:hover { border-color:rgba(245,230,66,.2); }
-    .info-card::before {
-      content:'';position:absolute;top:-40px;right:-40px;
-      width:160px;height:160px;border-radius:50%;pointer-events:none;
-    }
-    .ic-yellow::before { background:radial-gradient(circle,rgba(245,230,66,.06) 0%,transparent 70%); }
-    .ic-pink::before   { background:radial-gradient(circle,rgba(255,77,141,.06) 0%,transparent 70%); }
-    .ic-cyan::before   { background:radial-gradient(circle,rgba(0,240,255,.06) 0%,transparent 70%); }
-    .ic-green::before  { background:radial-gradient(circle,rgba(42,255,160,.06) 0%,transparent 70%); }
-    .ic-icon { font-size:32px;margin-bottom:12px; }
-    .ic-title { font-family:'Unbounded',sans-serif;font-size:14px;font-weight:800;letter-spacing:-.5px;color:var(--white);margin-bottom:8px; }
-    .ic-desc { font-size:13px;color:var(--muted);line-height:1.65; }
+    .info-card { background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;transition:all .3s; }
+    .info-card:hover { transform: translateX(4px); border-color: rgba(245,230,66,.2); }
+    .ic-icon { font-size:28px;margin-bottom:16px; }
+    .ic-title { font-family:'Unbounded',sans-serif;font-size:15px;font-weight:800;color:var(--white);margin-bottom:8px; }
+    .ic-desc { font-size:14px;color:var(--muted);line-height:1.6; }
 
     /* ROLES */
-    .roles-section {
-      background:var(--surface);
-      border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 52px;
-    }
-    .roles-inner { max-width:1280px;margin:0 auto; }
-    .roles-grid {
-      display:grid;grid-template-columns:repeat(4,1fr);
-      gap:1px;background:var(--border);border:1px solid var(--border-solid);
-      border-radius:20px;overflow:hidden;margin-top:52px;
-    }
-    .role-item {
-      background:var(--surface);padding:32px 26px;transition:background .25s;position:relative;overflow:hidden;
-    }
-    .role-item:hover { background:rgba(245,230,66,.03); }
-    .role-item::after {
-      content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-      transform:scaleX(0);transform-origin:left;transition:transform .4s ease;
-    }
-    .role-item:nth-child(4n+1)::after{background:var(--yellow)}
-    .role-item:nth-child(4n+2)::after{background:var(--pink)}
-    .role-item:nth-child(4n+3)::after{background:var(--cyan)}
-    .role-item:nth-child(4n+4)::after{background:var(--green)}
-    .role-item:hover::after { transform:scaleX(1); }
-    .role-icon { font-size:30px;margin-bottom:16px; }
-    .role-title { font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;letter-spacing:-.3px;color:var(--white);margin-bottom:8px; }
-    .role-desc { font-size:12px;color:var(--muted);line-height:1.6; }
+    .roles-section { background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 40px; }
+    .roles-inner { max-width:1200px;margin:0 auto; }
+    .roles-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px; }
+    .role-item { background:var(--bg);border:1px solid var(--border); border-radius: 20px; padding:32px;transition:all .3s; }
+    .role-item:hover { transform: translateY(-4px); box-shadow:0 20px 40px rgba(0,0,0,.08); }
+    .role-icon { font-size:32px;margin-bottom:20px; }
+    .role-title { font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:var(--white);margin-bottom:12px; }
+    .role-desc { font-size:14px;color:var(--muted);line-height:1.6; }
 
-    /* SKILLS */
-    .skills-section { max-width:1280px;margin:0 auto;padding:100px 52px; }
-    .skills-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:52px; }
-    .skill-group {
-      background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px 28px;transition:border-color .25s;
-    }
-    .skill-group:hover { border-color:rgba(245,230,66,.2); }
-    .sg-head {
-      font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;
-      text-transform:uppercase;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border);
-    }
-    .skill-group:nth-child(1) .sg-head{color:var(--yellow)}
-    .skill-group:nth-child(2) .sg-head{color:var(--pink)}
-    .skill-group:nth-child(3) .sg-head{color:var(--cyan)}
-    .skill-group:nth-child(4) .sg-head{color:var(--green)}
-    .sg-chips { display:flex;flex-wrap:wrap;gap:8px; }
-    .sc {
-      font-size:12px;font-weight:600;background:var(--card);border:1px solid var(--border);
-      border-radius:100px;padding:6px 14px;color:var(--muted);transition:all .2s;cursor:default;
-    }
-    .sc:hover { border-color:var(--yellow);color:var(--yellow); }
-
-    /* EXPERIENCE */
-    .exp-section { background:var(--surface);border-top:1px solid var(--border);padding:100px 52px; }
-    .exp-inner { max-width:1280px;margin:0 auto; }
-    .exp-list { display:flex;flex-direction:column;margin-top:52px; }
-    .exp-item {
-      display:grid;grid-template-columns:160px 1fr;gap:40px;
-      padding:36px 0;border-bottom:1px solid var(--border);transition:padding .2s;
-    }
-    .exp-item:first-child { border-top:1px solid var(--border); }
-    .exp-item:hover { padding-left:8px; }
-    .exp-period { font-family:'Unbounded',sans-serif;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.5px;line-height:1.6;padding-top:4px; }
-    .exp-content h3 { font-family:'Unbounded',sans-serif;font-size:17px;font-weight:800;letter-spacing:-.5px;color:var(--white);margin-bottom:6px; }
-    .exp-org {
-      display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;
-      letter-spacing:1px;text-transform:uppercase;border-radius:100px;padding:4px 12px;margin-bottom:12px;
-    }
-    .org-y{background:rgba(245,230,66,.12);color:var(--yellow)}
-    .org-p{background:rgba(255,77,141,.12);color:var(--pink)}
-    .org-c{background:rgba(0,240,255,.12);color:var(--cyan)}
-    .org-g{background:rgba(42,255,160,.12);color:var(--green)}
-    .exp-desc { font-size:14px;color:var(--muted);line-height:1.75; }
-    .exp-tags { display:flex;flex-wrap:wrap;gap:8px;margin-top:14px; }
-    .etag { font-size:11px;font-weight:600;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:4px 12px;color:var(--muted); }
-
-    /* EDUCATION */
-    .edu-section { max-width:1280px;margin:0 auto;padding:100px 52px; }
-    .edu-card {
-      margin-top:52px;background:var(--surface);border:1px solid var(--border);
-      border-radius:24px;padding:48px;display:flex;align-items:center;gap:40px;
-      max-width:720px;transition:border-color .3s;position:relative;overflow:hidden;
-    }
-    .edu-card::before {
-      content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;
-      background:radial-gradient(circle,rgba(155,92,255,.08) 0%,transparent 70%);
-    }
-    .edu-card:hover { border-color:rgba(155,92,255,.3); }
-    .edu-icon { width:72px;height:72px;border-radius:18px;background:rgba(155,92,255,.15);display:flex;align-items:center;justify-content:center;font-size:32px;flex-shrink:0; }
-    .edu-body h3 { font-family:'Unbounded',sans-serif;font-size:20px;font-weight:800;letter-spacing:-.5px;color:var(--white);margin-bottom:6px; }
-    .edu-body .sub { font-size:13px;color:var(--muted);margin-bottom:12px;line-height:1.5; }
-    .edu-badge { display:inline-flex;align-items:center;gap:6px;background:rgba(155,92,255,.12);color:var(--purple);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:100px; }
+    /* EXPERIENCE & PORTFOLIO */
+    .exp-section { background:var(--bg);padding:100px 40px; }
+    .exp-inner { max-width:1200px;margin:0 auto; }
+    .exp-list { display:flex;flex-direction:column;gap:16px;margin-top:48px; }
+    .exp-item { background:var(--surface); border:1px solid var(--border); border-radius: 20px; padding:40px; display:grid;grid-template-columns:140px 1fr;gap:40px; transition:all .3s; }
+    .exp-item:hover { border-color: rgba(245,230,66,.2); }
+    .exp-period { font-family:'Unbounded',sans-serif;font-size:12px;font-weight:600;color:var(--muted); }
+    .exp-content h3 { font-family:'Unbounded',sans-serif;font-size:18px;font-weight:800;color:var(--white);margin-bottom:8px; }
+    .exp-org { display:inline-flex;align-items:center;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--yellow);margin-bottom:16px; }
+    .exp-desc { font-size:15px;color:var(--muted);line-height:1.7; }
+    .exp-tags { display:flex;flex-wrap:wrap;gap:8px;margin-top:20px; }
+    .etag { font-size:12px;font-weight:600;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:6px 14px;color:var(--text); }
 
     /* CONTACT */
-    .contact-section { background:var(--surface);border-top:1px solid var(--border);padding:100px 52px; }
-    .contact-inner { max-width:1280px;margin:0 auto; }
-    .cta-box {
-      border-radius:24px;overflow:hidden;position:relative;
-      background:linear-gradient(135deg,#14140c 0%,#0d0d18 50%,#0a0a18 100%);
-      border:1px solid rgba(245,230,66,.15);padding:72px 80px;text-align:center;
-    }
-    [data-theme="light"] .cta-box { background:linear-gradient(135deg,#171722 0%,#111120 55%,#141733 100%); border-color:rgba(91,92,240,.18); }
-    .cta-box::before { content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(245,230,66,.07) 0%,transparent 60%); }
-    .cta-box h2 {
-      font-family:'Unbounded',sans-serif;font-size:clamp(28px,4vw,52px);font-weight:900;
-      letter-spacing:-2px;line-height:1;color:#fff;margin-bottom:16px;position:relative;
-    }
+    .contact-section { background:var(--surface);border-top:1px solid var(--border);padding:100px 40px; }
+    .contact-inner { max-width:1200px;margin:0 auto; }
+    .cta-box { border-radius:24px;background:var(--card);border:1px solid var(--border);padding:80px 40px;text-align:center; }
+    .cta-box h2 { font-family:'Unbounded',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:900;letter-spacing:-1.5px;color:var(--white);margin-bottom:20px; }
     .cta-box h2 em { font-style:normal;color:var(--yellow); }
-    .cta-box p { font-size:16px;color:#8888aa;margin-bottom:44px;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.7;position:relative; }
-    .contact-links { display:flex;flex-wrap:wrap;gap:12px;justify-content:center;position:relative;z-index:1; }
-    .contact-link {
-      display:inline-flex;align-items:center;gap:8px;
-      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
-      border-radius:10px;padding:11px 20px;font-size:13px;font-weight:600;
-      color:rgba(255,255,255,.75);text-decoration:none;transition:all .2s;
-    }
-    .contact-link:hover { background:var(--yellow);border-color:var(--yellow);color:#09090f;transform:translateY(-2px); }
-    .contact-link-primary { background:var(--yellow);border-color:var(--yellow);color:#09090f;font-weight:700; }
-    .contact-link-primary:hover { background:#fff;border-color:#fff; }
+    .cta-box p { font-size:16px;color:var(--muted);margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7; }
+    .contact-links { display:flex;flex-wrap:wrap;gap:12px;justify-content:center; }
+    .contact-link { display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 24px;font-size:14px;font-weight:600;color:var(--text);text-decoration:none;transition:all .2s; }
+    .contact-link:hover { background:var(--yellow);color:#fff; border-color:var(--yellow); }
+    [data-theme="dark"] .contact-link:hover { color: #000; }
+    .contact-link-primary { background:var(--yellow);border-color:var(--yellow);color:#fff; }
+    [data-theme="dark"] .contact-link-primary { color: #000; }
 
     /* FOOTER */
-    footer { border-top:1px solid var(--border);padding:44px 52px; }
-    .footer-inner { max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px; }
-    .footer-logo { font-family:'Unbounded',sans-serif;font-size:15px;font-weight:800;color:var(--white);display:flex;align-items:center;gap:10px;text-decoration:none; }
-    .footer-logo-icon { width:28px;height:28px;border-radius:7px;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:13px; }
-    .footer-links { display:flex;gap:24px;list-style:none; }
-    .footer-links a { font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s; }
-    .footer-links a:hover { color:var(--white); }
-    .footer-social { display:flex;gap:10px; }
-    .social-btn { width:34px;height:34px;border-radius:9px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;transition:all .2s;text-decoration:none; }
-    .social-btn:hover { border-color:var(--yellow);transform:translateY(-2px); }
-    .footer-copy { font-size:12px;color:var(--muted);margin-top:20px;text-align:center;width:100%; }
+    footer{ border-top:1px solid var(--border);padding:40px; background:var(--bg); }
+    .footer-inner{ max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px; }
+    .footer-logo{ font-family:'Unbounded',sans-serif;font-size:16px;font-weight:800;color:var(--white);display:flex;align-items:center;gap:10px;text-decoration:none; }
+    .footer-logo-icon{ width:28px;height:28px;border-radius:6px;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:12px; color:#000; }
+    [data-theme="light"] .footer-logo-icon { background:#4f46e5; color:#fff; }
+    .footer-links{ display:flex;gap:28px;list-style:none; }
+    .footer-links a{ font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s; }
+    .footer-links a:hover{ color:var(--white); }
+    .footer-copy{ font-size:13px;color:var(--muted);width:100%;text-align:center;margin-top:20px; }
 
-    .reveal { opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease; }
-    .reveal.visible { opacity:1;transform:translateY(0); }
-    .reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}
-    .stat-block { position:relative;overflow:hidden; }
-    .stat-block::after { content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--yellow),var(--pink));transform:scaleX(0);transform-origin:left;transition:transform .6s ease; }
-    .stat-block:hover::after { transform:scaleX(1); }
+    .reveal{ opacity:0;transform:translateY(24px);transition:opacity .6s ease-out,transform .6s ease-out; }
+    .reveal.visible{ opacity:1;transform:translateY(0); }
+    .reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}
 
-    @media(max-width:1024px){
-      .about-grid{grid-template-columns:1fr}
-      .roles-grid{grid-template-columns:1fr 1fr}
-      .skills-grid{grid-template-columns:1fr}
-      .exp-item{grid-template-columns:120px 1fr;gap:24px}
+    @media(max-width:900px){
+      .about-grid { grid-template-columns:1fr; }
+      .roles-grid { grid-template-columns:1fr 1fr; }
+      .exp-item { grid-template-columns:1fr; gap:20px; }
     }
-    @media(max-width:768px){
-      nav{padding:16px 20px}
-      .nav-links{display:none}
-      .about,.skills-section,.edu-section,.contact-section,.roles-section,.exp-section,footer{padding:60px 20px}
-      .cta-box{padding:44px 24px}
-      .edu-card{flex-direction:column;gap:20px;padding:32px}
-      .roles-grid{grid-template-columns:1fr 1fr}
-      .exp-item{grid-template-columns:1fr;gap:8px}
-    }
-    @media(max-width:480px){
-      .roles-grid{grid-template-columns:1fr}
-      .hero-ticker{gap:24px}
+    @media(max-width:600px){
+      nav { padding:16px 20px; }
+      .nav-links { display:none; }
+      .hero, .about, .roles-section, .exp-section, .contact-section, footer { padding-left:20px; padding-right:20px; }
+      .roles-grid { grid-template-columns:1fr; }
+      .hero h1 { font-size: 32px; }
     }
   </style>
 </head>
@@ -447,15 +216,15 @@
   </a>
   <ul class="nav-links">
     <li><a href="#about" data-i18n="nav.about">About</a></li>
-    <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
-    <li><a href="#experience" data-i18n="nav.exp">Experience</a></li>
-    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+    <li><a href="#roles" data-i18n="nav.roles">Expertise</a></li>
+    <li><a href="#experience" data-i18n="nav.exp">Portfolio</a></li>
+    <li><a href="index.html" data-i18n="nav.studio">Studio</a></li>
   </ul>
   <div class="nav-right">
     <div class="nav-controls">
       <select class="lang-select" id="langSelect">
-        <option value="en">EN</option>
         <option value="ru">RU</option>
+        <option value="en">EN</option>
         <option value="ky">KG</option>
         <option value="tr">TR</option>
         <option value="de">DE</option>
@@ -469,51 +238,29 @@
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="orb orb-y"></div><div class="orb orb-p"></div><div class="orb orb-c"></div>
-  <div class="shape s1">A</div><div class="shape s2">&#10022;</div>
-  <div class="shape s3">&#127918;</div><div class="shape s4">&#9677;</div>
 
   <div class="hero-tag">
     <span class="tag-pill" data-i18n="hero.pill">FOUNDER</span>
-    <span class="tag-text" data-i18n="hero.tagtext">Aspaloyy Studio &middot; Kayseri, Turkey</span>
+    <span class="tag-text" data-i18n="hero.tagtext">Lead Software Engineer & Tech Visionary</span>
   </div>
 
   <h1>
     <span data-i18n="hero.name">Asman.</span><br>
-    <span class="h1-gradient" data-i18n="hero.line2">Developer. Founder.</span>
+    <span class="h1-gradient" data-i18n="hero.line2">AI & Mobile Ecosystems Expert.</span>
   </h1>
 
   <p class="hero-sub" data-i18n="hero.sub">
-    18 years old. Developer, designer, and product creator. Building <strong>Aspaloyy</strong> — a digital studio, a brand, and a long-term foundation.
+    Я являюсь архитектором цифровых систем и основателем независимой технологической R&D студии <strong>Aspaloyy</strong>. Мой подход выходит за рамки простого написания кода.
   </p>
 
   <div class="hero-location">
-    <span class="loc-pill">&#127472;&#127468; <span data-i18n="hero.from">From Kyrgyzstan</span></span>
+    <span class="loc-pill">&#127472;&#127468; <span data-i18n="hero.from">Bishkek, Kyrgyzstan (Global Remote)</span></span>
     <span class="loc-pill">&#128205; <span data-i18n="hero.based">Based in Kayseri, TR</span></span>
-    <span class="loc-pill">&#127891; <span data-i18n="hero.student">Student &middot; Foreign Trade</span></span>
   </div>
 
   <div class="hero-btns">
-    <a href="mailto:aspaloyy@gmail.com" class="btn-y">&#9993; <span data-i18n="hero.cta1">Get in touch</span></a>
-    <a href="index.html" class="btn-ghost" data-i18n="hero.cta2">&#8592; Studio page</a>
-  </div>
-
-  <div class="hero-ticker">
-    <div class="ticker-item stat-block">
-      <div class="ticker-num" data-val="18" data-suf="">18</div>
-      <div class="ticker-label" data-i18n="hero.stat1">Years old</div>
-    </div>
-    <div class="ticker-item stat-block">
-      <div class="ticker-num" data-val="8" data-suf="+">8+</div>
-      <div class="ticker-label" data-i18n="hero.stat2">Disciplines</div>
-    </div>
-    <div class="ticker-item stat-block">
-      <div class="ticker-num" data-val="2026" data-suf="">2026</div>
-      <div class="ticker-label" data-i18n="hero.stat3">Launch year</div>
-    </div>
-    <div class="ticker-item stat-block">
-      <div class="ticker-num">&#8734;</div>
-      <div class="ticker-label" data-i18n="hero.stat4">Drive</div>
-    </div>
+    <a href="mailto:aspaloyy@gmail.com" class="btn-y">&#9993; <span data-i18n="hero.cta1">Связаться напрямую</span></a>
+    <a href="index.html" class="btn-ghost" data-i18n="hero.cta2">&#8592; Сайт студии</a>
   </div>
 </section>
 
@@ -521,175 +268,93 @@
 <section id="about">
   <div class="about">
     <div class="reveal">
-      <div class="section-eyebrow" data-i18n="about.eyebrow">About me</div>
-      <div class="section-h" data-i18n="about.title">Not just code.<br>System thinking.</div>
+      <div class="section-eyebrow" data-i18n="about.eyebrow">Профессиональное кредо</div>
+      <div class="section-h" data-i18n="about.title">Не просто код.<br>А целая система.</div>
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p data-i18n="about.p1">I build complete digital systems — from idea to architecture, frontend to backend, mobile to AI. I think about products, strategy, and brand — not just the technical layer.</p>
-        <p data-i18n="about.p2">I founded Aspaloyy as a studio and long-term digital identity. Not a side project — the infrastructure I'm building my future on.</p>
-        <p data-i18n="about.p3">Outside tech, I lead. Within 4 months of arriving in Turkey, I became Chairman of the Kyrgyz community in Turan — organizing events, representing culture, appearing on TV to perform the Manas epic.</p>
+        <p data-i18n="about.p1">Я собираю полноценные цифровые системы — от идеи до архитектуры, от фронтенда до бэкенда, от мобильной разработки до генеративного ИИ. Я смотрю на продукт, структуру и долгую ценность целиком.</p>
+        <p data-i18n="about.p2">Я основал Aspaloyy не как побочный проект, а как независимую технологическую R&D лабораторию нового поколения. Это инфраструктура, на которой я всерьез строю свое будущее и философию «Digital products that matter».</p>
+        <p data-i18n="about.p3">Мое лидерство выходит за рамки технологий. В 18 лет, через 4 месяца после переезда в Турцию, я стал председателем кыргызского сообщества в Turan, организовывал мероприятия, представлял культуру и выступал с эпосом Манас на телевидении. Я умею вести за собой.</p>
         <div class="about-tags">
-          <span class="a-tag" data-i18n="tag.fullstack">Full-stack Dev</span>
-          <span class="a-tag" data-i18n="tag.ai">AI Developer</span>
-          <span class="a-tag" data-i18n="tag.product">Product Thinker</span>
-          <span class="a-tag" data-i18n="tag.founder">Founder</span>
-          <span class="a-tag" data-i18n="tag.designer">UI/UX Designer</span>
+          <span class="a-tag" data-i18n="tag.fullstack">Lead Software Engineer</span>
+          <span class="a-tag" data-i18n="tag.ai">AI Integrator</span>
+          <span class="a-tag" data-i18n="tag.product">Tech Visionary</span>
+          <span class="a-tag" data-i18n="tag.founder">Studio Founder</span>
           <span class="a-tag" data-i18n="tag.leader">Community Leader</span>
-          <span class="a-tag" data-i18n="tag.brand">Brand Strategy</span>
         </div>
       </div>
       <div class="about-right reveal reveal-d1">
-        <div class="info-card ic-yellow">
-          <div class="ic-icon">&#9881;</div>
-          <div class="ic-title" data-i18n="ic1.title">Engineering-first</div>
-          <div class="ic-desc" data-i18n="ic1.desc">Everything built properly — clean architecture, real systems, no shortcuts. Frontend, backend, mobile — all of it.</div>
-        </div>
-        <div class="info-card ic-pink">
-          <div class="ic-icon">&#127912;</div>
-          <div class="ic-title" data-i18n="ic2.title">Design included</div>
-          <div class="ic-desc" data-i18n="ic2.desc">UI/UX is not an afterthought. I design and build simultaneously — interface and infrastructure together.</div>
-        </div>
-        <div class="info-card ic-cyan">
+        <div class="info-card">
           <div class="ic-icon">&#128640;</div>
-          <div class="ic-title" data-i18n="ic3.title">Ships real things</div>
-          <div class="ic-desc" data-i18n="ic3.desc">Apps on Google Play, live websites, deployed backends. Not concepts — actual products in the world.</div>
+          <div class="ic-title" data-i18n="ic1.title">Издатель в Google Play</div>
+          <div class="ic-desc" data-i18n="ic1.desc">Официальный паблишер. Управление полным циклом релиза продуктов, адаптация под строгие стандарты Privacy-First и новые SDK.</div>
         </div>
-        <div class="info-card ic-green">
+        <div class="info-card">
+          <div class="ic-icon">&#129302;</div>
+          <div class="ic-title" data-i18n="ic2.title">Синтетические медиа</div>
+          <div class="ic-desc" data-i18n="ic2.desc">Интеграция цифровых двойников и автоматической видеогенерации через код с использованием открытых архитектур и моделей.</div>
+        </div>
+        <div class="info-card">
           <div class="ic-icon">&#127758;</div>
-          <div class="ic-title" data-i18n="ic4.title">Leads communities</div>
-          <div class="ic-desc" data-i18n="ic4.desc">Chairman of Kyrgyz community in Turan, TV appearances, Manas performances. 18 years old. Already leading.</div>
+          <div class="ic-title" data-i18n="ic3.title">Академическая база</div>
+          <div class="ic-desc" data-i18n="ic3.desc">Владение английским (EAP). Способность анализировать глобальную тех. документацию и патентные заявки в оригинале.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ROLES -->
+<!-- ROLES / EXPERTISE -->
 <section class="roles-section" id="roles">
   <div class="roles-inner">
     <div class="reveal">
-      <div class="section-eyebrow" data-i18n="roles.eyebrow">What I do</div>
-      <div class="section-h" data-i18n="roles.title">Roles &amp; disciplines</div>
+      <div class="section-eyebrow" data-i18n="roles.eyebrow">Домены экспертизы</div>
+      <div class="section-h" data-i18n="roles.title">Ключевые компетенции</div>
     </div>
     <div class="roles-grid">
-      <div class="role-item reveal"><div class="role-icon">&#9881;</div><div class="role-title" data-i18n="role1.title">Full-stack Developer</div><div class="role-desc" data-i18n="role1.desc">Web, mobile, backend — complete product engineering from start to deployment.</div></div>
-      <div class="role-item reveal reveal-d1"><div class="role-icon">&#129302;</div><div class="role-title" data-i18n="role2.title">AI Developer</div><div class="role-desc" data-i18n="role2.desc">AI-integrated tools, LLM APIs, intelligent workflows and automation systems.</div></div>
-      <div class="role-item reveal reveal-d2"><div class="role-icon">&#127912;</div><div class="role-title" data-i18n="role3.title">UI/UX Designer</div><div class="role-desc" data-i18n="role3.desc">Interface design, design systems, user flows and visual identity.</div></div>
-      <div class="role-item reveal reveal-d3"><div class="role-icon">&#128230;</div><div class="role-title" data-i18n="role4.title">Product Manager</div><div class="role-desc" data-i18n="role4.desc">Product architecture, roadmaps, strategy and execution structure.</div></div>
-      <div class="role-item reveal"><div class="role-icon">&#127970;</div><div class="role-title" data-i18n="role5.title">Founder</div><div class="role-desc" data-i18n="role5.desc">Studio creator, brand architect, long-term system designer and vision holder.</div></div>
-      <div class="role-item reveal reveal-d1"><div class="role-icon">&#128226;</div><div class="role-title" data-i18n="role6.title">Brand Strategy</div><div class="role-desc" data-i18n="role6.desc">Digital presence, content strategy, brand systems, and audience growth.</div></div>
-      <div class="role-item reveal reveal-d2"><div class="role-icon">&#128295;</div><div class="role-title" data-i18n="role7.title">System Engineer</div><div class="role-desc" data-i18n="role7.desc">Backend architecture, PostgreSQL, DevOps, infrastructure and scalable systems.</div></div>
-      <div class="role-item reveal reveal-d3"><div class="role-icon">&#127758;</div><div class="role-title" data-i18n="role8.title">Community Leader</div><div class="role-desc" data-i18n="role8.desc">Chairman at Turan, events organizer, public speaker, cultural representative.</div></div>
+      <div class="role-item reveal"><div class="role-icon">&#128241;</div><div class="role-title" data-i18n="role1.title">Mobile & Game Dev</div><div class="role-desc" data-i18n="role1.desc">Проектирование сложных нативных экосистем, оптимизация памяти под Android 17, игровые механики и виртуальные экономики.</div></div>
+      <div class="role-item reveal reveal-d1"><div class="role-icon">&#129302;</div><div class="role-title" data-i18n="role2.title">AI & Synthetic Media</div><div class="role-desc" data-i18n="role2.desc">Интеграция LLM (Transformer, Attention), создание цифровых двойников (HeyGen) и автоматизация задач когнитивного уровня.</div></div>
+      <div class="role-item reveal reveal-d2"><div class="role-icon">&#9750;</div><div class="role-title" data-i18n="role3.title">Cloud Architecture</div><div class="role-desc" data-i18n="role3.desc">Безопасные серверные среды, токенизация OAuth 2.0, DevOps конвейеры, Sandboxing и REST API интеграции.</div></div>
+      <div class="role-item reveal reveal-d3"><div class="role-icon">&#127918;</div><div class="role-title" data-i18n="role4.title">Advanced Web Dev</div><div class="role-desc" data-i18n="role4.desc">Современные SPA и PWA, обеспечивающие высокие показатели Core Web Vitals и скорость нативных приложений.</div></div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="skills-section">
-    <div class="reveal">
-      <div class="section-eyebrow" data-i18n="skills.eyebrow">Skills</div>
-      <div class="section-h" data-i18n="skills.title">What I know.</div>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-group reveal">
-        <div class="sg-head" data-i18n="sg1">Engineering</div>
-        <div class="sg-chips">
-          <span class="sc">Full-stack</span><span class="sc">Frontend</span><span class="sc">Backend</span>
-          <span class="sc">Mobile / Android</span><span class="sc">PostgreSQL</span>
-          <span class="sc">REST APIs</span><span class="sc">DevOps</span><span class="sc">System Design</span><span class="sc">Git</span>
-        </div>
-      </div>
-      <div class="skill-group reveal reveal-d1">
-        <div class="sg-head" data-i18n="sg2">AI &amp; Automation</div>
-        <div class="sg-chips">
-          <span class="sc">AI Development</span><span class="sc">LLM APIs</span>
-          <span class="sc">Bot Development</span><span class="sc">Automation</span>
-          <span class="sc">Telegram Bots</span><span class="sc">Pipelines</span>
-        </div>
-      </div>
-      <div class="skill-group reveal reveal-d2">
-        <div class="sg-head" data-i18n="sg3">Design &amp; Product</div>
-        <div class="sg-chips">
-          <span class="sc">UI/UX Design</span><span class="sc">Figma</span>
-          <span class="sc">Product Management</span><span class="sc">Project Management</span>
-          <span class="sc">Brand Strategy</span><span class="sc">Design Systems</span>
-        </div>
-      </div>
-      <div class="skill-group reveal reveal-d3">
-        <div class="sg-head" data-i18n="sg4">Strategy &amp; Comms</div>
-        <div class="sg-chips">
-          <span class="sc">Copywriting</span><span class="sc">Content Strategy</span>
-          <span class="sc">SMM</span><span class="sc">Marketing</span>
-          <span class="sc">Community Leadership</span><span class="sc">Public Speaking</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
+<!-- EXPERIENCE / PORTFOLIO -->
 <section id="experience" class="exp-section">
   <div class="exp-inner">
     <div class="reveal">
-      <div class="section-eyebrow" data-i18n="exp.eyebrow">Experience</div>
-      <div class="section-h" data-i18n="exp.title">What I've built.</div>
+      <div class="section-eyebrow" data-i18n="exp.eyebrow">Технологический след</div>
+      <div class="section-h" data-i18n="exp.title">Институциональное портфолио</div>
     </div>
     <div class="exp-list">
       <div class="exp-item reveal">
-        <div class="exp-period">2026 &mdash; <span data-i18n="exp.present">Present</span></div>
+        <div class="exp-period" data-i18n="exp1.status">Глобальный релиз</div>
         <div class="exp-content">
-          <h3 data-i18n="exp1.title">Founder &amp; Lead Developer</h3>
-          <span class="exp-org org-y">Aspaloyy Studio</span>
-          <p class="exp-desc" data-i18n="exp1.desc">Building Aspaloyy from zero — web products, Android apps on Google Play, AI tools, backend infrastructure, brand identity and a long-term platform vision. One person. Full stack.</p>
-          <div class="exp-tags"><span class="etag">Full-stack</span><span class="etag">Mobile</span><span class="etag">AI</span><span class="etag">Brand</span><span class="etag">Google Play</span></div>
+          <h3 data-i18n="exp1.title">Мобильные Приложения в Google Play</h3>
+          <span class="exp-org" data-i18n="exp1.org">Официальный паблишер</span>
+          <p class="exp-desc" data-i18n="exp1.desc">Успешное прохождение строгой верификации разработчиков. Продукты адаптированы к изменениям политик безопасности, внедрены защищенные инструменты выбора контактов и контроля геолокации. Код оптимизирован под жесткие лимиты памяти.</p>
+          <div class="exp-tags"><span class="etag">Android SDK</span><span class="etag">Privacy-First</span><span class="etag">Memory Optimization</span></div>
         </div>
       </div>
       <div class="exp-item reveal reveal-d1">
-        <div class="exp-period">2026 &mdash; <span data-i18n="exp.present">Present</span></div>
+        <div class="exp-period" data-i18n="exp2.status">Внутренний R&D</div>
         <div class="exp-content">
-          <h3 data-i18n="exp2.title">Chairman, Kyrgyz Community</h3>
-          <span class="exp-org org-p">Turan, Kayseri</span>
-          <p class="exp-desc" data-i18n="exp2.desc">Became chairman within 4 months of arriving in Turkey. Organizing cultural events, community programs, coordinating the Kyrgyz student community and representing them officially.</p>
-          <div class="exp-tags"><span class="etag">Leadership</span><span class="etag">Events</span><span class="etag">Community</span></div>
+          <h3 data-i18n="exp2.title">Системы Облачной Автоматизации и CI/CD</h3>
+          <span class="exp-org" data-i18n="exp2.org">Cloud DevOps</span>
+          <p class="exp-desc" data-i18n="exp2.desc">Проектирование скриптов для пакетного взаимодействия с файловыми хранилищами. Решение сложных инженерных задач с коллизиями токенов (Self-Request Anomalies). Настройка бесперебойных мостов между БД и клиентами.</p>
+          <div class="exp-tags"><span class="etag">OAuth 2.0</span><span class="etag">Sandboxing</span><span class="etag">Google Workspace API</span></div>
         </div>
       </div>
       <div class="exp-item reveal reveal-d2">
-        <div class="exp-period">2026</div>
+        <div class="exp-period" data-i18n="exp3.status">Активное внедрение</div>
         <div class="exp-content">
-          <h3 data-i18n="exp3.title">Television Appearance</h3>
-          <span class="exp-org org-c" data-i18n="exp3.org">Public Media &middot; Turkey</span>
-          <p class="exp-desc" data-i18n="exp3.desc">Appeared on Turkish television to represent Kyrgyz culture and perform the Manas epic — one of the world's longest oral epics. Cultural ambassador at 18.</p>
-          <div class="exp-tags"><span class="etag">Media</span><span class="etag">Culture</span><span class="etag">Public Speaking</span></div>
+          <h3 data-i18n="exp3.title">Интеграция Синтетических Медиа</h3>
+          <span class="exp-org" data-i18n="exp3.org">AI Video Pipelines</span>
+          <p class="exp-desc" data-i18n="exp3.desc">Настройка конвейеров генерации видеоконтента (Seedance 2.0). Алгоритмы преобразования текста в видео с участием цифровых аватаров с идеальной синхронизацией губ. Интеграция видеодвижков в код (HyperFrames).</p>
+          <div class="exp-tags"><span class="etag">LLM</span><span class="etag">Generative AI</span><span class="etag">Synthetic Media</span></div>
         </div>
-      </div>
-      <div class="exp-item reveal reveal-d3">
-        <div class="exp-period">2026 &mdash; <span data-i18n="exp.present">Present</span></div>
-        <div class="exp-content">
-          <h3 data-i18n="exp4.title">Digital Brand Development</h3>
-          <span class="exp-org org-g">aspaloyy.com</span>
-          <p class="exp-desc" data-i18n="exp4.desc">Building and maintaining Aspaloyy's digital presence across web, Google Play, and social platforms. English-language brand development and multi-channel content strategy.</p>
-          <div class="exp-tags"><span class="etag">Brand</span><span class="etag">Content</span><span class="etag">SMM</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section>
-  <div class="edu-section">
-    <div class="reveal">
-      <div class="section-eyebrow" data-i18n="edu.eyebrow">Education</div>
-      <div class="section-h" data-i18n="edu.title">Where I study.</div>
-    </div>
-    <div class="edu-card reveal">
-      <div class="edu-icon">&#127891;</div>
-      <div class="edu-body">
-        <h3 data-i18n="edu.uni">Kayseri University</h3>
-        <p class="sub" data-i18n="edu.dept">Faculty of Foreign Trade &mdash; International Economics &amp; Trade</p>
-        <span class="edu-badge">2026 &mdash; <span data-i18n="exp.present">Present</span></span>
       </div>
     </div>
   </div>
@@ -699,18 +364,15 @@
 <section id="contact" class="contact-section">
   <div class="contact-inner">
     <div class="cta-box reveal">
-      <h2><em data-i18n="contact.title">Let's connect.</em> &#128075;</h2>
-      <p data-i18n="contact.sub">Have a project, a question, or just want to say hi? Every channel is open.</p>
+      <h2 data-i18n="contact.title">Давайте проектировать будущее вместе. <em data-i18n="contact.em">На связи 24/7.</em></h2>
+      <p data-i18n="contact.sub">Открыт для партнерства с технологическими стартапами, смелыми визионерами и брендами, готовыми к цифровой трансформации.</p>
       <div class="contact-links">
         <a href="mailto:aspaloyy@gmail.com" class="contact-link contact-link-primary">&#9993; aspaloyy@gmail.com</a>
         <a href="https://t.me/aspaloyy" target="_blank" class="contact-link">Telegram</a>
-        <a href="https://x.com/aspaloyy" target="_blank" class="contact-link">X / Twitter</a>
+        <a href="https://whatsapp.com/channel/0029Vb6oUnw3gvWXgL0Kym29" target="_blank" class="contact-link">WhatsApp</a>
+        <a href="https://x.com/aspaloyy" target="_blank" class="contact-link">X (Twitter)</a>
         <a href="https://www.instagram.com/aspaloyy" target="_blank" class="contact-link">Instagram</a>
         <a href="https://play.google.com/store/apps/dev?id=8055300163983735296" target="_blank" class="contact-link">Google Play</a>
-        <a href="https://aspaloyy.com" target="_blank" class="contact-link">aspaloyy.com</a>
-        <a href="https://www.facebook.com/share/1B13WNgWDX/" target="_blank" class="contact-link">Facebook</a>
-        <a href="https://reddit.com/u/Aspaloyy" target="_blank" class="contact-link">Reddit</a>
-        <a href="https://whatsapp.com/channel/0029Vb6oUnw3gvWXgL0Kym29" target="_blank" class="contact-link">WhatsApp</a>
       </div>
     </div>
   </div>
@@ -725,31 +387,106 @@
     </a>
     <ul class="footer-links">
       <li><a href="#about" data-i18n="nav.about">About</a></li>
-      <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
-      <li><a href="#experience" data-i18n="nav.exp">Experience</a></li>
-      <li><a href="index.html" data-i18n="footer.studio">Studio</a></li>
+      <li><a href="#roles" data-i18n="nav.roles">Expertise</a></li>
+      <li><a href="#experience" data-i18n="nav.exp">Portfolio</a></li>
+      <li><a href="index.html" data-i18n="nav.studio">Studio</a></li>
     </ul>
-    <div class="footer-social">
-      <a class="social-btn" href="https://x.com/aspaloyy" target="_blank">&#120143;</a>
-      <a class="social-btn" href="https://t.me/aspaloyy" target="_blank">&#9992;</a>
-      <a class="social-btn" href="https://www.instagram.com/aspaloyy" target="_blank">&#128247;</a>
-      <a class="social-btn" href="https://play.google.com/store/apps/dev?id=8055300163983735296" target="_blank">&#129302;</a>
-    </div>
-    <div class="footer-copy">&copy; 2025 Asman &middot; Aspaloyy &middot; aspaloyy.com</div>
+    <div class="footer-copy">&copy; 2026 Asman &middot; Aspaloyy R&D Studio &middot; aspaloyy.com</div>
   </div>
 </footer>
 
 <script>
-/* ── TRANSLATIONS ── */
-var T = {"en":{"nav.about":"About","nav.skills":"Skills","nav.exp":"Experience","nav.contact":"Contact","hero.pill":"FOUNDER","hero.tagtext":"Aspaloyy Studio · Kayseri, Türkiye","hero.name":"Asman.","hero.line2":"Developer. Founder.","hero.sub":"18 years old. Developer, designer, and product creator. Building <strong>Aspaloyy</strong> — a digital studio, a brand, and a long-term foundation.","hero.from":"From Kyrgyzstan","hero.based":"Living in Kayseri in the 2025–2026 academic year","hero.student":"Erciyes University student since the 2025–2026 academic year","hero.cta1":"Get in touch","hero.cta2":"← Studio page","hero.stat1":"Years old","hero.stat2":"Areas","hero.stat3":"Launch year","hero.stat4":"Drive","about.eyebrow":"About me","about.title":"Not just code.<br>System thinking.","about.p1":"I build complete digital systems — from idea to architecture, from frontend to backend, from mobile to AI. I think in terms of product, structure, and long-term value.","about.p2":"I founded Aspaloyy as both a studio and a long-term digital identity. Not a side project — a base I am building on seriously.","about.p3":"Outside tech, I lead as well. Within four months of arriving in Türkiye, I became Chairman of the Kyrgyz community in Turan — organizing events, representing culture, and performing the Manas epic on television.","tag.fullstack":"Full-stack Developer","tag.ai":"AI Developer","tag.product":"Product Thinking","tag.founder":"Founder","tag.designer":"UI/UX Designer","tag.leader":"Community Leader","tag.brand":"Brand Strategy","ic1.title":"Engineering-first","ic1.desc":"Clean architecture, reliable systems, and serious implementation across the stack.","ic2.title":"Design included","ic2.desc":"UI/UX is built into the process, not added after everything else.","ic3.title":"Real output","ic3.desc":"Live sites, deployed systems, and products meant to be used, not just shown.","ic4.title":"Leads people","ic4.desc":"Chairman in Turan, public appearances, cultural representation, and real responsibility at 18.","roles.eyebrow":"What I do","roles.title":"Roles and areas","role1.title":"Full-stack Developer","role1.desc":"Web, mobile, and backend development from first idea to deployment.","role2.title":"AI Developer","role2.desc":"AI tools, LLM integrations, intelligent workflows, and automation systems.","role3.title":"UI/UX Designer","role3.desc":"Interfaces, design systems, user flows, and visual structure.","role4.title":"Product Manager","role4.desc":"Product logic, roadmap thinking, priorities, and execution structure.","role5.title":"Founder","role5.desc":"Studio creator, brand architect, and long-term system creator.","role6.title":"Brand Strategist","role6.desc":"Digital presence, positioning, communication, and brand consistency.","role7.title":"Systems Engineer","role7.desc":"Backend architecture, PostgreSQL, DevOps, infrastructure, and scaling.","role8.title":"Community Leader","role8.desc":"Chairman in Turan, event organizer, speaker, and cultural representative.","skills.eyebrow":"Skills","skills.title":"What I work with.","sg1":"Engineering","sg2":"AI &amp; Automation","sg3":"Design &amp; Product","sg4":"Strategy &amp; Communication","exp.eyebrow":"Experience","exp.title":"What I’ve built.","exp.present":"Present","exp1.title":"Founder &amp; Lead Developer","exp1.desc":"Building Aspaloyy from the ground up — web products, Android apps, AI tools, backend infrastructure, brand identity, and a long-term platform direction.","exp2.title":"Chairman, Kyrgyz Community","exp2.desc":"Became chairman within four months of arriving in Türkiye. Organizing events, coordinating the community, and representing Kyrgyz students officially.","exp3.title":"Television Appearance","exp3.org":"Public Media · Türkiye","exp3.desc":"Appeared on Turkish television to represent Kyrgyz culture and perform the Manas epic.","exp4.title":"Digital Brand Development","exp4.desc":"Building and maintaining Aspaloyy’s presence across the web, Google Play, and social platforms.","edu.eyebrow":"Education","edu.title":"Where I study.","edu.uni":"Kayseri University","edu.dept":"Foreign Trade — International Economics and Trade","contact.title":"Let’s connect.","contact.sub":"Project, question, or message — every channel is open.","footer.studio":"Studio"},"ru":{"nav.about":"Обо мне","nav.skills":"Навыки","nav.exp":"Опыт","nav.contact":"Контакты","hero.pill":"ОСНОВАТЕЛЬ","hero.tagtext":"Aspaloyy Studio · Кайсери, Турция","hero.name":"Асман.","hero.line2":"Разработчик. Основатель.","hero.sub":"18 лет. Разработчик, дизайнер и создатель продуктов. Строю <strong>Aspaloyy</strong> — цифровую студию, бренд и долгую основу под будущее.","hero.from":"Из Кыргызстана","hero.based":"В 2025–2026 учебном году живу в Кайсери","hero.student":"Студент университета Erciyes с 2025–2026 учебного года","hero.cta1":"Связаться","hero.cta2":"← Страница студии","hero.stat1":"Лет","hero.stat2":"Направлений","hero.stat3":"Год запуска","hero.stat4":"Драйв","about.eyebrow":"Обо мне","about.title":"Не просто код.<br>А целая система.","about.p1":"Я собираю полноценные цифровые системы — от идеи до архитектуры, от фронтенда до бэкенда, от мобильной разработки до AI. Смотрю на продукт, структуру и долгую ценность целиком.","about.p2":"Aspaloyy я основал не как побочный проект, а как студию и долгосрочную цифровую идентичность, на которой всерьёз строю своё будущее.","about.p3":"За пределами разработки я тоже веду людей. Через четыре месяца после приезда в Турцию стал председателем кыргызского сообщества в Turan — организовывал мероприятия, представлял культуру и выступал с эпосом Манас на телевидении.","tag.fullstack":"Full-stack разработчик","tag.ai":"AI-разработчик","tag.product":"Продуктовое мышление","tag.founder":"Основатель","tag.designer":"UI/UX дизайнер","tag.leader":"Лидер сообщества","tag.brand":"Бренд-стратегия","ic1.title":"Инженерия прежде всего","ic1.desc":"Чистая архитектура, надёжные системы и серьёзная реализация по всему стеку.","ic2.title":"Дизайн внутри процесса","ic2.desc":"UI/UX не приклеивается в конце. Он заложен в самой разработке.","ic3.title":"Реальный результат","ic3.desc":"Живые сайты, развёрнутые системы и продукты, которыми действительно пользуются.","ic4.title":"Умеет вести людей","ic4.desc":"Председатель в Turan, публичные выступления, культурное представительство и реальная ответственность уже в 18 лет.","roles.eyebrow":"Чем занимаюсь","roles.title":"Роли и направления","role1.title":"Full-stack разработчик","role1.desc":"Веб, мобильная разработка и бэкенд — от первой идеи до деплоя.","role2.title":"AI-разработчик","role2.desc":"AI-инструменты, LLM-интеграции, умные сценарии и системы автоматизации.","role3.title":"UI/UX дизайнер","role3.desc":"Интерфейсы, дизайн-системы, пользовательские сценарии и визуальная структура.","role4.title":"Product Manager","role4.desc":"Логика продукта, роадмапы, приоритеты и структура исполнения.","role5.title":"Основатель","role5.desc":"Создатель студии, архитектор бренда и человек, который строит систему вдолгую.","role6.title":"Бренд-стратег","role6.desc":"Цифровое присутствие, позиционирование, коммуникация и целостность бренда.","role7.title":"Системный инженер","role7.desc":"Архитектура бэкенда, PostgreSQL, DevOps, инфраструктура и масштабирование.","role8.title":"Лидер сообщества","role8.desc":"Председатель в Turan, организатор мероприятий, спикер и представитель культуры.","skills.eyebrow":"Навыки","skills.title":"С чем я работаю.","sg1":"Инженерия","sg2":"AI и автоматизация","sg3":"Дизайн и продукт","sg4":"Стратегия и коммуникация","exp.eyebrow":"Опыт","exp.title":"Что я уже выстроил.","exp.present":"н.в.","exp1.title":"Основатель и ведущий разработчик","exp1.desc":"Собираю Aspaloyy с нуля — веб-продукты, Android-приложения, AI-инструменты, бэкенд-инфраструктуру, визуальную систему и долгосрочное платформенное направление.","exp2.title":"Председатель, кыргызское сообщество","exp2.desc":"Стал председателем через четыре месяца после приезда в Турцию. Организую мероприятия, координирую сообщество и официально представляю кыргызских студентов.","exp3.title":"Выступление на телевидении","exp3.org":"Публичные медиа · Турция","exp3.desc":"Выступал на турецком телевидении, представляя кыргызскую культуру и исполняя эпос Манас.","exp4.title":"Развитие цифрового бренда","exp4.desc":"Развиваю и поддерживаю присутствие Aspaloyy в вебе, Google Play и социальных платформах.","edu.eyebrow":"Образование","edu.title":"Где учусь.","edu.uni":"Университет Кайсери","edu.dept":"Внешняя торговля — международная экономика и торговля","contact.title":"Давай свяжемся.","contact.sub":"Проект, вопрос или сообщение — все каналы открыты.","footer.studio":"Студия"},"ky":{"nav.about":"Мен жөнүндө","nav.skills":"Жөндөмдөр","nav.exp":"Тажрыйба","nav.contact":"Байланыш","hero.pill":"НЕГИЗДӨӨЧҮ","hero.tagtext":"Aspaloyy Studio · Кайсери, Түркия","hero.name":"Асман.","hero.line2":"Иштеп чыгуучу. Негиздөөчү.","hero.sub":"18 жашта. Иштеп чыгуучу, дизайнер жана продукт жаратуучу. <strong>Aspaloyy</strong> — санарип студия, бренд жана келечекке негиз куруп жатам.","hero.from":"Кыргызстандан","hero.based":"2025–2026-окуу жылында Кайсериде жашайм","hero.student":"2025–2026-окуу жылынан бери Erciyes университетинин студенти","hero.cta1":"Байланышуу","hero.cta2":"← Студия барагы","hero.stat1":"Жаш","hero.stat2":"Багыт","hero.stat3":"Ачылган жылы","hero.stat4":"Күч","about.eyebrow":"Мен жөнүндө","about.title":"Жөн эле код эмес.<br>Толук система.","about.p1":"Мен толук санарип системаларды курамын — идеядан архитектурага чейин, фронтендден бэкендге чейин, мобилдик өнүгүүдөн AIга чейин.","about.p2":"Aspaloyy мен үчүн жөн гана кошумча долбоор эмес. Бул студия жана узак мөөнөттүү санарип өзөк.","about.p3":"Технологиядан тышкары да лидерлик кылам. Түркияга келгенден төрт ай өтпөй Turanдагы кыргыз коомунун төрагасы болдум — иш-чараларды уюштуруп, маданиятты таанытып, Манас эпосун телевидениеде аткардым.","tag.fullstack":"Full-stack иштеп чыгуучу","tag.ai":"AI иштеп чыгуучу","tag.product":"Продукт ой жүгүртүү","tag.founder":"Негиздөөчү","tag.designer":"UI/UX дизайнер","tag.leader":"Коом лидери","tag.brand":"Бренд стратегиясы","ic1.title":"Инженерия биринчи","ic1.desc":"Таза архитектура, ишенимдүү системалар жана олуттуу аткаруу.","ic2.title":"Дизайн процесстин ичинде","ic2.desc":"UI/UX акырында кошулбайт. Ал башынан эле иштин ичинде болот.","ic3.title":"Чыныгы жыйынтык","ic3.desc":"Иштеп турган сайттар, жайгаштырылган системалар жана колдонулган продукттар.","ic4.title":"Адамдарды жетектейт","ic4.desc":"Turanдагы төрага, эл алдында чыгуу, маданий өкүлчүлүк жана 18 жашта эле чыныгы жоопкерчилик.","roles.eyebrow":"Эмне кылам","roles.title":"Ролдор жана багыттар","role1.title":"Full-stack иштеп чыгуучу","role1.desc":"Веб, мобилдик өнүгүү жана бэкенд — идеядан деплойго чейин.","role2.title":"AI иштеп чыгуучу","role2.desc":"AI куралдар, LLM интеграциялар, акылдуу сценарийлер жана автоматташтыруу.","role3.title":"UI/UX дизайнер","role3.desc":"Интерфейстер, дизайн системалары жана визуалдык түзүм.","role4.title":"Продукт менеджер","role4.desc":"Продукт логикасы, жол карталары, артыкчылыктар жана аткаруу түзүмү.","role5.title":"Негиздөөчү","role5.desc":"Студияны курган, брендди түзгөн жана системаны узакка ойлогон адам.","role6.title":"Бренд стратеги","role6.desc":"Санарип көрүнүш, позициялоо, байланыш жана бренддин бүтүндүгү.","role7.title":"Системалык инженер","role7.desc":"Бэкенд архитектурасы, PostgreSQL, DevOps, инфраструктура жана масштабдоо.","role8.title":"Коом лидери","role8.desc":"Turanдагы төрага, иш-чара уюштуруучу, спикер жана маданий өкүл.","skills.eyebrow":"Жөндөмдөр","skills.title":"Эмне менен иштейм.","sg1":"Инженерия","sg2":"AI жана автоматташтыруу","sg3":"Дизайн жана продукт","sg4":"Стратегия жана байланыш","exp.eyebrow":"Тажрыйба","exp.title":"Эмне курдум.","exp.present":"азыр","exp1.title":"Негиздөөчү жана башкы иштеп чыгуучу","exp1.desc":"Aspaloyy'ди нөлдөн куруп жатам — веб продукттар, Android колдонмолор, AI куралдар, бэкенд инфраструктурасы жана узак мөөнөттүү багыт.","exp2.title":"Төрага, кыргыз коому","exp2.desc":"Түркияга келгенден төрт ай өтпөй төрага болдум. Иш-чараларды уюштуруп, коомду координациялап, кыргыз студенттерин расмий көрсөтөм.","exp3.title":"Телевидениеге чыгуу","exp3.org":"Коомдук медиа · Түркия","exp3.desc":"Кыргыз маданиятын тааныштырып, Манас эпосун аткаруу үчүн түрк телевидениесине чыктым.","exp4.title":"Санарип брендди өнүктүрүү","exp4.desc":"Aspaloyy'нин вебде, Google Play'де жана социалдык платформаларда көрүнүшүн куруп жана кармап турам.","edu.eyebrow":"Билим","edu.title":"Кайда окуйм.","edu.uni":"Кайсери университети","edu.dept":"Тышкы соода — эл аралык экономика жана соода","contact.title":"Байланышалы.","contact.sub":"Долбоор, суроо же билдирүү — бардык каналдар ачык.","footer.studio":"Студия"},"tr":{"nav.about":"Hakkımda","nav.skills":"Beceriler","nav.exp":"Deneyim","nav.contact":"İletişim","hero.pill":"KURUCU","hero.tagtext":"Aspaloyy Studio · Kayseri, Türkiye","hero.name":"Asman.","hero.line2":"Geliştirici. Kurucu.","hero.sub":"18 yaşında. Geliştirici, tasarımcı ve ürün geliştiricisi. <strong>Aspaloyy</strong> — dijital bir stüdyo, bir marka ve geleceğe atılan sağlam bir temel.","hero.from":"Kırgızistan'dan","hero.based":"2025–2026 akademik yılında Kayseri’de yaşıyorum","hero.student":"2025–2026 akademik yılından beri Erciyes Üniversitesi öğrencisi","hero.cta1":"İletişime geç","hero.cta2":"← Stüdyo sayfası","hero.stat1":"Yaş","hero.stat2":"Alan","hero.stat3":"Başlangıç yılı","hero.stat4":"İtki","about.eyebrow":"Hakkımda","about.title":"Sadece kod değil.<br>Tam bir sistem.","about.p1":"Fikirden mimariye, frontend'den backend'e, mobilden AI'a kadar tam dijital sistemler kuruyorum.","about.p2":"Aspaloyy benim için yan proje değil. Hem bir stüdyo hem de uzun vadeli dijital kimlik.","about.p3":"Teknoloji dışında da liderlik yapıyorum. Türkiye'ye geldikten dört ay sonra Turan'daki Kırgız topluluğunun başkanı oldum; etkinlikler düzenledim, kültürü temsil ettim ve Manas destanını televizyonda seslendirdim.","tag.fullstack":"Full-stack Geliştirici","tag.ai":"AI Geliştirici","tag.product":"Ürün Düşüncesi","tag.founder":"Kurucu","tag.designer":"UI/UX Tasarımcı","tag.leader":"Topluluk Lideri","tag.brand":"Marka Stratejisi","ic1.title":"Önce mühendislik","ic1.desc":"Temiz mimari, güvenilir sistemler ve ciddi uygulama.","ic2.title":"Tasarım sürecin içinde","ic2.desc":"UI/UX en sonda eklenmez. Baştan itibaren işin içindedir.","ic3.title":"Gerçek çıktı","ic3.desc":"Canlı siteler, yayına alınmış sistemler ve gerçekten kullanılan ürünler.","ic4.title":"İnsanları yönetir","ic4.desc":"Turan'da başkanlık, kamuya açık konuşmalar, kültürel temsil ve 18 yaşında gerçek sorumluluk.","roles.eyebrow":"Ne yapıyorum","roles.title":"Roller ve alanlar","role1.title":"Full-stack Geliştirici","role1.desc":"Web, mobil ve backend geliştirme — ilk fikirden deploy'a kadar.","role2.title":"AI Geliştirici","role2.desc":"AI araçları, LLM entegrasyonları, akıllı akışlar ve otomasyon sistemleri.","role3.title":"UI/UX Tasarımcı","role3.desc":"Arayüzler, tasarım sistemleri, kullanıcı akışları ve görsel yapı.","role4.title":"Ürün Yöneticisi","role4.desc":"Ürün mantığı, yol haritası, öncelikler ve uygulama yapısı.","role5.title":"Kurucu","role5.desc":"Stüdyonun kurucusu, marka mimarı ve uzun vadeli sistem kurucusu.","role6.title":"Marka Stratejisti","role6.desc":"Dijital görünürlük, konumlandırma, iletişim ve marka tutarlılığı.","role7.title":"Sistem Mühendisi","role7.desc":"Backend mimarisi, PostgreSQL, DevOps, altyapı ve ölçekleme.","role8.title":"Topluluk Lideri","role8.desc":"Turan'da başkan, etkinlik organizatörü, konuşmacı ve kültürel temsilci.","skills.eyebrow":"Beceriler","skills.title":"Nelerle çalışıyorum.","sg1":"Mühendislik","sg2":"AI ve Otomasyon","sg3":"Tasarım ve Ürün","sg4":"Strateji ve İletişim","exp.eyebrow":"Deneyim","exp.title":"Kurduklarım.","exp.present":"Günümüz","exp1.title":"Kurucu ve Baş Geliştirici","exp1.desc":"Aspaloyy'yi sıfırdan kuruyorum — web ürünleri, Android uygulamaları, AI araçları, backend altyapısı ve uzun vadeli yön.","exp2.title":"Başkan, Kırgız Topluluğu","exp2.desc":"Türkiye'ye geldikten dört ay sonra başkan oldum. Etkinlikler düzenliyor, topluluğu koordine ediyor ve Kırgız öğrencileri resmî olarak temsil ediyorum.","exp3.title":"Televizyon Görünümü","exp3.org":"Kamu Medyası · Türkiye","exp3.desc":"Kırgız kültürünü temsil etmek ve Manas destanını seslendirmek için Türk televizyonuna çıktım.","exp4.title":"Dijital Marka Gelişimi","exp4.desc":"Aspaloyy'nin web, Google Play ve sosyal platformlardaki varlığını kuruyor ve sürdürüyorum.","edu.eyebrow":"Eğitim","edu.title":"Nerede okuyorum.","edu.uni":"Kayseri Üniversitesi","edu.dept":"Dış Ticaret — Uluslararası Ekonomi ve Ticaret","contact.title":"Bağlanalım.","contact.sub":"Proje, soru ya da mesaj — tüm kanallar açık.","footer.studio":"Stüdyo"},"de":{"nav.about":"Über mich","nav.skills":"Fähigkeiten","nav.exp":"Erfahrung","nav.contact":"Kontakt","hero.pill":"GRÜNDER","hero.tagtext":"Aspaloyy Studio · Kayseri, Türkei","hero.name":"Asman.","hero.line2":"Entwickler. Gründer.","hero.sub":"18 Jahre alt. Entwickler, Designer und Produktgestalter. Ich baue <strong>Aspaloyy</strong> — ein Digitalstudio, eine Marke und ein langfristiges Fundament.","hero.from":"Aus Kirgisistan","hero.based":"Im Studienjahr 2025–2026 lebe ich in Kayseri","hero.student":"Student an der Erciyes-Universität seit dem Studienjahr 2025–2026","hero.cta1":"Kontakt aufnehmen","hero.cta2":"← Studio-Seite","hero.stat1":"Jahre alt","hero.stat2":"Bereiche","hero.stat3":"Gründungsjahr","hero.stat4":"Antrieb","about.eyebrow":"Über mich","about.title":"Nicht nur Code.<br>Ein ganzes System.","about.p1":"Ich baue vollständige digitale Systeme — von der Idee bis zur Architektur, vom Frontend bis zum Backend, von Mobile bis AI.","about.p2":"Aspaloyy ist für mich kein Nebenprojekt, sondern Studio und langfristige digitale Identität zugleich.","about.p3":"Auch außerhalb der Technik übernehme ich Führung. Vier Monate nach meiner Ankunft in der Türkei wurde ich Vorsitzender der kirgisischen Gemeinschaft in Turan, organisierte Veranstaltungen, vertrat die Kultur und trug das Manas-Epos im Fernsehen vor.","tag.fullstack":"Full-Stack-Entwickler","tag.ai":"AI-Entwickler","tag.product":"Produktdenken","tag.founder":"Gründer","tag.designer":"UI/UX-Designer","tag.leader":"Community-Leiter","tag.brand":"Markenstrategie","ic1.title":"Technik zuerst","ic1.desc":"Saubere Architektur, verlässliche Systeme und ernsthafte Umsetzung.","ic2.title":"Design im Prozess","ic2.desc":"UI/UX wird nicht am Ende angeklebt, sondern von Anfang an mitgebaut.","ic3.title":"Echte Ergebnisse","ic3.desc":"Live-Websites, produktive Systeme und Produkte, die wirklich genutzt werden.","ic4.title":"Führt Menschen","ic4.desc":"Vorsitzender in Turan, öffentliche Auftritte, kulturelle Vertretung und echte Verantwortung mit 18.","roles.eyebrow":"Was ich mache","roles.title":"Rollen und Bereiche","role1.title":"Full-Stack-Entwickler","role1.desc":"Web, Mobile und Backend — von der ersten Idee bis zum Deployment.","role2.title":"AI-Entwickler","role2.desc":"AI-Tools, LLM-Integrationen, smarte Workflows und Automatisierung.","role3.title":"UI/UX-Designer","role3.desc":"Interfaces, Designsysteme, Nutzerflüsse und visuelle Struktur.","role4.title":"Produktmanager","role4.desc":"Produktlogik, Roadmaps, Prioritäten und Umsetzungsstruktur.","role5.title":"Gründer","role5.desc":"Studio-Schöpfer, Markenarchitekt und langfristiger Systembauer.","role6.title":"Markenstratege","role6.desc":"Digitale Präsenz, Positionierung, Kommunikation und Markenkonsistenz.","role7.title":"Systemingenieur","role7.desc":"Backend-Architektur, PostgreSQL, DevOps, Infrastruktur und Skalierung.","role8.title":"Community-Leiter","role8.desc":"Vorsitzender in Turan, Organisator, Redner und kultureller Vertreter.","skills.eyebrow":"Fähigkeiten","skills.title":"Womit ich arbeite.","sg1":"Technik","sg2":"AI &amp; Automatisierung","sg3":"Design &amp; Produkt","sg4":"Strategie &amp; Kommunikation","exp.eyebrow":"Erfahrung","exp.title":"Was ich aufgebaut habe.","exp.present":"Heute","exp1.title":"Gründer &amp; Lead Developer","exp1.desc":"Ich baue Aspaloyy von Grund auf auf — Webprodukte, Android-Apps, AI-Tools, Backend-Infrastruktur und langfristige Richtung.","exp2.title":"Vorsitzender, kirgisische Gemeinschaft","exp2.desc":"Vier Monate nach meiner Ankunft in der Türkei wurde ich Vorsitzender. Ich organisiere Veranstaltungen, koordiniere die Gemeinschaft und vertrete kirgisische Studierende offiziell.","exp3.title":"Fernsehauftritt","exp3.org":"Öffentliche Medien · Türkei","exp3.desc":"Ich trat im türkischen Fernsehen auf, um kirgisische Kultur zu vertreten und das Manas-Epos vorzutragen.","exp4.title":"Digitale Markenentwicklung","exp4.desc":"Ich entwickle und pflege die Präsenz von Aspaloyy im Web, bei Google Play und auf sozialen Plattformen.","edu.eyebrow":"Bildung","edu.title":"Wo ich studiere.","edu.uni":"Universität Kayseri","edu.dept":"Außenhandel — Internationale Wirtschaft und Handel","contact.title":"Lass uns verbinden.","contact.sub":"Projekt, Frage oder Nachricht — alle Kanäle sind offen.","footer.studio":"Studio"}};
+var T = {
+  "ru":{
+    "nav.about":"Обо мне","nav.roles":"Экспертиза","nav.exp":"Портфолио","nav.studio":"Студия",
+    "hero.pill":"ОСНОВАТЕЛЬ","hero.tagtext":"Lead Software Engineer & Tech Visionary",
+    "hero.name":"Асман.","hero.line2":"AI & Mobile Ecosystems Expert.",
+    "hero.sub":"Я являюсь архитектором цифровых систем и основателем независимой технологической R&D студии <strong>Aspaloyy</strong>. Мой подход выходит за рамки простого написания кода.",
+    "hero.from":"Бишкек, Кыргызстан (Global Remote)","hero.based":"Живу и учусь в Кайсери, Турция",
+    "hero.cta1":"Связаться напрямую","hero.cta2":"Сайт студии",
+    "about.eyebrow":"Профессиональное кредо","about.title":"Не просто код.<br>А целая система.",
+    "about.p1":"Я собираю полноценные цифровые системы — от идеи до архитектуры, от фронтенда до бэкенда, от мобильной разработки до генеративного ИИ. Я смотрю на продукт, структуру и долгую ценность целиком.",
+    "about.p2":"Я основал Aspaloyy не как побочный проект, а как независимую технологическую R&D лабораторию нового поколения. Это инфраструктура, на которой я всерьез строю свое будущее и философию «Digital products that matter».",
+    "about.p3":"Мое лидерство выходит за рамки технологий. В 18 лет, через 4 месяца после переезда в Турцию, я стал председателем кыргызского сообщества в Turan, организовывал мероприятия, представлял культуру и выступал с эпосом Манас на телевидении. Я умею вести за собой.",
+    "tag.fullstack":"Lead Software Engineer","tag.ai":"AI Integrator","tag.product":"Tech Visionary","tag.founder":"Studio Founder","tag.leader":"Community Leader",
+    "ic1.title":"Издатель в Google Play","ic1.desc":"Официальный паблишер. Управление полным циклом релиза продуктов, адаптация под строгие стандарты Privacy-First и новые SDK.","ic2.title":"Синтетические медиа","ic2.desc":"Интеграция цифровых двойников и автоматической видеогенерации через код с использованием открытых архитектур и моделей.","ic3.title":"Академическая база","ic3.desc":"Владение английским (EAP). Способность анализировать глобальную тех. документацию и патентные заявки в оригинале.",
+    "roles.eyebrow":"Домены экспертизы","roles.title":"Ключевые компетенции",
+    "role1.title":"Mobile & Game Dev","role1.desc":"Проектирование сложных нативных экосистем, оптимизация памяти под Android 17, игровые механики и виртуальные экономики.","role2.title":"AI & Synthetic Media","role2.desc":"Интеграция LLM (Transformer, Attention), создание цифровых двойников (HeyGen) и автоматизация задач когнитивного уровня.","role3.title":"Cloud Architecture","role3.desc":"Безопасные серверные среды, токенизация OAuth 2.0, DevOps конвейеры, Sandboxing и REST API интеграции.","role4.title":"Advanced Web Dev","role4.desc":"Современные SPA и PWA, обеспечивающие высокие показатели Core Web Vitals и скорость нативных приложений.",
+    "exp.eyebrow":"Технологический след","exp.title":"Институциональное портфолио",
+    "exp1.status":"Глобальный релиз","exp1.title":"Мобильные Приложения в Google Play","exp1.org":"Официальный паблишер","exp1.desc":"Успешное прохождение строгой верификации разработчиков. Продукты адаптированы к изменениям политик безопасности (Contact Picker, Geolocation). Код оптимизирован под жесткие лимиты памяти ОС.","exp2.status":"Внутренний R&D","exp2.title":"Системы Облачной Автоматизации и CI/CD","exp2.org":"Cloud DevOps","exp2.desc":"Проектирование скриптов для пакетного взаимодействия с файловыми хранилищами. Решение сложных инженерных задач с коллизиями токенов (Self-Request Anomalies). Настройка бесперебойных мостов БД.","exp3.status":"Активное внедрение","exp3.title":"Интеграция Синтетических Медиа","exp3.org":"AI Video Pipelines","exp3.desc":"Настройка конвейеров генерации видеоконтента (Seedance 2.0). Преобразование текста в видео с участием цифровых аватаров. Интеграция видеодвижков в код (HyperFrames).",
+    "contact.title":"Давайте проектировать будущее вместе.","contact.em":"На связи 24/7.","contact.sub":"Открыт для партнерства с технологическими стартапами, смелыми визионерами и брендами, готовыми к цифровой трансформации."
+  },
+  "en":{
+    "nav.about":"About","nav.roles":"Expertise","nav.exp":"Portfolio","nav.studio":"Studio",
+    "hero.pill":"FOUNDER","hero.tagtext":"Lead Software Engineer & Tech Visionary",
+    "hero.name":"Asman.","hero.line2":"AI & Mobile Ecosystems Expert.",
+    "hero.sub":"I am an architect of digital systems and founder of the independent R&D tech studio <strong>Aspaloyy</strong>. My approach goes beyond just writing code.",
+    "hero.from":"Bishkek, Kyrgyzstan (Global Remote)","hero.based":"Living and studying in Kayseri, TR",
+    "hero.cta1":"Contact Directly","hero.cta2":"Studio Site",
+    "about.eyebrow":"Professional Credo","about.title":"Not just code.<br>A complete system.",
+    "about.p1":"I build full digital systems — from idea to architecture, frontend to backend, mobile dev to Generative AI. I look at the product, structure, and long-term value as a whole.","about.p2":"I founded Aspaloyy not as a side project, but as a next-generation independent R&D tech lab. It's the infrastructure on which I'm seriously building my future and the \"Digital products that matter\" philosophy.","about.p3":"My leadership extends beyond tech. At 18, 4 months after moving to Turkey, I became chairman of the Kyrgyz community in Turan, organized events, and performed the Manas epic on television. I know how to lead.",
+    "tag.fullstack":"Lead Software Engineer","tag.ai":"AI Integrator","tag.product":"Tech Visionary","tag.founder":"Studio Founder","tag.leader":"Community Leader",
+    "ic1.title":"Google Play Publisher","ic1.desc":"Managing the full product release cycle, adapting to strict Privacy-First standards and new SDK requirements.","ic2.title":"Synthetic Media","ic2.desc":"Integration of digital twins and programmatic video generation using open architectures and models.","ic3.title":"Academic Base","ic3.desc":"English proficiency (EAP). Ability to analyze global tech documentation and patent applications in original.",
+    "roles.eyebrow":"Domains of Expertise","roles.title":"Key Competencies",
+    "role1.title":"Mobile & Game Dev","role1.desc":"Designing complex native ecosystems, memory optimization for Android 17, game mechanics, and virtual economies.","role2.title":"AI & Synthetic Media","role2.desc":"LLM Integration (Transformer, Attention), creating digital twins (HeyGen), and automating cognitive-level tasks.","role3.title":"Cloud Architecture","role3.desc":"Secure server environments, OAuth 2.0 tokenization, DevOps pipelines, Sandboxing, and REST API integrations.","role4.title":"Advanced Web Dev","role4.desc":"Modern SPAs and PWAs delivering high Core Web Vitals and native app speeds.",
+    "exp.eyebrow":"Technological Footprint","exp.title":"Institutional Portfolio",
+    "exp1.status":"Global Release","exp1.title":"Mobile Apps on Google Play","exp1.org":"Official Publisher","exp1.desc":"Successfully passed strict developer verification. Products adapted to security policy changes. Code optimized for OS memory limits.","exp2.status":"Internal R&D","exp2.title":"Cloud Automation & CI/CD Systems","exp2.org":"Cloud DevOps","exp2.desc":"Designing scripts for batch interaction with file storages. Solving token collisions (Self-Request Anomalies). Setting up seamless DB bridges.","exp3.status":"Active Integration","exp3.title":"Synthetic Media Integration","exp3.org":"AI Video Pipelines","exp3.desc":"Video content generation pipelines (Seedance 2.0). Text-to-video conversion with digital avatars. Video engine code integration (HyperFrames).",
+    "contact.title":"Let's design the future together.","contact.em":"Online 24/7.","contact.sub":"Open to partnerships with tech startups, bold visionaries, and brands ready for digital transformation."
+  },
+  "ky":{
+    "nav.about":"Мен жөнүндө","nav.roles":"Экспертиза","nav.exp":"Портфолио","nav.studio":"Студия",
+    "hero.pill":"НЕГИЗДӨӨЧҮ","hero.tagtext":"Lead Software Engineer & Tech Visionary",
+    "hero.name":"Асман.","hero.line2":"AI & Mobile Ecosystems Expert.",
+    "hero.sub":"Мен санарип системаларынын архитекторумун жана көз карандысыз <strong>Aspaloyy</strong> R&D студиясынын негиздөөчүсүмүн.",
+    "hero.from":"Бишкек, Кыргызстан (Global Remote)","hero.based":"Кайсериде жашайм жана окуйм",
+    "hero.cta1":"Түз байланышуу","hero.cta2":"Студия барагы",
+    "about.eyebrow":"Кесиптик кредо","about.title":"Жөн эле код эмес.<br>Бүтүндөй система.","about.p1":"Идеядан баштап архитектурага чейин, фронтендден бэкендге чейин толук санарип системаларды курам.","about.p2":"Aspaloyy бул жөн эле кошумча долбоор эмес, бул менин келечегимди куруп жаткан R&D лаборатория.","about.p3":"Түркияга келгенден кийин 4 айдын ичинде Turanдагы кыргыз коомунун төрагасы болдум. Мен лидерлик кыла алам.",
+    "ic1.title":"Google Play Publisher","ic1.desc":"Колдонмолорду релиз кылуу, Privacy-First стандарттарын жана жаңы SDK'ларды киргизүү.","ic2.title":"Синтетикалык медиа","ic2.desc":"Санарип эгиздерди жана видео генерацияны код аркылуу интеграциялоо.","ic3.title":"Академиялык база","ic3.desc":"Англис тили (EAP). Дүйнөлүк техникалык документтерди оригиналда окуу жана талдоо.",
+    "roles.eyebrow":"Экспертиза","roles.title":"Негизги компетенциялар",
+    "role1.title":"Mobile & Game Dev","role1.desc":"Android 17 үчүн оптимизация, оюн механикасы жана татаал нативдик системалар.","role2.title":"AI & Synthetic Media","role2.desc":"LLM интеграциясы, санарип эгиздер (HeyGen) жана когнитивдик тапшырмаларды автоматташтыруу.","role3.title":"Cloud Architecture","role3.desc":"Коопсуз сервердик чөйрөлөр, OAuth 2.0, DevOps, Sandboxing жана REST API.","role4.title":"Advanced Web Dev","role4.desc":"Жогорку ылдамдыкты камсыз кылган заманбап SPA жана PWA.",
+    "exp.eyebrow":"Технологиялык из","exp.title":"Институционалдык портфолио",
+    "exp1.status":"Глобалдык релиз","exp1.title":"Google Play'деги тиркемелер","exp1.org":"Официалдуу паблишер","exp1.desc":"Иштеп чыгуучулардын катаал текшерүүсүнөн ийгиликтүү өттү. Купуялык саясаттарына ылайыкталды.","exp2.status":"Ички R&D","exp2.title":"Булут автоматташтыруу жана CI/CD","exp2.org":"Cloud DevOps","exp2.desc":"Скрипттерди долбоорлоо. Self-Request Anomalies маселелерин чечүү.","exp3.status":"Активдүү киргизүү","exp3.title":"Синтетикалык медиа интеграциясы","exp3.org":"AI Video Pipelines","exp3.desc":"Видео контентти генерациялоо. Текстти видеоформатка айландыруу (HyperFrames).",
+    "contact.title":"Келечекти чогуу долбоорлойлу.","contact.em":"Байланышта 24/7.","contact.sub":"Стартаптар, визионерлер жана бренддер менен кызматташууга ачыкмын."
+  },
+  "tr":{
+    "nav.about":"Hakkımda","nav.roles":"Uzmanlık","nav.exp":"Portföy","nav.studio":"Stüdyo",
+    "hero.pill":"KURUCU","hero.tagtext":"Lead Software Engineer & Tech Visionary",
+    "hero.name":"Asman.","hero.line2":"AI & Mobile Ecosystems Expert.",
+    "hero.sub":"Dijital sistem mimarı ve bağımsız R&D teknoloji stüdyosu <strong>Aspaloyy</strong>'nin kurucusuyum. Yaklaşımım sadece kod yazmanın ötesine geçiyor.",
+    "hero.from":"Bişkek, Kırgızistan (Global Remote)","hero.based":"Kayseri, Türkiye'de yaşıyor ve okuyorum",
+    "hero.cta1":"Doğrudan İletişim","hero.cta2":"Stüdyo Sitesi",
+    "about.eyebrow":"Profesyonel Kreşendo","about.title":"Sadece kod değil.<br>Tam bir sistem.","about.p1":"Fikirden mimariye, frontend'den backend'e, mobilden Üretken Yapay Zeka'ya kadar tam dijital sistemler kuruyorum.","about.p2":"Aspaloyy'yi bir yan proje olarak değil, yeni nesil bağımsız bir teknoloji Ar-Ge laboratuvarı olarak kurdum.","about.p3":"Liderliğim teknolojinin ötesine geçiyor. Türkiye'ye taşındıktan 4 ay sonra Turan'daki Kırgız topluluğunun başkanı oldum. İnsanlara nasıl liderlik edeceğimi biliyorum.",
+    "ic1.title":"Google Play Yayıncısı","ic1.desc":"Tam ürün sürüm döngüsünü yönetme, Privacy-First standartlarına ve yeni SDK gereksinimlerine uyum sağlama.","ic2.title":"Sentetik Medya","ic2.desc":"Dijital ikizlerin entegrasyonu ve kod aracılığıyla otomatik video oluşturma.","ic3.title":"Akademik Temel","ic3.desc":"İngilizce yeterliliği (EAP). Küresel teknoloji belgelerini orijinal dilinde analiz etme yeteneği.",
+    "roles.eyebrow":"Uzmanlık Alanları","roles.title":"Temel Yetkinlikler",
+    "role1.title":"Mobile & Game Dev","role1.desc":"Karmaşık yerel ekosistemler, Android 17 için bellek optimizasyonu, oyun mekanikleri.","role2.title":"AI & Synthetic Media","role2.desc":"LLM Entegrasyonu (Transformer), dijital ikizler oluşturma (HeyGen) ve otomasyon.","role3.title":"Cloud Architecture","role3.desc":"Güvenli sunucu ortamları, OAuth 2.0, DevOps boru hatları, Sandboxing ve REST API.","role4.title":"Advanced Web Dev","role4.desc":"Yüksek Core Web Vitals ve yerel uygulama hızları sunan modern SPA'lar ve PWA'lar.",
+    "exp.eyebrow":"Teknolojik İz","exp.title":"Kurumsal Portföy",
+    "exp1.status":"Küresel Sürüm","exp1.title":"Google Play'de Mobil Uygulamalar","exp1.org":"Resmi Yayıncı","exp1.desc":"Geliştirici doğrulamasını başarıyla geçti. Ürünler güvenlik politikası değişikliklerine uyarlandı.","exp2.status":"Dahili R&D","exp2.title":"Bulut Otomasyonu ve CI/CD","exp2.org":"Cloud DevOps","exp2.desc":"Dosya depolarıyla toplu etkileşim için komut dosyaları. Self-Request Anomaly çözümleri.","exp3.status":"Aktif Entegrasyon","exp3.title":"Sentetik Medya Entegrasyonu","exp3.org":"AI Video Pipelines","exp3.desc":"Video içerik oluşturma hatları (Seedance 2.0). Dijital avatarlarla metinden videoya dönüştürme.",
+    "contact.title":"Geleceği birlikte tasarlayalım.","contact.em":"7/24 Çevrimiçi.","contact.sub":"Teknoloji girişimleri, vizyonerler ve markalarla ortaklıklara açığım."
+  },
+  "de":{
+    "nav.about":"Über mich","nav.roles":"Expertise","nav.exp":"Portfolio","nav.studio":"Studio",
+    "hero.pill":"GRÜNDER","hero.tagtext":"Lead Software Engineer & Tech Visionary",
+    "hero.name":"Asman.","hero.line2":"AI & Mobile Ecosystems Expert.",
+    "hero.sub":"Ich bin Architekt digitaler Systeme und Gründer des unabhängigen R&D-Studios <strong>Aspaloyy</strong>.",
+    "hero.from":"Bischkek, Kirgisistan (Global Remote)","hero.based":"Lebt und studiert in Kayseri, TR",
+    "hero.cta1":"Direkt kontaktieren","hero.cta2":"Studio-Website",
+    "about.eyebrow":"Professionelles Credo","about.title":"Nicht nur Code.<br>Ein ganzes System.","about.p1":"Ich baue vollständige digitale Systeme — von der Idee bis zur Architektur, von Mobile bis zur Generativen KI.","about.p2":"Ich habe Aspaloyy nicht als Nebenprojekt gegründet, sondern als unabhängiges R&D-Labor der nächsten Generation.","about.p3":"Meine Führungsqualitäten gehen über die Technik hinaus. 4 Monate nach meinem Umzug in die Türkei wurde ich Vorsitzender der kirgisischen Gemeinschaft in Turan.",
+    "ic1.title":"Google Play Publisher","ic1.desc":"Management des Release-Zyklus, Anpassung an Privacy-First-Standards und neue SDKs.","ic2.title":"Synthetische Medien","ic2.desc":"Integration digitaler Zwillinge und automatische Videogenerierung durch Code.","ic3.title":"Akademische Basis","ic3.desc":"Englischkenntnisse (EAP). Analyse globaler Technikdokumentationen im Original.",
+    "roles.eyebrow":"Expertise-Bereiche","roles.title":"Kernkompetenzen",
+    "role1.title":"Mobile & Game Dev","role1.desc":"Native Ökosysteme, Speicheroptimierung für Android 17, Spielmechaniken.","role2.title":"AI & Synthetic Media","role2.desc":"LLM-Integration, digitale Zwillinge (HeyGen) und Automatisierung.","role3.title":"Cloud Architecture","role3.desc":"Sichere Serverumgebungen, OAuth 2.0, DevOps-Pipelines, Sandboxing, REST API.","role4.title":"Advanced Web Dev","role4.desc":"Moderne SPAs und PWAs mit hohen Core Web Vitals und nativer App-Geschwindigkeit.",
+    "exp.eyebrow":"Technologischer Fußabdruck","exp.title":"Institutionelles Portfolio",
+    "exp1.status":"Globales Release","exp1.title":"Mobile Apps bei Google Play","exp1.org":"Offizieller Publisher","exp1.desc":"Erfolgreiche Entwickler-Verifizierung. Anpassung an Sicherheitsrichtlinien.","exp2.status":"Internes R&D","exp2.title":"Cloud-Automatisierung & CI/CD","exp2.org":"Cloud DevOps","exp2.desc":"Skripte für Datei-Speicher. Lösung von Token-Kollisionen (Self-Request Anomalies).","exp3.status":"Aktive Integration","exp3.title":"Integration Synthetischer Medien","exp3.org":"AI Video Pipelines","exp3.desc":"Generierung von Videoinhalten (Seedance 2.0). Text-to-Video mit digitalen Avataren.",
+    "contact.title":"Lassen Sie uns die Zukunft gestalten.","contact.em":"24/7 Online.","contact.sub":"Offen für Partnerschaften mit Tech-Startups, Visionären und Marken."
+  }
+};
 
-/* ── THEME ── */
+/* THEME */
 function toggleTheme() {
   var html = document.documentElement;
   var btn = document.getElementById('themeBtn');
   var isDark = html.getAttribute('data-theme') === 'dark';
   html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  COLORS = getThemePalette();
+  COLORS = getParticlePalette();
   btn.innerHTML = isDark ? '&#9790;' : '&#9728;';
   localStorage.setItem('aspaloyy_theme', isDark ? 'light' : 'dark');
 }
@@ -758,178 +495,89 @@ document.getElementById('themeBtn').addEventListener('click', toggleTheme);
   var saved = localStorage.getItem('aspaloyy_theme');
   if (saved) {
     document.documentElement.setAttribute('data-theme', saved);
-    COLORS = getThemePalette();
     document.getElementById('themeBtn').innerHTML = saved === 'light' ? '&#9790;' : '&#9728;';
   }
 })();
 
-/* ── i18n ── */
-var currentLang = localStorage.getItem('aspaloyy_lang') || 'en';
-
+/* i18n */
+var currentLang = localStorage.getItem('aspaloyy_lang') || 'ru';
 function setLang(lang) {
   currentLang = lang;
   localStorage.setItem('aspaloyy_lang', lang);
-  var t = T[lang] || T['en'];
+  var t = T[lang] || T['ru'];
   document.querySelectorAll('[data-i18n]').forEach(function(el) {
     var key = el.getAttribute('data-i18n');
-    if (t[key] !== undefined) {
-      el.innerHTML = t[key];
-    }
+    if (t[key] !== undefined) el.innerHTML = t[key];
   });
   document.documentElement.lang = lang;
   document.getElementById('langSelect').value = lang;
 }
-
-document.getElementById('langSelect').addEventListener('change', function() {
-  setLang(this.value);
-});
-
+document.getElementById('langSelect').addEventListener('change', function() { setLang(this.value); });
 setLang(currentLang);
 
-/* ── PARTICLES ── */
+/* PARTICLES (Optimized) */
 var canvas = document.getElementById('particle-canvas');
-var ctx = canvas.getContext('2d');
+var ctx = canvas.getContext('2d', { alpha: false });
 var W, H;
 function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-resize();
-window.addEventListener('resize', resize);
-function getThemePalette() {
-  return document.documentElement.getAttribute('data-theme') === 'light'
-    ? ['#6366f1','#db2777','#0891b2','#7c3aed','#0f766e','#94a3b8']
-    : ['#f5e642','#ff4d8d','#00f0ff','#9b5cff','#2affa0','#ffffff'];
-}
-var COLORS = getThemePalette();
+resize(); window.addEventListener('resize', resize);
+function getParticlePalette() { return document.documentElement.getAttribute('data-theme') === 'light' ? ['#4f46e5','#db2777','#0891b2','#7c3aed','#0f766e'] : ['#f5e642','#ff4d8d','#00f0ff','#9b5cff','#2affa0']; }
+var COLORS = getParticlePalette();
 
-function Particle(init) {
-  this.reset(init);
-}
+function Particle(init) { this.reset(init); }
 Particle.prototype.reset = function(init) {
-  this.x = Math.random() * W;
-  this.y = init ? Math.random() * H : H + 20;
-  this.r = Math.random() * 1.8 + 0.4;
-  this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
-  this.vx = (Math.random() - 0.5) * 0.4;
-  this.vy = -(Math.random() * 0.6 + 0.2);
-  this.alpha = Math.random() * 0.5 + 0.1;
-  this.life = 0;
-  this.maxLife = Math.random() * 300 + 150;
-  this.twinkle = Math.random() * Math.PI * 2;
+  this.x = Math.random() * W; this.y = init ? Math.random() * H : H + 20;
+  this.r = Math.random() * 1.5 + 0.5; this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+  this.vx = (Math.random() - 0.5) * 0.3; this.vy = -(Math.random() * 0.5 + 0.2);
+  this.alpha = Math.random() * 0.4 + 0.1; this.life = 0;
+  this.maxLife = Math.random() * 250 + 100; this.twinkle = Math.random() * Math.PI * 2;
 };
 Particle.prototype.update = function() {
-  this.x += this.vx; this.y += this.vy; this.life++;
-  this.twinkle += 0.04;
+  this.x += this.vx; this.y += this.vy; this.life++; this.twinkle += 0.04;
   var p = this.life / this.maxLife;
   this.currentAlpha = this.alpha * Math.sin(p * Math.PI) * (0.7 + 0.3 * Math.sin(this.twinkle));
   if (this.life > this.maxLife || this.y < -10) this.reset(false);
 };
 Particle.prototype.draw = function() {
-  ctx.save(); ctx.globalAlpha = Math.max(0, this.currentAlpha);
-  ctx.fillStyle = this.color; ctx.shadowBlur = 6; ctx.shadowColor = this.color;
-  ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+  ctx.globalAlpha = Math.max(0, this.currentAlpha); ctx.fillStyle = this.color;
+  ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fill(); 
 };
 
 function StarP() { this.reset(); }
 StarP.prototype.reset = function() {
   this.x = Math.random() * W; this.y = Math.random() * H;
-  this.r = Math.random() * 0.8 + 0.2;
-  this.alpha = Math.random() * 0.4 + 0.05;
-  this.twinkleSpeed = Math.random() * 0.02 + 0.005;
-  this.twinkle = Math.random() * Math.PI * 2;
+  this.r = Math.random() * 0.6 + 0.2; this.alpha = Math.random() * 0.3 + 0.05;
+  this.ts = Math.random() * 0.02 + 0.005; this.t = Math.random() * Math.PI * 2;
 };
-StarP.prototype.update = function() { this.twinkle += this.twinkleSpeed; };
+StarP.prototype.update = function() { this.t += this.ts; };
 StarP.prototype.draw = function() {
-  ctx.save(); ctx.globalAlpha = this.alpha * (0.5 + 0.5 * Math.sin(this.twinkle));
+  ctx.globalAlpha = this.alpha * (0.5 + 0.5 * Math.sin(this.t));
   ctx.fillStyle = document.documentElement.getAttribute('data-theme') === 'light' ? '#94a3b8' : '#ffffff';
-  ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+  ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fill(); 
 };
 
-function Shooter() { this.active = false; this.timer = Math.random() * 400 + 200; }
-Shooter.prototype.activate = function() {
-  this.x = Math.random() * W * 0.7; this.y = Math.random() * H * 0.3;
-  this.speed = Math.random() * 8 + 6;
-  this.angle = Math.PI / 4 + (Math.random() - 0.5) * 0.3;
-  this.alpha = 1; this.active = true; this.tail = [];
-};
-Shooter.prototype.update = function() {
-  if (!this.active) { this.timer--; if (this.timer <= 0) this.activate(); return; }
-  this.x += Math.cos(this.angle) * this.speed; this.y += Math.sin(this.angle) * this.speed;
-  this.alpha -= 0.018; this.tail.push({x:this.x,y:this.y});
-  if (this.tail.length > 20) this.tail.shift();
-  if (this.alpha <= 0 || this.x > W || this.y > H) { this.active = false; this.timer = Math.random() * 400 + 200; }
-};
-Shooter.prototype.draw = function() {
-  if (!this.active || this.tail.length < 2) return;
-  ctx.save();
-  for (var i = 1; i < this.tail.length; i++) {
-    var t = i / this.tail.length;
-    ctx.globalAlpha = t * this.alpha * 0.8;
-    var shooterColor = document.documentElement.getAttribute('data-theme') === 'light' ? '#6366f1' : '#f5e642';
-    ctx.strokeStyle = shooterColor; ctx.lineWidth = t * 2;
-    ctx.shadowBlur = 8; ctx.shadowColor = shooterColor;
-    ctx.beginPath(); ctx.moveTo(this.tail[i-1].x, this.tail[i-1].y);
-    ctx.lineTo(this.tail[i].x, this.tail[i].y); ctx.stroke();
-  }
-  ctx.restore();
-};
-
-var particles = []; for (var i=0;i<120;i++) particles.push(new Particle(true));
-var stars = []; for (var i=0;i<180;i++) stars.push(new StarP());
-var shooters = [new Shooter(), new Shooter(), new Shooter()];
-
-document.addEventListener('click', function(e) {
-  for (var i=0;i<18;i++) {
-    var p = new Particle(false);
-    p.x = e.clientX; p.y = e.clientY;
-    p.vx = (Math.random()-0.5)*4; p.vy = (Math.random()-0.5)*4-1;
-    p.r = Math.random()*3+1; p.alpha = 0.9; p.maxLife = 60+Math.random()*40; p.life = 0;
-    particles.push(p);
-  }
-  if (particles.length > 200) particles.splice(0, particles.length - 200);
-});
+var particles = []; for (var i=0;i<60;i++) particles.push(new Particle(true));
+var stars = []; for (var i=0;i<100;i++) stars.push(new StarP());
 
 function animate() {
-  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle = document.documentElement.getAttribute('data-theme') === 'light' ? '#f5f7fc' : '#09090f';
+  ctx.fillRect(0,0,W,H); 
   stars.forEach(function(s){s.update();s.draw();});
   particles.forEach(function(p){p.update();p.draw();});
-  shooters.forEach(function(s){s.update();s.draw();});
+  ctx.globalAlpha = 1;
   requestAnimationFrame(animate);
 }
 animate();
 
-/* NAV */
 window.addEventListener('scroll', function() {
-  document.getElementById('nav').classList.toggle('solid', window.scrollY > 30);
-});
+  var nav = document.getElementById('nav');
+  if(window.scrollY > 30) nav.classList.add('solid'); else nav.classList.remove('solid');
+}, {passive: true});
 
-/* REVEAL */
 var obs = new IntersectionObserver(function(es) {
   es.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, {threshold:.1});
 document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
-
-/* COUNT-UP */
-function countUp(el, target, suffix, duration) {
-  var start = null;
-  function step(ts) {
-    if (!start) start = ts;
-    var p = Math.min((ts-start)/duration, 1);
-    var ease = 1 - Math.pow(1-p, 3);
-    el.textContent = Math.floor(ease*target) + suffix;
-    if (p < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-var cObs = new IntersectionObserver(function(es) {
-  es.forEach(function(e) {
-    if (e.isIntersecting) {
-      cObs.unobserve(e.target);
-      e.target.querySelectorAll('.ticker-num[data-val]').forEach(function(t) {
-        countUp(t, parseInt(t.dataset.val), t.dataset.suf||'', 1800);
-      });
-    }
-  });
-}, {threshold:.5});
-document.querySelectorAll('.hero-ticker').forEach(function(el){ cObs.observe(el); });
 </script>
 </body>
 </html>
