@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aspaloyy — Main Page</title>
+  <title>Aspaloyy — Full-Cycle Digital & AI Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
   <style>
@@ -12,278 +12,227 @@
     :root {
       --bg: #09090f;
       --surface: #111118;
-      --card: #16161f;
-      --border: rgba(255,255,255,0.08);
+      --card: #14141c;
+      --border: rgba(255,255,255,0.06);
       --border-solid: #1e1e2e;
       --white: #ffffff;
-      --text: #e8e8f0;
-      --muted: #6868a0;
-      --muted2: #9898b8;
+      --text: #f0f0f5;
+      --muted: #8a8aa8;
+      --muted2: #a5a5c5;
       --yellow: #f5e642;
       --pink: #ff4d8d;
       --cyan: #00f0ff;
       --purple: #9b5cff;
       --green: #2affa0;
-      --nav-bg: rgba(9,9,15,0.88);
+      --nav-bg: rgba(9,9,15,0.85);
     }
     [data-theme="light"] {
-      --bg: #f3f5fb;
-      --surface: rgba(255,255,255,0.76);
-      --card: #e9edf7;
-      --border: rgba(76,92,150,0.14);
+      --bg: #f5f7fc;
+      --surface: rgba(255,255,255,0.85);
+      --card: #ffffff;
+      --border: rgba(76,92,150,0.1);
       --border-solid: #d9e0f0;
-      --white: #1b2340;
-      --text: #4f5b78;
-      --muted: #7c89a5;
-      --muted2: #5d6986;
-      --yellow: #5b5cf0;
-      --pink: #d946ef;
-      --cyan: #0ea5b7;
-      --purple: #7c4dff;
+      --white: #111827;
+      --text: #374151;
+      --muted: #6b7280;
+      --muted2: #4b5563;
+      --yellow: #4f46e5;
+      --pink: #db2777;
+      --cyan: #0891b2;
+      --purple: #7c3aed;
       --green: #0f766e;
-      --nav-bg: rgba(243,245,251,0.82);
+      --nav-bg: rgba(245,247,252,0.9);
     }
-    [data-theme="light"] body::after { opacity:.08; }
-    [data-theme="light"] .hero-grid { background-image:linear-gradient(rgba(91,92,240,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(91,92,240,.05) 1px,transparent 1px); }
-    [data-theme="light"] .orb-y{background:radial-gradient(ellipse,rgba(91,92,240,.10) 0%,transparent 72%)}
-    [data-theme="light"] .orb-p{background:radial-gradient(circle,rgba(217,70,239,.08) 0%,transparent 72%)}
-    [data-theme="light"] .orb-c{background:radial-gradient(circle,rgba(14,165,183,.07) 0%,transparent 72%)}
-    [data-theme="light"] .tag{background:rgba(255,255,255,.72);border-color:rgba(79,70,229,.18);box-shadow:0 16px 34px rgba(99,102,241,.08)}
-    [data-theme="light"] .tag-text{color:#4338ca}
-    [data-theme="light"] .btn-ghost,
-    [data-theme="light"] .plat-badge,
-    [data-theme="light"] .social-btn,
-    [data-theme="light"] .lang-select,
-    [data-theme="light"] .theme-btn { background:rgba(255,255,255,.72); border-color:rgba(15,23,42,.10); box-shadow:0 14px 28px rgba(120,131,180,.10); color:#4338ca; }
-    [data-theme="light"] .cta-box{background:linear-gradient(135deg,#171722 0%,#111120 55%,#141733 100%);border-color:rgba(91,92,240,.18)}
-
+    
     html { scroll-behavior: smooth; }
-    body { background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;transition:background .3s,color .3s; }
+    body { 
+      background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; 
+      overflow-x:hidden; transition:background .3s,color .3s; 
+      text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased;
+    }
 
+    /* Backgrounds & Canvas */
     #particle-canvas { position:fixed;inset:0;pointer-events:none;z-index:1; }
     body::after {
       content:'';position:fixed;inset:0;
       background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
-      pointer-events:none;z-index:500;opacity:.4;
+      pointer-events:none;z-index:500;opacity:.3;
     }
+    [data-theme="light"] body::after { opacity:.05; }
+    [data-theme="light"] .hero-grid { background-image:linear-gradient(rgba(79,70,229,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(79,70,229,.04) 1px,transparent 1px); }
+    [data-theme="light"] .orb-y{background:radial-gradient(ellipse,rgba(79,70,229,.08) 0%,transparent 70%)}
+    [data-theme="light"] .orb-p{background:radial-gradient(circle,rgba(219,39,119,.06) 0%,transparent 70%)}
+    [data-theme="light"] .orb-c{background:radial-gradient(circle,rgba(8,145,178,.05) 0%,transparent 70%)}
+    [data-theme="light"] .tag-pill{background:#4f46e5;color:#fff}
+    [data-theme="light"] .tag-text{color:#4f46e5}
+    [data-theme="light"] .btn-ghost, [data-theme="light"] .plat-badge, [data-theme="light"] .social-btn, [data-theme="light"] .lang-select, [data-theme="light"] .theme-btn { 
+      background:#fff; border-color:rgba(15,23,42,.1); box-shadow:0 8px 20px rgba(0,0,0,.04); color:#4f46e5; 
+    }
+    [data-theme="light"] .cta-box{background:linear-gradient(135deg,#fff 0%,#f5f7fc 100%);border-color:rgba(79,70,229,.15); box-shadow: 0 20px 40px rgba(0,0,0,.05);}
+    [data-theme="light"] .cta-box h2 { color: #111827; }
 
     /* NAV */
     nav {
       position:fixed;top:0;left:0;right:0;z-index:300;
       display:flex;align-items:center;justify-content:space-between;
-      padding:20px 52px;transition:all .3s;
+      padding:16px 40px;transition:all .3s;
     }
-    nav.solid { background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border); }
-    .nav-logo {
-      font-family:'Unbounded',sans-serif;font-size:16px;font-weight:800;
-      color:var(--white);text-decoration:none;display:flex;align-items:center;gap:10px;
-    }
+    nav.solid { background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border); }
+    .nav-logo { font-family:'Unbounded',sans-serif;font-size:16px;font-weight:800;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:10px; }
     .nav-logo-icon {
-      width:34px;height:34px;border-radius:10px;background:var(--yellow);
-      display:flex;align-items:center;justify-content:center;font-size:16px;
-      animation:logoPulse 3s ease-in-out infinite;
+      width:32px;height:32px;border-radius:8px;background:var(--yellow);
+      display:flex;align-items:center;justify-content:center;font-size:15px;
+      animation:logoPulse 3s ease-in-out infinite; color: #000;
     }
     @keyframes logoPulse{0%,100%{box-shadow:0 0 0 0 rgba(245,230,66,0)}50%{box-shadow:0 0 0 8px rgba(245,230,66,.15)}}
-    .nav-right { display:flex;align-items:center;gap:14px; }
+    [data-theme="light"] .nav-logo-icon { background: #4f46e5; color: #fff; animation:logoPulseL 3s ease-in-out infinite;}
+    @keyframes logoPulseL{0%,100%{box-shadow:0 0 0 0 rgba(79,70,229,0)}50%{box-shadow:0 0 0 8px rgba(79,70,229,.15)}}
+    .nav-right { display:flex;align-items:center;gap:16px; }
     .nav-links { display:flex;gap:32px;list-style:none; }
-    .nav-links a { font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s;letter-spacing:.3px; }
+    .nav-links a { font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s;letter-spacing:.3px; }
     .nav-links a:hover { color:var(--white); }
     .nav-controls { display:flex;align-items:center;gap:8px; }
     .lang-select {
       background:var(--surface);border:1px solid var(--border);border-radius:8px;
       color:var(--muted2);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;
-      padding:7px 10px;cursor:pointer;outline:none;transition:all .2s;appearance:none;-webkit-appearance:none;
+      padding:8px 12px;cursor:pointer;outline:none;transition:all .2s;appearance:none;-webkit-appearance:none;
     }
     .lang-select:hover { border-color:var(--yellow);color:var(--yellow); }
     .theme-btn {
-      width:34px;height:34px;border-radius:9px;background:var(--surface);border:1px solid var(--border);
+      width:36px;height:36px;border-radius:8px;background:var(--surface);border:1px solid var(--border);
       cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s;color:var(--white);
     }
-    .theme-btn:hover { border-color:var(--yellow);transform:scale(1.08); box-shadow:0 0 0 4px rgba(91,92,240,.08); }
+    .theme-btn:hover { border-color:var(--yellow);transform:scale(1.05); }
     .nav-btn {
       font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;
-      background:var(--yellow);color:#09090f;border:none;padding:10px 22px;border-radius:8px;
+      background:var(--yellow);color:#fff;border:none;padding:10px 22px;border-radius:8px;
       cursor:pointer;transition:all .2s;text-decoration:none;
     }
-    .nav-btn:hover { transform:translateY(-1px);box-shadow:0 6px 24px rgba(245,230,66,.3); }
+    [data-theme="dark"] .nav-btn { color: #09090f; }
+    .nav-btn:hover { transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,230,66,.2); }
+    [data-theme="light"] .nav-btn:hover { box-shadow:0 6px 20px rgba(79,70,229,.2); }
 
     /* HERO */
     .hero {
-      min-height:100vh;display:flex;flex-direction:column;
-      align-items:center;justify-content:center;
-      text-align:center;padding:120px 40px 80px;
-      position:relative;overflow:hidden;
+      min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+      text-align:center;padding:140px 24px 80px;position:relative;overflow:hidden;
     }
     .hero-grid {
       position:absolute;inset:0;
-      background-image:linear-gradient(rgba(245,230,66,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(245,230,66,.025) 1px,transparent 1px);
-      background-size:80px 80px;
-      mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,black 30%,transparent 75%);
+      background-image:linear-gradient(rgba(245,230,66,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(245,230,66,.03) 1px,transparent 1px);
+      background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,black 30%,transparent 75%);
     }
     .orb { position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none; }
-    .orb-y{width:600px;height:300px;background:radial-gradient(ellipse,rgba(245,230,66,.1) 0%,transparent 70%);top:0;left:50%;transform:translateX(-50%);animation:ob1 9s ease-in-out infinite}
-    .orb-p{width:400px;height:400px;background:radial-gradient(circle,rgba(155,92,255,.12) 0%,transparent 70%);bottom:10%;left:-5%;animation:ob2 12s ease-in-out infinite}
-    .orb-c{width:350px;height:350px;background:radial-gradient(circle,rgba(0,240,255,.1) 0%,transparent 70%);bottom:0;right:0;animation:ob3 10s ease-in-out infinite}
+    .orb-y{width:500px;height:300px;background:radial-gradient(ellipse,rgba(245,230,66,.08) 0%,transparent 70%);top:0;left:50%;transform:translateX(-50%);animation:ob1 10s ease-in-out infinite}
+    .orb-p{width:400px;height:400px;background:radial-gradient(circle,rgba(155,92,255,.08) 0%,transparent 70%);bottom:10%;left:-5%;animation:ob2 12s ease-in-out infinite}
+    .orb-c{width:350px;height:350px;background:radial-gradient(circle,rgba(0,240,255,.08) 0%,transparent 70%);bottom:0;right:0;animation:ob3 10s ease-in-out infinite}
     @keyframes ob1{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.1)}}
     @keyframes ob2{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-20px)}}
     @keyframes ob3{0%,100%{transform:translate(0,0)}50%{transform:translate(-20px,20px)}}
-    .shape{position:absolute;font-family:'Unbounded',sans-serif;font-weight:900;letter-spacing:-2px;opacity:.06;pointer-events:none;user-select:none;animation:drift 20s ease-in-out infinite}
-    .s1{font-size:180px;color:var(--yellow);top:5%;left:-2%}
-    .s2{font-size:120px;color:var(--pink);top:20%;right:2%;animation-delay:-5s}
-    .s3{font-size:100px;color:var(--cyan);bottom:15%;left:5%;animation-delay:-10s}
-    .s4{font-size:80px;color:var(--purple);top:60%;right:8%;animation-delay:-7s}
-    .s5{font-size:60px;color:var(--green);top:45%;left:3%;animation-delay:-14s}
-    @keyframes drift{0%,100%{transform:translateY(0)rotate(0deg)}33%{transform:translateY(-20px)rotate(3deg)}66%{transform:translateY(10px)rotate(-2deg)}}
-    .hero::before{content:'';position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--yellow),transparent);animation:scanline 6s linear infinite;z-index:3;opacity:.4;pointer-events:none}
-    @keyframes scanline{0%{top:-2px;opacity:0}5%{opacity:.4}95%{opacity:.4}100%{top:100%;opacity:0}}
 
-    .hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(245,230,66,.3);border-radius:100px;padding:6px 16px 6px 8px;margin-bottom:32px;position:relative;z-index:2;animation:fadeUp .7s ease both}
-    .tag-pill{background:var(--yellow);color:#09090f;font-family:'Unbounded',sans-serif;font-size:9px;font-weight:800;letter-spacing:1px;padding:3px 10px;border-radius:100px}
-    .tag-text{font-size:12px;font-weight:500;color:rgba(245,230,66,.8);letter-spacing:.5px}
-    .hero h1{font-family:'Unbounded',sans-serif;font-size:clamp(42px,7vw,100px);font-weight:900;line-height:.95;letter-spacing:-3px;color:var(--white);max-width:900px;position:relative;z-index:2;animation:fadeUp .7s .1s ease both}
-    .h1-line2{display:block;background:linear-gradient(90deg,var(--yellow) 0%,var(--pink) 50%,var(--cyan) 100%);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s ease-in-out infinite}
+    .hero-tag {
+      display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.1);
+      border-radius:100px;padding:6px 16px 6px 6px;margin-bottom:32px;position:relative;z-index:2;
+      background: var(--surface); animation:fadeUp .7s ease both;
+    }
+    .tag-pill { background:var(--yellow);color:#09090f;font-family:'Unbounded',sans-serif;font-size:10px;font-weight:800;letter-spacing:1px;padding:4px 12px;border-radius:100px; }
+    .tag-text { font-size:12px;font-weight:600;color:var(--text); }
+    
+    .hero h1 { font-family:'Unbounded',sans-serif;font-size:clamp(36px,6vw,84px);font-weight:900;line-height:1.05;letter-spacing:-2px;color:var(--white);max-width:1000px;position:relative;z-index:2;animation:fadeUp .7s .1s ease both; }
+    .h1-line2 { display:block;background:linear-gradient(90deg,var(--yellow) 0%,var(--pink) 50%,var(--cyan) 100%);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 5s ease-in-out infinite; }
     @keyframes shimmer{0%,100%{background-position:0%}50%{background-position:100%}}
-    .hero-sub{margin-top:24px;font-size:17px;color:var(--muted);max-width:500px;line-height:1.7;position:relative;z-index:2;animation:fadeUp .7s .2s ease both}
-    .hero-sub strong{color:var(--text);font-weight:500}
-    .hero-btns{margin-top:44px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;animation:fadeUp .7s .3s ease both}
-    .btn-y{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;background:var(--yellow);color:#09090f;border:none;padding:14px 32px;border-radius:10px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:8px;text-decoration:none}
-    .btn-y:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(245,230,66,.3)}
-    .btn-ghost{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;background:none;border:1px solid var(--border);color:var(--muted);padding:14px 28px;border-radius:10px;cursor:pointer;transition:all .2s;text-decoration:none}
-    .btn-ghost:hover{border-color:rgba(255,255,255,.25);color:var(--white)}
-    .hero-platforms{margin-top:52px;display:flex;align-items:center;gap:20px;position:relative;z-index:2;animation:fadeUp .7s .4s ease both;flex-wrap:wrap;justify-content:center}
-    .plat-label{font-size:11px;color:var(--muted);letter-spacing:.5px}
-    .plat-badges{display:flex;gap:10px}
-    .plat-badge{display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;color:var(--text);transition:border-color .2s}
-    .plat-badge:hover{border-color:rgba(255,255,255,.2)}
-    .plat-icon{font-size:15px}
-    .hero-ticker{display:flex;gap:32px;margin-top:40px;position:relative;z-index:2;animation:fadeUp .7s .5s ease both;flex-wrap:wrap;justify-content:center}
-    .ticker-item{display:flex;flex-direction:column;align-items:center;gap:4px}
-    .ticker-num{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:900;letter-spacing:-1px;color:var(--white)}
-    .ticker-label{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+    
+    .hero-sub { margin-top:24px;font-size:18px;color:var(--muted);max-width:640px;line-height:1.6;position:relative;z-index:2;animation:fadeUp .7s .2s ease both; }
+    .hero-btns { margin-top:40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;animation:fadeUp .7s .3s ease both; }
+    
+    .btn-y { font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;background:var(--yellow);color:#fff;border:none;padding:16px 36px;border-radius:12px;cursor:pointer;transition:all .2s;text-decoration:none; }
+    [data-theme="dark"] .btn-y { color: #09090f; }
+    .btn-y:hover { transform:translateY(-2px);box-shadow:0 12px 30px rgba(245,230,66,.2); }
+    [data-theme="light"] .btn-y:hover { box-shadow:0 12px 30px rgba(79,70,229,.2); }
+    .btn-ghost { font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:16px 36px;border-radius:12px;cursor:pointer;transition:all .2s;text-decoration:none; }
+    .btn-ghost:hover { border-color:var(--yellow); }
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
     /* SECTIONS */
-    .section-eyebrow{font-family:'Unbounded',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;color:var(--yellow);text-transform:uppercase;margin-bottom:16px;position:relative;display:inline-block}
-    .section-eyebrow::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--yellow);transition:width .6s ease}
-    .reveal.visible .section-eyebrow::after{width:100%}
-    .section-h{font-family:'Unbounded',sans-serif;font-size:clamp(28px,3.5vw,44px);font-weight:800;letter-spacing:-2px;line-height:1.05;color:var(--white);margin-bottom:14px}
-    .section-p{font-size:15px;color:var(--muted);line-height:1.7;max-width:480px}
+    .section-eyebrow { font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--yellow);text-transform:uppercase;margin-bottom:16px;position:relative;display:inline-block; }
+    .section-h { font-family:'Unbounded',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;color:var(--white);margin-bottom:16px; }
+    .section-p { font-size:16px;color:var(--muted);line-height:1.7;max-width:500px; }
 
-    /* WHAT IS */
-    .what{padding:100px 52px;background:var(--surface);border-top:1px solid var(--border)}
-    .what-inner{max-width:1280px;margin:0 auto}
-    .what-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:52px}
-    .what-text p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px}
-    .what-text p strong{color:var(--text);font-weight:600}
-    .what-cards{display:flex;flex-direction:column;gap:12px}
-    .wcard{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;transition:all .2s;cursor:default}
-    .wcard:hover{background:var(--surface);border-color:rgba(245,230,66,.2);transform:translateX(4px)}
-    .wc-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-    .wc-y{background:rgba(245,230,66,.1)}
-    .wc-p{background:rgba(255,77,141,.1)}
-    .wc-c{background:rgba(0,240,255,.1)}
-    .wc-g{background:rgba(42,255,160,.1)}
-    .wc-body h4{font-size:14px;font-weight:700;color:var(--white);margin-bottom:4px}
-    .wc-body p{font-size:13px;color:var(--muted);line-height:1.55}
+    /* MANIFESTO (What is) */
+    .manifesto { padding:100px 40px; background:var(--bg); }
+    .manifesto-inner { max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center; }
+    .m-text p { font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:20px; }
+    .m-text p strong { color:var(--text);font-weight:600; }
+    .m-cards { display:flex;flex-direction:column;gap:16px; }
+    .m-card { background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;display:flex;align-items:flex-start;gap:16px;transition:all .3s; }
+    .m-card:hover { transform:translateX(4px); border-color:var(--yellow); box-shadow:0 10px 30px rgba(0,0,0,.05); }
+    .mc-icon { width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0; background:rgba(245,230,66,.1); }
+    [data-theme="light"] .mc-icon { background:rgba(79,70,229,.1); }
+    .mc-body h4 { font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:var(--white);margin-bottom:6px; }
+    .mc-body p { font-size:14px;color:var(--muted);line-height:1.6; }
 
-    /* SERVICES */
-    .services{padding:100px 52px;border-top:1px solid var(--border)}
-    .services-inner{max-width:1280px;margin:0 auto}
-    .srv-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;flex-wrap:wrap;gap:24px}
-    .srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .srv-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px 28px;transition:all .25s;cursor:default;position:relative;overflow:hidden}
-    .srv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .3s}
-    .srv-card:nth-child(3n+1)::before{background:var(--yellow)}
-    .srv-card:nth-child(3n+2)::before{background:var(--pink)}
-    .srv-card:nth-child(3n+3)::before{background:var(--cyan)}
-    .srv-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
-    .srv-card:hover::before{opacity:1}
-    .srv-num{font-family:'Unbounded',sans-serif;font-size:10px;font-weight:700;color:var(--border);margin-bottom:20px;letter-spacing:2px}
-    .srv-icon{font-size:30px;margin-bottom:16px}
-    .srv-card h3{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:800;letter-spacing:-.5px;color:var(--white);margin-bottom:10px}
-    .srv-card p{font-size:13px;color:var(--muted);line-height:1.6}
+    /* VECTORS (Services) */
+    .vectors { padding:100px 40px; border-top:1px solid var(--border); background:var(--surface); }
+    .vectors-inner { max-width:1200px;margin:0 auto; }
+    .v-header { display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;flex-wrap:wrap;gap:24px; }
+    .v-grid { display:grid;grid-template-columns:repeat(2, 1fr);gap:24px; }
+    .v-card { background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:40px;transition:all .3s;position:relative;overflow:hidden; }
+    .v-card:hover { transform:translateY(-4px); border-color:var(--yellow); box-shadow:0 20px 40px rgba(0,0,0,.08); }
+    .v-icon { font-size:36px;margin-bottom:24px; display:inline-block; }
+    .v-card h3 { font-family:'Unbounded',sans-serif;font-size:18px;font-weight:800;letter-spacing:-.5px;color:var(--white);margin-bottom:12px; }
+    .v-card p { font-size:15px;color:var(--muted);line-height:1.7; }
 
-    /* PILLARS / VALUES */
-    .values{padding:100px 52px;background:var(--surface);border-top:1px solid var(--border)}
-    .values-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-    .values-grid{display:flex;flex-direction:column;gap:0;margin-top:52px}
-    .pillar{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--border);transition:background .25s,padding .25s}
-    .pillar:first-child{border-top:1px solid var(--border)}
-    .pillar:hover{padding-left:8px;background:rgba(245,230,66,.02)}
-    .pillar-icon{font-size:24px;flex-shrink:0;margin-top:2px}
-    .pillar-title{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:var(--white);margin-bottom:6px;letter-spacing:-.3px}
-    .pillar-desc{font-size:13px;color:var(--muted);line-height:1.65}
-    .values-right{}
-    .v-stat{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:16px;transition:border-color .2s}
-    .v-stat:hover{border-color:rgba(245,230,66,.2)}
-    .vs-num{font-family:'Unbounded',sans-serif;font-size:40px;font-weight:900;letter-spacing:-2px;line-height:1}
-    .vs-label{font-size:13px;color:var(--muted);margin-top:6px}
-
-    /* ROADMAP */
-    .roadmap{padding:100px 52px;border-top:1px solid var(--border)}
-    .roadmap-inner{max-width:1280px;margin:0 auto}
-    .road-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border-solid);border-radius:20px;overflow:hidden;margin-top:52px}
-    .road-item{background:var(--surface);padding:32px 28px;transition:background .25s;position:relative}
-    .road-item:hover{background:rgba(245,230,66,.04)}
-    .road-item:nth-child(2){position:relative}
-    .road-item:nth-child(2)::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(245,230,66,.04),transparent);animation:roadPulse 2.5s ease-in-out infinite;pointer-events:none}
-    @keyframes roadPulse{0%,100%{opacity:.4}50%{opacity:1}}
-    .road-q{font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--muted);margin-bottom:16px}
-    .road-title{font-size:16px;font-weight:700;color:var(--white);margin-bottom:8px}
-    .road-desc{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:16px}
-    .road-dot{width:8px;height:8px;border-radius:50%}
-    .dot-done{background:var(--green)}
-    .dot-now{background:var(--yellow);animation:blink 1.5s ease-in-out infinite}
-    .dot-plan{background:var(--border)}
-    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    /* LAB (In Development) */
+    .lab { padding:100px 40px; border-top:1px solid var(--border); }
+    .lab-inner { max-width:1200px;margin:0 auto; }
+    .lab-grid { display:grid;grid-template-columns:repeat(3, 1fr);gap:24px;margin-top:48px; }
+    .l-item { background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px; position:relative; }
+    .l-item::before { content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--yellow);border-top-left-radius:20px;border-top-right-radius:20px;opacity:0.5; }
+    .l-item:nth-child(2)::before{background:var(--pink)}
+    .l-item:nth-child(3)::before{background:var(--cyan)}
+    .l-title { font-family:'Unbounded',sans-serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:12px; }
+    .l-desc { font-size:14px;color:var(--muted);line-height:1.6; }
 
     /* CTA */
-    .cta{padding:100px 52px;border-top:1px solid var(--border)}
-    .cta-inner{max-width:1280px;margin:0 auto}
-    .cta-box{border-radius:24px;overflow:hidden;position:relative;background:linear-gradient(135deg,#14140c 0%,#0d0d18 50%,#0a0a18 100%);border:1px solid rgba(245,230,66,.15);padding:80px;text-align:center}
-    [data-theme="light"] .cta-box{background:linear-gradient(135deg,#171722 0%,#111120 55%,#141733 100%);border-color:rgba(91,92,240,.18)}
-    .cta-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(245,230,66,.07) 0%,transparent 60%)}
-    .cta-box::after{content:'';position:absolute;bottom:-80px;left:50%;transform:translateX(-50%);width:800px;height:300px;background:radial-gradient(ellipse,rgba(155,92,255,.1) 0%,rgba(0,240,255,.06) 40%,transparent 70%);animation:auroraShift 8s ease-in-out infinite;pointer-events:none}
-    @keyframes auroraShift{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.2) rotate(3deg)}}
-    .cta-box h2{font-family:'Unbounded',sans-serif;font-size:clamp(32px,4vw,56px);font-weight:900;letter-spacing:-2px;line-height:1;color:#fff;margin-bottom:16px;position:relative}
-    .cta-box h2 em{font-style:normal;color:var(--yellow)}
-    .cta-box p{font-size:16px;color:#8888aa;margin-bottom:40px;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.7;position:relative}
-    .cta-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
-    .cta-link{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 22px;font-size:13px;font-weight:600;color:rgba(255,255,255,.75);text-decoration:none;transition:all .2s}
-    .cta-link:hover{background:var(--yellow);border-color:var(--yellow);color:#09090f;transform:translateY(-2px)}
-    .cta-link-primary{background:var(--yellow);border-color:var(--yellow);color:#09090f;font-weight:700}
-    .cta-link-primary:hover{background:#fff;border-color:#fff}
+    .cta { padding:100px 40px; border-top:1px solid var(--border); background:var(--surface); }
+    .cta-inner { max-width:1200px;margin:0 auto; }
+    .cta-box { border-radius:24px;position:relative;background:var(--card);border:1px solid var(--border);padding:80px 40px;text-align:center;overflow:hidden; }
+    .cta-box h2 { font-family:'Unbounded',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:900;letter-spacing:-1.5px;line-height:1.1;color:var(--white);margin-bottom:20px; }
+    .cta-box h2 em { font-style:normal;color:var(--yellow); }
+    .cta-box p { font-size:16px;color:var(--muted);margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7; }
+    .cta-links { display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1; }
+    .cta-link { display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 24px;font-size:14px;font-weight:600;color:var(--text);text-decoration:none;transition:all .2s; }
+    .cta-link:hover { background:var(--yellow);border-color:var(--yellow);color:#fff; }
+    [data-theme="dark"] .cta-link:hover { color: #000; }
+    .cta-link-primary { background:var(--yellow);border-color:var(--yellow);color:#fff; }
+    [data-theme="dark"] .cta-link-primary { color: #000; }
 
     /* FOOTER */
-    footer{border-top:1px solid var(--border);padding:48px 52px}
-    .footer-inner{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
-    .footer-logo{font-family:'Unbounded',sans-serif;font-size:16px;font-weight:800;color:var(--white);display:flex;align-items:center;gap:10px;text-decoration:none}
-    .footer-logo-icon{width:30px;height:30px;border-radius:8px;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:14px}
-    .footer-links{display:flex;gap:28px;list-style:none}
-    .footer-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s}
-    .footer-links a:hover{color:var(--white)}
-    .footer-social{display:flex;gap:12px}
-    .social-btn{width:36px;height:36px;border-radius:9px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:all .2s;text-decoration:none}
-    .social-btn:hover{border-color:var(--yellow);transform:translateY(-2px)}
-    .footer-copy{font-size:12px;color:var(--muted);margin-top:24px;text-align:center;width:100%}
+    footer{ border-top:1px solid var(--border);padding:40px; background:var(--bg); }
+    .footer-inner{ max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px; }
+    .footer-logo{ font-family:'Unbounded',sans-serif;font-size:16px;font-weight:800;color:var(--white);display:flex;align-items:center;gap:10px;text-decoration:none; }
+    .footer-logo-icon{ width:28px;height:28px;border-radius:6px;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:12px; color:#000; }
+    [data-theme="light"] .footer-logo-icon { background:#4f46e5; color:#fff; }
+    .footer-links{ display:flex;gap:28px;list-style:none; }
+    .footer-links a{ font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s; }
+    .footer-links a:hover{ color:var(--white); }
+    .footer-copy{ font-size:13px;color:var(--muted);width:100%;text-align:center;margin-top:20px; }
 
-    .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
-    .reveal.visible{opacity:1;transform:translateY(0)}
-    .reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}
+    .reveal{ opacity:0;transform:translateY(24px);transition:opacity .6s ease-out,transform .6s ease-out; }
+    .reveal.visible{ opacity:1;transform:translateY(0); }
+    .reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}
 
-    @media(max-width:1024px){
-      .what-grid{grid-template-columns:1fr}
-      .srv-grid{grid-template-columns:1fr 1fr}
-      .values-inner{grid-template-columns:1fr}
-      .road-grid{grid-template-columns:1fr 1fr}
+    @media(max-width:900px){
+      .manifesto-inner, .v-grid { grid-template-columns:1fr; }
+      .lab-grid { grid-template-columns:1fr; }
     }
-    @media(max-width:768px){
-      nav{padding:16px 20px}
-      .nav-links{display:none}
-      .what,.services,.values,.roadmap,.cta,footer{padding:60px 20px}
-      .srv-grid{grid-template-columns:1fr}
-      .road-grid{grid-template-columns:1fr}
-      .cta-box{padding:48px 24px}
+    @media(max-width:600px){
+      nav { padding:16px 20px; }
+      .nav-links { display:none; }
+      .hero, .manifesto, .vectors, .lab, .cta, footer { padding-left:20px; padding-right:20px; }
+      .cta-box { padding:40px 20px; }
+      .hero h1 { font-size: 32px; }
     }
   </style>
 </head>
@@ -296,16 +245,16 @@
     Aspaloyy
   </a>
   <ul class="nav-links">
-    <li><a href="#about" data-i18n="nav.about">About</a></li>
-    <li><a href="#services" data-i18n="nav.services">Services</a></li>
-    <li><a href="#roadmap" data-i18n="nav.roadmap">Roadmap</a></li>
+    <li><a href="#manifesto" data-i18n="nav.about">Manifesto</a></li>
+    <li><a href="#vectors" data-i18n="nav.services">Vectors</a></li>
+    <li><a href="#lab" data-i18n="nav.lab">R&D Lab</a></li>
     <li><a href="aboutasman.html" data-i18n="nav.founder">Founder</a></li>
   </ul>
   <div class="nav-right">
     <div class="nav-controls">
       <select class="lang-select" id="langSelect">
-        <option value="en">EN</option>
         <option value="ru">RU</option>
+        <option value="en">EN</option>
         <option value="ky">KG</option>
         <option value="tr">TR</option>
         <option value="de">DE</option>
@@ -320,150 +269,85 @@
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="orb orb-y"></div><div class="orb orb-p"></div><div class="orb orb-c"></div>
-  <div class="shape s1">A</div><div class="shape s2">&#10022;</div>
-  <div class="shape s3">&#127918;</div><div class="shape s4">&#9677;</div><div class="shape s5">&#9650;</div>
 
   <div class="hero-tag">
-    <span class="tag-pill" data-i18n="hero.pill">STUDIO</span>
-    <span class="tag-text" data-i18n="hero.tagtext">Digital Studio &middot; Google Play &middot; Since 2026</span>
+    <span class="tag-pill" data-i18n="hero.pill">R&D STUDIO</span>
+    <span class="tag-text" data-i18n="hero.tagtext">Ecosystem Lab · Global Market</span>
   </div>
 
   <h1>
-    <span data-i18n="hero.line1">We build things</span><br>
-    <span class="h1-line2" data-i18n="hero.line2">people use.</span>
+    <span data-i18n="hero.line1">Архитекторы цифровых систем.</span><br>
+    <span class="h1-line2" data-i18n="hero.line2">Продукты, которые имеют значение.</span>
   </h1>
 
   <p class="hero-sub" data-i18n="hero.sub">
-    Aspaloyy is a <strong>digital studio</strong> building web products, mobile apps, AI tools and backend systems. One founder. Full stack. Ships for real.
+    Aspaloyy — это независимая исследовательская R&D студия. Мы не просто пишем код. Мы проектируем автономные нейросетевые инструменты, нативные мобильные приложения и масштабируемые веб-экосистемы.
   </p>
 
   <div class="hero-btns">
-    <a href="https://play.google.com/store/apps/dev?id=8055300163983735296" target="_blank" class="btn-y" data-i18n="hero.cta1">&#127918; View on Google Play</a>
-    <a href="aboutasman.html" class="btn-ghost" data-i18n="hero.cta2">Meet the founder</a>
-  </div>
-
-  <div class="hero-platforms">
-    <span class="plat-label" data-i18n="hero.avail">Available on</span>
-    <div class="plat-badges">
-      <div class="plat-badge"><span class="plat-icon">&#129302;</span> Android</div>
-      <div class="plat-badge"><span class="plat-icon">&#127918;</span> Google Play</div>
-    </div>
-  </div>
-
-  <div class="hero-ticker">
-    <div class="ticker-item">
-      <div class="ticker-num" data-val="8" data-suf="+">8+</div>
-      <div class="ticker-label" data-i18n="stat1">Disciplines</div>
-    </div>
-    <div class="ticker-item">
-      <div class="ticker-num" data-val="100" data-suf="%">100%</div>
-      <div class="ticker-label" data-i18n="stat2">Independent</div>
-    </div>
-    <div class="ticker-item">
-      <div class="ticker-num" data-val="2026" data-suf="">2026</div>
-      <div class="ticker-label" data-i18n="stat3">Launch year</div>
-    </div>
+    <a href="#vectors" class="btn-y" data-i18n="hero.cta1">Изучить технологии</a>
+    <a href="mailto:aspaloyy@gmail.com" class="btn-ghost" data-i18n="hero.cta2">Обсудить проект</a>
   </div>
 </section>
 
-<!-- WHAT IS -->
-<section id="about" class="what">
-  <div class="what-inner">
+<!-- MANIFESTO -->
+<section id="manifesto" class="manifesto">
+  <div class="manifesto-inner">
     <div class="reveal">
-      <div class="section-eyebrow" data-i18n="what.eyebrow">What is Aspaloyy</div>
-      <div class="section-h" data-i18n="what.title">A studio with<br>real depth.</div>
+      <div class="section-eyebrow" data-i18n="what.eyebrow">Манифест студии</div>
+      <div class="section-h" data-i18n="what.title">Синтез технологий.<br>Без границ.</div>
+      <div class="m-text">
+        <p data-i18n="what.p1">В мире стремительных инноваций узкая специализация ограничивает видение. Мы построили Aspaloyy как <strong>междисциплинарный хаб</strong>. Мы осознанно объединили разработку сложных игровых механик, интеграцию автономных ИИ-агентов, мобильную инженерию и проектирование облачного бэкенда.</p>
+        <p data-i18n="what.p2">Игровые алгоритмы оптимизации графики делают наши корпоративные интерфейсы молниеносными. А строгая, безопасная архитектура микросервисов обеспечивает нашим играм беспрецедентную стабильность. Мы синтезируем лучшие практики для создания идеального продукта.</p>
+      </div>
     </div>
-    <div class="what-grid">
-      <div class="what-text reveal">
-        <p data-i18n="what.p1">Aspaloyy isn't a freelance page or a template. It's a growing digital studio — one founder, full-stack capability, and a long-term vision for products that matter.</p>
-        <p data-i18n="what.p2">Built from zero. Ships to real users. Covers web, mobile, AI, backend, design, and brand — all under one identity.</p>
-      </div>
-      <div class="what-cards reveal reveal-d1">
-        <div class="wcard"><div class="wc-icon wc-y">&#9881;</div><div class="wc-body"><h4 data-i18n="wc1.t">Engineering-first</h4><p data-i18n="wc1.d">Clean code, real architecture, no shortcuts. Frontend to backend.</p></div></div>
-        <div class="wcard"><div class="wc-icon wc-p">&#127912;</div><div class="wc-body"><h4 data-i18n="wc2.t">Design included</h4><p data-i18n="wc2.d">UI/UX is part of every project, not an afterthought.</p></div></div>
-        <div class="wcard"><div class="wc-icon wc-c">&#128640;</div><div class="wc-body"><h4 data-i18n="wc3.t">Ships for real</h4><p data-i18n="wc3.d">Apps on Google Play, live websites, deployed systems — not demos.</p></div></div>
-        <div class="wcard"><div class="wc-icon wc-g">&#129302;</div><div class="wc-body"><h4 data-i18n="wc4.t">AI direction</h4><p data-i18n="wc4.d">AI tools and automation are a core part of the studio's trajectory.</p></div></div>
-      </div>
+    <div class="m-cards reveal reveal-d1">
+      <div class="m-card"><div class="mc-icon">&#128640;</div><div class="mc-body"><h4 data-i18n="wc1.t">Product-Led Growth</h4><p data-i18n="wc1.d">Программное обеспечение, качество которого само по себе является главным драйвером.</p></div></div>
+      <div class="m-card"><div class="mc-icon">&#9889;</div><div class="mc-body"><h4 data-i18n="wc2.t">Agile & Shape Up</h4><p data-i18n="wc2.d">Мы не пишем код ради кода. Мы выпускаем осмысленные обновления, решающие проблемы.</p></div></div>
+      <div class="m-card"><div class="mc-icon">&#128274;</div><div class="mc-body"><h4 data-i18n="wc3.t">Global Security</h4><p data-i18n="wc3.d">Архитектура Privacy-First. Запрашиваем лишь критический минимум данных.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services" class="services">
-  <div class="services-inner">
-    <div class="srv-header reveal">
+<!-- VECTORS -->
+<section id="vectors" class="vectors">
+  <div class="vectors-inner">
+    <div class="v-header reveal">
       <div>
-        <div class="section-eyebrow" data-i18n="srv.eyebrow">What we build</div>
-        <div class="section-h" data-i18n="srv.title">Full-stack capabilities.</div>
+        <div class="section-eyebrow" data-i18n="srv.eyebrow">Экспертиза</div>
+        <div class="section-h" data-i18n="srv.title">Ключевые векторы.</div>
       </div>
-      <p class="section-p" data-i18n="srv.sub">From a landing page to a full product — Aspaloyy covers the whole stack.</p>
+      <p class="section-p" data-i18n="srv.sub">Каждое направление — это глубокое погружение в технологии и бескомпромиссная архитектура.</p>
     </div>
-    <div class="srv-grid">
-      <div class="srv-card reveal"><div class="srv-num">01</div><div class="srv-icon">&#127760;</div><h3 data-i18n="s1.t">Web Development</h3><p data-i18n="s1.d">Fast, clean websites and web apps built from scratch — responsive and ready to scale.</p></div>
-      <div class="srv-card reveal reveal-d1"><div class="srv-num">02</div><div class="srv-icon">&#128241;</div><h3 data-i18n="s2.t">Mobile Apps</h3><p data-i18n="s2.d">Android apps published on Google Play. Native performance, real users, real releases.</p></div>
-      <div class="srv-card reveal reveal-d2"><div class="srv-num">03</div><div class="srv-icon">&#128295;</div><h3 data-i18n="s3.t">Backend &amp; APIs</h3><p data-i18n="s3.d">Server-side logic, PostgreSQL databases, REST APIs, DevOps and production deployment.</p></div>
-      <div class="srv-card reveal"><div class="srv-num">04</div><div class="srv-icon">&#129302;</div><h3 data-i18n="s4.t">AI Tools</h3><p data-i18n="s4.d">AI-powered features, LLM integrations, smart workflows and automation.</p></div>
-      <div class="srv-card reveal reveal-d1"><div class="srv-num">05</div><div class="srv-icon">&#9889;</div><h3 data-i18n="s5.t">Bots &amp; Automation</h3><p data-i18n="s5.d">Telegram bots, workflow scripts, notification systems and custom pipelines.</p></div>
-      <div class="srv-card reveal reveal-d2"><div class="srv-num">06</div><div class="srv-icon">&#9999;</div><h3 data-i18n="s6.t">Brand &amp; Design</h3><p data-i18n="s6.d">UI/UX design, visual identity, digital presence strategy and content systems.</p></div>
+    <div class="v-grid">
+      <div class="v-card reveal"><div class="v-icon">&#129302;</div><h3 data-i18n="s1.t">Интеграция Генеративного ИИ</h3><p data-i18n="s1.d">Интеллектуальные системы на базе LLM (Google AI Pro). Цифровые двойники (Avatar V, HeyGen) для авто-генерации видеоконтента студийного качества на лету.</p></div>
+      <div class="v-card reveal reveal-d1"><div class="v-icon">&#128241;</div><h3 data-i18n="s2.t">Нативные Мобильные Экосистемы</h3><p data-i18n="s2.d">Проектирование кроссплатформенных и нативных приложений (Android 17 SDK). Плавный UI, оптимизация батареи и строгие стандарты конфиденциальности.</p></div>
+      <div class="v-card reveal"><div class="v-icon">&#127918;</div><h3 data-i18n="s3.t">Интерактивные Игровые Системы</h3><p data-i18n="s3.d">От прототипирования механик до сложного 3D-рендеринга и балансировки внутренней экономики виртуальных миров (Spatial Computing).</p></div>
+      <div class="v-card reveal reveal-d1"><div class="v-icon">&#9750;</div><h3 data-i18n="s4.t">Высоконагруженная Веб-инфраструктура</h3><p data-i18n="s4.d">Корпоративные SPA и PWA без задержек. Безопасная облачная инфраструктура (Serverless, Docker) готовая к миллионам запросов.</p></div>
     </div>
   </div>
 </section>
 
-<!-- VALUES -->
-<section class="values">
-  <div class="values-inner">
-    <div>
-      <div class="reveal">
-        <div class="section-eyebrow" data-i18n="val.eyebrow">Our values</div>
-        <div class="section-h" data-i18n="val.title">Built different,<br>on purpose.</div>
-      </div>
-      <div class="values-grid">
-        <div class="pillar reveal"><div class="pillar-icon">&#127919;</div><div><div class="pillar-title" data-i18n="p1.t">Systems, not fragments</div><div class="pillar-desc" data-i18n="p1.d">Every project is a coherent system, not a pile of disconnected parts.</div></div></div>
-        <div class="pillar reveal reveal-d1"><div class="pillar-icon">&#9889;</div><div><div class="pillar-title" data-i18n="p2.t">Ship fast, iterate faster</div><div class="pillar-desc" data-i18n="p2.d">We believe in getting real products in front of real users early.</div></div></div>
-        <div class="pillar reveal reveal-d2"><div class="pillar-icon">&#10024;</div><div><div class="pillar-title" data-i18n="p3.t">Design and engineering together</div><div class="pillar-desc" data-i18n="p3.d">Interface and infrastructure are built in parallel, not in sequence.</div></div></div>
-        <div class="pillar reveal reveal-d3"><div class="pillar-icon">&#127758;</div><div><div class="pillar-title" data-i18n="p4.t">Foundation over trend</div><div class="pillar-desc" data-i18n="p4.d">We build for endurance. Good foundations last; hype cycles don't.</div></div></div>
-      </div>
-    </div>
-    <div class="reveal reveal-d1">
-      <div class="v-stat"><div class="vs-num" style="color:var(--yellow)">8+</div><div class="vs-label" data-i18n="vs1">Disciplines covered</div></div>
-      <div class="v-stat"><div class="vs-num" style="color:var(--pink)">100%</div><div class="vs-label" data-i18n="vs2">Founder-driven</div></div>
-      <div class="v-stat"><div class="vs-num" style="color:var(--cyan)">2026</div><div class="vs-label" data-i18n="vs3">Year founded</div></div>
-      <div class="v-stat"><div class="vs-num" style="color:var(--green)">&#8734;</div><div class="vs-label" data-i18n="vs4">In development</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ROADMAP -->
-<section id="roadmap" class="roadmap">
-  <div class="roadmap-inner">
+<!-- R&D LAB -->
+<section id="lab" class="lab">
+  <div class="lab-inner">
     <div class="reveal">
-      <div class="section-eyebrow" data-i18n="road.eyebrow">Roadmap</div>
-      <div class="section-h" data-i18n="road.title">Where we're headed.</div>
+      <div class="section-eyebrow" data-i18n="road.eyebrow">R&D Lab</div>
+      <div class="section-h" data-i18n="road.title">Взгляд за горизонт.</div>
+      <p class="section-p" style="margin-bottom: 32px;" data-i18n="road.sub">Инновации не скачиваются из готовых библиотек. В закрытом контуре мы тестируем смелые гипотезы.</p>
     </div>
-    <div class="road-grid">
-      <div class="road-item reveal">
-        <div class="road-q">Q1 2025</div>
-        <div class="road-title" data-i18n="r1.t">Studio foundation</div>
-        <div class="road-desc" data-i18n="r1.d">Developer accounts, brand system, internal tools, website launched.</div>
-        <div class="road-dot dot-done"></div>
+    <div class="lab-grid">
+      <div class="l-item reveal">
+        <div class="l-title" data-i18n="r1.t">Автономные ИИ-Агенты</div>
+        <div class="l-desc" data-i18n="r1.d">Агенты с контекстной памятью. Многоступенчатые цепочки действий и агрегация данных абсолютно автономно.</div>
       </div>
-      <div class="road-item reveal reveal-d1">
-        <div class="road-q">Q2–Q3 2025</div>
-        <div class="road-title" data-i18n="r2.t">First products</div>
-        <div class="road-desc" data-i18n="r2.d">Web products, Android apps in development. Building AI tools and bots.</div>
-        <div class="road-dot dot-now"></div>
+      <div class="l-item reveal reveal-d1">
+        <div class="l-title" data-i18n="r2.t">Spatial Computing в GameDev</div>
+        <div class="l-desc" data-i18n="r2.d">Прототипы механик полного погружения на мобильных устройствах с нулевой задержкой рендеринга.</div>
       </div>
-      <div class="road-item reveal reveal-d2">
-        <div class="road-q">Q4 2025</div>
-        <div class="road-title" data-i18n="r3.t">First launches</div>
-        <div class="road-desc" data-i18n="r3.d">Publish first titles on Google Play. Grow digital presence and audience.</div>
-        <div class="road-dot dot-plan"></div>
-      </div>
-      <div class="road-item reveal reveal-d3">
-        <div class="road-q">2026+</div>
-        <div class="road-title" data-i18n="r4.t">Scale up</div>
-        <div class="road-desc" data-i18n="r4.d">Platform vision, more products, AI-first direction, growing the studio.</div>
-        <div class="road-dot dot-plan"></div>
+      <div class="l-item reveal reveal-d2">
+        <div class="l-title" data-i18n="r3.t">Архитектура Zero-Trust</div>
+        <div class="l-desc" data-i18n="r3.d">Низкоуровневая кодировка и сложные криптографические протоколы для защиты каналов передачи данных.</div>
       </div>
     </div>
   </div>
@@ -473,16 +357,16 @@
 <section id="contact" class="cta">
   <div class="cta-inner">
     <div class="cta-box reveal">
-      <h2 data-i18n="cta.title">Stay in the loop. <em data-i18n="cta.em">Let's connect.</em></h2>
-      <p data-i18n="cta.sub">Follow Aspaloyy across platforms and get notified when new products drop.</p>
+      <h2 data-i18n="cta.title">Давайте проектировать будущее. <em data-i18n="cta.em">На связи 24/7.</em></h2>
+      <p data-i18n="cta.sub">Разработка защищенной системы или интеграция передового ИИ — команда Aspaloyy готова к диалогу с визионерами.</p>
       <div class="cta-links">
         <a href="mailto:aspaloyy@gmail.com" class="cta-link cta-link-primary">&#9993; aspaloyy@gmail.com</a>
         <a href="https://t.me/aspaloyy" target="_blank" class="cta-link">Telegram</a>
-        <a href="https://x.com/aspaloyy" target="_blank" class="cta-link">X / Twitter</a>
-        <a href="https://www.instagram.com/aspaloyy" target="_blank" class="cta-link">Instagram</a>
-        <a href="https://play.google.com/store/apps/dev?id=8055300163983735296" target="_blank" class="cta-link">Google Play</a>
-        <a href="https://aspaloyy.com" target="_blank" class="cta-link">aspaloyy.com</a>
         <a href="https://whatsapp.com/channel/0029Vb6oUnw3gvWXgL0Kym29" target="_blank" class="cta-link">WhatsApp</a>
+        <a href="https://x.com/aspaloyy" target="_blank" class="cta-link">X (Twitter)</a>
+        <a href="https://www.instagram.com/aspaloyy" target="_blank" class="cta-link">Instagram</a>
+        <a href="https://www.facebook.com/share/1B13WNgWDX/" target="_blank" class="cta-link">Facebook</a>
+        <a href="https://play.google.com/store/apps/dev?id=8055300163983735296" target="_blank" class="cta-link">Google Play</a>
       </div>
     </div>
   </div>
@@ -496,23 +380,80 @@
       Aspaloyy
     </a>
     <ul class="footer-links">
-      <li><a href="#about" data-i18n="nav.about">About</a></li>
-      <li><a href="#services" data-i18n="nav.services">Services</a></li>
-      <li><a href="#roadmap" data-i18n="nav.roadmap">Roadmap</a></li>
+      <li><a href="#manifesto" data-i18n="nav.about">Manifesto</a></li>
+      <li><a href="#vectors" data-i18n="nav.services">Vectors</a></li>
       <li><a href="aboutasman.html" data-i18n="nav.founder">Founder</a></li>
     </ul>
-    <div class="footer-social">
-      <a class="social-btn" href="https://x.com/aspaloyy" target="_blank">&#120143;</a>
-      <a class="social-btn" href="https://t.me/aspaloyy" target="_blank">&#9992;</a>
-      <a class="social-btn" href="https://www.instagram.com/aspaloyy" target="_blank">&#128247;</a>
-      <a class="social-btn" href="https://play.google.com/store/apps/dev?id=8055300163983735296" target="_blank">&#129302;</a>
-    </div>
-    <div class="footer-copy">&copy; 2025 Aspaloyy Studio &middot; aspaloyy.com &middot; All rights reserved</div>
+    <div class="footer-copy">&copy; 2026 Aspaloyy R&D Studio &middot; aspaloyy.com &middot; All rights reserved</div>
   </div>
 </footer>
 
 <script>
-var T = {"en":{"nav.about":"About","nav.services":"Services","nav.roadmap":"Roadmap","nav.founder":"Founder","nav.cta":"Contact","hero.pill":"STUDIO","hero.tagtext":"Digital Studio · Google Play · Since 2026","hero.line1":"We build digital","hero.line2":"products that matter.","hero.sub":"Aspaloyy is a <strong>digital studio</strong> creating web products, mobile apps, AI tools, and backend systems. Independent. Full-stack. Built to ship.","hero.cta1":"🎮 View on Google Play","hero.cta2":"Meet the founder","hero.avail":"Available on","stat1":"Areas","stat2":"Independent","stat3":"Launch year","what.eyebrow":"What is Aspaloyy","what.title":"A studio with<br>real substance.","what.p1":"Aspaloyy is not a freelance page and not a template. It is an independent digital studio built around product thinking, engineering depth, and long-term direction.","what.p2":"Built from the ground up. Designed for real users. Web, mobile, AI, backend, design, and brand — under one identity.","wc1.t":"Engineering-led","wc1.d":"Clean code, sound architecture, and solid systems from frontend to backend.","wc2.t":"Design included","wc2.d":"UI/UX is part of the work from day one, not decoration added later.","wc3.t":"Real releases","wc3.d":"Published apps, live websites, and deployed systems — not mockups.","wc4.t":"AI direction","wc4.d":"AI tools and automation are built into the studio's long-term path.","srv.eyebrow":"What we build","srv.title":"Full-stack capability.","srv.sub":"From a landing page to a complete product, Aspaloyy covers the whole stack.","s1.t":"Web Development","s1.d":"Fast, polished websites and web apps built from scratch.","s2.t":"Mobile Apps","s2.d":"Android apps prepared for real users and real release cycles.","s3.t":"Backend &amp; APIs","s3.d":"Backend logic, PostgreSQL databases, APIs, deployment, and infrastructure.","s4.t":"AI Tools","s4.d":"AI features, LLM integrations, smart workflows, and practical automation.","s5.t":"Bots &amp; Automation","s5.d":"Telegram bots, scripts, notification systems, and custom pipelines.","s6.t":"Brand &amp; Design","s6.d":"UI/UX, visual identity, digital presence, and content structure.","val.eyebrow":"Our values","val.title":"Built with intent,<br>not by accident.","p1.t":"Systems, not fragments","p1.d":"Every product is treated as one coherent system, not a pile of separate pieces.","p2.t":"Launch early, improve fast","p2.d":"Real feedback matters, so products should reach real users quickly.","p3.t":"Design and engineering together","p3.d":"Interface and infrastructure are shaped in parallel.","p4.t":"Foundation over hype","p4.d":"Trends fade. Strong foundations stay useful.","vs1":"Areas covered","vs2":"Founder-led","vs3":"Studio launch","vs4":"In progress","road.eyebrow":"Roadmap","road.title":"Where we're going.","r1.t":"Studio base","r1.d":"Brand, site, accounts, and internal foundation are in place.","r2.t":"Early products","r2.d":"Web products, Android apps, AI tools, and bots are taking shape.","r3.t":"Public releases","r3.d":"First launches, stronger presence, and broader reach.","r4.t":"Expansion","r4.d":"More products, stronger systems, and a wider platform vision.","cta.title":"Stay connected.","cta.em":"Let's talk.","cta.sub":"Follow Aspaloyy and keep up with new releases and updates."},"ru":{"nav.about":"О студии","nav.services":"Направления","nav.roadmap":"Планы","nav.founder":"Основатель","nav.cta":"Связаться","hero.pill":"СТУДИЯ","hero.tagtext":"Цифровая студия · Google Play · с 2026","hero.line1":"Создаём цифровые","hero.line2":"продукты с весом.","hero.sub":"Aspaloyy — <strong>цифровая студия</strong>, которая делает веб-продукты, мобильные приложения, AI-инструменты и бэкенд-системы. Независимо. Полным стеком. С прицелом на реальные релизы.","hero.cta1":"🎮 Google Play","hero.cta2":"Об основателе","hero.avail":"Доступно на","stat1":"Направлений","stat2":"Независимо","stat3":"Год запуска","what.eyebrow":"Что такое Aspaloyy","what.title":"Студия с<br>настоящим содержанием.","what.p1":"Aspaloyy — не страница фрилансера и не пустой шаблон. Это независимая цифровая студия, построенная вокруг продуктового мышления, сильной инженерии и долгой дистанции.","what.p2":"Собрана с нуля. Сделана для реальных пользователей. Веб, мобильные приложения, AI, бэкенд, дизайн и бренд — в одной системе.","wc1.t":"Инженерия в основе","wc1.d":"Чистый код, сильная архитектура и нормальные системы — от интерфейса до сервера.","wc2.t":"Дизайн внутри процесса","wc2.d":"UI/UX не добавляется потом. Он закладывается сразу.","wc3.t":"Реальные релизы","wc3.d":"Приложения, сайты и развёрнутые системы — не макеты и не обещания.","wc4.t":"Курс на AI","wc4.d":"AI-инструменты и автоматизация — часть долгосрочного направления студии.","srv.eyebrow":"Что делаем","srv.title":"Полный стек возможностей.","srv.sub":"От лендинга до полноценного продукта — Aspaloyy закрывает весь стек.","s1.t":"Веб-разработка","s1.d":"Быстрые, аккуратные сайты и веб-приложения, собранные с нуля.","s2.t":"Мобильные приложения","s2.d":"Android-приложения, подготовленные под реальный запуск и реальных пользователей.","s3.t":"Бэкенд и API","s3.d":"Серверная логика, PostgreSQL, API, деплой и инфраструктура.","s4.t":"AI-инструменты","s4.d":"AI-функции, LLM-интеграции, умные сценарии и практическая автоматизация.","s5.t":"Боты и автоматизация","s5.d":"Telegram-боты, скрипты, уведомления и кастомные пайплайны.","s6.t":"Бренд и дизайн","s6.d":"UI/UX, визуальная система, цифровое присутствие и контентная структура.","val.eyebrow":"Принципы","val.title":"Сделано осознанно,<br>а не случайно.","p1.t":"Системы, а не куски","p1.d":"Каждый продукт собирается как цельная система, а не как набор разрозненных частей.","p2.t":"Запуск раньше, улучшение быстрее","p2.d":"Живой продукт должен как можно раньше попадать к живым пользователям.","p3.t":"Дизайн и инженерия вместе","p3.d":"Интерфейс и внутренняя часть продумываются параллельно.","p4.t":"Фундамент важнее хайпа","p4.d":"Тренды проходят. Крепкая основа остаётся.","vs1":"Направлений","vs2":"Основано основателем","vs3":"Запуск студии","vs4":"В процессе","road.eyebrow":"Планы","road.title":"Куда идём.","r1.t":"База студии","r1.d":"Бренд, сайт, аккаунты и внутренняя основа уже собраны.","r2.t":"Первые продукты","r2.d":"Формируются веб-продукты, Android-приложения, AI-инструменты и боты.","r3.t":"Публичные релизы","r3.d":"Первые запуски, усиление присутствия и рост охвата.","r4.t":"Расширение","r4.d":"Больше продуктов, сильнее системы, шире платформенное видение.","cta.title":"Оставайся на связи.","cta.em":"Давай свяжемся.","cta.sub":"Следи за Aspaloyy и узнавай о новых релизах и обновлениях."},"ky":{"nav.about":"Студия жөнүндө","nav.services":"Багыттар","nav.roadmap":"Пландар","nav.founder":"Негиздөөчү","nav.cta":"Байланыш","hero.pill":"СТУДИЯ","hero.tagtext":"Санарип студия · Google Play · 2026дан бери","hero.line1":"Маанилүү санарип","hero.line2":"продукттарды курабыз.","hero.sub":"Aspaloyy — веб-продукттарды, мобилдик колдонмолорду, AI куралдарды жана бэкенд системаларды жасаган <strong>санарип студия</strong>. Көз карандысыз. Толук стек. Чыныгы релиздер үчүн.","hero.cta1":"🎮 Google Play","hero.cta2":"Негиздөөчү тууралуу","hero.avail":"Жеткиликтүү","stat1":"Багыт","stat2":"Көз карандысыз","stat3":"Ачылган жылы","what.eyebrow":"Aspaloyy деген эмне","what.title":"Ичи бош эмес,<br>салмагы бар студия.","what.p1":"Aspaloyy жөн гана фриланс баракчасы же шаблон эмес. Бул продукттук ой жүгүртүүгө, күчтүү инженерияга жана узак мөөнөттүү багытка таянган көз карандысыз студия.","what.p2":"Нөлдөн курулган. Чыныгы колдонуучулар үчүн жасалган. Веб, мобилдик колдонмо, AI, бэкенд, дизайн жана бренд — баары бир системада.","wc1.t":"Инженерия негизде","wc1.d":"Таза код, туура архитектура жана ишенимдүү системалар.","wc2.t":"Дизайн кошо жүрөт","wc2.d":"UI/UX кийин кошулбайт. Башынан эле кирет.","wc3.t":"Чыныгы релиздер","wc3.d":"Колдонмолор, сайттар жана иштеп турган системалар — жөн эле концепт эмес.","wc4.t":"AI багыты","wc4.d":"AI куралдар жана автоматташтыруу студиянын негизги жолунун бир бөлүгү.","srv.eyebrow":"Эмнени жасайбыз","srv.title":"Толук стек мүмкүнчүлүк.","srv.sub":"Лендингден толук продуктка чейин — Aspaloyy бүт стекти камтыйт.","s1.t":"Веб иштеп чыгуу","s1.d":"Нөлдөн жасалган ылдам жана тыкан сайттар менен веб-тиркемелер.","s2.t":"Мобилдик колдонмолор","s2.d":"Чыныгы колдонуучулар жана релиз үчүн даяр Android тиркемелер.","s3.t":"Бэкенд жана API","s3.d":"Сервердик логика, PostgreSQL, API, жайгаштыруу жана инфраструктура.","s4.t":"AI куралдар","s4.d":"AI функциялар, LLM интеграциялар, акылдуу сценарийлер жана автоматташтыруу.","s5.t":"Боттор жана автоматташтыруу","s5.d":"Telegram боттор, скрипттер, эскертмелер жана өзгөчө пайплайндар.","s6.t":"Бренд жана дизайн","s6.d":"UI/UX, визуалдык система, санарип көрүнүш жана контент түзүмү.","val.eyebrow":"Негизги принциптер","val.title":"Атайын курулган,<br>кокустан эмес.","p1.t":"Система, бөлүк эмес","p1.d":"Ар бир продукт бөлүнгөн бөлүктөр эмес, бир бүтүн система катары каралат.","p2.t":"Эрте чыгар, тез жакшырт","p2.d":"Чыныгы пикир үчүн продукт эртерээк колдонуучуга жетиши керек.","p3.t":"Дизайн жана инженерия чогуу","p3.d":"Интерфейс менен ички түзүлүш бир убакта иштелет.","p4.t":"Хайптан күчтүү негиз маанилүү","p4.d":"Тренд өтөт. Күчтүү негиз калат.","vs1":"Багыттар","vs2":"Негиздөөчү жетектейт","vs3":"Студиянын башталышы","vs4":"Уланууда","road.eyebrow":"Пландар","road.title":"Кайда баратабыз.","r1.t":"Студиянын негизи","r1.d":"Бренд, сайт, аккаунттар жана ички негиз даяр.","r2.t":"Алгачкы продукттар","r2.d":"Веб-продукттар, Android тиркемелер, AI куралдар жана боттор түзүлүп жатат.","r3.t":"Ачык релиздер","r3.d":"Биринчи чыгаруулар, күчтүү көрүнүш жана кеңири аудитория.","r4.t":"Кеңейүү","r4.d":"Дагы көп продукт, дагы күчтүү системалар жана кеңири платформа көз караш.","cta.title":"Байланышта бол.","cta.em":"Сүйлөшөлү.","cta.sub":"Aspaloyy жаңылыктарын жана релиздерин байкап тур."},"tr":{"nav.about":"Stüdyo Hakkında","nav.services":"Alanlar","nav.roadmap":"Plan","nav.founder":"Kurucu","nav.cta":"İletişim","hero.pill":"STÜDYO","hero.tagtext":"Dijital Stüdyo · Google Play · 2026'dan beri","hero.line1":"Ağırlığı olan dijital","hero.line2":"ürünler üretiyoruz.","hero.sub":"Aspaloyy; web ürünleri, mobil uygulamalar, AI araçları ve backend sistemleri geliştiren <strong>dijital bir stüdyo</strong>. Bağımsız. Full-stack. Gerçek yayınlar için kuruldu.","hero.cta1":"🎮 Google Play'de Gör","hero.cta2":"Kurucuyu tanı","hero.avail":"Mevcut olduğu yerler","stat1":"Alan","stat2":"Bağımsız","stat3":"Başlangıç yılı","what.eyebrow":"Aspaloyy nedir","what.title":"İçi dolu,<br>gerçek bir stüdyo.","what.p1":"Aspaloyy bir freelance sayfası ya da boş bir şablon değil. Ürün düşüncesi, güçlü mühendislik ve uzun vadeli yön üzerine kurulan bağımsız bir dijital stüdyo.","what.p2":"Sıfırdan kuruldu. Gerçek kullanıcılar için üretildi. Web, mobil, AI, backend, tasarım ve marka — tek kimlik altında.","wc1.t":"Mühendislik temelli","wc1.d":"Temiz kod, sağlam mimari ve güvenilir sistemler.","wc2.t":"Tasarım da işin içinde","wc2.d":"UI/UX sonradan eklenmez. Başlangıçtan itibaren sürecin parçasıdır.","wc3.t":"Gerçek yayınlar","wc3.d":"Uygulamalar, canlı siteler ve çalışan sistemler — sadece fikir değil.","wc4.t":"AI yönü","wc4.d":"AI araçları ve otomasyon, stüdyonun uzun vadeli çizgisinin parçası.","srv.eyebrow":"Neler üretiyoruz","srv.title":"Full-stack güç.","srv.sub":"Landing page'den tam ürüne kadar Aspaloyy tüm katmanları kapsar.","s1.t":"Web Geliştirme","s1.d":"Sıfırdan geliştirilen hızlı ve temiz web siteleri ile uygulamalar.","s2.t":"Mobil Uygulamalar","s2.d":"Gerçek kullanıcılar ve gerçek yayın için hazırlanan Android uygulamaları.","s3.t":"Backend ve API","s3.d":"Sunucu mantığı, PostgreSQL, API'ler, dağıtım ve altyapı.","s4.t":"AI Araçları","s4.d":"AI özellikleri, LLM entegrasyonları, akıllı akışlar ve otomasyon.","s5.t":"Botlar ve Otomasyon","s5.d":"Telegram botları, scriptler, bildirim sistemleri ve özel pipeline'lar.","s6.t":"Marka ve Tasarım","s6.d":"UI/UX, görsel sistem, dijital varlık ve içerik yapısı.","val.eyebrow":"İlkelerimiz","val.title":"Rastgele değil,<br>bilinçli şekilde kuruldu.","p1.t":"Parça değil sistem","p1.d":"Her ürün dağınık parçalar olarak değil, tek bir sistem olarak ele alınır.","p2.t":"Erken çıkar, hızlı geliştir","p2.d":"Gerçek geri bildirim için ürün erken dönemde kullanıcıya ulaşmalıdır.","p3.t":"Tasarım ve mühendislik birlikte","p3.d":"Arayüz ve altyapı paralel ilerler.","p4.t":"Hype değil temel","p4.d":"Trend geçer. Sağlam temel kalır.","vs1":"Alan","vs2":"Kurucu odaklı","vs3":"Stüdyo başlangıcı","vs4":"Devam ediyor","road.eyebrow":"Plan","road.title":"Nereye gidiyoruz.","r1.t":"Stüdyo temeli","r1.d":"Marka, site, hesaplar ve iç yapı hazır durumda.","r2.t":"İlk ürünler","r2.d":"Web ürünleri, Android uygulamaları, AI araçları ve botlar şekilleniyor.","r3.t":"Açık yayınlar","r3.d":"İlk çıkışlar, daha güçlü görünürlük ve daha geniş kitle.","r4.t":"Genişleme","r4.d":"Daha fazla ürün, daha güçlü sistemler ve daha büyük platform vizyonu.","cta.title":"Bağlantıda kal.","cta.em":"Konuşalım.","cta.sub":"Aspaloyy'nin yeni yayınlarını ve güncellemelerini takip et."},"de":{"nav.about":"Über das Studio","nav.services":"Bereiche","nav.roadmap":"Plan","nav.founder":"Gründer","nav.cta":"Kontakt","hero.pill":"STUDIO","hero.tagtext":"Digitalstudio · Google Play · seit 2026","hero.line1":"Wir bauen digitale","hero.line2":"Produkte mit Substanz.","hero.sub":"Aspaloyy ist ein <strong>Digitalstudio</strong> für Webprodukte, mobile Apps, AI-Tools und Backend-Systeme. Unabhängig. Full-Stack. Für echte Releases gebaut.","hero.cta1":"🎮 Bei Google Play ansehen","hero.cta2":"Den Gründer kennenlernen","hero.avail":"Verfügbar auf","stat1":"Bereiche","stat2":"Unabhängig","stat3":"Gründungsjahr","what.eyebrow":"Was ist Aspaloyy","what.title":"Ein Studio mit<br>echtem Inhalt.","what.p1":"Aspaloyy ist weder eine Freelance-Seite noch ein leeres Template. Es ist ein unabhängiges Digitalstudio mit Produktfokus, technischer Tiefe und langfristiger Richtung.","what.p2":"Von Grund auf aufgebaut. Für echte Nutzer gedacht. Web, Mobile, AI, Backend, Design und Marke — unter einer Identität.","wc1.t":"Technik zuerst","wc1.d":"Sauberer Code, klare Architektur und belastbare Systeme.","wc2.t":"Design gehört dazu","wc2.d":"UI/UX ist von Anfang an Teil des Produkts.","wc3.t":"Echte Releases","wc3.d":"Apps, Live-Websites und produktive Systeme — keine Attrappen.","wc4.t":"AI-Richtung","wc4.d":"AI-Tools und Automatisierung gehören fest zur langfristigen Ausrichtung.","srv.eyebrow":"Was wir bauen","srv.title":"Full-Stack-Kompetenz.","srv.sub":"Von der Landingpage bis zum vollständigen Produkt deckt Aspaloyy den ganzen Stack ab.","s1.t":"Webentwicklung","s1.d":"Schnelle, saubere Websites und Web-Apps von Grund auf.","s2.t":"Mobile Apps","s2.d":"Android-Apps für echte Nutzer und echte Releases.","s3.t":"Backend &amp; APIs","s3.d":"Serverlogik, PostgreSQL, APIs, Deployment und Infrastruktur.","s4.t":"AI-Tools","s4.d":"AI-Funktionen, LLM-Integrationen, smarte Workflows und Automatisierung.","s5.t":"Bots &amp; Automatisierung","s5.d":"Telegram-Bots, Skripte, Benachrichtigungssysteme und eigene Pipelines.","s6.t":"Marke &amp; Design","s6.d":"UI/UX, visuelle Identität, digitale Präsenz und Content-Struktur.","val.eyebrow":"Prinzipien","val.title":"Bewusst gebaut,<br>nicht zufällig.","p1.t":"Systeme statt Fragmente","p1.d":"Jedes Produkt wird als zusammenhängendes System gedacht.","p2.t":"Früh starten, schnell verbessern","p2.d":"Echtes Feedback kommt von echten Nutzern.","p3.t":"Design und Technik zusammen","p3.d":"Oberfläche und Infrastruktur entstehen parallel.","p4.t":"Fundament vor Hype","p4.d":"Trends vergehen. Gute Grundlagen bleiben.","vs1":"Abgedeckte Bereiche","vs2":"Gründergeführt","vs3":"Studio-Start","vs4":"In Arbeit","road.eyebrow":"Plan","road.title":"Wohin es geht.","r1.t":"Studio-Basis","r1.d":"Marke, Website, Konten und interne Grundlage stehen.","r2.t":"Erste Produkte","r2.d":"Webprodukte, Android-Apps, AI-Tools und Bots nehmen Form an.","r3.t":"Öffentliche Releases","r3.d":"Erste Veröffentlichungen, mehr Präsenz und größere Reichweite.","r4.t":"Ausbau","r4.d":"Mehr Produkte, stärkere Systeme und eine breitere Plattformvision.","cta.title":"Bleib dran.","cta.em":"Lass uns sprechen.","cta.sub":"Folge Aspaloyy und verpasse keine neuen Releases und Updates."}};
+var T = {
+  "ru":{
+    "nav.about":"Манифест","nav.services":"Векторы","nav.lab":"R&D Lab","nav.founder":"Основатель","nav.cta":"Связаться",
+    "hero.pill":"R&D СТУДИЯ","hero.tagtext":"Экосистемная лаборатория · Глобальный рынок",
+    "hero.line1":"Архитекторы цифровых систем.","hero.line2":"Продукты, которые имеют значение.",
+    "hero.sub":"Aspaloyy — это независимая исследовательская R&D студия. Мы не просто пишем код. Мы проектируем автономные нейросетевые инструменты, нативные мобильные приложения и масштабируемые веб-экосистемы.",
+    "hero.cta1":"Изучить технологии","hero.cta2":"Обсудить проект",
+    "what.eyebrow":"Манифест студии","what.title":"Синтез технологий.<br>Без границ.",
+    "what.p1":"В мире стремительных инноваций узкая специализация ограничивает видение. Мы построили Aspaloyy как <strong>междисциплинарный хаб</strong>. Мы осознанно объединили разработку сложных игровых механик, интеграцию автономных ИИ-агентов, мобильную инженерию и проектирование облачного бэкенда.",
+    "what.p2":"Игровые алгоритмы оптимизации графики делают наши корпоративные интерфейсы молниеносными. А строгая, безопасная архитектура микросервисов обеспечивает нашим играм беспрецедентную стабильность. Мы синтезируем лучшие практики для создания идеального продукта.",
+    "wc1.t":"Product-Led Growth","wc1.d":"Программное обеспечение, качество которого само по себе является главным драйвером.","wc2.t":"Agile & Shape Up","wc2.d":"Мы не пишем код ради кода. Мы выпускаем осмысленные обновления, решающие проблемы.","wc3.t":"Global Security Standard","wc3.d":"Архитектура Privacy-First. Запрашиваем лишь критический минимум данных.",
+    "srv.eyebrow":"Экспертиза","srv.title":"Ключевые векторы.","srv.sub":"Каждое направление — это глубокое погружение в технологии и бескомпромиссная архитектура.",
+    "s1.t":"Интеграция Генеративного ИИ","s1.d":"Интеллектуальные системы на базе LLM (Google AI Pro). Цифровые двойники (Avatar V, HeyGen) для авто-генерации видеоконтента студийного качества на лету.","s2.t":"Нативные Мобильные Экосистемы","s2.d":"Проектирование кроссплатформенных и нативных приложений (Android 17 SDK). Плавный UI, оптимизация батареи и строгие стандарты конфиденциальности.","s3.t":"Интерактивные Игровые Системы","s3.d":"От прототипирования механик до сложного 3D-рендеринга и балансировки внутренней экономики виртуальных миров (Spatial Computing).","s4.t":"Высоконагруженная Веб-инфраструктура","s4.d":"Корпоративные SPA и PWA без задержек. Безопасная облачная инфраструктура (Serverless, Docker) готовая к миллионам запросов.",
+    "road.eyebrow":"R&D Lab","road.title":"Взгляд за горизонт.","road.sub":"Инновации не скачиваются из готовых библиотек. В закрытом контуре мы тестируем смелые гипотезы.","r1.t":"Автономные ИИ-Агенты","r1.d":"Агенты с контекстной памятью. Многоступенчатые цепочки действий и агрегация данных абсолютно автономно.","r2.t":"Spatial Computing в GameDev","r2.d":"Прототипы механик полного погружения на мобильных устройствах с нулевой задержкой рендеринга.","r3.t":"Архитектура Zero-Trust","r3.d":"Низкоуровневая кодировка и сложные криптографические протоколы для защиты каналов передачи данных.",
+    "cta.title":"Давайте проектировать будущее.","cta.em":"На связи 24/7.","cta.sub":"Разработка защищенной системы или интеграция передового ИИ — команда Aspaloyy готова к диалогу с визионерами."
+  },
+  "en":{
+    "nav.about":"Manifesto","nav.services":"Vectors","nav.lab":"R&D Lab","nav.founder":"Founder","nav.cta":"Contact",
+    "hero.pill":"R&D STUDIO","hero.tagtext":"Ecosystem Lab · Global Market",
+    "hero.line1":"Architects of digital systems.","hero.line2":"Products that matter.",
+    "hero.sub":"Aspaloyy is an independent R&D studio. We don't just write code. We design autonomous neural network tools, native mobile applications, and scalable web ecosystems.",
+    "hero.cta1":"Explore Tech","hero.cta2":"Discuss Project",
+    "what.eyebrow":"Studio Manifesto","what.title":"Technology Synthesis.<br>Without Borders.",
+    "what.p1":"In a world of rapid innovation, narrow specialization limits vision. We built Aspaloyy as an <strong>interdisciplinary hub</strong>. We consciously combined complex game mechanics, autonomous AI agents, mobile engineering, and cloud backend architecture.",
+    "what.p2":"Gaming algorithms for graphics optimization make our corporate interfaces lightning-fast. And strict, secure microservice architecture provides our games with unprecedented stability. We synthesize best practices to create the perfect product.",
+    "wc1.t":"Product-Led Growth","wc1.d":"Software whose quality itself is the primary marketing driver.","wc2.t":"Agile & Shape Up","wc2.d":"We don't write code just for the sake of it. We ship meaningful updates that solve problems.","wc3.t":"Global Security Standard","wc3.d":"Privacy-First architecture. We request only the absolute minimum of critical data.",
+    "srv.eyebrow":"Expertise","srv.title":"Key Vectors.","srv.sub":"Each direction is a deep dive into technology and uncompromising architecture.",
+    "s1.t":"Generative AI Integration","s1.d":"Intelligent systems based on LLMs (Google AI Pro). Digital twins (Avatar V, HeyGen) for auto-generating studio-quality video content on the fly.","s2.t":"Native Mobile Ecosystems","s2.d":"Cross-platform and native app design (Android 17 SDK). Fluid UI, battery optimization, and strict privacy standards.","s3.t":"Interactive Gaming Systems","s3.d":"From prototyping mechanics to complex 3D rendering and balancing the internal economy of virtual worlds (Spatial Computing).","s4.t":"High-Load Web Infrastructure","s4.d":"Corporate SPAs and PWAs with zero latency. Secure cloud infrastructure (Serverless, Docker) ready for millions of requests.",
+    "road.eyebrow":"R&D Lab","road.title":"Beyond the Horizon.","road.sub":"Innovations aren't downloaded from ready-made libraries. In our closed loop, we test bold hypotheses.","r1.t":"Autonomous AI Agents","r1.d":"Agents with contextual memory. Multi-step action chains and data aggregation completely autonomously.","r2.t":"Spatial Computing in GameDev","r2.d":"Prototypes of full-immersion mechanics on mobile devices with zero rendering latency.","r3.t":"Zero-Trust Architecture","r3.d":"Low-level encoding and complex cryptographic protocols to protect data transmission channels.",
+    "cta.title":"Let's design the future.","cta.em":"Online 24/7.","cta.sub":"Whether developing a secure system or integrating advanced AI, the Aspaloyy team is ready to talk with visionaries."
+  },
+  "ky":{
+    "nav.about":"Манифест","nav.services":"Багыттар","nav.lab":"R&D Lab","nav.founder":"Негиздөөчү","nav.cta":"Байланыш",
+    "hero.pill":"R&D СТУДИЯСЫ","hero.tagtext":"Экосистемалык лаборатория · Дүйнөлүк рынок",
+    "hero.line1":"Санарип системаларынын архитекторлору.","hero.line2":"Маанилүү болгон продукттар.",
+    "hero.sub":"Aspaloyy — бул көз карандысыз изилдөөчү R&D студиясы. Биз жөн гана код жазбайбыз. Автономдуу нейротармак куралдарын, мобилдик колдонмолорду жана масштабдуу веб-экосистемаларды долбоорлойбуз.",
+    "hero.cta1":"Технологияларды көрүү","hero.cta2":"Долбоорду талкуулоо",
+    "what.eyebrow":"Студия манифести","what.title":"Технологиялар синтези.<br>Чек арасыз.","what.p1":"Тез инновациялар дүйнөсүндө тар адистик көз карашты чектейт. Биз Aspaloyy'ди мультидисциплинардык хаб катары курдук.","what.p2":"Оюн алгоритмдери корпоративдик интерфейстерди тез кылат. Ал эми микросервис архитектурасы оюндарыбызга туруктуулукту берет.","wc1.t":"Product-Led Growth","wc1.d":"Сапаты өзү негизги драйвер болгон программалык камсыздоо.","wc2.t":"Agile & Shape Up","wc2.d":"Биз маанилүү көйгөйлөрдү чечкен жаңыртууларды гана чыгарабыз.","wc3.t":"Global Security","wc3.d":"Privacy-First архитектурасы. Эң керектүү маалыматтарды гана сурайбыз.",
+    "srv.eyebrow":"Экспертиза","srv.title":"Негизги багыттар.","srv.sub":"Ар бир багыт — бул технологияга терең чөмүлүү жана күчтүү архитектура.","s1.t":"Генеративдик AI","s1.d":"LLM негизиндеги акылдуу системалар (Google AI Pro). Сапаттуу видео контент үчүн санарип эгиздер (HeyGen).","s2.t":"Мобилдик Экосистемалар","s2.d":"Android 17 SDK колдонмолору. Батареяны оптималдаштыруу жана купуялык стандарттары.","s3.t":"Оюн Системалары","s3.d":"Механикаларды прототиптөөдөн баштап татаал 3D рендерингге чейин.","s4.t":"Жогорку жүктөмдүү Веб","s4.d":"Кечигүүсүз иштеген корпоративдик SPA жана PWA. Миллиондогон сурамдарга даяр булут инфраструктурасы.",
+    "road.eyebrow":"R&D Lab","road.title":"Келечекке көз салуу.","road.sub":"Инновациялар даяр китепканалардан алынбайт. Биз тайманбас гипотезаларды сынайбыз.","r1.t":"Автономдуу AI","r1.d":"Контексттик эс тутуму бар агенттер.","r2.t":"Spatial Computing","r2.d":"Мобилдик түзмөктөрдө толук чөмүлүү механикасы.","r3.t":"Zero-Trust архитектурасы","r3.d":"Маалыматтарды коргоо үчүн татаал криптографиялык протоколдор.",
+    "cta.title":"Келечекти чогуу куралы.","cta.em":"Байланышта 24/7.","cta.sub":"Коопсуз система же алдыңкы AI — Aspaloyy командасы сүйлөшүүгө даяр."
+  },
+  "tr":{
+    "nav.about":"Manifesto","nav.services":"Vektörler","nav.lab":"R&D Lab","nav.founder":"Kurucu","nav.cta":"İletişim",
+    "hero.pill":"R&D STÜDYOSU","hero.tagtext":"Ekosistem Laboratuvarı · Küresel Pazar",
+    "hero.line1":"Dijital sistem mimarları.","hero.line2":"Gerçekten önemli olan ürünler.",
+    "hero.sub":"Aspaloyy bağımsız bir Ar-Ge stüdyosudur. Sadece kod yazmıyoruz. Otonom yapay zeka araçları, mobil uygulamalar ve ölçeklenebilir web ekosistemleri tasarlıyoruz.",
+    "hero.cta1":"Teknolojiyi Keşfet","hero.cta2":"Projeyi Konuş",
+    "what.eyebrow":"Stüdyo Manifestosu","what.title":"Teknoloji Sentezi.<br>Sınırlar Yok.","what.p1":"Hızlı inovasyon dünyasında dar uzmanlık vizyonu kısıtlar. Aspaloyy'yi disiplinler arası bir merkez olarak kurduk.","what.p2":"Grafik optimizasyonu oyun algoritmaları, kurumsal arayüzlerimizi şimşek hızında yapar. Güvenli mikro hizmet mimarisi ise oyunlarımıza eşsiz bir kararlılık sağlar.","wc1.t":"Product-Led Growth","wc1.d":"Kalitesinin kendisi ana itici güç olan yazılım.","wc2.t":"Agile & Shape Up","wc2.d":"Sadece sorunları çözen anlamlı güncellemeler yayınlıyoruz.","wc3.t":"Global Security","wc3.d":"Privacy-First mimarisi. Sadece kritik minimum veriyi talep ediyoruz.",
+    "srv.eyebrow":"Uzmanlık","srv.title":"Temel Vektörler.","srv.sub":"Her yön, teknolojiye derinlemesine bir dalış ve sağlam bir mimaridir.","s1.t":"Üretken Yapay Zeka","s1.d":"LLM tabanlı akıllı sistemler (Google AI Pro). Stüdyo kalitesinde video içerik için dijital ikizler (HeyGen).","s2.t":"Mobil Ekosistemler","s2.d":"Android 17 SDK tabanlı uygulamalar. Akıcı UI, batarya optimizasyonu ve gizlilik standartları.","s3.t":"Oyun Sistemleri","s3.d":"Mekanik prototiplemeden karmaşık 3D render ve Spatial Computing'e kadar.","s4.t":"Yüksek Yüklü Web","s4.d":"Gecikmesiz kurumsal SPA ve PWA'lar. Milyonlarca isteğe hazır güvenli bulut altyapısı.",
+    "road.eyebrow":"R&D Lab","road.title":"Ufkun Ötesi.","road.sub":"İnovasyonlar hazır kütüphanelerden indirilmez. Kapalı laboratuvarımızda cesur hipotezleri test ediyoruz.","r1.t":"Otonom Yapay Zeka","r1.d":"Bağlamsal hafızaya sahip, tamamen otonom ajanlar.","r2.t":"Spatial Computing","r2.d":"Sıfır gecikmeli mobil tam daldırma mekaniklerinin prototipleri.","r3.t":"Zero-Trust Mimarisi","r3.d":"Veri kanallarını korumak için karmaşık kriptografik protokoller.",
+    "cta.title":"Geleceği tasarlayalım.","cta.em":"7/24 İletişim.","cta.sub":"Güvenli bir sistem veya yapay zeka entegrasyonu için Aspaloyy ekibi vizyonerlerle görüşmeye hazır."
+  },
+  "de":{
+    "nav.about":"Manifest","nav.services":"Vektoren","nav.lab":"R&D Lab","nav.founder":"Gründer","nav.cta":"Kontakt",
+    "hero.pill":"R&D STUDIO","hero.tagtext":"Ökosystem-Labor · Globaler Markt",
+    "hero.line1":"Architekten digitaler Systeme.","hero.line2":"Produkte, die zählen.",
+    "hero.sub":"Aspaloyy ist ein unabhängiges R&D-Studio. Wir schreiben nicht nur Code. Wir entwerfen autonome KI-Tools, native mobile Apps und skalierbare Web-Ökosysteme.",
+    "hero.cta1":"Technologie entdecken","hero.cta2":"Projekt besprechen",
+    "what.eyebrow":"Studio-Manifest","what.title":"Technologie-Synthese.<br>Ohne Grenzen.","what.p1":"In einer Welt der Innovation schränkt Spezialisierung die Vision ein. Wir haben Aspaloyy als interdisziplinären Hub aufgebaut.","what.p2":"Spielalgorithmen machen unsere Web-Interfaces blitzschnell. Sichere Mikroservices verleihen unseren Spielen Stabilität.","wc1.t":"Product-Led Growth","wc1.d":"Software, deren Qualität der Haupttreiber ist.","wc2.t":"Agile & Shape Up","wc2.d":"Wir veröffentlichen sinnvolle Updates, die Probleme lösen.","wc3.t":"Global Security","wc3.d":"Privacy-First-Architektur. Wir fordern nur das absolute Minimum an Daten.",
+    "srv.eyebrow":"Expertise","srv.title":"Kernvektoren.","srv.sub":"Jede Richtung ist ein tiefes Eintauchen in Technologie und kompromisslose Architektur.","s1.t":"Generative KI","s1.d":"Intelligente Systeme basierend auf LLMs (Google AI Pro). Digitale Zwillinge für Video-Content (HeyGen).","s2.t":"Mobile Ökosysteme","s2.d":"Android 17 SDK-Apps. Flüssige UI, Batterieoptimierung und Datenschutzstandards.","s3.t":"Interaktive Gaming-Systeme","s3.d":"Vom Prototyping bis zum komplexen 3D-Rendering und Spatial Computing.","s4.t":"High-Load Web","s4.d":"Sichere Cloud-Infrastruktur, bereit für Millionen von Anfragen.",
+    "road.eyebrow":"R&D Lab","road.title":"Hinter dem Horizont.","road.sub":"Wir testen kühne Hypothesen in unserer geschlossenen Umgebung.","r1.t":"Autonome KI-Agenten","r1.d":"Agenten mit kontextbezogenem Gedächtnis.","r2.t":"Spatial Computing","r2.d":"Mechaniken für mobile Geräte mit null Latenz.","r3.t":"Zero-Trust-Architektur","r3.d":"Komplexe kryptografische Protokolle zum Schutz der Datenkanäle.",
+    "cta.title":"Lassen Sie uns die Zukunft gestalten.","cta.em":"24/7 Online.","cta.sub":"Das Aspaloyy-Team ist bereit für den Dialog mit Visionären."
+  }
+};
 
 /* THEME */
 function toggleTheme() {
@@ -522,6 +463,7 @@ function toggleTheme() {
   html.setAttribute('data-theme', isDark ? 'light' : 'dark');
   btn.innerHTML = isDark ? '&#9790;' : '&#9728;';
   localStorage.setItem('aspaloyy_theme', isDark ? 'light' : 'dark');
+  COLORS = getParticlePalette();
 }
 document.getElementById('themeBtn').addEventListener('click', toggleTheme);
 (function(){
@@ -533,11 +475,11 @@ document.getElementById('themeBtn').addEventListener('click', toggleTheme);
 })();
 
 /* i18n */
-var currentLang = localStorage.getItem('aspaloyy_lang') || 'en';
+var currentLang = localStorage.getItem('aspaloyy_lang') || 'ru';
 function setLang(lang) {
   currentLang = lang;
   localStorage.setItem('aspaloyy_lang', lang);
-  var t = T[lang] || T['en'];
+  var t = T[lang] || T['ru'];
   document.querySelectorAll('[data-i18n]').forEach(function(el) {
     var key = el.getAttribute('data-i18n');
     if (t[key] !== undefined) el.innerHTML = t[key];
@@ -548,22 +490,21 @@ function setLang(lang) {
 document.getElementById('langSelect').addEventListener('change', function() { setLang(this.value); });
 setLang(currentLang);
 
-/* PARTICLES */
+/* PARTICLES (Optimized) */
 var canvas = document.getElementById('particle-canvas');
-var ctx = canvas.getContext('2d');
+var ctx = canvas.getContext('2d', { alpha: false }); // Opt: No alpha background
 var W, H;
 function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
 resize(); window.addEventListener('resize', resize);
-function getParticlePalette(){ return document.documentElement.getAttribute('data-theme') === 'light' ? ['#6366f1','#db2777','#0891b2','#7c3aed','#0f766e','#94a3b8'] : ['#f5e642','#ff4d8d','#00f0ff','#9b5cff','#2affa0','#ffffff']; }
+function getParticlePalette(){ return document.documentElement.getAttribute('data-theme') === 'light' ? ['#4f46e5','#db2777','#0891b2','#7c3aed','#0f766e'] : ['#f5e642','#ff4d8d','#00f0ff','#9b5cff','#2affa0']; }
 var COLORS = getParticlePalette();
 function Particle(init){ this.reset(init); }
 Particle.prototype.reset = function(init){
   this.x=Math.random()*W; this.y=init?Math.random()*H:H+20;
-  COLORS = getParticlePalette();
-  this.r=Math.random()*1.8+0.4; this.color=COLORS[Math.floor(Math.random()*COLORS.length)];
-  this.vx=(Math.random()-0.5)*0.4; this.vy=-(Math.random()*0.6+0.2);
-  this.alpha=Math.random()*0.5+0.1; this.life=0;
-  this.maxLife=Math.random()*300+150; this.twinkle=Math.random()*Math.PI*2;
+  this.r=Math.random()*1.5+0.5; this.color=COLORS[Math.floor(Math.random()*COLORS.length)];
+  this.vx=(Math.random()-0.5)*0.3; this.vy=-(Math.random()*0.5+0.2);
+  this.alpha=Math.random()*0.4+0.1; this.life=0;
+  this.maxLife=Math.random()*250+100; this.twinkle=Math.random()*Math.PI*2;
 };
 Particle.prototype.update=function(){
   this.x+=this.vx; this.y+=this.vy; this.life++; this.twinkle+=0.04;
@@ -572,91 +513,66 @@ Particle.prototype.update=function(){
   if(this.life>this.maxLife||this.y<-10) this.reset(false);
 };
 Particle.prototype.draw=function(){
-  ctx.save(); ctx.globalAlpha=Math.max(0,this.ca);
-  ctx.fillStyle=this.color; ctx.shadowBlur=6; ctx.shadowColor=this.color;
-  ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fill(); ctx.restore();
+  ctx.globalAlpha=Math.max(0,this.ca); ctx.fillStyle=this.color;
+  ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fill(); 
 };
 function StarP(){ this.reset(); }
 StarP.prototype.reset=function(){
   this.x=Math.random()*W; this.y=Math.random()*H;
-  this.r=Math.random()*0.8+0.2; this.alpha=Math.random()*0.4+0.05;
+  this.r=Math.random()*0.6+0.2; this.alpha=Math.random()*0.3+0.05;
   this.ts=Math.random()*0.02+0.005; this.t=Math.random()*Math.PI*2;
 };
 StarP.prototype.update=function(){ this.t+=this.ts; };
 StarP.prototype.draw=function(){
-  ctx.save(); ctx.globalAlpha=this.alpha*(0.5+0.5*Math.sin(this.t));
-  ctx.fillStyle=document.documentElement.getAttribute('data-theme') === 'light' ? '#94a3b8' : '#fff'; ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fill(); ctx.restore();
+  ctx.globalAlpha=this.alpha*(0.5+0.5*Math.sin(this.t));
+  ctx.fillStyle=document.documentElement.getAttribute('data-theme') === 'light' ? '#94a3b8' : '#fff'; 
+  ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fill(); 
 };
 function Shooter(){ this.active=false; this.timer=Math.random()*400+200; }
 Shooter.prototype.activate=function(){
   this.x=Math.random()*W*0.7; this.y=Math.random()*H*0.3;
-  this.speed=Math.random()*8+6; this.angle=Math.PI/4+(Math.random()-0.5)*0.3;
-  this.alpha=1; this.active=true; this.tail=[];
+  this.speed=Math.random()*6+4; this.angle=Math.PI/4+(Math.random()-0.5)*0.3;
+  this.alpha=0.8; this.active=true; this.tail=[];
 };
 Shooter.prototype.update=function(){
   if(!this.active){this.timer--;if(this.timer<=0)this.activate();return;}
   this.x+=Math.cos(this.angle)*this.speed; this.y+=Math.sin(this.angle)*this.speed;
-  this.alpha-=0.018; this.tail.push({x:this.x,y:this.y});
-  if(this.tail.length>20)this.tail.shift();
+  this.alpha-=0.02; this.tail.push({x:this.x,y:this.y});
+  if(this.tail.length>15)this.tail.shift();
   if(this.alpha<=0||this.x>W||this.y>H){this.active=false;this.timer=Math.random()*400+200;}
 };
 Shooter.prototype.draw=function(){
   if(!this.active||this.tail.length<2)return;
-  ctx.save();
+  var shooterColor = document.documentElement.getAttribute('data-theme') === 'light' ? '#4f46e5' : '#f5e642';
   for(var i=1;i<this.tail.length;i++){
-    var t=i/this.tail.length; ctx.globalAlpha=t*this.alpha*0.8;
-    var shooterColor = document.documentElement.getAttribute('data-theme') === 'light' ? '#6366f1' : '#f5e642';
-    ctx.strokeStyle=shooterColor; ctx.lineWidth=t*2; ctx.shadowBlur=8; ctx.shadowColor=shooterColor;
-    ctx.beginPath(); ctx.moveTo(this.tail[i-1].x,this.tail[i-1].y);
-    ctx.lineTo(this.tail[i].x,this.tail[i].y); ctx.stroke();
+    var t=i/this.tail.length; ctx.globalAlpha=t*this.alpha;
+    ctx.strokeStyle=shooterColor; ctx.lineWidth=t*1.5; 
+    ctx.beginPath(); ctx.moveTo(this.tail[i-1].x,this.tail[i-1].y); ctx.lineTo(this.tail[i].x,this.tail[i].y); ctx.stroke();
   }
-  ctx.restore();
 };
-var particles=[]; for(var i=0;i<120;i++) particles.push(new Particle(true));
-var stars=[]; for(var i=0;i<180;i++) stars.push(new StarP());
-var shooters=[new Shooter(),new Shooter(),new Shooter()];
-document.addEventListener('click',function(e){
-  for(var i=0;i<18;i++){
-    var p=new Particle(false);
-    p.x=e.clientX; p.y=e.clientY; p.vx=(Math.random()-0.5)*4; p.vy=(Math.random()-0.5)*4-1;
-    p.r=Math.random()*3+1; p.alpha=0.9; p.maxLife=60+Math.random()*40; p.life=0;
-    particles.push(p);
-  }
-  if(particles.length>200) particles.splice(0,particles.length-200);
-});
+// Reduced particle count for better performance
+var particles=[]; for(var i=0;i<60;i++) particles.push(new Particle(true));
+var stars=[]; for(var i=0;i<100;i++) stars.push(new StarP());
+var shooters=[new Shooter(),new Shooter()];
+
 function animate(){
-  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle = document.documentElement.getAttribute('data-theme') === 'light' ? '#f5f7fc' : '#09090f';
+  ctx.fillRect(0,0,W,H); // Clear with solid color instead of clearRect for better performance
   stars.forEach(function(s){s.update();s.draw();});
   particles.forEach(function(p){p.update();p.draw();});
   shooters.forEach(function(s){s.update();s.draw();});
+  ctx.globalAlpha = 1; // Reset alpha
   requestAnimationFrame(animate);
 }
 animate();
-window.addEventListener('scroll',function(){ document.getElementById('nav').classList.toggle('solid',window.scrollY>30); });
+
+window.addEventListener('scroll',function(){ 
+  var nav = document.getElementById('nav');
+  if(window.scrollY>30) nav.classList.add('solid'); else nav.classList.remove('solid');
+}, {passive: true});
+
 var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
-function countUp(el,target,suffix,duration){
-  var start=null;
-  function step(ts){
-    if(!start)start=ts;
-    var p=Math.min((ts-start)/duration,1);
-    var ease=1-Math.pow(1-p,3);
-    el.textContent=Math.floor(ease*target)+suffix;
-    if(p<1)requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-var cObs=new IntersectionObserver(function(es){
-  es.forEach(function(e){
-    if(e.isIntersecting){
-      cObs.unobserve(e.target);
-      e.target.querySelectorAll('.ticker-num[data-val]').forEach(function(t){
-        countUp(t,parseInt(t.dataset.val),t.dataset.suf||'',1800);
-      });
-    }
-  });
-},{threshold:.5});
-document.querySelectorAll('.hero-ticker').forEach(function(el){cObs.observe(el);});
 </script>
 </body>
 </html>
