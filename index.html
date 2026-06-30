@@ -1,383 +1,647 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="ru" data-theme="dark">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aspaloyy — Full-Cycle Digital & AI Studio</title>
+  <title>Aspaloyy — Mobile Apps & Digital Studio</title>
+  <meta name="description" content="Aspaloyy — разработчик мобильных приложений и цифровых продуктов. Скачайте Calculator и Spanit в Google Play. Основатель — Асман, Кыргызстан."/>
+  <meta property="og:title" content="Aspaloyy — Mobile Apps & Digital Studio"/>
+  <meta property="og:description" content="Мобильные приложения, ИИ-интеграция и цифровые продукты от независимого разработчика Асмана."/>
+  <meta property="og:url" content="https://aspaloyy.com"/>
+  <meta name="twitter:card" content="summary_large_image"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #09090f;
-      --surface: #111118;
-      --card: #14141c;
-      --border: rgba(255,255,255,0.08);
-      --border-solid: #1e1e2e;
-      --white: #ffffff;
-      --text: #f8f8fc;
-      --muted: #b0b5cc;
-      --muted2: #cdd2e5;
-      --yellow: #f5e642;
-      --pink: #ff4d8d;
-      --cyan: #00f0ff;
-      --purple: #9b5cff;
-      --green: #2affa0;
-      --nav-bg: rgba(9,9,15,0.85);
+      --bg: #070712;
+      --surface: #0d0d22;
+      --card: #111130;
+      --border: rgba(139,92,246,.15);
+      --border-hover: rgba(139,92,246,.5);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --muted2: #cbd5e1;
+      --purple: #8b5cf6;
+      --purple-dim: rgba(139,92,246,.12);
+      --cyan: #06b6d4;
+      --cyan-dim: rgba(6,182,212,.1);
+      --pink: #ec4899;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --nav-bg: rgba(7,7,18,0.88);
+      --play-green: #01875f;
     }
     [data-theme="light"] {
-      --bg: #f5f7fc;
-      --surface: rgba(255,255,255,0.85);
+      --bg: #f8f9ff;
+      --surface: #ffffff;
       --card: #ffffff;
-      --border: rgba(76,92,150,0.12);
-      --border-solid: #d9e0f0;
-      --white: #111827;
-      --text: #1f2937;
-      --muted: #4b5563;
-      --muted2: #374151;
-      --yellow: #4f46e5;
-      --pink: #db2777;
+      --border: rgba(99,102,241,.12);
+      --border-hover: rgba(99,102,241,.4);
+      --text: #0f172a;
+      --muted: #475569;
+      --muted2: #334155;
+      --purple: #6366f1;
+      --purple-dim: rgba(99,102,241,.08);
       --cyan: #0891b2;
-      --purple: #7c3aed;
-      --green: #0f766e;
-      --nav-bg: rgba(245,247,252,0.9);
+      --cyan-dim: rgba(8,145,178,.08);
+      --pink: #db2777;
+      --green: #059669;
+      --amber: #d97706;
+      --nav-bg: rgba(248,249,255,0.92);
+      --play-green: #01875f;
     }
-    
+
     html { scroll-behavior: smooth; }
-    body { 
-      background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; 
-      overflow-x:hidden; transition:background .3s,color .3s; 
-      text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased;
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      transition: background .35s, color .35s;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
-    /* Backgrounds & Canvas - Fixed Z-index stack */
-    #particle-canvas { position:fixed;inset:0;pointer-events:none;z-index:0; }
-    body::after {
-      content:'';position:fixed;inset:0;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
-      pointer-events:none;z-index:1;opacity:.04; /* Very subtle noise, won't cover text */
+    #bg-canvas { position:fixed;inset:0;pointer-events:none;z-index:0; }
+    .noise {
+      position:fixed;inset:0;pointer-events:none;z-index:1;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+      opacity: .04;
     }
-    [data-theme="light"] body::after { opacity:.02; }
-    
-    [data-theme="light"] .hero-grid { background-image:linear-gradient(rgba(79,70,229,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(79,70,229,.04) 1px,transparent 1px); }
-    [data-theme="light"] .orb-y{background:radial-gradient(ellipse,rgba(79,70,229,.08) 0%,transparent 70%)}
-    [data-theme="light"] .orb-p{background:radial-gradient(circle,rgba(219,39,119,.06) 0%,transparent 70%)}
-    [data-theme="light"] .orb-c{background:radial-gradient(circle,rgba(8,145,178,.05) 0%,transparent 70%)}
-    [data-theme="light"] .tag-pill{background:#4f46e5;color:#fff}
-    [data-theme="light"] .tag-text{color:#4f46e5}
-    [data-theme="light"] .btn-ghost, [data-theme="light"] .plat-badge, [data-theme="light"] .social-btn, [data-theme="light"] .lang-select, [data-theme="light"] .theme-btn { 
-      background:#fff; border-color:rgba(15,23,42,.1); box-shadow:0 8px 20px rgba(0,0,0,.04); color:#4f46e5; 
-    }
-    [data-theme="light"] .cta-box{background:linear-gradient(135deg,#fff 0%,#f5f7fc 100%);border-color:rgba(79,70,229,.15); box-shadow: 0 20px 40px rgba(0,0,0,.05);}
-    [data-theme="light"] .cta-box h2 { color: #111827; }
+    [data-theme="light"] .noise { opacity: .02; }
+    section { position: relative; z-index: 10; }
 
-    /* NAV */
+    /* ── NAV ── */
     nav {
       position:fixed;top:0;left:0;right:0;z-index:300;
       display:flex;align-items:center;justify-content:space-between;
-      padding:16px 40px;transition:all .3s;
+      padding:18px 48px;transition:all .3s;
     }
-    nav.solid { background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border); }
-    .nav-logo { font-family:'Unbounded',sans-serif;font-size:16px;font-weight:800;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:10px; }
-    .nav-logo-icon {
-      width:32px;height:32px;border-radius:8px;background:var(--yellow);
-      display:flex;align-items:center;justify-content:center;font-size:15px;
-      animation:logoPulse 3s ease-in-out infinite; color: #000;
+    nav.scrolled {
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
     }
-    @keyframes logoPulse{0%,100%{box-shadow:0 0 0 0 rgba(245,230,66,0)}50%{box-shadow:0 0 0 8px rgba(245,230,66,.15)}}
-    [data-theme="light"] .nav-logo-icon { background: #4f46e5; color: #fff; animation:logoPulseL 3s ease-in-out infinite;}
-    @keyframes logoPulseL{0%,100%{box-shadow:0 0 0 0 rgba(79,70,229,0)}50%{box-shadow:0 0 0 8px rgba(79,70,229,.15)}}
-    .nav-right { display:flex;align-items:center;gap:16px; }
-    .nav-links { display:flex;gap:32px;list-style:none; }
-    .nav-links a { font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s;letter-spacing:.3px; }
-    .nav-links a:hover { color:var(--white); }
+    .nav-logo {
+      font-family:'Unbounded',sans-serif;font-size:17px;font-weight:800;
+      color:var(--text);text-decoration:none;display:flex;align-items:center;gap:10px;
+    }
+    .nav-logo-mark {
+      width:34px;height:34px;border-radius:10px;
+      background:linear-gradient(135deg,var(--purple),var(--cyan));
+      display:flex;align-items:center;justify-content:center;
+      font-size:14px;font-weight:900;color:#fff;
+      box-shadow:0 0 20px rgba(139,92,246,.3);
+      animation:markPulse 4s ease-in-out infinite;
+    }
+    @keyframes markPulse{0%,100%{box-shadow:0 0 20px rgba(139,92,246,.3)}50%{box-shadow:0 0 32px rgba(139,92,246,.5)}}
+    .nav-right { display:flex;align-items:center;gap:20px; }
+    .nav-links { display:flex;gap:36px;list-style:none; }
+    .nav-links a {
+      font-size:13px;font-weight:500;color:var(--muted);
+      text-decoration:none;transition:color .2s;letter-spacing:.2px;
+    }
+    .nav-links a:hover { color:var(--text); }
     .nav-controls { display:flex;align-items:center;gap:8px; }
-    .lang-select {
-      background:var(--surface);border:1px solid var(--border);border-radius:8px;
-      color:var(--muted2);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;
-      padding:8px 12px;cursor:pointer;outline:none;transition:all .2s;appearance:none;-webkit-appearance:none;
+    .ctrl-btn {
+      height:34px;padding:0 12px;border-radius:8px;
+      background:var(--surface);border:1px solid var(--border);
+      color:var(--muted2);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
+      cursor:pointer;outline:none;transition:all .2s;appearance:none;-webkit-appearance:none;
+      display:flex;align-items:center;gap:4px;
     }
-    .lang-select:hover { border-color:var(--yellow);color:var(--yellow); }
-    .theme-btn {
-      width:36px;height:36px;border-radius:8px;background:var(--surface);border:1px solid var(--border);
-      cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s;color:var(--white);
+    .ctrl-btn:hover { border-color:var(--purple);color:var(--purple); }
+    .nav-cta {
+      font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
+      background:var(--purple);color:#fff;border:none;
+      padding:10px 22px;border-radius:9px;cursor:pointer;
+      transition:all .2s;text-decoration:none;
+      box-shadow:0 4px 14px rgba(139,92,246,.25);
     }
-    .theme-btn:hover { border-color:var(--yellow);transform:scale(1.05); }
-    .nav-btn {
-      font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;
-      background:var(--yellow);color:#fff;border:none;padding:10px 22px;border-radius:8px;
+    .nav-cta:hover { transform:translateY(-1px);box-shadow:0 8px 22px rgba(139,92,246,.4); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height:100vh;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      text-align:center;padding:140px 24px 80px;
+      overflow:hidden;
+    }
+    .hero-orb {
+      position:absolute;border-radius:50%;pointer-events:none;
+      filter:blur(120px);z-index:2;
+    }
+    .orb-1{width:600px;height:400px;background:radial-gradient(ellipse,rgba(139,92,246,.12),transparent 70%);top:-10%;left:50%;transform:translateX(-50%);animation:o1 12s ease-in-out infinite;}
+    .orb-2{width:500px;height:500px;background:radial-gradient(circle,rgba(6,182,212,.08),transparent 70%);bottom:5%;right:-10%;animation:o2 14s ease-in-out infinite;}
+    .orb-3{width:400px;height:400px;background:radial-gradient(circle,rgba(236,72,153,.07),transparent 70%);bottom:5%;left:-5%;animation:o3 11s ease-in-out infinite;}
+    @keyframes o1{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.15)}}
+    @keyframes o2{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,-30px)}}
+    @keyframes o3{0%,100%{transform:translate(0,0)}50%{transform:translate(25px,-25px)}}
+    .hero-grid {
+      position:absolute;inset:0;z-index:2;pointer-events:none;
+      background-image:linear-gradient(rgba(139,92,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.04) 1px,transparent 1px);
+      background-size:64px 64px;
+      mask-image:radial-gradient(ellipse 85% 75% at 50% 50%,black 20%,transparent 70%);
+    }
+    [data-theme="light"] .hero-grid {
+      background-image:linear-gradient(rgba(99,102,241,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,.05) 1px,transparent 1px);
+    }
+    .hero-content { position:relative;z-index:20; }
+    .hero-badge {
+      display:inline-flex;align-items:center;gap:8px;
+      background:var(--surface);border:1px solid var(--border);
+      border-radius:100px;padding:6px 16px 6px 6px;margin-bottom:36px;
+      animation:fadeUp .7s ease both;
+    }
+    .badge-dot {
+      width:8px;height:8px;border-radius:50%;
+      background:linear-gradient(135deg,var(--purple),var(--cyan));
+      animation:dotPulse 2s ease-in-out infinite;
+    }
+    @keyframes dotPulse{0%,100%{opacity:1}50%{opacity:.5}}
+    .badge-text { font-size:12px;font-weight:600;color:var(--muted2); }
+    .hero h1 {
+      font-family:'Unbounded',sans-serif;
+      font-size:clamp(38px,6.5vw,88px);
+      font-weight:900;line-height:1.03;letter-spacing:-2.5px;
+      color:var(--text);max-width:1000px;
+      animation:fadeUp .7s .1s ease both;
+    }
+    .hero-gradient {
+      display:block;
+      background:linear-gradient(90deg,var(--purple) 0%,var(--cyan) 40%,var(--pink) 80%,var(--purple) 100%);
+      background-size:200% auto;
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      animation:shimmer 6s linear infinite;
+    }
+    @keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}
+    .hero-sub {
+      margin-top:28px;font-size:18px;color:var(--muted);
+      max-width:600px;line-height:1.65;
+      animation:fadeUp .7s .2s ease both;
+    }
+    .hero-btns {
+      margin-top:44px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
+      animation:fadeUp .7s .3s ease both;
+    }
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+    .btn-primary {
+      font-family:'Inter',sans-serif;font-size:15px;font-weight:700;
+      background:linear-gradient(135deg,var(--purple),var(--cyan));
+      color:#fff;border:none;padding:15px 36px;border-radius:12px;
+      cursor:pointer;transition:all .2s;text-decoration:none;
+      box-shadow:0 8px 24px rgba(139,92,246,.3);
+    }
+    .btn-primary:hover { transform:translateY(-2px);box-shadow:0 14px 32px rgba(139,92,246,.45); }
+    .btn-secondary {
+      font-family:'Inter',sans-serif;font-size:15px;font-weight:600;
+      background:var(--surface);border:1px solid var(--border);
+      color:var(--text);padding:15px 36px;border-radius:12px;
       cursor:pointer;transition:all .2s;text-decoration:none;
     }
-    [data-theme="dark"] .nav-btn { color: #09090f; }
-    .nav-btn:hover { transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,230,66,.2); }
-    [data-theme="light"] .nav-btn:hover { box-shadow:0 6px 20px rgba(79,70,229,.2); }
+    .btn-secondary:hover { border-color:var(--purple);color:var(--purple); }
 
-    /* All sections must sit above the canvas and noise layer */
-    section { position: relative; z-index: 10; }
-
-    /* HERO */
-    .hero {
-      min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-      text-align:center;padding:140px 24px 80px; overflow:hidden;
+    /* ── SHARED SECTION STYLES ── */
+    .section-wrap { max-width:1200px;margin:0 auto;padding:0 48px; }
+    .eyebrow {
+      font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;
+      letter-spacing:2.5px;text-transform:uppercase;color:var(--purple);margin-bottom:16px;
     }
-    .hero-grid {
-      position:absolute;inset:0;
-      background-image:linear-gradient(rgba(245,230,66,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(245,230,66,.03) 1px,transparent 1px);
-      background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,black 30%,transparent 75%);
-      z-index: 2; pointer-events: none;
+    [data-theme="light"] .eyebrow { color:var(--purple); }
+    .section-h {
+      font-family:'Unbounded',sans-serif;
+      font-size:clamp(28px,4vw,48px);
+      font-weight:800;letter-spacing:-1.5px;line-height:1.1;
+      color:var(--text);margin-bottom:16px;
     }
-    .orb { position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none; z-index: 3; }
-    .orb-y{width:500px;height:300px;background:radial-gradient(ellipse,rgba(245,230,66,.08) 0%,transparent 70%);top:0;left:50%;transform:translateX(-50%);animation:ob1 10s ease-in-out infinite}
-    .orb-p{width:400px;height:400px;background:radial-gradient(circle,rgba(155,92,255,.08) 0%,transparent 70%);bottom:10%;left:-5%;animation:ob2 12s ease-in-out infinite}
-    .orb-c{width:350px;height:350px;background:radial-gradient(circle,rgba(0,240,255,.08) 0%,transparent 70%);bottom:0;right:0;animation:ob3 10s ease-in-out infinite}
-    @keyframes ob1{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.1)}}
-    @keyframes ob2{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-20px)}}
-    @keyframes ob3{0%,100%{transform:translate(0,0)}50%{transform:translate(-20px,20px)}}
+    .section-p { font-size:16px;color:var(--muted);line-height:1.7;max-width:520px; }
 
-    /* Content layers strictly above backgrounds */
-    .hero-tag, .hero h1, .hero-sub, .hero-btns {
-      position: relative;
-      z-index: 20;
+    /* ── APPS SECTION ── */
+    .apps-section { padding:100px 0;background:var(--bg); }
+    .apps-header { text-align:center;margin-bottom:64px; }
+    .apps-header .section-p { margin:0 auto; }
+    .apps-grid { display:grid;grid-template-columns:1fr 1fr;gap:28px; }
+    .app-card {
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:24px;padding:48px 40px;
+      position:relative;overflow:hidden;
+      transition:all .35s cubic-bezier(.22,1,.36,1);
+    }
+    .app-card::before {
+      content:'';position:absolute;inset:0;border-radius:24px;
+      background:linear-gradient(135deg,var(--purple-dim),transparent 60%);
+      opacity:0;transition:opacity .35s;
+    }
+    .app-card.cyan-accent::before {
+      background:linear-gradient(135deg,var(--cyan-dim),transparent 60%);
+    }
+    .app-card:hover { transform:translateY(-6px);border-color:var(--border-hover);box-shadow:0 24px 48px rgba(0,0,0,.2); }
+    .app-card:hover::before { opacity:1; }
+    [data-theme="light"] .app-card { box-shadow:0 4px 20px rgba(0,0,0,.06); }
+    [data-theme="light"] .app-card:hover { box-shadow:0 20px 48px rgba(0,0,0,.1); }
+    .app-icon-wrap {
+      width:80px;height:80px;border-radius:20px;
+      display:flex;align-items:center;justify-content:center;margin-bottom:28px;
+      position:relative;z-index:1;
+    }
+    .app-icon-calc { background:linear-gradient(135deg,#7c3aed,#4f46e5); box-shadow:0 8px 24px rgba(124,58,237,.35); }
+    .app-icon-span { background:linear-gradient(135deg,#0891b2,#0d9488); box-shadow:0 8px 24px rgba(8,145,178,.35); }
+    .app-icon-wrap svg { width:40px;height:40px; }
+    .app-name {
+      font-family:'Unbounded',sans-serif;font-size:22px;font-weight:800;
+      color:var(--text);margin-bottom:10px;position:relative;z-index:1;
+      letter-spacing:-.5px;
+    }
+    .app-desc {
+      font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:28px;
+      position:relative;z-index:1;
+    }
+    .app-tags { display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;position:relative;z-index:1; }
+    .app-tag {
+      font-size:12px;font-weight:600;
+      background:var(--purple-dim);color:var(--purple);
+      padding:5px 12px;border-radius:100px;
+    }
+    .cyan-accent .app-tag { background:var(--cyan-dim);color:var(--cyan); }
+    .play-btn {
+      display:inline-flex;align-items:center;gap:10px;
+      background:var(--play-green);color:#fff;
+      padding:13px 22px;border-radius:12px;
+      text-decoration:none;font-size:14px;font-weight:600;
+      transition:all .2s;position:relative;z-index:1;
+      box-shadow:0 4px 14px rgba(1,135,95,.25);
+    }
+    .play-btn:hover { transform:translateY(-1px);box-shadow:0 8px 22px rgba(1,135,95,.4);filter:brightness(1.05); }
+    .play-btn svg { width:20px;height:20px;flex-shrink:0; }
+    .play-btn-inner { display:flex;flex-direction:column;line-height:1.2; }
+    .play-btn-label { font-size:10px;font-weight:400;opacity:.85; }
+    .play-btn-store { font-size:14px;font-weight:700; }
+    .app-num {
+      position:absolute;top:40px;right:40px;
+      font-family:'Unbounded',sans-serif;font-size:56px;font-weight:900;
+      color:var(--border);letter-spacing:-2px;z-index:0;
+      line-height:1;
     }
 
-    .hero-tag {
-      display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);
-      border-radius:100px;padding:6px 16px 6px 6px;margin-bottom:32px;
-      background: var(--surface); animation:fadeUp .7s ease both;
+    /* ── ABOUT SECTION ── */
+    .about-section { padding:100px 0;background:var(--surface);border-top:1px solid var(--border); }
+    .about-inner { display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center; }
+    .about-text p { font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:20px; }
+    .about-text p strong { color:var(--text);font-weight:600; }
+    .about-chips { display:flex;flex-wrap:wrap;gap:10px;margin-top:32px; }
+    .chip {
+      font-size:13px;font-weight:600;
+      background:var(--bg);border:1px solid var(--border);
+      border-radius:100px;padding:8px 18px;color:var(--muted2);
+      transition:all .2s;
     }
-    .tag-pill { background:var(--yellow);color:#09090f;font-family:'Unbounded',sans-serif;font-size:10px;font-weight:800;letter-spacing:1px;padding:4px 12px;border-radius:100px; }
-    .tag-text { font-size:12px;font-weight:600;color:var(--text); }
-    
-    .hero h1 { font-family:'Unbounded',sans-serif;font-size:clamp(36px,6vw,84px);font-weight:900;line-height:1.05;letter-spacing:-2px;color:var(--white);max-width:1000px;animation:fadeUp .7s .1s ease both; }
-    .h1-line2 { display:block;background:linear-gradient(90deg,var(--yellow) 0%,var(--pink) 50%,var(--cyan) 100%);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 5s ease-in-out infinite; }
-    @keyframes shimmer{0%,100%{background-position:0%}50%{background-position:100%}}
-    
-    .hero-sub { margin-top:24px;font-size:18px;color:var(--text); opacity: 0.95; max-width:640px;line-height:1.6;animation:fadeUp .7s .2s ease both; }
-    .hero-btns { margin-top:40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp .7s .3s ease both; }
-    
-    .btn-y { font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;background:var(--yellow);color:#fff;border:none;padding:16px 36px;border-radius:12px;cursor:pointer;transition:all .2s;text-decoration:none; }
-    [data-theme="dark"] .btn-y { color: #09090f; }
-    .btn-y:hover { transform:translateY(-2px);box-shadow:0 12px 30px rgba(245,230,66,.2); }
-    [data-theme="light"] .btn-y:hover { box-shadow:0 12px 30px rgba(79,70,229,.2); }
-    .btn-ghost { font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:16px 36px;border-radius:12px;cursor:pointer;transition:all .2s;text-decoration:none; }
-    .btn-ghost:hover { border-color:var(--yellow); }
+    .chip:hover { border-color:var(--purple);color:var(--purple); }
+    .about-cards { display:flex;flex-direction:column;gap:16px; }
+    .acard {
+      background:var(--bg);border:1px solid var(--border);
+      border-radius:20px;padding:28px;
+      display:flex;align-items:flex-start;gap:16px;
+      transition:all .3s;
+    }
+    .acard:hover { border-color:var(--border-hover);transform:translateX(4px); }
+    .acard-icon {
+      width:44px;height:44px;border-radius:12px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;font-size:20px;
+      background:var(--purple-dim);
+    }
+    .acard:nth-child(2) .acard-icon { background:var(--cyan-dim); }
+    .acard:nth-child(3) .acard-icon { background:rgba(236,72,153,.1); }
+    .acard-title { font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px; }
+    .acard-desc { font-size:13px;color:var(--muted);line-height:1.6; }
 
-    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    /* ── EXPERTISE SECTION ── */
+    .expertise-section { padding:100px 0;background:var(--bg);border-top:1px solid var(--border); }
+    .exp-header { display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;flex-wrap:wrap;gap:24px; }
+    .exp-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:20px; }
+    .exp-card {
+      background:var(--card);border:1px solid var(--border);
+      border-radius:20px;padding:32px 28px;
+      transition:all .3s;position:relative;overflow:hidden;
+    }
+    .exp-card:hover { border-color:var(--border-hover);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.15); }
+    [data-theme="light"] .exp-card { box-shadow:0 2px 12px rgba(0,0,0,.05); }
+    [data-theme="light"] .exp-card:hover { box-shadow:0 16px 40px rgba(0,0,0,.1); }
+    .exp-stripe {
+      position:absolute;top:0;left:0;right:0;height:3px;
+      border-radius:20px 20px 0 0;
+    }
+    .s1{background:linear-gradient(90deg,var(--purple),#6366f1);}
+    .s2{background:linear-gradient(90deg,var(--cyan),#0d9488);}
+    .s3{background:linear-gradient(90deg,var(--pink),var(--amber));}
+    .s4{background:linear-gradient(90deg,var(--green),var(--cyan));}
+    .exp-icon { font-size:32px;margin-bottom:20px;display:block; }
+    .exp-title {
+      font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;
+      color:var(--text);margin-bottom:10px;letter-spacing:-.3px;
+    }
+    .exp-desc { font-size:13px;color:var(--muted);line-height:1.65; }
 
-    /* SECTIONS */
-    .section-eyebrow { font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--yellow);text-transform:uppercase;margin-bottom:16px;position:relative;display:inline-block; }
-    .section-h { font-family:'Unbounded',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;color:var(--white);margin-bottom:16px; }
-    .section-p { font-size:16px;color:var(--muted);line-height:1.7;max-width:500px; }
+    /* ── CONTACT SECTION ── */
+    .contact-section { padding:100px 0;background:var(--surface);border-top:1px solid var(--border); }
+    .contact-box {
+      border-radius:28px;
+      border:1px solid var(--border);
+      padding:80px 60px;text-align:center;
+      background:var(--card);
+      position:relative;overflow:hidden;
+    }
+    .contact-box::before {
+      content:'';position:absolute;
+      width:600px;height:600px;border-radius:50%;
+      background:radial-gradient(circle,rgba(139,92,246,.06),transparent 70%);
+      top:50%;left:50%;transform:translate(-50%,-50%);
+      pointer-events:none;
+    }
+    .contact-box h2 {
+      font-family:'Unbounded',sans-serif;
+      font-size:clamp(28px,4vw,52px);
+      font-weight:900;letter-spacing:-1.5px;line-height:1.1;
+      color:var(--text);margin-bottom:18px;
+      position:relative;z-index:1;
+    }
+    .contact-box h2 em { font-style:normal;color:var(--purple); }
+    .contact-box p { font-size:16px;color:var(--muted);margin-bottom:44px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;position:relative;z-index:1; }
+    .contact-links { display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1; }
+    .contact-link {
+      display:inline-flex;align-items:center;gap:8px;
+      background:var(--surface);border:1px solid var(--border);
+      border-radius:10px;padding:12px 22px;
+      font-size:14px;font-weight:600;color:var(--text);
+      text-decoration:none;transition:all .2s;
+    }
+    .contact-link:hover { background:var(--purple);border-color:var(--purple);color:#fff; }
+    .contact-link-primary { background:var(--purple);border-color:var(--purple);color:#fff; }
+    .contact-link-primary:hover { background:#7c3aed;border-color:#7c3aed; }
 
-    /* MANIFESTO (What is) */
-    .manifesto { padding:100px 40px; background:var(--bg); }
-    .manifesto-inner { max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center; }
-    .m-text p { font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:20px; }
-    .m-text p strong { color:var(--text);font-weight:600; }
-    .m-cards { display:flex;flex-direction:column;gap:16px; }
-    .m-card { background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;display:flex;align-items:flex-start;gap:16px;transition:all .3s; }
-    .m-card:hover { transform:translateX(4px); border-color:var(--yellow); box-shadow:0 10px 30px rgba(0,0,0,.05); }
-    .mc-icon { width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0; background:rgba(245,230,66,.1); }
-    [data-theme="light"] .mc-icon { background:rgba(79,70,229,.1); }
-    .mc-body h4 { font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:var(--white);margin-bottom:6px; }
-    .mc-body p { font-size:14px;color:var(--muted);line-height:1.6; }
+    /* ── FOOTER ── */
+    footer { border-top:1px solid var(--border);padding:44px;background:var(--bg);position:relative;z-index:10; }
+    .footer-inner { max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px; }
+    .footer-logo { font-family:'Unbounded',sans-serif;font-size:16px;font-weight:800;color:var(--text);display:flex;align-items:center;gap:10px;text-decoration:none; }
+    .footer-mark { width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,var(--purple),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#fff; }
+    .footer-links { display:flex;gap:28px;list-style:none; }
+    .footer-links a { font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s; }
+    .footer-links a:hover { color:var(--text); }
+    .footer-copy { font-size:13px;color:var(--muted);width:100%;text-align:center;margin-top:20px; }
 
-    /* VECTORS (Services) */
-    .vectors { padding:100px 40px; border-top:1px solid var(--border); background:var(--surface); }
-    .vectors-inner { max-width:1200px;margin:0 auto; }
-    .v-header { display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;flex-wrap:wrap;gap:24px; }
-    .v-grid { display:grid;grid-template-columns:repeat(2, 1fr);gap:24px; }
-    .v-card { background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:40px;transition:all .3s;position:relative;overflow:hidden; }
-    .v-card:hover { transform:translateY(-4px); border-color:var(--yellow); box-shadow:0 20px 40px rgba(0,0,0,.08); }
-    .v-icon { font-size:36px;margin-bottom:24px; display:inline-block; }
-    .v-card h3 { font-family:'Unbounded',sans-serif;font-size:18px;font-weight:800;letter-spacing:-.5px;color:var(--white);margin-bottom:12px; }
-    .v-card p { font-size:15px;color:var(--muted);line-height:1.7; }
+    /* ── REVEAL ── */
+    .reveal { opacity:0;transform:translateY(28px);transition:opacity .65s ease-out,transform .65s ease-out; }
+    .reveal.visible { opacity:1;transform:none; }
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
 
-    /* LAB (In Development) */
-    .lab { padding:100px 40px; border-top:1px solid var(--border); background:var(--bg); }
-    .lab-inner { max-width:1200px;margin:0 auto; }
-    .lab-grid { display:grid;grid-template-columns:repeat(3, 1fr);gap:24px;margin-top:48px; }
-    .l-item { background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px; position:relative; }
-    .l-item::before { content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--yellow);border-top-left-radius:20px;border-top-right-radius:20px;opacity:0.5; }
-    .l-item:nth-child(2)::before{background:var(--pink)}
-    .l-item:nth-child(3)::before{background:var(--cyan)}
-    .l-title { font-family:'Unbounded',sans-serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:12px; }
-    .l-desc { font-size:14px;color:var(--muted);line-height:1.6; }
-
-    /* CTA */
-    .cta { padding:100px 40px; border-top:1px solid var(--border); background:var(--surface); }
-    .cta-inner { max-width:1200px;margin:0 auto; }
-    .cta-box { border-radius:24px;position:relative;background:var(--card);border:1px solid var(--border);padding:80px 40px;text-align:center;overflow:hidden; }
-    .cta-box h2 { font-family:'Unbounded',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:900;letter-spacing:-1.5px;line-height:1.1;color:var(--white);margin-bottom:20px; }
-    .cta-box h2 em { font-style:normal;color:var(--yellow); }
-    .cta-box p { font-size:16px;color:var(--muted);margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7; }
-    .cta-links { display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1; }
-    .cta-link { display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 24px;font-size:14px;font-weight:600;color:var(--text);text-decoration:none;transition:all .2s; }
-    .cta-link:hover { background:var(--yellow);border-color:var(--yellow);color:#fff; }
-    [data-theme="dark"] .cta-link:hover { color: #000; }
-    .cta-link-primary { background:var(--yellow);border-color:var(--yellow);color:#fff; }
-    [data-theme="dark"] .cta-link-primary { color: #000; }
-
-    /* FOOTER */
-    footer{ border-top:1px solid var(--border);padding:40px; background:var(--bg); position: relative; z-index: 10; }
-    .footer-inner{ max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px; }
-    .footer-logo{ font-family:'Unbounded',sans-serif;font-size:16px;font-weight:800;color:var(--white);display:flex;align-items:center;gap:10px;text-decoration:none; }
-    .footer-logo-icon{ width:28px;height:28px;border-radius:6px;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:12px; color:#000; }
-    [data-theme="light"] .footer-logo-icon { background:#4f46e5; color:#fff; }
-    .footer-links{ display:flex;gap:28px;list-style:none; }
-    .footer-links a{ font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s; }
-    .footer-links a:hover{ color:var(--white); }
-    .footer-copy{ font-size:13px;color:var(--muted);width:100%;text-align:center;margin-top:20px; }
-
-    .reveal{ opacity:0;transform:translateY(24px);transition:opacity .6s ease-out,transform .6s ease-out; }
-    .reveal.visible{ opacity:1;transform:translateY(0); }
-    .reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}
-
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px){
+      .exp-grid { grid-template-columns:repeat(2,1fr); }
+    }
     @media(max-width:900px){
-      .manifesto-inner, .v-grid { grid-template-columns:1fr; }
-      .lab-grid { grid-template-columns:1fr; }
-    }
-    @media(max-width:600px){
-      nav { padding:16px 20px; }
+      .apps-grid, .about-inner { grid-template-columns:1fr; }
+      nav { padding:16px 24px; }
       .nav-links { display:none; }
-      .hero, .manifesto, .vectors, .lab, .cta, footer { padding-left:20px; padding-right:20px; }
-      .cta-box { padding:40px 20px; }
-      .hero h1 { font-size: 32px; }
+      .section-wrap { padding:0 24px; }
+    }
+    @media(max-width:640px){
+      .exp-grid { grid-template-columns:1fr; }
+      .hero h1 { letter-spacing:-1.5px; }
+      .contact-box { padding:48px 24px; }
+      footer { padding:32px 24px; }
     }
   </style>
 </head>
 <body>
-<canvas id="particle-canvas"></canvas>
+<canvas id="bg-canvas"></canvas>
+<div class="noise"></div>
 
+<!-- NAV -->
 <nav id="nav">
-  <a href="index.html" class="nav-logo">
-    <div class="nav-logo-icon">&#127918;</div>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-mark">A</div>
     Aspaloyy
   </a>
   <ul class="nav-links">
-    <li><a href="#manifesto" data-i18n="nav.about">Manifesto</a></li>
-    <li><a href="#vectors" data-i18n="nav.services">Vectors</a></li>
-    <li><a href="#lab" data-i18n="nav.lab">R&D Lab</a></li>
-    <li><a href="aboutasman.html" data-i18n="nav.founder">Founder</a></li>
+    <li><a href="#apps" data-i18n="nav.apps">Приложения</a></li>
+    <li><a href="#about" data-i18n="nav.about">Студия</a></li>
+    <li><a href="#expertise" data-i18n="nav.expertise">Экспертиза</a></li>
+    <li><a href="aboutasman.html" data-i18n="nav.founder">Основатель</a></li>
   </ul>
   <div class="nav-right">
     <div class="nav-controls">
-      <select class="lang-select" id="langSelect">
+      <select class="ctrl-btn" id="langSelect" style="padding-right:10px">
         <option value="ru">RU</option>
         <option value="en">EN</option>
         <option value="ky">KG</option>
         <option value="tr">TR</option>
         <option value="de">DE</option>
       </select>
-      <button class="theme-btn" id="themeBtn" title="Toggle theme">&#9790;</button>
+      <button class="ctrl-btn" id="themeBtn" title="Toggle theme">&#9790;</button>
     </div>
-    <a href="mailto:aspaloyy@gmail.com" class="nav-btn" data-i18n="nav.cta">Contact</a>
+    <a href="mailto:aspaloyy@gmail.com" class="nav-cta" data-i18n="nav.cta">Связаться</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-grid"></div>
-  <div class="orb orb-y"></div><div class="orb orb-p"></div><div class="orb orb-c"></div>
+  <div class="hero-orb orb-1"></div>
+  <div class="hero-orb orb-2"></div>
+  <div class="hero-orb orb-3"></div>
 
-  <div class="hero-tag">
-    <span class="tag-pill" data-i18n="hero.pill">R&D СТУДИЯ</span>
-    <span class="tag-text" data-i18n="hero.tagtext">Экосистемная лаборатория · Глобальный рынок</span>
-  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      <span class="badge-text" data-i18n="hero.badge">Mobile Apps & Digital Studio · Кыргызстан</span>
+    </div>
 
-  <h1>
-    <span data-i18n="hero.line1">Архитекторы цифровых систем.</span><br>
-    <span class="h1-line2" data-i18n="hero.line2">Продукты, которые имеют значение.</span>
-  </h1>
+    <h1>
+      <span data-i18n="hero.line1">Цифровые продукты.</span><br>
+      <span class="hero-gradient" data-i18n="hero.line2">Которые просто работают.</span>
+    </h1>
 
-  <p class="hero-sub" data-i18n="hero.sub">
-    Aspaloyy — это независимая исследовательская R&D студия. Мы не просто пишем код. Мы проектируем автономные нейросетевые инструменты, нативные мобильные приложения и масштабируемые веб-экосистемы.
-  </p>
+    <p class="hero-sub" data-i18n="hero.sub">
+      Aspaloyy — независимый разработчик мобильных приложений и цифровых продуктов. Наши приложения доступны в Google Play и используются по всему миру.
+    </p>
 
-  <div class="hero-btns">
-    <a href="#vectors" class="btn-y" data-i18n="hero.cta1">Изучить технологии</a>
-    <a href="mailto:aspaloyy@gmail.com" class="btn-ghost" data-i18n="hero.cta2">Обсудить проект</a>
+    <div class="hero-btns">
+      <a href="#apps" class="btn-primary" data-i18n="hero.cta1">Наши приложения</a>
+      <a href="mailto:aspaloyy@gmail.com" class="btn-secondary" data-i18n="hero.cta2">Написать нам</a>
+    </div>
   </div>
 </section>
 
-<!-- MANIFESTO -->
-<section id="manifesto" class="manifesto">
-  <div class="manifesto-inner">
-    <div class="reveal">
-      <div class="section-eyebrow" data-i18n="what.eyebrow">Манифест студии</div>
-      <div class="section-h" data-i18n="what.title">Синтез технологий.<br>Без границ.</div>
-      <div class="m-text">
-        <p data-i18n="what.p1">В мире стремительных инноваций узкая специализация ограничивает видение. Мы построили Aspaloyy как <strong>междисциплинарный хаб</strong>. Мы осознанно объединили разработку сложных игровых механик, интеграцию автономных ИИ-агентов, мобильную инженерию и проектирование облачного бэкенда.</p>
-        <p data-i18n="what.p2">Игровые алгоритмы оптимизации графики делают наши корпоративные интерфейсы молниеносными. А строгая, безопасная архитектура микросервисов обеспечивает нашим играм беспрецедентную стабильность. Мы синтезируем лучшие практики для создания идеального продукта.</p>
+<!-- APPS -->
+<section id="apps" class="apps-section">
+  <div class="section-wrap">
+    <div class="apps-header reveal">
+      <div class="eyebrow" data-i18n="apps.eyebrow">Google Play</div>
+      <div class="section-h" data-i18n="apps.title">Наши приложения</div>
+      <p class="section-p" data-i18n="apps.sub">Все приложения созданы с нуля, оптимизированы и доступны для скачивания прямо сейчас.</p>
+    </div>
+    <div class="apps-grid">
+      <!-- Calculator -->
+      <div class="app-card reveal">
+        <span class="app-num">01</span>
+        <div class="app-icon-wrap app-icon-calc">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="12" height="9" rx="2" fill="white" opacity=".9"/>
+            <rect x="22" y="6" width="12" height="9" rx="2" fill="white" opacity=".6"/>
+            <rect x="6" y="19" width="12" height="7" rx="2" fill="white" opacity=".6"/>
+            <rect x="22" y="19" width="12" height="7" rx="2" fill="white" opacity=".6"/>
+            <rect x="6" y="30" width="28" height="4" rx="2" fill="white" opacity=".9"/>
+          </svg>
+        </div>
+        <div class="app-name" data-i18n="calc.name">Aspaloyy Calculator</div>
+        <p class="app-desc" data-i18n="calc.desc">Чистый, быстрый калькулятор для Android. Никаких лишних разрешений, никакой рекламы. Просто считайте.</p>
+        <div class="app-tags">
+          <span class="app-tag">Android</span>
+          <span class="app-tag" data-i18n="tag.free">Бесплатно</span>
+          <span class="app-tag" data-i18n="tag.noad">Без рекламы</span>
+        </div>
+        <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.calculator" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M3.18 23.76c.3.17.66.18.97.04L15.24 12 3.53.2c-.27.16-.45.45-.45.8v21.99c0 .3.04.57.1.77z"/><path d="M19.54 9.76l-2.89-1.67-3.14 3.01 3.14 3.01 2.9-1.67c.82-.48.82-1.68-.01-2.68z" opacity=".6"/><path d="M15.24 12L3.18 23.76c.16.07.35.11.53.11.19 0 .38-.05.55-.14l13.28-7.62L15.24 12z" opacity=".8"/><path d="M3.71.1L15.24 12l2.3-2.24L4.26.24A1.1 1.1 0 003.71.1z" opacity=".8"/></svg>
+          <div class="play-btn-inner">
+            <span class="play-btn-label" data-i18n="play.get">СКАЧАТЬ В</span>
+            <span class="play-btn-store">Google Play</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Spanit -->
+      <div class="app-card cyan-accent reveal d1">
+        <span class="app-num">02</span>
+        <div class="app-icon-wrap app-icon-span">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="7" width="28" height="20" rx="4" fill="white" opacity=".9"/>
+            <path d="M10 12h16M10 17h10" stroke="#0891b2" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M28 25l4 6H8l4-6" fill="white" opacity=".7"/>
+            <circle cx="32" cy="28" r="8" fill="#f59e0b"/>
+            <text x="32" y="32" text-anchor="middle" font-size="8" font-weight="bold" fill="white" font-family="sans-serif">ES</text>
+          </svg>
+        </div>
+        <div class="app-name" data-i18n="span.name">Spanit</div>
+        <p class="app-desc" data-i18n="span.desc">Изучайте испанский язык легко и эффективно. Словарный запас, фразы и практика — всё в одном приложении для Android.</p>
+        <div class="app-tags">
+          <span class="app-tag">Android</span>
+          <span class="app-tag" data-i18n="tag.free">Бесплатно</span>
+          <span class="app-tag">Spanish / Español</span>
+        </div>
+        <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.spanit" target="_blank" rel="noopener" class="play-btn" style="background:#0891b2;box-shadow:0 4px 14px rgba(8,145,178,.3)">
+          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M3.18 23.76c.3.17.66.18.97.04L15.24 12 3.53.2c-.27.16-.45.45-.45.8v21.99c0 .3.04.57.1.77z"/><path d="M19.54 9.76l-2.89-1.67-3.14 3.01 3.14 3.01 2.9-1.67c.82-.48.82-1.68-.01-2.68z" opacity=".6"/><path d="M15.24 12L3.18 23.76c.16.07.35.11.53.11.19 0 .38-.05.55-.14l13.28-7.62L15.24 12z" opacity=".8"/><path d="M3.71.1L15.24 12l2.3-2.24L4.26.24A1.1 1.1 0 003.71.1z" opacity=".8"/></svg>
+          <div class="play-btn-inner">
+            <span class="play-btn-label" data-i18n="play.get">СКАЧАТЬ В</span>
+            <span class="play-btn-store">Google Play</span>
+          </div>
+        </a>
       </div>
     </div>
-    <div class="m-cards reveal reveal-d1">
-      <div class="m-card"><div class="mc-icon">&#128640;</div><div class="mc-body"><h4 data-i18n="wc1.t">Product-Led Growth</h4><p data-i18n="wc1.d">Программное обеспечение, качество которого само по себе является главным драйвером.</p></div></div>
-      <div class="m-card"><div class="mc-icon">&#9889;</div><div class="mc-body"><h4 data-i18n="wc2.t">Agile & Shape Up</h4><p data-i18n="wc2.d">Мы не пишем код ради кода. Мы выпускаем осмысленные обновления, решающие проблемы.</p></div></div>
-      <div class="m-card"><div class="mc-icon">&#128274;</div><div class="mc-body"><h4 data-i18n="wc3.t">Global Security</h4><p data-i18n="wc3.d">Архитектура Privacy-First. Запрашиваем лишь критический минимум данных.</p></div></div>
+  </div>
+</section>
+
+<!-- ABOUT STUDIO -->
+<section id="about" class="about-section">
+  <div class="section-wrap">
+    <div class="about-inner">
+      <div class="reveal">
+        <div class="eyebrow" data-i18n="about.eyebrow">О нас</div>
+        <div class="section-h" data-i18n="about.title">Aspaloyy Studio</div>
+        <div class="about-text">
+          <p data-i18n="about.p1">Aspaloyy — независимая студия, основанная <strong>Асманом</strong> из Бишкека, Кыргызстан. Мы создаём мобильные приложения, интегрируем искусственный интеллект и строим масштабируемые цифровые продукты.</p>
+          <p data-i18n="about.p2">Каждый продукт проходит полный цикл: от идеи и архитектуры до релиза в Google Play. Мы не пишем код ради кода — мы создаём вещи, которыми пользуются реальные люди.</p>
+        </div>
+        <div class="about-chips">
+          <span class="chip" data-i18n="chip.mobile">Android Dev</span>
+          <span class="chip" data-i18n="chip.ai">AI Integration</span>
+          <span class="chip" data-i18n="chip.web">Web Dev</span>
+          <span class="chip" data-i18n="chip.pub">Google Play Publisher</span>
+          <span class="chip" data-i18n="chip.founder">Solo Founder</span>
+        </div>
+      </div>
+      <div class="about-cards reveal d1">
+        <div class="acard">
+          <div class="acard-icon">🚀</div>
+          <div>
+            <div class="acard-title" data-i18n="ac1.t">Google Play Publisher</div>
+            <div class="acard-desc" data-i18n="ac1.d">Официальный паблишер. Полный цикл релиза: от сборки до публикации и поддержки политик безопасности Google.</div>
+          </div>
+        </div>
+        <div class="acard">
+          <div class="acard-icon">🤖</div>
+          <div>
+            <div class="acard-title" data-i18n="ac2.t">AI & Synthetic Media</div>
+            <div class="acard-desc" data-i18n="ac2.d">Интеграция LLM, цифровые аватары, автоматическая видеогенерация — мы работаем с передовыми AI-инструментами.</div>
+          </div>
+        </div>
+        <div class="acard">
+          <div class="acard-icon">🌍</div>
+          <div>
+            <div class="acard-title" data-i18n="ac3.t">Кыргызстан → Глобальный рынок</div>
+            <div class="acard-desc" data-i18n="ac3.d">Базируемся в Кайсери, Турция. Разрабатываем продукты для международной аудитории на 5 языках.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- VECTORS -->
-<section id="vectors" class="vectors">
-  <div class="vectors-inner">
-    <div class="v-header reveal">
+<!-- EXPERTISE -->
+<section id="expertise" class="expertise-section">
+  <div class="section-wrap">
+    <div class="exp-header reveal">
       <div>
-        <div class="section-eyebrow" data-i18n="srv.eyebrow">Экспертиза</div>
-        <div class="section-h" data-i18n="srv.title">Ключевые векторы.</div>
+        <div class="eyebrow" data-i18n="exp.eyebrow">Что мы умеем</div>
+        <div class="section-h" data-i18n="exp.title">Экспертиза</div>
       </div>
-      <p class="section-p" data-i18n="srv.sub">Каждое направление — это глубокое погружение в технологии и бескомпромиссная архитектура.</p>
+      <p class="section-p" data-i18n="exp.sub">Четыре ключевых направления, в которых мы строим надёжные и масштабируемые системы.</p>
     </div>
-    <div class="v-grid">
-      <div class="v-card reveal"><div class="v-icon">&#129302;</div><h3 data-i18n="s1.t">Интеграция Генеративного ИИ</h3><p data-i18n="s1.d">Интеллектуальные системы на базе LLM (Google AI Pro). Цифровые двойники (Avatar V, HeyGen) для авто-генерации видеоконтента студийного качества на лету.</p></div>
-      <div class="v-card reveal reveal-d1"><div class="v-icon">&#128241;</div><h3 data-i18n="s2.t">Нативные Мобильные Экосистемы</h3><p data-i18n="s2.d">Проектирование кроссплатформенных и нативных приложений (Android 17 SDK). Плавный UI, оптимизация батареи и строгие стандарты конфиденциальности.</p></div>
-      <div class="v-card reveal"><div class="v-icon">&#127918;</div><h3 data-i18n="s3.t">Интерактивные Игровые Системы</h3><p data-i18n="s3.d">От прототипирования механик до сложного 3D-рендеринга и балансировки внутренней экономики виртуальных миров (Spatial Computing).</p></div>
-      <div class="v-card reveal reveal-d1"><div class="v-icon">&#9750;</div><h3 data-i18n="s4.t">Высоконагруженная Веб-инфраструктура</h3><p data-i18n="s4.d">Корпоративные SPA и PWA без задержек. Безопасная облачная инфраструктура (Serverless, Docker) готовая к миллионам запросов.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- R&D LAB -->
-<section id="lab" class="lab">
-  <div class="lab-inner">
-    <div class="reveal">
-      <div class="section-eyebrow" data-i18n="road.eyebrow">R&D Lab</div>
-      <div class="section-h" data-i18n="road.title">Взгляд за горизонт.</div>
-      <p class="section-p" style="margin-bottom: 32px;" data-i18n="road.sub">Инновации не скачиваются из готовых библиотек. В закрытом контуре мы тестируем смелые гипотезы.</p>
-    </div>
-    <div class="lab-grid">
-      <div class="l-item reveal">
-        <div class="l-title" data-i18n="r1.t">Автономные ИИ-Агенты</div>
-        <div class="l-desc" data-i18n="r1.d">Агенты с контекстной памятью. Многоступенчатые цепочки действий и агрегация данных абсолютно автономно.</div>
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <div class="exp-stripe s1"></div>
+        <span class="exp-icon">📱</span>
+        <div class="exp-title" data-i18n="e1.t">Mobile Development</div>
+        <div class="exp-desc" data-i18n="e1.d">Нативная разработка под Android. SDK, оптимизация памяти и батареи, Privacy-First архитектура и публикация в Google Play.</div>
       </div>
-      <div class="l-item reveal reveal-d1">
-        <div class="l-title" data-i18n="r2.t">Spatial Computing в GameDev</div>
-        <div class="l-desc" data-i18n="r2.d">Прототипы механик полного погружения на мобильных устройствах с нулевой задержкой рендеринга.</div>
+      <div class="exp-card reveal d1">
+        <div class="exp-stripe s2"></div>
+        <span class="exp-icon">🤖</span>
+        <div class="exp-title" data-i18n="e2.t">AI Integration</div>
+        <div class="exp-desc" data-i18n="e2.d">LLM-системы, автономные агенты с памятью, синтетические медиа и видеогенерация с цифровыми аватарами (HeyGen, Seedance).</div>
       </div>
-      <div class="l-item reveal reveal-d2">
-        <div class="l-title" data-i18n="r3.t">Архитектура Zero-Trust</div>
-        <div class="l-desc" data-i18n="r3.d">Низкоуровневая кодировка и сложные криптографические протоколы для защиты каналов передачи данных.</div>
+      <div class="exp-card reveal d2">
+        <div class="exp-stripe s3"></div>
+        <span class="exp-icon">🎮</span>
+        <div class="exp-title" data-i18n="e3.t">Game Systems</div>
+        <div class="exp-desc" data-i18n="e3.d">Проектирование игровых механик, 3D-рендеринг, внутренние экономики виртуальных миров и Spatial Computing на мобильных.</div>
+      </div>
+      <div class="exp-card reveal d3">
+        <div class="exp-stripe s4"></div>
+        <span class="exp-icon">☁️</span>
+        <div class="exp-title" data-i18n="e4.t">Cloud & Web</div>
+        <div class="exp-desc" data-i18n="e4.d">Высоконагруженные SPA и PWA. Serverless, Docker, OAuth 2.0, CI/CD пайплайны и REST API-интеграции.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section id="contact" class="cta">
-  <div class="cta-inner">
-    <div class="cta-box reveal">
-      <h2 data-i18n="cta.title">Давайте проектировать будущее. <em data-i18n="cta.em">На связи 24/7.</em></h2>
-      <p data-i18n="cta.sub">Разработка защищенной системы или интеграция передового ИИ — команда Aspaloyy готова к диалогу с визионерами.</p>
-      <div class="cta-links">
-        <a href="mailto:aspaloyy@gmail.com" class="cta-link cta-link-primary">&#9993; aspaloyy@gmail.com</a>
-        <a href="https://t.me/aspaloyy" target="_blank" class="cta-link">Telegram</a>
-        <a href="https://whatsapp.com/channel/0029Vb6oUnw3gvWXgL0Kym29" target="_blank" class="cta-link">WhatsApp</a>
-        <a href="https://x.com/aspaloyy" target="_blank" class="cta-link">X (Twitter)</a>
-        <a href="https://www.instagram.com/aspaloyy" target="_blank" class="cta-link">Instagram</a>
-        <a href="https://www.facebook.com/share/1B13WNgWDX/" target="_blank" class="cta-link">Facebook</a>
-        <a href="https://play.google.com/store/apps/dev?id=8055300163983735296" target="_blank" class="cta-link">Google Play</a>
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-wrap">
+    <div class="contact-box reveal">
+      <h2 data-i18n="cta.title">Давайте создавать <em data-i18n="cta.em">вместе.</em></h2>
+      <p data-i18n="cta.sub">Открыты для партнёрств, коллабораций и новых идей. Пишите — ответим быстро.</p>
+      <div class="contact-links">
+        <a href="mailto:aspaloyy@gmail.com" class="contact-link contact-link-primary">✉ aspaloyy@gmail.com</a>
+        <a href="https://t.me/aspaloyy" target="_blank" rel="noopener" class="contact-link">Telegram</a>
+        <a href="https://whatsapp.com/channel/0029Vb6oUnw3gvWXgL0Kym29" target="_blank" rel="noopener" class="contact-link">WhatsApp</a>
+        <a href="https://x.com/aspaloyy" target="_blank" rel="noopener" class="contact-link">X (Twitter)</a>
+        <a href="https://www.instagram.com/aspaloyy" target="_blank" rel="noopener" class="contact-link">Instagram</a>
+        <a href="https://www.facebook.com/share/1B13WNgWDX/" target="_blank" rel="noopener" class="contact-link">Facebook</a>
+        <a href="https://play.google.com/store/apps/dev?id=8055300163983735296" target="_blank" rel="noopener" class="contact-link">Google Play</a>
       </div>
     </div>
   </div>
@@ -386,204 +650,265 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <a href="index.html" class="footer-logo">
-      <div class="footer-logo-icon">&#127918;</div>
+    <a href="/" class="footer-logo">
+      <div class="footer-mark">A</div>
       Aspaloyy
     </a>
     <ul class="footer-links">
-      <li><a href="#manifesto" data-i18n="nav.about">Manifesto</a></li>
-      <li><a href="#vectors" data-i18n="nav.services">Vectors</a></li>
-      <li><a href="aboutasman.html" data-i18n="nav.founder">Founder</a></li>
+      <li><a href="#apps" data-i18n="nav.apps">Приложения</a></li>
+      <li><a href="#about" data-i18n="nav.about">Студия</a></li>
+      <li><a href="aboutasman.html" data-i18n="nav.founder">Основатель</a></li>
+      <li><a href="https://play.google.com/store/apps/dev?id=8055300163983735296" target="_blank" rel="noopener">Google Play</a></li>
     </ul>
-    <div class="footer-copy">&copy; 2026 Aspaloyy R&D Studio &middot; aspaloyy.com &middot; All rights reserved</div>
+    <div class="footer-copy">&copy; 2026 Aspaloyy · aspaloyy.com · All rights reserved</div>
   </div>
 </footer>
 
 <script>
+/* ── i18n ── */
 var T = {
-  "ru":{
-    "nav.about":"Манифест","nav.services":"Векторы","nav.lab":"R&D Lab","nav.founder":"Основатель","nav.cta":"Связаться",
-    "hero.pill":"R&D СТУДИЯ","hero.tagtext":"Экосистемная лаборатория · Глобальный рынок",
-    "hero.line1":"Архитекторы цифровых систем.","hero.line2":"Продукты, которые имеют значение.",
-    "hero.sub":"Aspaloyy — это независимая исследовательская R&D студия. Мы не просто пишем код. Мы проектируем автономные нейросетевые инструменты, нативные мобильные приложения и масштабируемые веб-экосистемы.",
-    "hero.cta1":"Изучить технологии","hero.cta2":"Обсудить проект",
-    "what.eyebrow":"Манифест студии","what.title":"Синтез технологий.<br>Без границ.",
-    "what.p1":"В мире стремительных инноваций узкая специализация ограничивает видение. Мы построили Aspaloyy как <strong>междисциплинарный хаб</strong>. Мы осознанно объединили разработку сложных игровых механик, интеграцию автономных ИИ-агентов, мобильную инженерию и проектирование облачного бэкенда.",
-    "what.p2":"Игровые алгоритмы оптимизации графики делают наши корпоративные интерфейсы молниеносными. А строгая, безопасная архитектура микросервисов обеспечивает нашим играм беспрецедентную стабильность. Мы синтезируем лучшие практики для создания идеального продукта.",
-    "wc1.t":"Product-Led Growth","wc1.d":"Программное обеспечение, качество которого само по себе является главным драйвером.","wc2.t":"Agile & Shape Up","wc2.d":"Мы не пишем код ради кода. Мы выпускаем осмысленные обновления, решающие проблемы.","wc3.t":"Global Security Standard","wc3.d":"Архитектура Privacy-First. Запрашиваем лишь критический минимум данных.",
-    "srv.eyebrow":"Экспертиза","srv.title":"Ключевые векторы.","srv.sub":"Каждое направление — это глубокое погружение в технологии и бескомпромиссная архитектура.",
-    "s1.t":"Интеграция Генеративного ИИ","s1.d":"Интеллектуальные системы на базе LLM (Google AI Pro). Цифровые двойники (Avatar V, HeyGen) для авто-генерации видеоконтента студийного качества на лету.","s2.t":"Нативные Мобильные Экосистемы","s2.d":"Проектирование кроссплатформенных и нативных приложений (Android 17 SDK). Плавный UI, оптимизация батареи и строгие стандарты конфиденциальности.","s3.t":"Интерактивные Игровые Системы","s3.d":"От прототипирования механик до сложного 3D-рендеринга и балансировки внутренней экономики виртуальных миров (Spatial Computing).","s4.t":"Высоконагруженная Веб-инфраструктура","s4.d":"Корпоративные SPA и PWA без задержек. Безопасная облачная инфраструктура (Serverless, Docker) готовая к миллионам запросов.",
-    "road.eyebrow":"R&D Lab","road.title":"Взгляд за горизонт.","road.sub":"Инновации не скачиваются из готовых библиотек. В закрытом контуре мы тестируем смелые гипотезы.","r1.t":"Автономные ИИ-Агенты","r1.d":"Агенты с контекстной памятью. Многоступенчатые цепочки действий и агрегация данных абсолютно автономно.","r2.t":"Spatial Computing в GameDev","r2.d":"Прототипы механик полного погружения на мобильных устройствах с нулевой задержкой рендеринга.","r3.t":"Архитектура Zero-Trust","r3.d":"Низкоуровневая кодировка и сложные криптографические протоколы для защиты каналов передачи данных.",
-    "cta.title":"Давайте проектировать будущее.","cta.em":"На связи 24/7.","cta.sub":"Разработка защищенной системы или интеграция передового ИИ — команда Aspaloyy готова к диалогу с визионерами."
+  ru:{
+    "nav.apps":"Приложения","nav.about":"Студия","nav.expertise":"Экспертиза","nav.founder":"Основатель","nav.cta":"Связаться",
+    "hero.badge":"Mobile Apps & Digital Studio · Кыргызстан",
+    "hero.line1":"Цифровые продукты.","hero.line2":"Которые просто работают.",
+    "hero.sub":"Aspaloyy — независимый разработчик мобильных приложений и цифровых продуктов. Наши приложения доступны в Google Play и используются по всему миру.",
+    "hero.cta1":"Наши приложения","hero.cta2":"Написать нам",
+    "apps.eyebrow":"Google Play","apps.title":"Наши приложения",
+    "apps.sub":"Все приложения созданы с нуля, оптимизированы и доступны для скачивания прямо сейчас.",
+    "calc.name":"Aspaloyy Calculator","calc.desc":"Чистый, быстрый калькулятор для Android. Никаких лишних разрешений, никакой рекламы. Просто считайте.",
+    "span.name":"Spanit","span.desc":"Изучайте испанский язык легко и эффективно. Словарный запас, фразы и практика — всё в одном приложении для Android.",
+    "tag.free":"Бесплатно","tag.noad":"Без рекламы","play.get":"СКАЧАТЬ В",
+    "about.eyebrow":"О нас","about.title":"Aspaloyy Studio",
+    "about.p1":"Aspaloyy — независимая студия, основанная <strong>Асманом</strong> из Бишкека, Кыргызстан. Мы создаём мобильные приложения, интегрируем искусственный интеллект и строим масштабируемые цифровые продукты.",
+    "about.p2":"Каждый продукт проходит полный цикл: от идеи и архитектуры до релиза в Google Play. Мы не пишем код ради кода — мы создаём вещи, которыми пользуются реальные люди.",
+    "chip.mobile":"Android Dev","chip.ai":"AI Integration","chip.web":"Web Dev","chip.pub":"Google Play Publisher","chip.founder":"Solo Founder",
+    "ac1.t":"Google Play Publisher","ac1.d":"Официальный паблишер. Полный цикл релиза: от сборки до публикации и поддержки политик безопасности Google.",
+    "ac2.t":"AI & Synthetic Media","ac2.d":"Интеграция LLM, цифровые аватары, автоматическая видеогенерация — мы работаем с передовыми AI-инструментами.",
+    "ac3.t":"Кыргызстан → Глобальный рынок","ac3.d":"Базируемся в Кайсери, Турция. Разрабатываем продукты для международной аудитории на 5 языках.",
+    "exp.eyebrow":"Что мы умеем","exp.title":"Экспертиза","exp.sub":"Четыре ключевых направления, в которых мы строим надёжные и масштабируемые системы.",
+    "e1.t":"Mobile Development","e1.d":"Нативная разработка под Android. SDK, оптимизация памяти и батареи, Privacy-First архитектура и публикация в Google Play.",
+    "e2.t":"AI Integration","e2.d":"LLM-системы, автономные агенты с памятью, синтетические медиа и видеогенерация с цифровыми аватарами (HeyGen, Seedance).",
+    "e3.t":"Game Systems","e3.d":"Проектирование игровых механик, 3D-рендеринг, внутренние экономики виртуальных миров и Spatial Computing на мобильных.",
+    "e4.t":"Cloud & Web","e4.d":"Высоконагруженные SPA и PWA. Serverless, Docker, OAuth 2.0, CI/CD пайплайны и REST API-интеграции.",
+    "cta.title":"Давайте создавать","cta.em":"вместе.","cta.sub":"Открыты для партнёрств, коллабораций и новых идей. Пишите — ответим быстро."
   },
-  "en":{
-    "nav.about":"Manifesto","nav.services":"Vectors","nav.lab":"R&D Lab","nav.founder":"Founder","nav.cta":"Contact",
-    "hero.pill":"R&D STUDIO","hero.tagtext":"Ecosystem Lab · Global Market",
-    "hero.line1":"Architects of digital systems.","hero.line2":"Products that matter.",
-    "hero.sub":"Aspaloyy is an independent R&D studio. We don't just write code. We design autonomous neural network tools, native mobile applications, and scalable web ecosystems.",
-    "hero.cta1":"Explore Tech","hero.cta2":"Discuss Project",
-    "what.eyebrow":"Studio Manifesto","what.title":"Technology Synthesis.<br>Without Borders.",
-    "what.p1":"In a world of rapid innovation, narrow specialization limits vision. We built Aspaloyy as an <strong>interdisciplinary hub</strong>. We consciously combined complex game mechanics, autonomous AI agents, mobile engineering, and cloud backend architecture.",
-    "what.p2":"Gaming algorithms for graphics optimization make our corporate interfaces lightning-fast. And strict, secure microservice architecture provides our games with unprecedented stability. We synthesize best practices to create the perfect product.",
-    "wc1.t":"Product-Led Growth","wc1.d":"Software whose quality itself is the primary marketing driver.","wc2.t":"Agile & Shape Up","wc2.d":"We don't write code just for the sake of it. We ship meaningful updates that solve problems.","wc3.t":"Global Security Standard","wc3.d":"Privacy-First architecture. We request only the absolute minimum of critical data.",
-    "srv.eyebrow":"Expertise","srv.title":"Key Vectors.","srv.sub":"Each direction is a deep dive into technology and uncompromising architecture.",
-    "s1.t":"Generative AI Integration","s1.d":"Intelligent systems based on LLMs (Google AI Pro). Digital twins (Avatar V, HeyGen) for auto-generating studio-quality video content on the fly.","s2.t":"Native Mobile Ecosystems","s2.d":"Cross-platform and native app design (Android 17 SDK). Fluid UI, battery optimization, and strict privacy standards.","s3.t":"Interactive Gaming Systems","s3.d":"From prototyping mechanics to complex 3D rendering and balancing the internal economy of virtual worlds (Spatial Computing).","s4.t":"High-Load Web Infrastructure","s4.d":"Corporate SPAs and PWAs with zero latency. Secure cloud infrastructure (Serverless, Docker) ready for millions of requests.",
-    "road.eyebrow":"R&D Lab","road.title":"Beyond the Horizon.","road.sub":"Innovations aren't downloaded from ready-made libraries. In our closed loop, we test bold hypotheses.","r1.t":"Autonomous AI Agents","r1.d":"Agents with contextual memory. Multi-step action chains and data aggregation completely autonomously.","r2.t":"Spatial Computing in GameDev","r2.d":"Prototypes of full-immersion mechanics on mobile devices with zero rendering latency.","r3.t":"Zero-Trust Architecture","r3.d":"Low-level encoding and complex cryptographic protocols to protect data transmission channels.",
-    "cta.title":"Let's design the future.","cta.em":"Online 24/7.","cta.sub":"Whether developing a secure system or integrating advanced AI, the Aspaloyy team is ready to talk with visionaries."
+  en:{
+    "nav.apps":"Apps","nav.about":"Studio","nav.expertise":"Expertise","nav.founder":"Founder","nav.cta":"Contact",
+    "hero.badge":"Mobile Apps & Digital Studio · Kyrgyzstan",
+    "hero.line1":"Digital products.","hero.line2":"That just work.",
+    "hero.sub":"Aspaloyy is an independent mobile app developer and digital products studio. Our apps are available on Google Play worldwide.",
+    "hero.cta1":"Our Apps","hero.cta2":"Get in Touch",
+    "apps.eyebrow":"Google Play","apps.title":"Our Apps",
+    "apps.sub":"Every app is built from scratch, fully optimized, and ready to download right now.",
+    "calc.name":"Aspaloyy Calculator","calc.desc":"A clean, fast calculator for Android. No extra permissions, no ads. Just calculate.",
+    "span.name":"Spanit","span.desc":"Learn Spanish easily and effectively. Vocabulary, phrases and practice — all in one Android app.",
+    "tag.free":"Free","tag.noad":"No Ads","play.get":"GET IT ON",
+    "about.eyebrow":"About","about.title":"Aspaloyy Studio",
+    "about.p1":"Aspaloyy is an independent studio founded by <strong>Asman</strong> from Bishkek, Kyrgyzstan. We build mobile apps, integrate AI and create scalable digital products.",
+    "about.p2":"Every product goes through a full cycle: from idea and architecture to a Google Play release. We don't write code for the sake of it — we build things real people actually use.",
+    "chip.mobile":"Android Dev","chip.ai":"AI Integration","chip.web":"Web Dev","chip.pub":"Google Play Publisher","chip.founder":"Solo Founder",
+    "ac1.t":"Google Play Publisher","ac1.d":"Official publisher. Full release cycle management — from build to launch, security policy compliance, and ongoing updates.",
+    "ac2.t":"AI & Synthetic Media","ac2.d":"LLM integration, digital avatars, automatic video generation — we work with cutting-edge AI tools.",
+    "ac3.t":"Kyrgyzstan → Global Market","ac3.d":"Based in Kayseri, Turkey. Building products for a global audience in 5 languages.",
+    "exp.eyebrow":"What We Do","exp.title":"Expertise","exp.sub":"Four core directions where we build reliable and scalable systems.",
+    "e1.t":"Mobile Development","e1.d":"Native Android development. SDK, memory & battery optimization, Privacy-First architecture, Google Play publishing.",
+    "e2.t":"AI Integration","e2.d":"LLM systems, autonomous agents with memory, synthetic media and video generation with digital avatars (HeyGen, Seedance).",
+    "e3.t":"Game Systems","e3.d":"Game mechanic design, 3D rendering, virtual world economies and Spatial Computing on mobile devices.",
+    "e4.t":"Cloud & Web","e4.d":"High-load SPAs and PWAs. Serverless, Docker, OAuth 2.0, CI/CD pipelines and REST API integrations.",
+    "cta.title":"Let's build","cta.em":"together.","cta.sub":"Open to partnerships, collaborations and new ideas. Drop us a line — we reply fast."
   },
-  "ky":{
-    "nav.about":"Манифест","nav.services":"Багыттар","nav.lab":"R&D Lab","nav.founder":"Негиздөөчү","nav.cta":"Байланыш",
-    "hero.pill":"R&D СТУДИЯСЫ","hero.tagtext":"Экосистемалык лаборатория · Дүйнөлүк рынок",
-    "hero.line1":"Санарип системаларынын архитекторлору.","hero.line2":"Маанилүү болгон продукттар.",
-    "hero.sub":"Aspaloyy — бул көз карандысыз изилдөөчү R&D студиясы. Биз жөн гана код жазбайбыз. Автономдуу нейротармак куралдарын, мобилдик колдонмолорду жана масштабдуу веб-экосистемаларды долбоорлойбуз.",
-    "hero.cta1":"Технологияларды көрүү","hero.cta2":"Долбоорду талкуулоо",
-    "what.eyebrow":"Студия манифести","what.title":"Технологиялар синтези.<br>Чек арасыз.","what.p1":"Тез инновациялар дүйнөсүндө тар адистик көз карашты чектейт. Биз Aspaloyy'ди мультидисциплинардык хаб катары курдук.","what.p2":"Оюн алгоритмдери корпоративдик интерфейстерди тез кылат. Ал эми микросервис архитектурасы оюндарыбызга туруктуулукту берет.","wc1.t":"Product-Led Growth","wc1.d":"Сапаты өзү негизги драйвер болгон программалык камсыздоо.","wc2.t":"Agile & Shape Up","wc2.d":"Биз маанилүү көйгөйлөрдү чечкен жаңыртууларды гана чыгарабыз.","wc3.t":"Global Security","wc3.d":"Privacy-First архитектурасы. Эң керектүү маалыматтарды гана сурайбыз.",
-    "srv.eyebrow":"Экспертиза","srv.title":"Негизги багыттар.","srv.sub":"Ар бир багыт — бул технологияга терең чөмүлүү жана күчтүү архитектура.","s1.t":"Генеративдик AI","s1.d":"LLM негизиндеги акылдуу системалар (Google AI Pro). Сапаттуу видео контент үчүн санарип эгиздер (HeyGen).","s2.t":"Мобилдик Экосистемалар","s2.d":"Android 17 SDK колдонмолору. Батареяны оптималдаштыруу жана купуялык стандарттары.","s3.t":"Оюн Системалары","s3.d":"Механикаларды прототиптөөдөн баштап татаал 3D рендерингге чейин.","s4.t":"Жогорку жүктөмдүү Веб","s4.d":"Кечигүүсүз иштеген корпоративдик SPA жана PWA. Миллиондогон сурамдарга даяр булут инфраструктурасы.",
-    "road.eyebrow":"R&D Lab","road.title":"Келечекке көз салуу.","road.sub":"Инновациялар даяр китепканалардан алынбайт. Биз тайманбас гипотезаларды сынайбыз.","r1.t":"Автономдуу AI","r1.d":"Контексттик эс тутуму бар агенттер.","r2.t":"Spatial Computing","r2.d":"Мобилдик түзмөктөрдө толук чөмүлүү механикасы.","r3.t":"Zero-Trust архитектурасы","r3.d":"Маалыматтарды коргоо үчүн татаал криптографиялык протоколдор.",
-    "cta.title":"Келечекти чогуу куралы.","cta.em":"Байланышта 24/7.","cta.sub":"Коопсуз система же алдыңкы AI — Aspaloyy командасы сүйлөшүүгө даяр."
+  ky:{
+    "nav.apps":"Колдонмолор","nav.about":"Студия","nav.expertise":"Экспертиза","nav.founder":"Негиздөөчү","nav.cta":"Байланыш",
+    "hero.badge":"Мобилдик Колдонмолор & Санарип Студиясы · Кыргызстан",
+    "hero.line1":"Санарип продуктулар.","hero.line2":"Жөн эле иштейт.",
+    "hero.sub":"Aspaloyy — көз карандысыз мобилдик колдонмо иштеп чыгуучу. Биздин колдонмолор Google Play'де бүткүл дүйнөдө жеткиликтүү.",
+    "hero.cta1":"Биздин колдонмолор","hero.cta2":"Бизге жазыңыз",
+    "apps.eyebrow":"Google Play","apps.title":"Биздин колдонмолор",
+    "apps.sub":"Бардык колдонмолор нөлдөн куруп чыгылган жана азыр жүктөп алууга даяр.",
+    "calc.name":"Aspaloyy Calculator","calc.desc":"Android үчүн таза жана тез калькулятор. Кошумча уруксаттар жок, жарнама жок. Жөн эле эсептеңиз.",
+    "span.name":"Spanit","span.desc":"Испан тилин оңой жана натыйжалуу үйрөнүңүз. Сөздүк, сүйлөмдөр жана практика — баары бир Android колдонмосунда.",
+    "tag.free":"Бекер","tag.noad":"Жарнамасыз","play.get":"ЖҮКТӨП АЛ",
+    "about.eyebrow":"Биз жөнүндө","about.title":"Aspaloyy Studio",
+    "about.p1":"Aspaloyy — Бишкек, Кыргызстандан <strong>Асман</strong> тарабынан негизделген көз карандысыз студия. Биз мобилдик колдонмолор түзөбүз, AI интеграциялайбыз.",
+    "about.p2":"Ар бир продукт толук цикл аркылуу өтөт: идеядан Google Play-га чыгаруу. Биз жөн эле код жазбайбыз — реалдуу адамдар колдонгон нерселерди жасайбыз.",
+    "chip.mobile":"Android Dev","chip.ai":"AI Integration","chip.web":"Web Dev","chip.pub":"Google Play Publisher","chip.founder":"Solo Founder",
+    "ac1.t":"Google Play Publisher","ac1.d":"Расмий паблишер. Толук релиз циклинин башкаруусу жана Google коопсуздук саясаттарын колдоо.",
+    "ac2.t":"AI & Synthetic Media","ac2.d":"LLM интеграциясы, санарип аватарлар жана видео генерация — биз алдыңкы AI-куралдар менен иштейбиз.",
+    "ac3.t":"Кыргызстан → Дүйнөлүк рынок","ac3.d":"Кайсери, Түркияда базабыз. 5 тилде эл аралык аудитория үчүн продуктулар иштеп чыгабыз.",
+    "exp.eyebrow":"Биз эмне кылабыз","exp.title":"Экспертиза","exp.sub":"Ишенимдүү жана масштабдалуучу системаларды куруп жаткан төрт негизги багыт.",
+    "e1.t":"Mobile Development","e1.d":"Android нативдик иштеп чыгуу. SDK, эс тутумду оптималдаштыруу, Google Play жарыялоо.",
+    "e2.t":"AI Integration","e2.d":"LLM системалары, автономдуу агенттер, синтетикалык медиа жана видео генерация.",
+    "e3.t":"Game Systems","e3.d":"Оюн механикасын долбоорлоо, 3D рендеринг жана мобилдик Spatial Computing.",
+    "e4.t":"Cloud & Web","e4.d":"Жогорку жүктөмдүү SPA жана PWA. Serverless, Docker, OAuth 2.0, CI/CD.",
+    "cta.title":"Чогуу куралы","cta.em":"бирге.","cta.sub":"Өнөктөштүк, кызматташуу жана жаңы идеялар үчүн ачыкбыз. Жазыңыз — тез жооп беребиз."
   },
-  "tr":{
-    "nav.about":"Manifesto","nav.services":"Vektörler","nav.lab":"R&D Lab","nav.founder":"Kurucu","nav.cta":"İletişim",
-    "hero.pill":"R&D STÜDYOSU","hero.tagtext":"Ekosistem Laboratuvarı · Küresel Pazar",
-    "hero.line1":"Dijital sistem mimarları.","hero.line2":"Gerçekten önemli olan ürünler.",
-    "hero.sub":"Aspaloyy bağımsız bir Ar-Ge stüdyosudur. Sadece kod yazmıyoruz. Otonom yapay zeka araçları, mobil uygulamalar ve ölçeklenebilir web ekosistemleri tasarlıyoruz.",
-    "hero.cta1":"Teknolojiyi Keşfet","hero.cta2":"Projeyi Konuş",
-    "what.eyebrow":"Stüdyo Manifestosu","what.title":"Teknoloji Sentezi.<br>Sınırlar Yok.","what.p1":"Hızlı inovasyon dünyasında dar uzmanlık vizyonu kısıtlar. Aspaloyy'yi disiplinler arası bir merkez olarak kurduk.","what.p2":"Grafik optimizasyonu oyun algoritmaları, kurumsal arayüzlerimizi şimşek hızında yapar. Güvenli mikro hizmet mimarisi ise oyunlarımıza eşsiz bir kararlılık sağlar.","wc1.t":"Product-Led Growth","wc1.d":"Kalitesinin kendisi ana itici güç olan yazılım.","wc2.t":"Agile & Shape Up","wc2.d":"Sadece sorunları çözen anlamlı güncellemeler yayınlıyoruz.","wc3.t":"Global Security","wc3.d":"Privacy-First mimarisi. Sadece kritik minimum veriyi talep ediyoruz.",
-    "srv.eyebrow":"Uzmanlık","srv.title":"Temel Vektörler.","srv.sub":"Her yön, teknolojiye derinlemesine bir dalış ve sağlam bir mimaridir.","s1.t":"Üretken Yapay Zeka","s1.d":"LLM tabanlı akıllı sistemler (Google AI Pro). Stüdyo kalitesinde video içerik için dijital ikizler (HeyGen).","s2.t":"Mobil Ekosistemler","s2.d":"Android 17 SDK tabanlı uygulamalar. Akıcı UI, batarya optimizasyonu ve gizlilik standartları.","s3.t":"Oyun Sistemleri","s3.d":"Mekanik prototiplemeden karmaşık 3D render ve Spatial Computing'e kadar.","s4.t":"Yüksek Yüklü Web","s4.d":"Gecikmesiz kurumsal SPA ve PWA'lar. Milyonlarca isteğe hazır güvenli bulut altyapısı.",
-    "road.eyebrow":"R&D Lab","road.title":"Ufkun Ötesi.","road.sub":"İnovasyonlar hazır kütüphanelerden indirilmez. Kapalı laboratuvarımızda cesur hipotezleri test ediyoruz.","r1.t":"Otonom Yapay Zeka","r1.d":"Bağlamsal hafızaya sahip, tamamen otonom ajanlar.","r2.t":"Spatial Computing","r2.d":"Sıfır gecikmeli mobil tam daldırma mekaniklerinin prototipleri.","r3.t":"Zero-Trust Mimarisi","r3.d":"Veri kanallarını korumak için karmaşık kriptografik protokoller.",
-    "cta.title":"Geleceği tasarlayalım.","cta.em":"7/24 İletişim.","cta.sub":"Güvenli bir sistem veya yapay zeka entegrasyonu için Aspaloyy ekibi vizyonerlerle görüşmeye hazır."
+  tr:{
+    "nav.apps":"Uygulamalar","nav.about":"Stüdyo","nav.expertise":"Uzmanlık","nav.founder":"Kurucu","nav.cta":"İletişim",
+    "hero.badge":"Mobil Uygulamalar & Dijital Stüdyo · Kırgızistan",
+    "hero.line1":"Dijital ürünler.","hero.line2":"Sadece çalışır.",
+    "hero.sub":"Aspaloyy, bağımsız bir mobil uygulama geliştirici ve dijital ürün stüdyosudur. Uygulamalarımız dünya genelinde Google Play'de mevcut.",
+    "hero.cta1":"Uygulamalarımız","hero.cta2":"Bize Yazın",
+    "apps.eyebrow":"Google Play","apps.title":"Uygulamalarımız",
+    "apps.sub":"Tüm uygulamalar sıfırdan oluşturulmuş, tam optimize edilmiş ve şu anda indirilebilir durumda.",
+    "calc.name":"Aspaloyy Calculator","calc.desc":"Android için temiz, hızlı bir hesap makinesi. Fazla izin yok, reklam yok. Sadece hesaplayın.",
+    "span.name":"Spanit","span.desc":"İspanyolcayı kolayca ve etkili şekilde öğrenin. Kelime dağarcığı, ifadeler ve pratik — hepsi bir Android uygulamasında.",
+    "tag.free":"Ücretsiz","tag.noad":"Reklamsız","play.get":"İNDİR",
+    "about.eyebrow":"Hakkımızda","about.title":"Aspaloyy Studio",
+    "about.p1":"Aspaloyy, Kırgızistan Bişkek'ten <strong>Asman</strong> tarafından kurulan bağımsız bir stüdyodur. Mobil uygulamalar oluşturuyor, AI entegre ediyor ve ölçeklenebilir dijital ürünler üretiyoruz.",
+    "about.p2":"Her ürün tam bir döngüden geçer: fikirden Google Play yayınına kadar. Sadece kod yazmıyoruz — gerçek insanların kullandığı şeyler yaratıyoruz.",
+    "chip.mobile":"Android Dev","chip.ai":"AI Integration","chip.web":"Web Dev","chip.pub":"Google Play Publisher","chip.founder":"Solo Founder",
+    "ac1.t":"Google Play Yayıncısı","ac1.d":"Resmi yayıncı. Build'den yayına kadar tam sürüm döngüsü yönetimi ve güvenlik politikası uyumu.",
+    "ac2.t":"AI & Sentetik Medya","ac2.d":"LLM entegrasyonu, dijital avatarlar, otomatik video oluşturma — en gelişmiş AI araçlarıyla çalışıyoruz.",
+    "ac3.t":"Kırgızistan → Küresel Pazar","ac3.d":"Kayseri, Türkiye'de merkezlenmiş. 5 dilde küresel kitle için ürünler geliştiriyoruz.",
+    "exp.eyebrow":"Ne Yapıyoruz","exp.title":"Uzmanlık","exp.sub":"Güvenilir ve ölçeklenebilir sistemler oluşturduğumuz dört temel alan.",
+    "e1.t":"Mobile Development","e1.d":"Native Android geliştirme. SDK, bellek & pil optimizasyonu, Privacy-First mimari, Google Play yayıncılık.",
+    "e2.t":"AI Integration","e2.d":"LLM sistemleri, özerk hafızalı ajanlar, sentetik medya ve dijital avatar video oluşturma.",
+    "e3.t":"Game Systems","e3.d":"Oyun mekaniği tasarımı, 3D render, sanal dünya ekonomileri ve mobil Spatial Computing.",
+    "e4.t":"Cloud & Web","e4.d":"Yüksek yüklü SPA ve PWA'lar. Serverless, Docker, OAuth 2.0, CI/CD ve REST API entegrasyonları.",
+    "cta.title":"Birlikte","cta.em":"yaratalım.","cta.sub":"Ortaklıklara, işbirliklerine ve yeni fikirlere açığız. Yazın — hızlıca cevap veririz."
   },
-  "de":{
-    "nav.about":"Manifest","nav.services":"Vektoren","nav.lab":"R&D Lab","nav.founder":"Gründer","nav.cta":"Kontakt",
-    "hero.pill":"R&D STUDIO","hero.tagtext":"Ökosystem-Labor · Globaler Markt",
-    "hero.line1":"Architekten digitaler Systeme.","hero.line2":"Produkte, die zählen.",
-    "hero.sub":"Aspaloyy ist ein unabhängiges R&D-Studio. Wir schreiben nicht nur Code. Wir entwerfen autonome KI-Tools, native mobile Apps und skalierbare Web-Ökosysteme.",
-    "hero.cta1":"Technologie entdecken","hero.cta2":"Projekt besprechen",
-    "what.eyebrow":"Studio-Manifest","what.title":"Technologie-Synthese.<br>Ohne Grenzen.","what.p1":"In einer Welt der Innovation schränkt Spezialisierung die Vision ein. Wir haben Aspaloyy als interdisziplinären Hub aufgebaut.","what.p2":"Spielalgorithmen machen unsere Web-Interfaces blitzschnell. Sichere Mikroservices verleihen unseren Spielen Stabilität.","wc1.t":"Product-Led Growth","wc1.d":"Software, deren Qualität der Haupttreiber ist.","wc2.t":"Agile & Shape Up","wc2.d":"Wir veröffentlichen sinnvolle Updates, die Probleme lösen.","wc3.t":"Global Security","wc3.d":"Privacy-First-Architektur. Wir fordern nur das absolute Minimum an Daten.",
-    "srv.eyebrow":"Expertise","srv.title":"Kernvektoren.","srv.sub":"Jede Richtung ist ein tiefes Eintauchen in Technologie und kompromisslose Architektur.","s1.t":"Generative KI","s1.d":"Intelligente Systeme basierend auf LLMs (Google AI Pro). Digitale Zwillinge für Video-Content (HeyGen).","s2.t":"Mobile Ökosysteme","s2.d":"Android 17 SDK-Apps. Flüssige UI, Batterieoptimierung und Datenschutzstandards.","s3.t":"Interaktive Gaming-Systeme","s3.d":"Vom Prototyping bis zum komplexen 3D-Rendering und Spatial Computing.","s4.t":"High-Load Web","s4.d":"Sichere Cloud-Infrastruktur, bereit für Millionen von Anfragen.",
-    "road.eyebrow":"R&D Lab","road.title":"Hinter dem Horizont.","road.sub":"Wir testen kühne Hypothesen in unserer geschlossenen Umgebung.","r1.t":"Autonome KI-Agenten","r1.d":"Agenten mit kontextbezogenem Gedächtnis.","r2.t":"Spatial Computing","r2.d":"Mechaniken für mobile Geräte mit null Latenz.","r3.t":"Zero-Trust-Architektur","r3.d":"Komplexe kryptografische Protokolle zum Schutz der Datenkanäle.",
-    "cta.title":"Lassen Sie uns die Zukunft gestalten.","cta.em":"24/7 Online.","cta.sub":"Das Aspaloyy-Team ist bereit für den Dialog mit Visionären."
+  de:{
+    "nav.apps":"Apps","nav.about":"Studio","nav.expertise":"Expertise","nav.founder":"Gründer","nav.cta":"Kontakt",
+    "hero.badge":"Mobile Apps & Digitales Studio · Kirgisistan",
+    "hero.line1":"Digitale Produkte.","hero.line2":"Die einfach funktionieren.",
+    "hero.sub":"Aspaloyy ist ein unabhängiger Entwickler von mobilen Apps und digitalen Produkten. Unsere Apps sind weltweit auf Google Play verfügbar.",
+    "hero.cta1":"Unsere Apps","hero.cta2":"Schreib uns",
+    "apps.eyebrow":"Google Play","apps.title":"Unsere Apps",
+    "apps.sub":"Alle Apps wurden von Grund auf neu entwickelt, vollständig optimiert und können jetzt heruntergeladen werden.",
+    "calc.name":"Aspaloyy Calculator","calc.desc":"Ein sauberer, schneller Taschenrechner für Android. Keine unnötigen Berechtigungen, keine Werbung. Einfach rechnen.",
+    "span.name":"Spanit","span.desc":"Lernen Sie Spanisch einfach und effektiv. Vokabular, Phrasen und Übungen — alles in einer Android-App.",
+    "tag.free":"Kostenlos","tag.noad":"Werbefrei","play.get":"JETZT BEI",
+    "about.eyebrow":"Über uns","about.title":"Aspaloyy Studio",
+    "about.p1":"Aspaloyy ist ein unabhängiges Studio, gegründet von <strong>Asman</strong> aus Bischkek, Kirgisistan. Wir entwickeln mobile Apps, integrieren KI und bauen skalierbare digitale Produkte.",
+    "about.p2":"Jedes Produkt durchläuft einen vollständigen Zyklus: von der Idee über die Architektur bis zur Google Play-Veröffentlichung. Wir schreiben nicht nur Code — wir bauen Dinge, die echte Menschen nutzen.",
+    "chip.mobile":"Android Dev","chip.ai":"AI Integration","chip.web":"Web Dev","chip.pub":"Google Play Publisher","chip.founder":"Solo Founder",
+    "ac1.t":"Google Play Publisher","ac1.d":"Offizieller Publisher. Vollständiges Release-Zyklusmanagement und Google-Sicherheitsrichtlinien-Compliance.",
+    "ac2.t":"KI & Synthetische Medien","ac2.d":"LLM-Integration, digitale Avatare, automatische Videogenerierung — wir arbeiten mit modernsten KI-Tools.",
+    "ac3.t":"Kirgisistan → Globaler Markt","ac3.d":"Ansässig in Kayseri, Türkei. Produkte für ein globales Publikum in 5 Sprachen.",
+    "exp.eyebrow":"Was Wir Tun","exp.title":"Expertise","exp.sub":"Vier Kernbereiche, in denen wir zuverlässige und skalierbare Systeme bauen.",
+    "e1.t":"Mobile Development","e1.d":"Native Android-Entwicklung. SDK, Speicher- & Akkuoptimierung, Privacy-First-Architektur, Google Play-Publishing.",
+    "e2.t":"KI-Integration","e2.d":"LLM-Systeme, autonome Agenten mit Gedächtnis, synthetische Medien und Videogenerierung mit digitalen Avataren.",
+    "e3.t":"Game Systems","e3.d":"Game-Mechanik-Design, 3D-Rendering, virtuelle Weltökonomien und Spatial Computing auf Mobilgeräten.",
+    "e4.t":"Cloud & Web","e4.d":"Hochlast-SPAs und PWAs. Serverless, Docker, OAuth 2.0, CI/CD-Pipelines und REST API-Integrationen.",
+    "cta.title":"Lass uns","cta.em":"gemeinsam bauen.","cta.sub":"Offen für Partnerschaften, Kooperationen und neue Ideen. Schreib uns — wir antworten schnell."
   }
 };
 
-/* THEME */
-function toggleTheme() {
-  var html = document.documentElement;
-  var btn = document.getElementById('themeBtn');
-  var isDark = html.getAttribute('data-theme') === 'dark';
-  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  btn.innerHTML = isDark ? '&#9790;' : '&#9728;';
-  localStorage.setItem('aspaloyy_theme', isDark ? 'light' : 'dark');
-  COLORS = getParticlePalette();
-}
-document.getElementById('themeBtn').addEventListener('click', toggleTheme);
+/* ── Theme ── */
 (function(){
-  var saved = localStorage.getItem('aspaloyy_theme');
-  if (saved) {
-    document.documentElement.setAttribute('data-theme', saved);
-    document.getElementById('themeBtn').innerHTML = saved === 'light' ? '&#9790;' : '&#9728;';
+  var saved = localStorage.getItem('asp_theme');
+  if(saved){ document.documentElement.setAttribute('data-theme', saved); }
+  var btn = document.getElementById('themeBtn');
+  function updateIcon(){
+    btn.textContent = document.documentElement.getAttribute('data-theme') === 'light' ? '☽' : '☼';
   }
+  updateIcon();
+  btn.addEventListener('click', function(){
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    localStorage.setItem('asp_theme', isDark ? 'light' : 'dark');
+    updateIcon();
+    COLORS = getPalette();
+  });
 })();
 
-/* i18n */
-var currentLang = localStorage.getItem('aspaloyy_lang') || 'ru';
-function setLang(lang) {
+/* ── i18n ── */
+var currentLang = localStorage.getItem('asp_lang') || 'ru';
+function setLang(lang){
   currentLang = lang;
-  localStorage.setItem('aspaloyy_lang', lang);
-  var t = T[lang] || T['ru'];
-  document.querySelectorAll('[data-i18n]').forEach(function(el) {
-    var key = el.getAttribute('data-i18n');
-    if (t[key] !== undefined) el.innerHTML = t[key];
+  localStorage.setItem('asp_lang', lang);
+  var t = T[lang] || T.ru;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k = el.getAttribute('data-i18n');
+    if(t[k] !== undefined) el.innerHTML = t[k];
   });
   document.documentElement.lang = lang;
   document.getElementById('langSelect').value = lang;
 }
-document.getElementById('langSelect').addEventListener('change', function() { setLang(this.value); });
+document.getElementById('langSelect').addEventListener('change', function(){ setLang(this.value); });
 setLang(currentLang);
 
-/* PARTICLES (Optimized) */
-var canvas = document.getElementById('particle-canvas');
-var ctx = canvas.getContext('2d', { alpha: false }); 
+/* ── Nav scroll ── */
+window.addEventListener('scroll', function(){
+  var n = document.getElementById('nav');
+  if(window.scrollY > 40) n.classList.add('scrolled'); else n.classList.remove('scrolled');
+}, {passive:true});
+
+/* ── Reveal ── */
+var ro = new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(el){ ro.observe(el); });
+
+/* ── Canvas Background ── */
+var canvas = document.getElementById('bg-canvas');
+var ctx = canvas.getContext('2d', {alpha:false});
 var W, H;
 function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-resize(); window.addEventListener('resize', resize);
-function getParticlePalette(){ return document.documentElement.getAttribute('data-theme') === 'light' ? ['#4f46e5','#db2777','#0891b2','#7c3aed','#0f766e'] : ['#f5e642','#ff4d8d','#00f0ff','#9b5cff','#2affa0']; }
-var COLORS = getParticlePalette();
-function Particle(init){ this.reset(init); }
-Particle.prototype.reset = function(init){
-  this.x=Math.random()*W; this.y=init?Math.random()*H:H+20;
-  this.r=Math.random()*1.5+0.5; this.color=COLORS[Math.floor(Math.random()*COLORS.length)];
-  this.vx=(Math.random()-0.5)*0.3; this.vy=-(Math.random()*0.5+0.2);
-  this.alpha=Math.random()*0.4+0.1; this.life=0;
-  this.maxLife=Math.random()*250+100; this.twinkle=Math.random()*Math.PI*2;
-};
-Particle.prototype.update=function(){
-  this.x+=this.vx; this.y+=this.vy; this.life++; this.twinkle+=0.04;
-  var p=this.life/this.maxLife;
-  this.ca=this.alpha*Math.sin(p*Math.PI)*(0.7+0.3*Math.sin(this.twinkle));
-  if(this.life>this.maxLife||this.y<-10) this.reset(false);
-};
-Particle.prototype.draw=function(){
-  ctx.globalAlpha=Math.max(0,this.ca); ctx.fillStyle=this.color;
-  ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fill(); 
-};
-function StarP(){ this.reset(); }
-StarP.prototype.reset=function(){
-  this.x=Math.random()*W; this.y=Math.random()*H;
-  this.r=Math.random()*0.6+0.2; this.alpha=Math.random()*0.3+0.05;
-  this.ts=Math.random()*0.02+0.005; this.t=Math.random()*Math.PI*2;
-};
-StarP.prototype.update=function(){ this.t+=this.ts; };
-StarP.prototype.draw=function(){
-  ctx.globalAlpha=this.alpha*(0.5+0.5*Math.sin(this.t));
-  ctx.fillStyle=document.documentElement.getAttribute('data-theme') === 'light' ? '#94a3b8' : '#fff'; 
-  ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fill(); 
-};
-function Shooter(){ this.active=false; this.timer=Math.random()*400+200; }
-Shooter.prototype.activate=function(){
-  this.x=Math.random()*W*0.7; this.y=Math.random()*H*0.3;
-  this.speed=Math.random()*6+4; this.angle=Math.PI/4+(Math.random()-0.5)*0.3;
-  this.alpha=0.8; this.active=true; this.tail=[];
-};
-Shooter.prototype.update=function(){
-  if(!this.active){this.timer--;if(this.timer<=0)this.activate();return;}
-  this.x+=Math.cos(this.angle)*this.speed; this.y+=Math.sin(this.angle)*this.speed;
-  this.alpha-=0.02; this.tail.push({x:this.x,y:this.y});
-  if(this.tail.length>15)this.tail.shift();
-  if(this.alpha<=0||this.x>W||this.y>H){this.active=false;this.timer=Math.random()*400+200;}
-};
-Shooter.prototype.draw=function(){
-  if(!this.active||this.tail.length<2)return;
-  var shooterColor = document.documentElement.getAttribute('data-theme') === 'light' ? '#4f46e5' : '#f5e642';
-  for(var i=1;i<this.tail.length;i++){
-    var t=i/this.tail.length; ctx.globalAlpha=t*this.alpha;
-    ctx.strokeStyle=shooterColor; ctx.lineWidth=t*1.5; 
-    ctx.beginPath(); ctx.moveTo(this.tail[i-1].x,this.tail[i-1].y); ctx.lineTo(this.tail[i].x,this.tail[i].y); ctx.stroke();
+resize();
+window.addEventListener('resize', resize, {passive:true});
+
+function getPalette(){
+  return document.documentElement.getAttribute('data-theme') === 'light'
+    ? ['#6366f1','#0891b2','#7c3aed','#db2777','#059669']
+    : ['#8b5cf6','#06b6d4','#ec4899','#10b981','#a78bfa'];
+}
+var COLORS = getPalette();
+
+function Particle(init){
+  this.x = Math.random()*W;
+  this.y = init ? Math.random()*H : H+10;
+  this.r = Math.random()*1.8+0.4;
+  this.color = COLORS[Math.floor(Math.random()*COLORS.length)];
+  this.vx = (Math.random()-.5)*.3;
+  this.vy = -(Math.random()*.5+.15);
+  this.a = Math.random()*.35+.05;
+  this.life = 0; this.max = Math.random()*280+120;
+  this.tw = Math.random()*Math.PI*2;
+}
+Particle.prototype.tick = function(){
+  this.x += this.vx; this.y += this.vy; this.life++; this.tw += .035;
+  var p = this.life/this.max;
+  this.ca = this.a * Math.sin(p*Math.PI) * (.6+.4*Math.sin(this.tw));
+  if(this.life > this.max || this.y < -10){
+    this.x = Math.random()*W; this.y = H+10;
+    this.color = COLORS[Math.floor(Math.random()*COLORS.length)];
+    this.life = 0; this.max = Math.random()*280+120;
   }
 };
+Particle.prototype.draw = function(){
+  ctx.globalAlpha = Math.max(0, this.ca);
+  ctx.fillStyle = this.color;
+  ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI*2); ctx.fill();
+};
 
-var particles=[]; for(var i=0;i<60;i++) particles.push(new Particle(true));
-var stars=[]; for(var i=0;i<100;i++) stars.push(new StarP());
-var shooters=[new Shooter(),new Shooter()];
-
-function animate(){
-  ctx.fillStyle = document.documentElement.getAttribute('data-theme') === 'light' ? '#f5f7fc' : '#09090f';
-  ctx.fillRect(0,0,W,H); 
-  stars.forEach(function(s){s.update();s.draw();});
-  particles.forEach(function(p){p.update();p.draw();});
-  shooters.forEach(function(s){s.update();s.draw();});
-  ctx.globalAlpha = 1; 
-  requestAnimationFrame(animate);
+function Star(){
+  this.x = Math.random()*W; this.y = Math.random()*H;
+  this.r = Math.random()*.5+.1;
+  this.a = Math.random()*.25+.05;
+  this.s = Math.random()*.015+.005;
+  this.t = Math.random()*Math.PI*2;
 }
-animate();
+Star.prototype.tick = function(){ this.t += this.s; };
+Star.prototype.draw = function(){
+  ctx.globalAlpha = this.a*(0.5+0.5*Math.sin(this.t));
+  ctx.fillStyle = document.documentElement.getAttribute('data-theme')==='light' ? '#94a3b8' : '#e2e8f0';
+  ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI*2); ctx.fill();
+};
 
-window.addEventListener('scroll',function(){ 
-  var nav = document.getElementById('nav');
-  if(window.scrollY>30) nav.classList.add('solid'); else nav.classList.remove('solid');
-}, {passive: true});
+var particles = [], stars = [];
+for(var i=0;i<55;i++) particles.push(new Particle(true));
+for(var i=0;i<80;i++) stars.push(new Star());
 
-var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
-document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+function frame(){
+  ctx.fillStyle = document.documentElement.getAttribute('data-theme')==='light' ? '#f8f9ff' : '#070712';
+  ctx.fillRect(0,0,W,H);
+  stars.forEach(function(s){ s.tick(); s.draw(); });
+  particles.forEach(function(p){ p.tick(); p.draw(); });
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(frame);
+}
+frame();
 </script>
 </body>
 </html>
