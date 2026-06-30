@@ -3,295 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asman — Founder of Aspaloyy</title>
-  <meta name="description" content="Asman — Android developer and AI engineer from Bishkek, Kyrgyzstan. Founder of Aspaloyy studio.">
-  <meta name="theme-color" content="#07071a">
+  <title>About — Aspaloyy</title>
+  <meta name="description" content="Asman — Android developer from Kyrgyzstan. Founder of Aspaloyy.">
+  <meta name="theme-color" content="#0a0a0a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
-  <style>
-    .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .comp-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 28px 26px; transition: border-color 0.3s, transform 0.3s; }
-    .comp-card:hover { border-color: var(--border-h); transform: translateY(-3px); }
-    .comp-num { font-family: 'Unbounded', sans-serif; font-size: 36px; font-weight: 900; color: var(--border); margin-bottom: 12px; line-height: 1; }
-    .comp-title { font-family: 'Unbounded', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px; letter-spacing: -0.2px; }
-    .comp-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
-    .about-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    @media (max-width: 900px) {
-      .comp-grid { grid-template-columns: 1fr; }
-      .about-two-col { grid-template-columns: 1fr; gap: 48px; }
-    }
-    @media (max-width: 640px) {
-      .comp-card { padding: 22px 20px; }
-    }
-  </style>
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
-<div class="noise"></div>
-
-<!-- NAV -->
-<nav class="nav" role="navigation">
-  <a href="../" class="nav-logo" aria-label="Aspaloyy Home">
-    <div class="nav-logo-mark">A</div>
-    Aspaloyy
-  </a>
-
-  <ul class="nav-links" id="nav-links" role="list">
-    <li><a href="../apps/" data-i18n="nav.apps">Приложения</a></li>
-    <li><a href="../about/" class="active" data-i18n="nav.founder">Основатель</a></li>
-    <li><a href="mailto:aspaloyy@gmail.com" data-i18n="nav.contact">Контакт</a></li>
-  </ul>
-
-  <div class="nav-right">
-    <select id="langSelect" class="nav-ctrl" aria-label="Language">
-      <option value="ru">RU</option>
-      <option value="en">EN</option>
-      <option value="ky">KY</option>
-      <option value="tr">TR</option>
-      <option value="de">DE</option>
-    </select>
-    <button id="theme-toggle" class="nav-ctrl" aria-label="Toggle theme">
-      <span id="theme-icon">🌙</span>
-    </button>
-    <a href="mailto:aspaloyy@gmail.com" class="btn-nav" data-i18n="nav.cta">Написать</a>
-    <button id="burger" class="burger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-brand">Aspaloyy</a>
+    <ul class="nav-links">
+      <li><a href="../apps/" data-i18n="nav.apps">Приложения</a></li>
+      <li><a href="../about/" class="active" data-i18n="nav.about">Обо мне</a></li>
+    </ul>
+    <div class="nav-controls">
+      <select id="langSelect" class="nav-btn" aria-label="Language">
+        <option value="ru">RU</option>
+        <option value="en">EN</option>
+        <option value="ky">KY</option>
+        <option value="tr">TR</option>
+        <option value="de">DE</option>
+      </select>
+      <button id="theme-toggle" class="nav-btn" aria-label="Toggle theme">
+        <span id="theme-icon">🌙</span>
+      </button>
+    </div>
   </div>
 </nav>
 
-<!-- PAGE HERO -->
-<header class="page-hero" style="position:relative;">
-  <div class="hero-grid"></div>
-  <div class="hero-orb orb-purple" style="opacity:0.6;"></div>
-  <div class="hero-orb orb-pink" style="opacity:0.4;"></div>
+<main>
+  <div class="wrap">
+    <section class="about-section">
 
-  <div class="wrap" style="position:relative;z-index:10;">
-    <div class="hero-badge" style="display:inline-flex; margin-bottom:28px;">
-      <div class="badge-dot"></div>
-      <span class="badge-text" data-i18n="abt.hero.badge">Основатель Aspaloyy</span>
-    </div>
+      <h1 class="about-name" data-i18n="about.title">Асман</h1>
 
-    <h1 class="hero-title" style="font-size:clamp(44px,7vw,96px);">
-      <span class="gradient-text" data-i18n="abt.hero.name">Асман.</span><br>
-      <span data-i18n="abt.hero.role">Android Dev &amp; AI Engineer.</span>
-    </h1>
+      <div class="about-meta">
+        <span class="about-meta-line" data-i18n="about.born">Родился в 2007 г. · 18 лет</span>
+        <span class="about-meta-line" data-i18n="about.from">Из Бишкека, Кыргызстан</span>
+        <span class="about-meta-line" data-i18n="about.based">Живу в Кайсери, Турция</span>
+      </div>
 
-    <p class="hero-sub" style="margin-top:24px;" data-i18n="abt.hero.sub">
-      Строю мобильные приложения и цифровые продукты с нуля. Основатель независимой студии Aspaloyy.
-    </p>
-
-    <div class="hero-location" style="margin-top:20px; justify-content:flex-start;">
-      <span class="loc-tag">📍 <span data-i18n="abt.hero.from">Бишкек, Кыргызстан</span></span>
-      <span class="loc-tag">🎓 <span data-i18n="abt.hero.based">Кайсери, Турция</span></span>
-    </div>
-
-    <div class="hero-actions" style="justify-content:flex-start; margin-top:36px;">
-      <a href="mailto:aspaloyy@gmail.com" class="btn btn-primary btn-lg" data-i18n="abt.hero.cta1">Написать напрямую</a>
-      <a href="../apps/" class="btn btn-ghost btn-lg" data-i18n="abt.hero.cta2">Приложения →</a>
-    </div>
-  </div>
-</header>
-
-<!-- ABOUT TEXT -->
-<section class="section-gap bg-default">
-  <div class="wrap about-two-col">
-    <div class="reveal">
-      <span class="eyebrow" data-i18n="abt.about.eyebrow">Обо мне</span>
-      <h2 class="section-title" data-i18n="abt.about.title">Не просто код. Продукт.</h2>
-      <p class="section-body" style="margin-bottom:18px;" data-i18n="abt.about.p1">
-        Я создаю цифровые продукты — от архитектуры и бэкенда до мобильного приложения в Google Play. Смотрю на продукт целиком: структура, UX, производительность и долгосрочная ценность.
-      </p>
-      <p class="section-body" style="margin-bottom:18px;" data-i18n="abt.about.p2">
-        Основал Aspaloyy не как побочный проект, а как независимую лабораторию. Здесь я выпускаю реальные продукты для реальных людей.
-      </p>
-      <p class="section-body" data-i18n="abt.about.p3">
-        В 18 лет, через 4 месяца после переезда в Турцию, стал председателем кыргызского землячества в университете Turan. Организовывал мероприятия, декламировал эпос Манас на телевидении. Умею строить, умею вести за собой.
+      <p class="about-bio" data-i18n="about.bio">
+        Android-разработчик. Делаю мобильные игры и приложения, публикую их в Google Play под именем Aspaloyy.
       </p>
 
-      <div class="skill-tags" style="margin-top:36px;">
-        <span class="skill-tag">Android</span>
-        <span class="skill-tag">AI / LLM</span>
+      <hr class="divider">
+
+      <p class="section-label" data-i18n="about.skills">Навыки</p>
+      <div class="skill-list">
         <span class="skill-tag">Game Dev</span>
-        <span class="skill-tag">Cloud</span>
-        <span class="skill-tag">PWA</span>
-        <span class="skill-tag">CI/CD</span>
-        <span class="skill-tag">OAuth 2.0</span>
-        <span class="skill-tag">HeyGen</span>
-        <span class="skill-tag">Seedance</span>
-        <span class="skill-tag">5 Languages</span>
-      </div>
-    </div>
-
-    <div class="reveal d2" style="display:grid; gap:16px;">
-      <div class="info-card">
-        <div class="info-icon" style="background:var(--purple-soft);">🎮</div>
-        <div>
-          <div class="info-title" data-i18n="abt.ic1.title">Google Play Publisher</div>
-          <div class="info-desc" data-i18n="abt.ic1.desc">Официальный паблишер. Полный цикл: разработка → тест → релиз → поддержка.</div>
-        </div>
-      </div>
-      <div class="info-card">
-        <div class="info-icon" style="background:var(--cyan-soft);">🤖</div>
-        <div>
-          <div class="info-title" data-i18n="abt.ic2.title">AI &amp; Synthetic Media</div>
-          <div class="info-desc" data-i18n="abt.ic2.desc">LLM, цифровые аватары и видеогенерация. HeyGen, Seedance 2.0 и open-source AI.</div>
-        </div>
-      </div>
-      <div class="info-card">
-        <div class="info-icon" style="background:rgba(236,72,153,.1);">🌐</div>
-        <div>
-          <div class="info-title" data-i18n="abt.ic3.title">5 языков</div>
-          <div class="info-desc" data-i18n="abt.ic3.desc">RU, EN, KG, TR, DE. Английский EAP — читаю техдокументацию в оригинале.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMPETENCIES -->
-<section class="section-gap bg-surface">
-  <div class="wrap">
-    <div class="reveal" style="margin-bottom:48px;">
-      <span class="eyebrow" data-i18n="abt.comp.eyebrow">Компетенции</span>
-      <h2 class="section-title" data-i18n="abt.comp.title">Ключевые навыки</h2>
-    </div>
-    <div class="comp-grid">
-      <div class="comp-card reveal d1">
-        <div class="comp-num">01</div>
-        <div class="comp-title" data-i18n="abt.c1.t">Mobile &amp; Game Dev</div>
-        <div class="comp-desc" data-i18n="abt.c1.d">Нативный Android, SDK, оптимизация памяти, игровые механики, Spatial Computing.</div>
-      </div>
-      <div class="comp-card reveal d2">
-        <div class="comp-num">02</div>
-        <div class="comp-title" data-i18n="abt.c2.t">AI &amp; Synthetic Media</div>
-        <div class="comp-desc" data-i18n="abt.c2.d">LLM с памятью, агентные цепочки, цифровые аватары (HeyGen), видеогенерация.</div>
-      </div>
-      <div class="comp-card reveal d3">
-        <div class="comp-num">03</div>
-        <div class="comp-title" data-i18n="abt.c3.t">Cloud Architecture</div>
-        <div class="comp-desc" data-i18n="abt.c3.d">OAuth 2.0, CI/CD, Sandboxing, REST API, Google Workspace API.</div>
-      </div>
-      <div class="comp-card reveal d4">
-        <div class="comp-num">04</div>
-        <div class="comp-title" data-i18n="abt.c4.t">Advanced Web Dev</div>
-        <div class="comp-desc" data-i18n="abt.c4.d">SPA, PWA, Core Web Vitals, Serverless, Docker, многоязычные UI.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PORTFOLIO -->
-<section class="section-gap bg-default">
-  <div class="wrap">
-    <div class="reveal" style="margin-bottom:48px;">
-      <span class="eyebrow" data-i18n="abt.port.eyebrow">Портфолио</span>
-      <h2 class="section-title" data-i18n="abt.port.title">Что я сделал</h2>
-    </div>
-
-    <div class="timeline">
-      <div class="timeline-item reveal">
-        <div>
-          <div class="tl-label" data-i18n="abt.p1.label">Google Play</div>
-        </div>
-        <div>
-          <div class="tl-title" data-i18n="abt.p1.title">Calculator &amp; Span It — Android Apps</div>
-          <span class="tl-org" data-i18n="abt.p1.org">Aspaloyy · Publisher</span>
-          <div class="tl-desc" data-i18n="abt.p1.desc">
-            Полный цикл двух Android-приложений: мобильная игра Span It и калькулятор. Прошли верификацию Google, оптимизированы, опубликованы глобально.
-          </div>
-          <div class="tl-tags">
-            <span class="tl-tag">Android</span>
-            <span class="tl-tag">Google Play</span>
-            <span class="tl-tag">Game Dev</span>
-            <span class="tl-tag">Utility</span>
-          </div>
-        </div>
+        <span class="skill-tag">Google Play</span>
       </div>
 
-      <div class="timeline-item reveal d1">
-        <div>
-          <div class="tl-label" data-i18n="abt.p2.label">AI R&amp;D</div>
-        </div>
-        <div>
-          <div class="tl-title" data-i18n="abt.p2.title">AI Video Generation Pipelines</div>
-          <span class="tl-org" data-i18n="abt.p2.org">Synthetic Media</span>
-          <div class="tl-desc" data-i18n="abt.p2.desc">
-            Конвейеры Text-to-Video (Seedance 2.0), цифровые аватары с синхронизацией губ, интеграция через HyperFrames API.
-          </div>
-          <div class="tl-tags">
-            <span class="tl-tag">AI</span>
-            <span class="tl-tag">Seedance 2.0</span>
-            <span class="tl-tag">HeyGen</span>
-            <span class="tl-tag">LLM</span>
-          </div>
-        </div>
-      </div>
+      <hr class="divider">
 
-      <div class="timeline-item reveal d2">
-        <div>
-          <div class="tl-label" data-i18n="abt.p3.label">DevOps</div>
-        </div>
-        <div>
-          <div class="tl-title" data-i18n="abt.p3.title">Cloud Automation &amp; CI/CD</div>
-          <span class="tl-org" data-i18n="abt.p3.org">Cloud Engineering</span>
-          <div class="tl-desc" data-i18n="abt.p3.desc">
-            Скрипты для хранилищ, решение токен-коллизий (Self-Request Anomalies), мосты через Google Workspace API.
-          </div>
-          <div class="tl-tags">
-            <span class="tl-tag">CI/CD</span>
-            <span class="tl-tag">OAuth 2.0</span>
-            <span class="tl-tag">Google API</span>
-            <span class="tl-tag">Cloud</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="section-gap-sm bg-surface">
-  <div class="wrap">
-    <div class="cta-box reveal">
-      <h2 class="cta-box-title">
-        <span data-i18n="abt.cta.title">Поговорим</span>
-        <em data-i18n="abt.cta.em">напрямую.</em>
-      </h2>
-      <p class="cta-box-sub" data-i18n="abt.cta.sub">
-        Открыт для партнёрств и технических коллабораций. На связи 24/7.
-      </p>
-      <div class="cta-links">
-        <a href="mailto:aspaloyy@gmail.com" class="cta-link cta-link-primary">✉️ aspaloyy@gmail.com</a>
-        <a href="https://t.me/aspaloyy" class="cta-link" target="_blank" rel="noopener">✈️ Telegram</a>
+      <p class="section-label" data-i18n="about.contact">Контакт</p>
+      <div class="contact-list">
+        <a href="mailto:aspaloyy@gmail.com" class="contact-link">
+          ✉️ aspaloyy@gmail.com
+        </a>
+        <a href="https://t.me/aspaloyy" class="contact-link" target="_blank" rel="noopener">
+          ✈️ @aspaloyy
+        </a>
         <a href="https://play.google.com/store/apps/dev?id=8055300163983735296"
-           class="cta-link" target="_blank" rel="noopener">▶ Google Play Dev</a>
+           class="contact-link" target="_blank" rel="noopener">
+          ▶ Google Play
+        </a>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- FOOTER -->
+    </section>
+  </div>
+</main>
+
 <footer class="footer">
-  <div class="footer-inner">
-    <a href="../" class="footer-logo" aria-label="Aspaloyy Home">
-      <div class="footer-logo-mark">A</div>
-      Aspaloyy
-    </a>
-    <nav class="footer-nav" aria-label="Footer navigation">
-      <a href="../apps/" data-i18n="nav.apps">Приложения</a>
-      <a href="../about/" data-i18n="nav.founder">Основатель</a>
-      <a href="mailto:aspaloyy@gmail.com" data-i18n="nav.contact">Контакт</a>
-    </nav>
-    <div class="footer-copy">© 2024–2026 Aspaloyy · aspaloyy.com</div>
+  <div class="wrap">
+    <p class="footer-text">© 2026 Aspaloyy</p>
   </div>
 </footer>
 
 <script src="../js/i18n.js"></script>
-<script src="../js/canvas.js" defer></script>
 <script src="../js/app.js" defer></script>
 </body>
 </html>

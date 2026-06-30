@@ -3,302 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aspaloyy — Mobile Apps & Digital Studio</title>
-  <meta name="description" content="Aspaloyy — независимая студия мобильных приложений из Кыргызстана. Android-игры и утилиты в Google Play.">
-  <meta property="og:title" content="Aspaloyy — Mobile Apps & Digital Studio">
-  <meta property="og:description" content="Android games and utilities built from scratch. Google Play developer from Kyrgyzstan.">
-  <meta property="og:url" content="https://aspaloyy.com">
-  <meta name="theme-color" content="#07071a">
+  <title>Aspaloyy</title>
+  <meta name="description" content="Android developer from Kyrgyzstan. Mobile games and apps on Google Play.">
+  <meta name="theme-color" content="#0a0a0a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
-<div class="noise"></div>
-
-<!-- NAV -->
-<nav class="nav" role="navigation">
-  <a href="/" class="nav-logo" aria-label="Aspaloyy Home">
-    <div class="nav-logo-mark">A</div>
-    Aspaloyy
-  </a>
-
-  <ul class="nav-links" id="nav-links" role="list">
-    <li><a href="apps/" data-i18n="nav.apps">Приложения</a></li>
-    <li><a href="about/" data-i18n="nav.founder">Основатель</a></li>
-    <li><a href="mailto:aspaloyy@gmail.com" data-i18n="nav.contact">Контакт</a></li>
-  </ul>
-
-  <div class="nav-right">
-    <select id="langSelect" class="nav-ctrl" aria-label="Language">
-      <option value="ru">RU</option>
-      <option value="en">EN</option>
-      <option value="ky">KY</option>
-      <option value="tr">TR</option>
-      <option value="de">DE</option>
-    </select>
-    <button id="theme-toggle" class="nav-ctrl" aria-label="Toggle theme">
-      <span id="theme-icon">🌙</span>
-    </button>
-    <a href="mailto:aspaloyy@gmail.com" class="btn-nav" data-i18n="nav.cta">Написать</a>
-    <button id="burger" class="burger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">Aspaloyy</a>
+    <ul class="nav-links">
+      <li><a href="apps/" data-i18n="nav.apps">Приложения</a></li>
+      <li><a href="about/" data-i18n="nav.about">Обо мне</a></li>
+    </ul>
+    <div class="nav-controls">
+      <select id="langSelect" class="nav-btn" aria-label="Language">
+        <option value="ru">RU</option>
+        <option value="en">EN</option>
+        <option value="ky">KY</option>
+        <option value="tr">TR</option>
+        <option value="de">DE</option>
+      </select>
+      <button id="theme-toggle" class="nav-btn" aria-label="Toggle theme">
+        <span id="theme-icon">🌙</span>
+      </button>
+    </div>
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-orb orb-purple"></div>
-  <div class="hero-orb orb-cyan"></div>
-  <div class="hero-orb orb-pink"></div>
-
-  <div class="hero-content">
-    <div class="hero-badge">
-      <div class="badge-dot"></div>
-      <span class="badge-text" data-i18n="hero.badge">Mobile Apps &amp; Digital Studio · Кыргызстан</span>
-    </div>
-
-    <h1 class="hero-title">
-      <span class="gradient-text" data-i18n="hero.line1">Aspaloyy.</span><br>
-      <span data-i18n="hero.line2">Делаем приложения.</span>
-    </h1>
-
-    <p class="hero-sub" data-i18n="hero.sub">
-      Независимый разработчик из Кыргызстана. Мобильные игры и утилиты для Android — доступны в Google Play.
-    </p>
-
-    <div class="hero-location">
-      <span class="loc-tag">📍 <span data-i18n="abt.hero.from">Бишкек, Кыргызстан</span></span>
-      <span class="loc-tag">🎓 <span data-i18n="abt.hero.based">Кайсери, Турция</span></span>
-    </div>
-
-    <div class="hero-actions">
-      <a href="apps/" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Наши приложения</a>
-      <a href="mailto:aspaloyy@gmail.com" class="btn btn-ghost btn-lg" data-i18n="hero.cta2">Написать нам</a>
-    </div>
-  </div>
-
-  <div class="scroll-hint" aria-hidden="true">
-    <span>SCROLL</span>
-    <div class="scroll-line"></div>
-  </div>
-</header>
-
-<!-- APPS SECTION -->
-<section class="section-gap bg-default" id="apps">
+<main>
   <div class="wrap">
-    <div class="reveal" style="text-align:center; margin-bottom:56px;">
-      <span class="eyebrow" data-i18n="apps.eyebrow">Google Play</span>
-      <h2 class="section-title" data-i18n="apps.title">Наши приложения</h2>
-      <p class="section-body" style="margin:0 auto;" data-i18n="apps.sub">
-        Созданы с нуля, оптимизированы под Android и доступны прямо сейчас.
-      </p>
-    </div>
-
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap:28px;">
-
-      <!-- Span It -->
-      <div class="app-card app-card-cyan reveal d1">
-        <div class="app-num">01</div>
-        <div class="app-icon app-icon-amber">
-          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M22 8L36 28H8L22 8Z" fill="white" opacity="0.9"/>
-            <circle cx="22" cy="32" r="5" fill="white" opacity="0.7"/>
-          </svg>
-        </div>
-        <div class="app-name">Span It</div>
-        <div class="app-type app-type-game" data-i18n="spanit.type">Мобильная игра</div>
-        <p class="app-desc" data-i18n="spanit.desc">
-          Span It — быстрая мобильная игра от Aspaloyy. Проверьте реакцию и смекалку в динамичном геймплее для Android.
-        </p>
-        <div class="app-tags">
-          <span class="app-tag app-tag-amber" data-i18n="spanit.tag1">Игра</span>
-          <span class="app-tag app-tag-amber" data-i18n="spanit.tag2">Бесплатно</span>
-          <span class="app-tag app-tag-amber" data-i18n="spanit.tag3">Android</span>
-        </div>
-        <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.spanit"
-           class="btn btn-play" target="_blank" rel="noopener" aria-label="Get Span It on Google Play">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-            <path d="M3.18 23.76c.5.28 1.08.3 1.6.06L19.1 12 4.78.18C4.26-.06 3.68-.04 3.18.24 2.46.66 2 1.45 2 2.31v19.38c0 .86.46 1.65 1.18 2.07z"/>
-          </svg>
-          <div class="btn-play-inner">
-            <span class="btn-play-label" data-i18n="play.get">СКАЧАТЬ В</span>
-            <span class="btn-play-store" data-i18n="play.store">Google Play</span>
-          </div>
-        </a>
+    <section class="hero">
+      <h1 class="hero-name">Aspaloyy</h1>
+      <p class="hero-tagline" data-i18n="home.tagline">Android-разработчик из Кыргызстана.</p>
+      <p class="hero-sub" data-i18n="home.sub">Создаю приложения и публикую их в Google Play.</p>
+      <div class="hero-actions">
+        <a href="apps/" class="btn" data-i18n="home.cta1">Приложения →</a>
+        <a href="about/" class="btn" data-i18n="home.cta2">Обо мне →</a>
       </div>
-
-      <!-- Calculator -->
-      <div class="app-card app-card-purple reveal d2">
-        <div class="app-num">02</div>
-        <div class="app-icon app-icon-purple">
-          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="9" y="8" width="26" height="28" rx="4" stroke="white" stroke-width="2.2" fill="none"/>
-            <path d="M14 17h16M14 22h16M14 27h8" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="app-name">Calculator</div>
-        <div class="app-type app-type-util" data-i18n="calc.type">Утилита</div>
-        <p class="app-desc" data-i18n="calc.desc">
-          Чистый и быстрый калькулятор для Android. Без лишней рекламы и ненужных разрешений — просто считайте.
-        </p>
-        <div class="app-tags">
-          <span class="app-tag app-tag-purple" data-i18n="calc.tag1">Калькулятор</span>
-          <span class="app-tag app-tag-purple" data-i18n="calc.tag2">Бесплатно</span>
-          <span class="app-tag app-tag-purple" data-i18n="calc.tag3">Без рекламы</span>
-        </div>
-        <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.calculator"
-           class="btn btn-play" target="_blank" rel="noopener" aria-label="Get Calculator on Google Play">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-            <path d="M3.18 23.76c.5.28 1.08.3 1.6.06L19.1 12 4.78.18C4.26-.06 3.68-.04 3.18.24 2.46.66 2 1.45 2 2.31v19.38c0 .86.46 1.65 1.18 2.07z"/>
-          </svg>
-          <div class="btn-play-inner">
-            <span class="btn-play-label" data-i18n="play.get">СКАЧАТЬ В</span>
-            <span class="btn-play-store" data-i18n="play.store">Google Play</span>
-          </div>
-        </a>
-      </div>
-
-    </div>
+    </section>
   </div>
-</section>
+</main>
 
-<!-- ABOUT BRIEF -->
-<section class="section-gap bg-surface">
-  <div class="wrap" style="display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:center;">
-    <div class="reveal">
-      <span class="eyebrow" data-i18n="about.eyebrow">Студия</span>
-      <h2 class="section-title" data-i18n="about.title">Aspaloyy — это я.</h2>
-      <p class="section-body" style="margin-bottom:18px;" data-i18n="about.p1">
-        Меня зовут <strong>Асман</strong>. Я из Бишкека, Кыргызстан. Строю мобильные приложения, изучаю ИИ и разрабатываю цифровые продукты как независимый разработчик.
-      </p>
-      <p class="section-body" data-i18n="about.p2">
-        Aspaloyy — не компания с офисом. Это личная лаборатория, где я выпускаю реальные продукты, которыми пользуются люди по всему миру.
-      </p>
-      <div style="margin-top:32px;">
-        <a href="about/" class="btn btn-ghost btn-md" data-i18n="about.link">Подробнее об Асмане →</a>
-      </div>
-    </div>
-    <div class="reveal d2" style="display:grid; gap:16px;">
-      <div class="info-card">
-        <div class="info-icon" style="background:var(--purple-soft);">🎮</div>
-        <div>
-          <div class="info-title" data-i18n="abt.ic1.title">Google Play Publisher</div>
-          <div class="info-desc" data-i18n="abt.ic1.desc">Официальный паблишер. Полный цикл: разработка → тест → релиз → поддержка.</div>
-        </div>
-      </div>
-      <div class="info-card">
-        <div class="info-icon" style="background:var(--cyan-soft);">🤖</div>
-        <div>
-          <div class="info-title" data-i18n="abt.ic2.title">AI &amp; Synthetic Media</div>
-          <div class="info-desc" data-i18n="abt.ic2.desc">LLM, цифровые аватары и видеогенерация. HeyGen, Seedance 2.0 и open-source AI.</div>
-        </div>
-      </div>
-      <div class="info-card">
-        <div class="info-icon" style="background:rgba(236,72,153,.1);">🌐</div>
-        <div>
-          <div class="info-title" data-i18n="abt.ic3.title">5 языков</div>
-          <div class="info-desc" data-i18n="abt.ic3.desc">RU, EN, KG, TR, DE. Английский EAP — читаю техдокументацию в оригинале.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERTISE -->
-<section class="section-gap bg-default" id="expertise">
-  <div class="wrap">
-    <div class="reveal" style="text-align:center; margin-bottom:56px;">
-      <span class="eyebrow" data-i18n="exp.eyebrow">Экспертиза</span>
-      <h2 class="section-title" data-i18n="exp.title">Что я делаю</h2>
-    </div>
-
-    <div class="feat-grid">
-      <div class="feat-card reveal d1">
-        <div class="feat-stripe" style="background:var(--purple);"></div>
-        <span class="feat-icon">📱</span>
-        <div class="feat-title" data-i18n="e1.title">Android Dev</div>
-        <div class="feat-desc" data-i18n="e1.desc">Нативная разработка: архитектура, SDK, оптимизация памяти и публикация в Google Play.</div>
-      </div>
-      <div class="feat-card reveal d2">
-        <div class="feat-stripe" style="background:var(--cyan);"></div>
-        <span class="feat-icon">🧠</span>
-        <div class="feat-title" data-i18n="e2.title">AI &amp; LLM</div>
-        <div class="feat-desc" data-i18n="e2.desc">Интеграция языковых моделей, агентные системы и генерация синтетического медиаконтента.</div>
-      </div>
-      <div class="feat-card reveal d3">
-        <div class="feat-stripe" style="background:var(--amber);"></div>
-        <span class="feat-icon">🎮</span>
-        <div class="feat-title" data-i18n="e3.title">Game Design</div>
-        <div class="feat-desc" data-i18n="e3.desc">Игровые механики, баланс, монетизация и мобильные игровые системы.</div>
-      </div>
-      <div class="feat-card reveal d1">
-        <div class="feat-stripe" style="background:var(--green);"></div>
-        <span class="feat-icon">☁️</span>
-        <div class="feat-title" data-i18n="e4.title">Cloud &amp; Web</div>
-        <div class="feat-desc" data-i18n="e4.desc">SPA, PWA, Serverless, CI/CD и облачная инфраструктура.</div>
-      </div>
-      <div class="feat-card reveal d2">
-        <div class="feat-stripe" style="background:var(--pink);"></div>
-        <span class="feat-icon">🔒</span>
-        <div class="feat-title" data-i18n="e5.title">Privacy-First</div>
-        <div class="feat-desc" data-i18n="e5.desc">Безопасность данных, минимальные разрешения и соответствие Google Play Policy.</div>
-      </div>
-      <div class="feat-card reveal d3">
-        <div class="feat-stripe" style="background:var(--grad-main);"></div>
-        <span class="feat-icon">🌍</span>
-        <div class="feat-title" data-i18n="e6.title">Multilingual</div>
-        <div class="feat-desc" data-i18n="e6.desc">Разработка на 5 языках. Продукты для глобальной аудитории с локализацией из коробки.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="section-gap-sm bg-surface">
-  <div class="wrap">
-    <div class="cta-box reveal">
-      <h2 class="cta-box-title">
-        <span data-i18n="cta.title">Хотите поговорить?</span><br>
-        <em data-i18n="cta.em">На связи.</em>
-      </h2>
-      <p class="cta-box-sub" data-i18n="cta.sub">
-        Открыт для партнёрств и интересных проектов. Пишите — отвечаю быстро.
-      </p>
-      <div class="cta-links">
-        <a href="mailto:aspaloyy@gmail.com" class="cta-link cta-link-primary">✉️ aspaloyy@gmail.com</a>
-        <a href="https://t.me/aspaloyy" class="cta-link" target="_blank" rel="noopener">✈️ Telegram</a>
-        <a href="https://play.google.com/store/apps/dev?id=8055300163983735296"
-           class="cta-link" target="_blank" rel="noopener">▶ Google Play</a>
-        <a href="about/" class="cta-link" data-i18n="nav.founder">Основатель</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-inner">
-    <a href="/" class="footer-logo" aria-label="Aspaloyy Home">
-      <div class="footer-logo-mark">A</div>
-      Aspaloyy
-    </a>
-    <nav class="footer-nav" aria-label="Footer navigation">
-      <a href="apps/" data-i18n="nav.apps">Приложения</a>
-      <a href="about/" data-i18n="nav.founder">Основатель</a>
-      <a href="mailto:aspaloyy@gmail.com" data-i18n="nav.contact">Контакт</a>
-    </nav>
-    <div class="footer-copy">© 2024–2026 Aspaloyy · aspaloyy.com</div>
+  <div class="wrap">
+    <p class="footer-text">© 2026 Aspaloyy</p>
   </div>
 </footer>
 
 <script src="js/i18n.js"></script>
-<script src="js/canvas.js" defer></script>
 <script src="js/app.js" defer></script>
 </body>
 </html>
