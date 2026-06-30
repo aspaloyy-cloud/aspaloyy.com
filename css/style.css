@@ -163,7 +163,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ── HOME HERO ── */
 .hero {
-  padding: 96px 0 80px;
+  padding: 80px 0 80px;
+}
+
+.hero-path {
+  display: block;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 12px;
+  color: var(--muted);
+  opacity: 0.65;
+  margin-bottom: 16px;
 }
 
 .hero-name {
@@ -171,25 +180,70 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-weight: 700;
   letter-spacing: -0.5px;
   color: var(--text);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .hero-tagline {
-  font-size: 17px;
-  color: var(--muted);
-  margin-bottom: 4px;
-}
-
-.hero-sub {
   font-size: 16px;
   color: var(--muted);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .hero-actions {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.hero-panel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.hero-panel-head {
+  padding: 9px 16px;
+  border-bottom: 1px solid var(--border);
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.shelf-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  transition: background 0.12s;
+}
+
+.shelf-row:last-child { border-bottom: none; }
+
+.shelf-row:hover { background: rgba(255, 255, 255, 0.03); }
+[data-theme="light"] .shelf-row:hover { background: rgba(0, 0, 0, 0.025); }
+
+.shelf-icon { font-size: 15px; line-height: 1; flex-shrink: 0; }
+
+.shelf-name { font-size: 14px; font-weight: 600; flex: 1; }
+
+.shelf-tag {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 2px 6px;
 }
 
 /* ── BUTTONS ── */
@@ -445,23 +499,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-weight: 700;
   letter-spacing: -0.5px;
   color: var(--text);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
-.about-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-bottom: 28px;
-}
-
-.about-meta-line {
-  font-size: 15px;
+.meta-chip {
+  display: inline-block;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 12px;
   color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px 10px;
+  margin-bottom: 24px;
+  background: var(--surface);
 }
 
 .about-bio {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--text);
   line-height: 1.72;
   max-width: 540px;
@@ -481,6 +535,8 @@ hr.divider {
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 14px;
+  padding-left: 10px;
+  border-left: 2px solid var(--border);
 }
 
 .skill-list {
@@ -491,32 +547,42 @@ hr.divider {
 }
 
 .skill-tag {
-  font-size: 13px;
-  font-weight: 500;
-  padding: 6px 14px;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 100px;
+  border-radius: 4px;
   color: var(--text);
 }
 
 .contact-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .contact-link {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-size: 15px;
+  gap: 12px;
+  font-size: 14px;
   color: var(--muted);
   transition: color 0.15s;
 }
 
-.contact-link:hover {
-  color: var(--text);
+.contact-link:hover { color: var(--text); }
+
+.contact-key {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+  opacity: 0.55;
+  width: 40px;
+  flex-shrink: 0;
 }
 
 /* ── FOOTER ── */
@@ -533,9 +599,9 @@ hr.divider {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 480px) {
-  .hero { padding: 64px 0 52px; }
+  .hero { padding: 60px 0 48px; }
   .hero-name { font-size: 26px; }
-  .hero-tagline, .hero-sub { font-size: 15px; }
+  .hero-tagline { font-size: 15px; }
   .page-head { padding: 56px 0 32px; }
   .page-title { font-size: 22px; }
   .about-name { font-size: 26px; }
