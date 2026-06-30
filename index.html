@@ -1,588 +1,209 @@
 <!DOCTYPE html>
 <html lang="ru" data-theme="dark">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aspaloyy — Mobile Apps & Digital Studio</title>
-  <meta name="description" content="Aspaloyy — разработчик мобильных приложений и цифровых продуктов. Скачайте Calculator и Spanit в Google Play. Основатель — Асман, Кыргызстан."/>
-  <meta property="og:title" content="Aspaloyy — Mobile Apps & Digital Studio"/>
-  <meta property="og:description" content="Мобильные приложения, ИИ-интеграция и цифровые продукты от независимого разработчика Асмана."/>
-  <meta property="og:url" content="https://aspaloyy.com"/>
-  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="description" content="Aspaloyy — независимая студия мобильных приложений из Кыргызстана. Android-игры и утилиты в Google Play.">
+  <meta property="og:title" content="Aspaloyy — Mobile Apps & Digital Studio">
+  <meta property="og:description" content="Android games and utilities built from scratch. Google Play developer from Kyrgyzstan.">
+  <meta property="og:url" content="https://aspaloyy.com">
+  <meta name="theme-color" content="#07071a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #070712;
-      --surface: #0d0d22;
-      --card: #111130;
-      --border: rgba(139,92,246,.15);
-      --border-hover: rgba(139,92,246,.5);
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-      --muted2: #cbd5e1;
-      --purple: #8b5cf6;
-      --purple-dim: rgba(139,92,246,.12);
-      --cyan: #06b6d4;
-      --cyan-dim: rgba(6,182,212,.1);
-      --pink: #ec4899;
-      --green: #10b981;
-      --amber: #f59e0b;
-      --nav-bg: rgba(7,7,18,0.88);
-      --play-green: #01875f;
-    }
-    [data-theme="light"] {
-      --bg: #f8f9ff;
-      --surface: #ffffff;
-      --card: #ffffff;
-      --border: rgba(99,102,241,.12);
-      --border-hover: rgba(99,102,241,.4);
-      --text: #0f172a;
-      --muted: #475569;
-      --muted2: #334155;
-      --purple: #6366f1;
-      --purple-dim: rgba(99,102,241,.08);
-      --cyan: #0891b2;
-      --cyan-dim: rgba(8,145,178,.08);
-      --pink: #db2777;
-      --green: #059669;
-      --amber: #d97706;
-      --nav-bg: rgba(248,249,255,0.92);
-      --play-green: #01875f;
-    }
-
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      overflow-x: hidden;
-      transition: background .35s, color .35s;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    #bg-canvas { position:fixed;inset:0;pointer-events:none;z-index:0; }
-    .noise {
-      position:fixed;inset:0;pointer-events:none;z-index:1;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
-      opacity: .04;
-    }
-    [data-theme="light"] .noise { opacity: .02; }
-    section { position: relative; z-index: 10; }
-
-    /* ── NAV ── */
-    nav {
-      position:fixed;top:0;left:0;right:0;z-index:300;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:18px 48px;transition:all .3s;
-    }
-    nav.scrolled {
-      background: var(--nav-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      font-family:'Unbounded',sans-serif;font-size:17px;font-weight:800;
-      color:var(--text);text-decoration:none;display:flex;align-items:center;gap:10px;
-    }
-    .nav-logo-mark {
-      width:34px;height:34px;border-radius:10px;
-      background:linear-gradient(135deg,var(--purple),var(--cyan));
-      display:flex;align-items:center;justify-content:center;
-      font-size:14px;font-weight:900;color:#fff;
-      box-shadow:0 0 20px rgba(139,92,246,.3);
-      animation:markPulse 4s ease-in-out infinite;
-    }
-    @keyframes markPulse{0%,100%{box-shadow:0 0 20px rgba(139,92,246,.3)}50%{box-shadow:0 0 32px rgba(139,92,246,.5)}}
-    .nav-right { display:flex;align-items:center;gap:20px; }
-    .nav-links { display:flex;gap:36px;list-style:none; }
-    .nav-links a {
-      font-size:13px;font-weight:500;color:var(--muted);
-      text-decoration:none;transition:color .2s;letter-spacing:.2px;
-    }
-    .nav-links a:hover { color:var(--text); }
-    .nav-controls { display:flex;align-items:center;gap:8px; }
-    .ctrl-btn {
-      height:34px;padding:0 12px;border-radius:8px;
-      background:var(--surface);border:1px solid var(--border);
-      color:var(--muted2);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
-      cursor:pointer;outline:none;transition:all .2s;appearance:none;-webkit-appearance:none;
-      display:flex;align-items:center;gap:4px;
-    }
-    .ctrl-btn:hover { border-color:var(--purple);color:var(--purple); }
-    .nav-cta {
-      font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
-      background:var(--purple);color:#fff;border:none;
-      padding:10px 22px;border-radius:9px;cursor:pointer;
-      transition:all .2s;text-decoration:none;
-      box-shadow:0 4px 14px rgba(139,92,246,.25);
-    }
-    .nav-cta:hover { transform:translateY(-1px);box-shadow:0 8px 22px rgba(139,92,246,.4); }
-
-    /* ── HERO ── */
-    .hero {
-      min-height:100vh;display:flex;flex-direction:column;
-      align-items:center;justify-content:center;
-      text-align:center;padding:140px 24px 80px;
-      overflow:hidden;
-    }
-    .hero-orb {
-      position:absolute;border-radius:50%;pointer-events:none;
-      filter:blur(120px);z-index:2;
-    }
-    .orb-1{width:600px;height:400px;background:radial-gradient(ellipse,rgba(139,92,246,.12),transparent 70%);top:-10%;left:50%;transform:translateX(-50%);animation:o1 12s ease-in-out infinite;}
-    .orb-2{width:500px;height:500px;background:radial-gradient(circle,rgba(6,182,212,.08),transparent 70%);bottom:5%;right:-10%;animation:o2 14s ease-in-out infinite;}
-    .orb-3{width:400px;height:400px;background:radial-gradient(circle,rgba(236,72,153,.07),transparent 70%);bottom:5%;left:-5%;animation:o3 11s ease-in-out infinite;}
-    @keyframes o1{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.15)}}
-    @keyframes o2{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,-30px)}}
-    @keyframes o3{0%,100%{transform:translate(0,0)}50%{transform:translate(25px,-25px)}}
-    .hero-grid {
-      position:absolute;inset:0;z-index:2;pointer-events:none;
-      background-image:linear-gradient(rgba(139,92,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.04) 1px,transparent 1px);
-      background-size:64px 64px;
-      mask-image:radial-gradient(ellipse 85% 75% at 50% 50%,black 20%,transparent 70%);
-    }
-    [data-theme="light"] .hero-grid {
-      background-image:linear-gradient(rgba(99,102,241,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,.05) 1px,transparent 1px);
-    }
-    .hero-content { position:relative;z-index:20; }
-    .hero-badge {
-      display:inline-flex;align-items:center;gap:8px;
-      background:var(--surface);border:1px solid var(--border);
-      border-radius:100px;padding:6px 16px 6px 6px;margin-bottom:36px;
-      animation:fadeUp .7s ease both;
-    }
-    .badge-dot {
-      width:8px;height:8px;border-radius:50%;
-      background:linear-gradient(135deg,var(--purple),var(--cyan));
-      animation:dotPulse 2s ease-in-out infinite;
-    }
-    @keyframes dotPulse{0%,100%{opacity:1}50%{opacity:.5}}
-    .badge-text { font-size:12px;font-weight:600;color:var(--muted2); }
-    .hero h1 {
-      font-family:'Unbounded',sans-serif;
-      font-size:clamp(38px,6.5vw,88px);
-      font-weight:900;line-height:1.03;letter-spacing:-2.5px;
-      color:var(--text);max-width:1000px;
-      animation:fadeUp .7s .1s ease both;
-    }
-    .hero-gradient {
-      display:block;
-      background:linear-gradient(90deg,var(--purple) 0%,var(--cyan) 40%,var(--pink) 80%,var(--purple) 100%);
-      background-size:200% auto;
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-      animation:shimmer 6s linear infinite;
-    }
-    @keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}
-    .hero-sub {
-      margin-top:28px;font-size:18px;color:var(--muted);
-      max-width:600px;line-height:1.65;
-      animation:fadeUp .7s .2s ease both;
-    }
-    .hero-btns {
-      margin-top:44px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
-      animation:fadeUp .7s .3s ease both;
-    }
-    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-    .btn-primary {
-      font-family:'Inter',sans-serif;font-size:15px;font-weight:700;
-      background:linear-gradient(135deg,var(--purple),var(--cyan));
-      color:#fff;border:none;padding:15px 36px;border-radius:12px;
-      cursor:pointer;transition:all .2s;text-decoration:none;
-      box-shadow:0 8px 24px rgba(139,92,246,.3);
-    }
-    .btn-primary:hover { transform:translateY(-2px);box-shadow:0 14px 32px rgba(139,92,246,.45); }
-    .btn-secondary {
-      font-family:'Inter',sans-serif;font-size:15px;font-weight:600;
-      background:var(--surface);border:1px solid var(--border);
-      color:var(--text);padding:15px 36px;border-radius:12px;
-      cursor:pointer;transition:all .2s;text-decoration:none;
-    }
-    .btn-secondary:hover { border-color:var(--purple);color:var(--purple); }
-
-    /* ── SHARED SECTION STYLES ── */
-    .section-wrap { max-width:1200px;margin:0 auto;padding:0 48px; }
-    .eyebrow {
-      font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;
-      letter-spacing:2.5px;text-transform:uppercase;color:var(--purple);margin-bottom:16px;
-    }
-    [data-theme="light"] .eyebrow { color:var(--purple); }
-    .section-h {
-      font-family:'Unbounded',sans-serif;
-      font-size:clamp(28px,4vw,48px);
-      font-weight:800;letter-spacing:-1.5px;line-height:1.1;
-      color:var(--text);margin-bottom:16px;
-    }
-    .section-p { font-size:16px;color:var(--muted);line-height:1.7;max-width:520px; }
-
-    /* ── APPS SECTION ── */
-    .apps-section { padding:100px 0;background:var(--bg); }
-    .apps-header { text-align:center;margin-bottom:64px; }
-    .apps-header .section-p { margin:0 auto; }
-    .apps-grid { display:grid;grid-template-columns:1fr 1fr;gap:28px; }
-    .app-card {
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:24px;padding:48px 40px;
-      position:relative;overflow:hidden;
-      transition:all .35s cubic-bezier(.22,1,.36,1);
-    }
-    .app-card::before {
-      content:'';position:absolute;inset:0;border-radius:24px;
-      background:linear-gradient(135deg,var(--purple-dim),transparent 60%);
-      opacity:0;transition:opacity .35s;
-    }
-    .app-card.cyan-accent::before {
-      background:linear-gradient(135deg,var(--cyan-dim),transparent 60%);
-    }
-    .app-card:hover { transform:translateY(-6px);border-color:var(--border-hover);box-shadow:0 24px 48px rgba(0,0,0,.2); }
-    .app-card:hover::before { opacity:1; }
-    [data-theme="light"] .app-card { box-shadow:0 4px 20px rgba(0,0,0,.06); }
-    [data-theme="light"] .app-card:hover { box-shadow:0 20px 48px rgba(0,0,0,.1); }
-    .app-icon-wrap {
-      width:80px;height:80px;border-radius:20px;
-      display:flex;align-items:center;justify-content:center;margin-bottom:28px;
-      position:relative;z-index:1;
-    }
-    .app-icon-calc { background:linear-gradient(135deg,#7c3aed,#4f46e5); box-shadow:0 8px 24px rgba(124,58,237,.35); }
-    .app-icon-span { background:linear-gradient(135deg,#0891b2,#0d9488); box-shadow:0 8px 24px rgba(8,145,178,.35); }
-    .app-icon-wrap svg { width:40px;height:40px; }
-    .app-name {
-      font-family:'Unbounded',sans-serif;font-size:22px;font-weight:800;
-      color:var(--text);margin-bottom:10px;position:relative;z-index:1;
-      letter-spacing:-.5px;
-    }
-    .app-desc {
-      font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:28px;
-      position:relative;z-index:1;
-    }
-    .app-tags { display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;position:relative;z-index:1; }
-    .app-tag {
-      font-size:12px;font-weight:600;
-      background:var(--purple-dim);color:var(--purple);
-      padding:5px 12px;border-radius:100px;
-    }
-    .cyan-accent .app-tag { background:var(--cyan-dim);color:var(--cyan); }
-    .play-btn {
-      display:inline-flex;align-items:center;gap:10px;
-      background:var(--play-green);color:#fff;
-      padding:13px 22px;border-radius:12px;
-      text-decoration:none;font-size:14px;font-weight:600;
-      transition:all .2s;position:relative;z-index:1;
-      box-shadow:0 4px 14px rgba(1,135,95,.25);
-    }
-    .play-btn:hover { transform:translateY(-1px);box-shadow:0 8px 22px rgba(1,135,95,.4);filter:brightness(1.05); }
-    .play-btn svg { width:20px;height:20px;flex-shrink:0; }
-    .play-btn-inner { display:flex;flex-direction:column;line-height:1.2; }
-    .play-btn-label { font-size:10px;font-weight:400;opacity:.85; }
-    .play-btn-store { font-size:14px;font-weight:700; }
-    .app-num {
-      position:absolute;top:40px;right:40px;
-      font-family:'Unbounded',sans-serif;font-size:56px;font-weight:900;
-      color:var(--border);letter-spacing:-2px;z-index:0;
-      line-height:1;
-    }
-
-    /* ── ABOUT SECTION ── */
-    .about-section { padding:100px 0;background:var(--surface);border-top:1px solid var(--border); }
-    .about-inner { display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center; }
-    .about-text p { font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:20px; }
-    .about-text p strong { color:var(--text);font-weight:600; }
-    .about-chips { display:flex;flex-wrap:wrap;gap:10px;margin-top:32px; }
-    .chip {
-      font-size:13px;font-weight:600;
-      background:var(--bg);border:1px solid var(--border);
-      border-radius:100px;padding:8px 18px;color:var(--muted2);
-      transition:all .2s;
-    }
-    .chip:hover { border-color:var(--purple);color:var(--purple); }
-    .about-cards { display:flex;flex-direction:column;gap:16px; }
-    .acard {
-      background:var(--bg);border:1px solid var(--border);
-      border-radius:20px;padding:28px;
-      display:flex;align-items:flex-start;gap:16px;
-      transition:all .3s;
-    }
-    .acard:hover { border-color:var(--border-hover);transform:translateX(4px); }
-    .acard-icon {
-      width:44px;height:44px;border-radius:12px;flex-shrink:0;
-      display:flex;align-items:center;justify-content:center;font-size:20px;
-      background:var(--purple-dim);
-    }
-    .acard:nth-child(2) .acard-icon { background:var(--cyan-dim); }
-    .acard:nth-child(3) .acard-icon { background:rgba(236,72,153,.1); }
-    .acard-title { font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px; }
-    .acard-desc { font-size:13px;color:var(--muted);line-height:1.6; }
-
-    /* ── EXPERTISE SECTION ── */
-    .expertise-section { padding:100px 0;background:var(--bg);border-top:1px solid var(--border); }
-    .exp-header { display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;flex-wrap:wrap;gap:24px; }
-    .exp-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:20px; }
-    .exp-card {
-      background:var(--card);border:1px solid var(--border);
-      border-radius:20px;padding:32px 28px;
-      transition:all .3s;position:relative;overflow:hidden;
-    }
-    .exp-card:hover { border-color:var(--border-hover);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.15); }
-    [data-theme="light"] .exp-card { box-shadow:0 2px 12px rgba(0,0,0,.05); }
-    [data-theme="light"] .exp-card:hover { box-shadow:0 16px 40px rgba(0,0,0,.1); }
-    .exp-stripe {
-      position:absolute;top:0;left:0;right:0;height:3px;
-      border-radius:20px 20px 0 0;
-    }
-    .s1{background:linear-gradient(90deg,var(--purple),#6366f1);}
-    .s2{background:linear-gradient(90deg,var(--cyan),#0d9488);}
-    .s3{background:linear-gradient(90deg,var(--pink),var(--amber));}
-    .s4{background:linear-gradient(90deg,var(--green),var(--cyan));}
-    .exp-icon { font-size:32px;margin-bottom:20px;display:block; }
-    .exp-title {
-      font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;
-      color:var(--text);margin-bottom:10px;letter-spacing:-.3px;
-    }
-    .exp-desc { font-size:13px;color:var(--muted);line-height:1.65; }
-
-    /* ── CONTACT SECTION ── */
-    .contact-section { padding:100px 0;background:var(--surface);border-top:1px solid var(--border); }
-    .contact-box {
-      border-radius:28px;
-      border:1px solid var(--border);
-      padding:80px 60px;text-align:center;
-      background:var(--card);
-      position:relative;overflow:hidden;
-    }
-    .contact-box::before {
-      content:'';position:absolute;
-      width:600px;height:600px;border-radius:50%;
-      background:radial-gradient(circle,rgba(139,92,246,.06),transparent 70%);
-      top:50%;left:50%;transform:translate(-50%,-50%);
-      pointer-events:none;
-    }
-    .contact-box h2 {
-      font-family:'Unbounded',sans-serif;
-      font-size:clamp(28px,4vw,52px);
-      font-weight:900;letter-spacing:-1.5px;line-height:1.1;
-      color:var(--text);margin-bottom:18px;
-      position:relative;z-index:1;
-    }
-    .contact-box h2 em { font-style:normal;color:var(--purple); }
-    .contact-box p { font-size:16px;color:var(--muted);margin-bottom:44px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;position:relative;z-index:1; }
-    .contact-links { display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1; }
-    .contact-link {
-      display:inline-flex;align-items:center;gap:8px;
-      background:var(--surface);border:1px solid var(--border);
-      border-radius:10px;padding:12px 22px;
-      font-size:14px;font-weight:600;color:var(--text);
-      text-decoration:none;transition:all .2s;
-    }
-    .contact-link:hover { background:var(--purple);border-color:var(--purple);color:#fff; }
-    .contact-link-primary { background:var(--purple);border-color:var(--purple);color:#fff; }
-    .contact-link-primary:hover { background:#7c3aed;border-color:#7c3aed; }
-
-    /* ── FOOTER ── */
-    footer { border-top:1px solid var(--border);padding:44px;background:var(--bg);position:relative;z-index:10; }
-    .footer-inner { max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px; }
-    .footer-logo { font-family:'Unbounded',sans-serif;font-size:16px;font-weight:800;color:var(--text);display:flex;align-items:center;gap:10px;text-decoration:none; }
-    .footer-mark { width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,var(--purple),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#fff; }
-    .footer-links { display:flex;gap:28px;list-style:none; }
-    .footer-links a { font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s; }
-    .footer-links a:hover { color:var(--text); }
-    .footer-copy { font-size:13px;color:var(--muted);width:100%;text-align:center;margin-top:20px; }
-
-    /* ── REVEAL ── */
-    .reveal { opacity:0;transform:translateY(28px);transition:opacity .65s ease-out,transform .65s ease-out; }
-    .reveal.visible { opacity:1;transform:none; }
-    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
-
-    /* ── RESPONSIVE ── */
-    @media(max-width:1024px){
-      .exp-grid { grid-template-columns:repeat(2,1fr); }
-    }
-    @media(max-width:900px){
-      .apps-grid, .about-inner { grid-template-columns:1fr; }
-      nav { padding:16px 24px; }
-      .nav-links { display:none; }
-      .section-wrap { padding:0 24px; }
-    }
-    @media(max-width:640px){
-      .exp-grid { grid-template-columns:1fr; }
-      .hero h1 { letter-spacing:-1.5px; }
-      .contact-box { padding:48px 24px; }
-      footer { padding:32px 24px; }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
 <canvas id="bg-canvas"></canvas>
 <div class="noise"></div>
 
 <!-- NAV -->
-<nav id="nav">
-  <a href="/" class="nav-logo">
+<nav class="nav" role="navigation">
+  <a href="/" class="nav-logo" aria-label="Aspaloyy Home">
     <div class="nav-logo-mark">A</div>
     Aspaloyy
   </a>
-  <ul class="nav-links">
-    <li><a href="#apps" data-i18n="nav.apps">Приложения</a></li>
-    <li><a href="#about" data-i18n="nav.about">Студия</a></li>
-    <li><a href="#expertise" data-i18n="nav.expertise">Экспертиза</a></li>
-    <li><a href="aboutasman.html" data-i18n="nav.founder">Основатель</a></li>
+
+  <ul class="nav-links" id="nav-links" role="list">
+    <li><a href="apps/" data-i18n="nav.apps">Приложения</a></li>
+    <li><a href="about/" data-i18n="nav.founder">Основатель</a></li>
+    <li><a href="mailto:aspaloyy@gmail.com" data-i18n="nav.contact">Контакт</a></li>
   </ul>
+
   <div class="nav-right">
-    <div class="nav-controls">
-      <select class="ctrl-btn" id="langSelect" style="padding-right:10px">
-        <option value="ru">RU</option>
-        <option value="en">EN</option>
-        <option value="ky">KG</option>
-        <option value="tr">TR</option>
-        <option value="de">DE</option>
-      </select>
-      <button class="ctrl-btn" id="themeBtn" title="Toggle theme">&#9790;</button>
-    </div>
-    <a href="mailto:aspaloyy@gmail.com" class="nav-cta" data-i18n="nav.cta">Связаться</a>
+    <select id="langSelect" class="nav-ctrl" aria-label="Language">
+      <option value="ru">RU</option>
+      <option value="en">EN</option>
+      <option value="ky">KY</option>
+      <option value="tr">TR</option>
+      <option value="de">DE</option>
+    </select>
+    <button id="theme-toggle" class="nav-ctrl" aria-label="Toggle theme">
+      <span id="theme-icon">🌙</span>
+    </button>
+    <a href="mailto:aspaloyy@gmail.com" class="btn-nav" data-i18n="nav.cta">Написать</a>
+    <button id="burger" class="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<header class="hero">
   <div class="hero-grid"></div>
-  <div class="hero-orb orb-1"></div>
-  <div class="hero-orb orb-2"></div>
-  <div class="hero-orb orb-3"></div>
+  <div class="hero-orb orb-purple"></div>
+  <div class="hero-orb orb-cyan"></div>
+  <div class="hero-orb orb-pink"></div>
 
   <div class="hero-content">
     <div class="hero-badge">
       <div class="badge-dot"></div>
-      <span class="badge-text" data-i18n="hero.badge">Mobile Apps & Digital Studio · Кыргызстан</span>
+      <span class="badge-text" data-i18n="hero.badge">Mobile Apps &amp; Digital Studio · Кыргызстан</span>
     </div>
 
-    <h1>
-      <span data-i18n="hero.line1">Цифровые продукты.</span><br>
-      <span class="hero-gradient" data-i18n="hero.line2">Которые просто работают.</span>
+    <h1 class="hero-title">
+      <span class="gradient-text" data-i18n="hero.line1">Aspaloyy.</span><br>
+      <span data-i18n="hero.line2">Делаем приложения.</span>
     </h1>
 
     <p class="hero-sub" data-i18n="hero.sub">
-      Aspaloyy — независимый разработчик мобильных приложений и цифровых продуктов. Наши приложения доступны в Google Play и используются по всему миру.
+      Независимый разработчик из Кыргызстана. Мобильные игры и утилиты для Android — доступны в Google Play.
     </p>
 
-    <div class="hero-btns">
-      <a href="#apps" class="btn-primary" data-i18n="hero.cta1">Наши приложения</a>
-      <a href="mailto:aspaloyy@gmail.com" class="btn-secondary" data-i18n="hero.cta2">Написать нам</a>
+    <div class="hero-location">
+      <span class="loc-tag">📍 <span data-i18n="abt.hero.from">Бишкек, Кыргызстан</span></span>
+      <span class="loc-tag">🎓 <span data-i18n="abt.hero.based">Кайсери, Турция</span></span>
+    </div>
+
+    <div class="hero-actions">
+      <a href="apps/" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Наши приложения</a>
+      <a href="mailto:aspaloyy@gmail.com" class="btn btn-ghost btn-lg" data-i18n="hero.cta2">Написать нам</a>
     </div>
   </div>
-</section>
 
-<!-- APPS -->
-<section id="apps" class="apps-section">
-  <div class="section-wrap">
-    <div class="apps-header reveal">
-      <div class="eyebrow" data-i18n="apps.eyebrow">Google Play</div>
-      <div class="section-h" data-i18n="apps.title">Наши приложения</div>
-      <p class="section-p" data-i18n="apps.sub">Все приложения созданы с нуля, оптимизированы и доступны для скачивания прямо сейчас.</p>
+  <div class="scroll-hint" aria-hidden="true">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</header>
+
+<!-- APPS SECTION -->
+<section class="section-gap bg-default" id="apps">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; margin-bottom:56px;">
+      <span class="eyebrow" data-i18n="apps.eyebrow">Google Play</span>
+      <h2 class="section-title" data-i18n="apps.title">Наши приложения</h2>
+      <p class="section-body" style="margin:0 auto;" data-i18n="apps.sub">
+        Созданы с нуля, оптимизированы под Android и доступны прямо сейчас.
+      </p>
     </div>
-    <div class="apps-grid">
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap:28px;">
+
+      <!-- Span It -->
+      <div class="app-card app-card-cyan reveal d1">
+        <div class="app-num">01</div>
+        <div class="app-icon app-icon-amber">
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M22 8L36 28H8L22 8Z" fill="white" opacity="0.9"/>
+            <circle cx="22" cy="32" r="5" fill="white" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="app-name">Span It</div>
+        <div class="app-type app-type-game" data-i18n="spanit.type">Мобильная игра</div>
+        <p class="app-desc" data-i18n="spanit.desc">
+          Span It — быстрая мобильная игра от Aspaloyy. Проверьте реакцию и смекалку в динамичном геймплее для Android.
+        </p>
+        <div class="app-tags">
+          <span class="app-tag app-tag-amber" data-i18n="spanit.tag1">Игра</span>
+          <span class="app-tag app-tag-amber" data-i18n="spanit.tag2">Бесплатно</span>
+          <span class="app-tag app-tag-amber" data-i18n="spanit.tag3">Android</span>
+        </div>
+        <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.spanit"
+           class="btn btn-play" target="_blank" rel="noopener" aria-label="Get Span It on Google Play">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+            <path d="M3.18 23.76c.5.28 1.08.3 1.6.06L19.1 12 4.78.18C4.26-.06 3.68-.04 3.18.24 2.46.66 2 1.45 2 2.31v19.38c0 .86.46 1.65 1.18 2.07z"/>
+          </svg>
+          <div class="btn-play-inner">
+            <span class="btn-play-label" data-i18n="play.get">СКАЧАТЬ В</span>
+            <span class="btn-play-store" data-i18n="play.store">Google Play</span>
+          </div>
+        </a>
+      </div>
+
       <!-- Calculator -->
-      <div class="app-card reveal">
-        <span class="app-num">01</span>
-        <div class="app-icon-wrap app-icon-calc">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="6" width="12" height="9" rx="2" fill="white" opacity=".9"/>
-            <rect x="22" y="6" width="12" height="9" rx="2" fill="white" opacity=".6"/>
-            <rect x="6" y="19" width="12" height="7" rx="2" fill="white" opacity=".6"/>
-            <rect x="22" y="19" width="12" height="7" rx="2" fill="white" opacity=".6"/>
-            <rect x="6" y="30" width="28" height="4" rx="2" fill="white" opacity=".9"/>
+      <div class="app-card app-card-purple reveal d2">
+        <div class="app-num">02</div>
+        <div class="app-icon app-icon-purple">
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="9" y="8" width="26" height="28" rx="4" stroke="white" stroke-width="2.2" fill="none"/>
+            <path d="M14 17h16M14 22h16M14 27h8" stroke="white" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
-        <div class="app-name" data-i18n="calc.name">Aspaloyy Calculator</div>
-        <p class="app-desc" data-i18n="calc.desc">Чистый, быстрый калькулятор для Android. Никаких лишних разрешений, никакой рекламы. Просто считайте.</p>
+        <div class="app-name">Calculator</div>
+        <div class="app-type app-type-util" data-i18n="calc.type">Утилита</div>
+        <p class="app-desc" data-i18n="calc.desc">
+          Чистый и быстрый калькулятор для Android. Без лишней рекламы и ненужных разрешений — просто считайте.
+        </p>
         <div class="app-tags">
-          <span class="app-tag">Android</span>
-          <span class="app-tag" data-i18n="tag.free">Бесплатно</span>
-          <span class="app-tag" data-i18n="tag.noad">Без рекламы</span>
+          <span class="app-tag app-tag-purple" data-i18n="calc.tag1">Калькулятор</span>
+          <span class="app-tag app-tag-purple" data-i18n="calc.tag2">Бесплатно</span>
+          <span class="app-tag app-tag-purple" data-i18n="calc.tag3">Без рекламы</span>
         </div>
-        <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.calculator" target="_blank" rel="noopener" class="play-btn">
-          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M3.18 23.76c.3.17.66.18.97.04L15.24 12 3.53.2c-.27.16-.45.45-.45.8v21.99c0 .3.04.57.1.77z"/><path d="M19.54 9.76l-2.89-1.67-3.14 3.01 3.14 3.01 2.9-1.67c.82-.48.82-1.68-.01-2.68z" opacity=".6"/><path d="M15.24 12L3.18 23.76c.16.07.35.11.53.11.19 0 .38-.05.55-.14l13.28-7.62L15.24 12z" opacity=".8"/><path d="M3.71.1L15.24 12l2.3-2.24L4.26.24A1.1 1.1 0 003.71.1z" opacity=".8"/></svg>
-          <div class="play-btn-inner">
-            <span class="play-btn-label" data-i18n="play.get">СКАЧАТЬ В</span>
-            <span class="play-btn-store">Google Play</span>
+        <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.calculator"
+           class="btn btn-play" target="_blank" rel="noopener" aria-label="Get Calculator on Google Play">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+            <path d="M3.18 23.76c.5.28 1.08.3 1.6.06L19.1 12 4.78.18C4.26-.06 3.68-.04 3.18.24 2.46.66 2 1.45 2 2.31v19.38c0 .86.46 1.65 1.18 2.07z"/>
+          </svg>
+          <div class="btn-play-inner">
+            <span class="btn-play-label" data-i18n="play.get">СКАЧАТЬ В</span>
+            <span class="btn-play-store" data-i18n="play.store">Google Play</span>
           </div>
         </a>
       </div>
 
-      <!-- Spanit -->
-      <div class="app-card cyan-accent reveal d1">
-        <span class="app-num">02</span>
-        <div class="app-icon-wrap app-icon-span">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="7" width="28" height="20" rx="4" fill="white" opacity=".9"/>
-            <path d="M10 12h16M10 17h10" stroke="#0891b2" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M28 25l4 6H8l4-6" fill="white" opacity=".7"/>
-            <circle cx="32" cy="28" r="8" fill="#f59e0b"/>
-            <text x="32" y="32" text-anchor="middle" font-size="8" font-weight="bold" fill="white" font-family="sans-serif">ES</text>
-          </svg>
-        </div>
-        <div class="app-name" data-i18n="span.name">Spanit</div>
-        <p class="app-desc" data-i18n="span.desc">Изучайте испанский язык легко и эффективно. Словарный запас, фразы и практика — всё в одном приложении для Android.</p>
-        <div class="app-tags">
-          <span class="app-tag">Android</span>
-          <span class="app-tag" data-i18n="tag.free">Бесплатно</span>
-          <span class="app-tag">Spanish / Español</span>
-        </div>
-        <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.spanit" target="_blank" rel="noopener" class="play-btn" style="background:#0891b2;box-shadow:0 4px 14px rgba(8,145,178,.3)">
-          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M3.18 23.76c.3.17.66.18.97.04L15.24 12 3.53.2c-.27.16-.45.45-.45.8v21.99c0 .3.04.57.1.77z"/><path d="M19.54 9.76l-2.89-1.67-3.14 3.01 3.14 3.01 2.9-1.67c.82-.48.82-1.68-.01-2.68z" opacity=".6"/><path d="M15.24 12L3.18 23.76c.16.07.35.11.53.11.19 0 .38-.05.55-.14l13.28-7.62L15.24 12z" opacity=".8"/><path d="M3.71.1L15.24 12l2.3-2.24L4.26.24A1.1 1.1 0 003.71.1z" opacity=".8"/></svg>
-          <div class="play-btn-inner">
-            <span class="play-btn-label" data-i18n="play.get">СКАЧАТЬ В</span>
-            <span class="play-btn-store">Google Play</span>
-          </div>
-        </a>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT STUDIO -->
-<section id="about" class="about-section">
-  <div class="section-wrap">
-    <div class="about-inner">
-      <div class="reveal">
-        <div class="eyebrow" data-i18n="about.eyebrow">О нас</div>
-        <div class="section-h" data-i18n="about.title">Aspaloyy Studio</div>
-        <div class="about-text">
-          <p data-i18n="about.p1">Aspaloyy — независимая студия, основанная <strong>Асманом</strong> из Бишкека, Кыргызстан. Мы создаём мобильные приложения, интегрируем искусственный интеллект и строим масштабируемые цифровые продукты.</p>
-          <p data-i18n="about.p2">Каждый продукт проходит полный цикл: от идеи и архитектуры до релиза в Google Play. Мы не пишем код ради кода — мы создаём вещи, которыми пользуются реальные люди.</p>
-        </div>
-        <div class="about-chips">
-          <span class="chip" data-i18n="chip.mobile">Android Dev</span>
-          <span class="chip" data-i18n="chip.ai">AI Integration</span>
-          <span class="chip" data-i18n="chip.web">Web Dev</span>
-          <span class="chip" data-i18n="chip.pub">Google Play Publisher</span>
-          <span class="chip" data-i18n="chip.founder">Solo Founder</span>
+<!-- ABOUT BRIEF -->
+<section class="section-gap bg-surface">
+  <div class="wrap" style="display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:center;">
+    <div class="reveal">
+      <span class="eyebrow" data-i18n="about.eyebrow">Студия</span>
+      <h2 class="section-title" data-i18n="about.title">Aspaloyy — это я.</h2>
+      <p class="section-body" style="margin-bottom:18px;" data-i18n="about.p1">
+        Меня зовут <strong>Асман</strong>. Я из Бишкека, Кыргызстан. Строю мобильные приложения, изучаю ИИ и разрабатываю цифровые продукты как независимый разработчик.
+      </p>
+      <p class="section-body" data-i18n="about.p2">
+        Aspaloyy — не компания с офисом. Это личная лаборатория, где я выпускаю реальные продукты, которыми пользуются люди по всему миру.
+      </p>
+      <div style="margin-top:32px;">
+        <a href="about/" class="btn btn-ghost btn-md" data-i18n="about.link">Подробнее об Асмане →</a>
+      </div>
+    </div>
+    <div class="reveal d2" style="display:grid; gap:16px;">
+      <div class="info-card">
+        <div class="info-icon" style="background:var(--purple-soft);">🎮</div>
+        <div>
+          <div class="info-title" data-i18n="abt.ic1.title">Google Play Publisher</div>
+          <div class="info-desc" data-i18n="abt.ic1.desc">Официальный паблишер. Полный цикл: разработка → тест → релиз → поддержка.</div>
         </div>
       </div>
-      <div class="about-cards reveal d1">
-        <div class="acard">
-          <div class="acard-icon">🚀</div>
-          <div>
-            <div class="acard-title" data-i18n="ac1.t">Google Play Publisher</div>
-            <div class="acard-desc" data-i18n="ac1.d">Официальный паблишер. Полный цикл релиза: от сборки до публикации и поддержки политик безопасности Google.</div>
-          </div>
+      <div class="info-card">
+        <div class="info-icon" style="background:var(--cyan-soft);">🤖</div>
+        <div>
+          <div class="info-title" data-i18n="abt.ic2.title">AI &amp; Synthetic Media</div>
+          <div class="info-desc" data-i18n="abt.ic2.desc">LLM, цифровые аватары и видеогенерация. HeyGen, Seedance 2.0 и open-source AI.</div>
         </div>
-        <div class="acard">
-          <div class="acard-icon">🤖</div>
-          <div>
-            <div class="acard-title" data-i18n="ac2.t">AI & Synthetic Media</div>
-            <div class="acard-desc" data-i18n="ac2.d">Интеграция LLM, цифровые аватары, автоматическая видеогенерация — мы работаем с передовыми AI-инструментами.</div>
-          </div>
-        </div>
-        <div class="acard">
-          <div class="acard-icon">🌍</div>
-          <div>
-            <div class="acard-title" data-i18n="ac3.t">Кыргызстан → Глобальный рынок</div>
-            <div class="acard-desc" data-i18n="ac3.d">Базируемся в Кайсери, Турция. Разрабатываем продукты для международной аудитории на 5 языках.</div>
-          </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon" style="background:rgba(236,72,153,.1);">🌐</div>
+        <div>
+          <div class="info-title" data-i18n="abt.ic3.title">5 языков</div>
+          <div class="info-desc" data-i18n="abt.ic3.desc">RU, EN, KG, TR, DE. Английский EAP — читаю техдокументацию в оригинале.</div>
         </div>
       </div>
     </div>
@@ -590,325 +211,94 @@
 </section>
 
 <!-- EXPERTISE -->
-<section id="expertise" class="expertise-section">
-  <div class="section-wrap">
-    <div class="exp-header reveal">
-      <div>
-        <div class="eyebrow" data-i18n="exp.eyebrow">Что мы умеем</div>
-        <div class="section-h" data-i18n="exp.title">Экспертиза</div>
-      </div>
-      <p class="section-p" data-i18n="exp.sub">Четыре ключевых направления, в которых мы строим надёжные и масштабируемые системы.</p>
+<section class="section-gap bg-default" id="expertise">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; margin-bottom:56px;">
+      <span class="eyebrow" data-i18n="exp.eyebrow">Экспертиза</span>
+      <h2 class="section-title" data-i18n="exp.title">Что я делаю</h2>
     </div>
-    <div class="exp-grid">
-      <div class="exp-card reveal">
-        <div class="exp-stripe s1"></div>
-        <span class="exp-icon">📱</span>
-        <div class="exp-title" data-i18n="e1.t">Mobile Development</div>
-        <div class="exp-desc" data-i18n="e1.d">Нативная разработка под Android. SDK, оптимизация памяти и батареи, Privacy-First архитектура и публикация в Google Play.</div>
+
+    <div class="feat-grid">
+      <div class="feat-card reveal d1">
+        <div class="feat-stripe" style="background:var(--purple);"></div>
+        <span class="feat-icon">📱</span>
+        <div class="feat-title" data-i18n="e1.title">Android Dev</div>
+        <div class="feat-desc" data-i18n="e1.desc">Нативная разработка: архитектура, SDK, оптимизация памяти и публикация в Google Play.</div>
       </div>
-      <div class="exp-card reveal d1">
-        <div class="exp-stripe s2"></div>
-        <span class="exp-icon">🤖</span>
-        <div class="exp-title" data-i18n="e2.t">AI Integration</div>
-        <div class="exp-desc" data-i18n="e2.d">LLM-системы, автономные агенты с памятью, синтетические медиа и видеогенерация с цифровыми аватарами (HeyGen, Seedance).</div>
+      <div class="feat-card reveal d2">
+        <div class="feat-stripe" style="background:var(--cyan);"></div>
+        <span class="feat-icon">🧠</span>
+        <div class="feat-title" data-i18n="e2.title">AI &amp; LLM</div>
+        <div class="feat-desc" data-i18n="e2.desc">Интеграция языковых моделей, агентные системы и генерация синтетического медиаконтента.</div>
       </div>
-      <div class="exp-card reveal d2">
-        <div class="exp-stripe s3"></div>
-        <span class="exp-icon">🎮</span>
-        <div class="exp-title" data-i18n="e3.t">Game Systems</div>
-        <div class="exp-desc" data-i18n="e3.d">Проектирование игровых механик, 3D-рендеринг, внутренние экономики виртуальных миров и Spatial Computing на мобильных.</div>
+      <div class="feat-card reveal d3">
+        <div class="feat-stripe" style="background:var(--amber);"></div>
+        <span class="feat-icon">🎮</span>
+        <div class="feat-title" data-i18n="e3.title">Game Design</div>
+        <div class="feat-desc" data-i18n="e3.desc">Игровые механики, баланс, монетизация и мобильные игровые системы.</div>
       </div>
-      <div class="exp-card reveal d3">
-        <div class="exp-stripe s4"></div>
-        <span class="exp-icon">☁️</span>
-        <div class="exp-title" data-i18n="e4.t">Cloud & Web</div>
-        <div class="exp-desc" data-i18n="e4.d">Высоконагруженные SPA и PWA. Serverless, Docker, OAuth 2.0, CI/CD пайплайны и REST API-интеграции.</div>
+      <div class="feat-card reveal d1">
+        <div class="feat-stripe" style="background:var(--green);"></div>
+        <span class="feat-icon">☁️</span>
+        <div class="feat-title" data-i18n="e4.title">Cloud &amp; Web</div>
+        <div class="feat-desc" data-i18n="e4.desc">SPA, PWA, Serverless, CI/CD и облачная инфраструктура.</div>
+      </div>
+      <div class="feat-card reveal d2">
+        <div class="feat-stripe" style="background:var(--pink);"></div>
+        <span class="feat-icon">🔒</span>
+        <div class="feat-title" data-i18n="e5.title">Privacy-First</div>
+        <div class="feat-desc" data-i18n="e5.desc">Безопасность данных, минимальные разрешения и соответствие Google Play Policy.</div>
+      </div>
+      <div class="feat-card reveal d3">
+        <div class="feat-stripe" style="background:var(--grad-main);"></div>
+        <span class="feat-icon">🌍</span>
+        <div class="feat-title" data-i18n="e6.title">Multilingual</div>
+        <div class="feat-desc" data-i18n="e6.desc">Разработка на 5 языках. Продукты для глобальной аудитории с локализацией из коробки.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="section-wrap">
-    <div class="contact-box reveal">
-      <h2 data-i18n="cta.title">Давайте создавать <em data-i18n="cta.em">вместе.</em></h2>
-      <p data-i18n="cta.sub">Открыты для партнёрств, коллабораций и новых идей. Пишите — ответим быстро.</p>
-      <div class="contact-links">
-        <a href="mailto:aspaloyy@gmail.com" class="contact-link contact-link-primary">✉ aspaloyy@gmail.com</a>
-        <a href="https://t.me/aspaloyy" target="_blank" rel="noopener" class="contact-link">Telegram</a>
-        <a href="https://whatsapp.com/channel/0029Vb6oUnw3gvWXgL0Kym29" target="_blank" rel="noopener" class="contact-link">WhatsApp</a>
-        <a href="https://x.com/aspaloyy" target="_blank" rel="noopener" class="contact-link">X (Twitter)</a>
-        <a href="https://www.instagram.com/aspaloyy" target="_blank" rel="noopener" class="contact-link">Instagram</a>
-        <a href="https://www.facebook.com/share/1B13WNgWDX/" target="_blank" rel="noopener" class="contact-link">Facebook</a>
-        <a href="https://play.google.com/store/apps/dev?id=8055300163983735296" target="_blank" rel="noopener" class="contact-link">Google Play</a>
+<!-- CTA -->
+<section class="section-gap-sm bg-surface">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <h2 class="cta-box-title">
+        <span data-i18n="cta.title">Хотите поговорить?</span><br>
+        <em data-i18n="cta.em">На связи.</em>
+      </h2>
+      <p class="cta-box-sub" data-i18n="cta.sub">
+        Открыт для партнёрств и интересных проектов. Пишите — отвечаю быстро.
+      </p>
+      <div class="cta-links">
+        <a href="mailto:aspaloyy@gmail.com" class="cta-link cta-link-primary">✉️ aspaloyy@gmail.com</a>
+        <a href="https://t.me/aspaloyy" class="cta-link" target="_blank" rel="noopener">✈️ Telegram</a>
+        <a href="https://play.google.com/store/apps/dev?id=8055300163983735296"
+           class="cta-link" target="_blank" rel="noopener">▶ Google Play</a>
+        <a href="about/" class="cta-link" data-i18n="nav.founder">Основатель</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
+<footer class="footer">
   <div class="footer-inner">
-    <a href="/" class="footer-logo">
-      <div class="footer-mark">A</div>
+    <a href="/" class="footer-logo" aria-label="Aspaloyy Home">
+      <div class="footer-logo-mark">A</div>
       Aspaloyy
     </a>
-    <ul class="footer-links">
-      <li><a href="#apps" data-i18n="nav.apps">Приложения</a></li>
-      <li><a href="#about" data-i18n="nav.about">Студия</a></li>
-      <li><a href="aboutasman.html" data-i18n="nav.founder">Основатель</a></li>
-      <li><a href="https://play.google.com/store/apps/dev?id=8055300163983735296" target="_blank" rel="noopener">Google Play</a></li>
-    </ul>
-    <div class="footer-copy">&copy; 2026 Aspaloyy · aspaloyy.com · All rights reserved</div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="apps/" data-i18n="nav.apps">Приложения</a>
+      <a href="about/" data-i18n="nav.founder">Основатель</a>
+      <a href="mailto:aspaloyy@gmail.com" data-i18n="nav.contact">Контакт</a>
+    </nav>
+    <div class="footer-copy">© 2024–2026 Aspaloyy · aspaloyy.com</div>
   </div>
 </footer>
 
-<script>
-/* ── i18n ── */
-var T = {
-  ru:{
-    "nav.apps":"Приложения","nav.about":"Студия","nav.expertise":"Экспертиза","nav.founder":"Основатель","nav.cta":"Связаться",
-    "hero.badge":"Mobile Apps & Digital Studio · Кыргызстан",
-    "hero.line1":"Цифровые продукты.","hero.line2":"Которые просто работают.",
-    "hero.sub":"Aspaloyy — независимый разработчик мобильных приложений и цифровых продуктов. Наши приложения доступны в Google Play и используются по всему миру.",
-    "hero.cta1":"Наши приложения","hero.cta2":"Написать нам",
-    "apps.eyebrow":"Google Play","apps.title":"Наши приложения",
-    "apps.sub":"Все приложения созданы с нуля, оптимизированы и доступны для скачивания прямо сейчас.",
-    "calc.name":"Aspaloyy Calculator","calc.desc":"Чистый, быстрый калькулятор для Android. Никаких лишних разрешений, никакой рекламы. Просто считайте.",
-    "span.name":"Spanit","span.desc":"Изучайте испанский язык легко и эффективно. Словарный запас, фразы и практика — всё в одном приложении для Android.",
-    "tag.free":"Бесплатно","tag.noad":"Без рекламы","play.get":"СКАЧАТЬ В",
-    "about.eyebrow":"О нас","about.title":"Aspaloyy Studio",
-    "about.p1":"Aspaloyy — независимая студия, основанная <strong>Асманом</strong> из Бишкека, Кыргызстан. Мы создаём мобильные приложения, интегрируем искусственный интеллект и строим масштабируемые цифровые продукты.",
-    "about.p2":"Каждый продукт проходит полный цикл: от идеи и архитектуры до релиза в Google Play. Мы не пишем код ради кода — мы создаём вещи, которыми пользуются реальные люди.",
-    "chip.mobile":"Android Dev","chip.ai":"AI Integration","chip.web":"Web Dev","chip.pub":"Google Play Publisher","chip.founder":"Solo Founder",
-    "ac1.t":"Google Play Publisher","ac1.d":"Официальный паблишер. Полный цикл релиза: от сборки до публикации и поддержки политик безопасности Google.",
-    "ac2.t":"AI & Synthetic Media","ac2.d":"Интеграция LLM, цифровые аватары, автоматическая видеогенерация — мы работаем с передовыми AI-инструментами.",
-    "ac3.t":"Кыргызстан → Глобальный рынок","ac3.d":"Базируемся в Кайсери, Турция. Разрабатываем продукты для международной аудитории на 5 языках.",
-    "exp.eyebrow":"Что мы умеем","exp.title":"Экспертиза","exp.sub":"Четыре ключевых направления, в которых мы строим надёжные и масштабируемые системы.",
-    "e1.t":"Mobile Development","e1.d":"Нативная разработка под Android. SDK, оптимизация памяти и батареи, Privacy-First архитектура и публикация в Google Play.",
-    "e2.t":"AI Integration","e2.d":"LLM-системы, автономные агенты с памятью, синтетические медиа и видеогенерация с цифровыми аватарами (HeyGen, Seedance).",
-    "e3.t":"Game Systems","e3.d":"Проектирование игровых механик, 3D-рендеринг, внутренние экономики виртуальных миров и Spatial Computing на мобильных.",
-    "e4.t":"Cloud & Web","e4.d":"Высоконагруженные SPA и PWA. Serverless, Docker, OAuth 2.0, CI/CD пайплайны и REST API-интеграции.",
-    "cta.title":"Давайте создавать","cta.em":"вместе.","cta.sub":"Открыты для партнёрств, коллабораций и новых идей. Пишите — ответим быстро."
-  },
-  en:{
-    "nav.apps":"Apps","nav.about":"Studio","nav.expertise":"Expertise","nav.founder":"Founder","nav.cta":"Contact",
-    "hero.badge":"Mobile Apps & Digital Studio · Kyrgyzstan",
-    "hero.line1":"Digital products.","hero.line2":"That just work.",
-    "hero.sub":"Aspaloyy is an independent mobile app developer and digital products studio. Our apps are available on Google Play worldwide.",
-    "hero.cta1":"Our Apps","hero.cta2":"Get in Touch",
-    "apps.eyebrow":"Google Play","apps.title":"Our Apps",
-    "apps.sub":"Every app is built from scratch, fully optimized, and ready to download right now.",
-    "calc.name":"Aspaloyy Calculator","calc.desc":"A clean, fast calculator for Android. No extra permissions, no ads. Just calculate.",
-    "span.name":"Spanit","span.desc":"Learn Spanish easily and effectively. Vocabulary, phrases and practice — all in one Android app.",
-    "tag.free":"Free","tag.noad":"No Ads","play.get":"GET IT ON",
-    "about.eyebrow":"About","about.title":"Aspaloyy Studio",
-    "about.p1":"Aspaloyy is an independent studio founded by <strong>Asman</strong> from Bishkek, Kyrgyzstan. We build mobile apps, integrate AI and create scalable digital products.",
-    "about.p2":"Every product goes through a full cycle: from idea and architecture to a Google Play release. We don't write code for the sake of it — we build things real people actually use.",
-    "chip.mobile":"Android Dev","chip.ai":"AI Integration","chip.web":"Web Dev","chip.pub":"Google Play Publisher","chip.founder":"Solo Founder",
-    "ac1.t":"Google Play Publisher","ac1.d":"Official publisher. Full release cycle management — from build to launch, security policy compliance, and ongoing updates.",
-    "ac2.t":"AI & Synthetic Media","ac2.d":"LLM integration, digital avatars, automatic video generation — we work with cutting-edge AI tools.",
-    "ac3.t":"Kyrgyzstan → Global Market","ac3.d":"Based in Kayseri, Turkey. Building products for a global audience in 5 languages.",
-    "exp.eyebrow":"What We Do","exp.title":"Expertise","exp.sub":"Four core directions where we build reliable and scalable systems.",
-    "e1.t":"Mobile Development","e1.d":"Native Android development. SDK, memory & battery optimization, Privacy-First architecture, Google Play publishing.",
-    "e2.t":"AI Integration","e2.d":"LLM systems, autonomous agents with memory, synthetic media and video generation with digital avatars (HeyGen, Seedance).",
-    "e3.t":"Game Systems","e3.d":"Game mechanic design, 3D rendering, virtual world economies and Spatial Computing on mobile devices.",
-    "e4.t":"Cloud & Web","e4.d":"High-load SPAs and PWAs. Serverless, Docker, OAuth 2.0, CI/CD pipelines and REST API integrations.",
-    "cta.title":"Let's build","cta.em":"together.","cta.sub":"Open to partnerships, collaborations and new ideas. Drop us a line — we reply fast."
-  },
-  ky:{
-    "nav.apps":"Колдонмолор","nav.about":"Студия","nav.expertise":"Экспертиза","nav.founder":"Негиздөөчү","nav.cta":"Байланыш",
-    "hero.badge":"Мобилдик Колдонмолор & Санарип Студиясы · Кыргызстан",
-    "hero.line1":"Санарип продуктулар.","hero.line2":"Жөн эле иштейт.",
-    "hero.sub":"Aspaloyy — көз карандысыз мобилдик колдонмо иштеп чыгуучу. Биздин колдонмолор Google Play'де бүткүл дүйнөдө жеткиликтүү.",
-    "hero.cta1":"Биздин колдонмолор","hero.cta2":"Бизге жазыңыз",
-    "apps.eyebrow":"Google Play","apps.title":"Биздин колдонмолор",
-    "apps.sub":"Бардык колдонмолор нөлдөн куруп чыгылган жана азыр жүктөп алууга даяр.",
-    "calc.name":"Aspaloyy Calculator","calc.desc":"Android үчүн таза жана тез калькулятор. Кошумча уруксаттар жок, жарнама жок. Жөн эле эсептеңиз.",
-    "span.name":"Spanit","span.desc":"Испан тилин оңой жана натыйжалуу үйрөнүңүз. Сөздүк, сүйлөмдөр жана практика — баары бир Android колдонмосунда.",
-    "tag.free":"Бекер","tag.noad":"Жарнамасыз","play.get":"ЖҮКТӨП АЛ",
-    "about.eyebrow":"Биз жөнүндө","about.title":"Aspaloyy Studio",
-    "about.p1":"Aspaloyy — Бишкек, Кыргызстандан <strong>Асман</strong> тарабынан негизделген көз карандысыз студия. Биз мобилдик колдонмолор түзөбүз, AI интеграциялайбыз.",
-    "about.p2":"Ар бир продукт толук цикл аркылуу өтөт: идеядан Google Play-га чыгаруу. Биз жөн эле код жазбайбыз — реалдуу адамдар колдонгон нерселерди жасайбыз.",
-    "chip.mobile":"Android Dev","chip.ai":"AI Integration","chip.web":"Web Dev","chip.pub":"Google Play Publisher","chip.founder":"Solo Founder",
-    "ac1.t":"Google Play Publisher","ac1.d":"Расмий паблишер. Толук релиз циклинин башкаруусу жана Google коопсуздук саясаттарын колдоо.",
-    "ac2.t":"AI & Synthetic Media","ac2.d":"LLM интеграциясы, санарип аватарлар жана видео генерация — биз алдыңкы AI-куралдар менен иштейбиз.",
-    "ac3.t":"Кыргызстан → Дүйнөлүк рынок","ac3.d":"Кайсери, Түркияда базабыз. 5 тилде эл аралык аудитория үчүн продуктулар иштеп чыгабыз.",
-    "exp.eyebrow":"Биз эмне кылабыз","exp.title":"Экспертиза","exp.sub":"Ишенимдүү жана масштабдалуучу системаларды куруп жаткан төрт негизги багыт.",
-    "e1.t":"Mobile Development","e1.d":"Android нативдик иштеп чыгуу. SDK, эс тутумду оптималдаштыруу, Google Play жарыялоо.",
-    "e2.t":"AI Integration","e2.d":"LLM системалары, автономдуу агенттер, синтетикалык медиа жана видео генерация.",
-    "e3.t":"Game Systems","e3.d":"Оюн механикасын долбоорлоо, 3D рендеринг жана мобилдик Spatial Computing.",
-    "e4.t":"Cloud & Web","e4.d":"Жогорку жүктөмдүү SPA жана PWA. Serverless, Docker, OAuth 2.0, CI/CD.",
-    "cta.title":"Чогуу куралы","cta.em":"бирге.","cta.sub":"Өнөктөштүк, кызматташуу жана жаңы идеялар үчүн ачыкбыз. Жазыңыз — тез жооп беребиз."
-  },
-  tr:{
-    "nav.apps":"Uygulamalar","nav.about":"Stüdyo","nav.expertise":"Uzmanlık","nav.founder":"Kurucu","nav.cta":"İletişim",
-    "hero.badge":"Mobil Uygulamalar & Dijital Stüdyo · Kırgızistan",
-    "hero.line1":"Dijital ürünler.","hero.line2":"Sadece çalışır.",
-    "hero.sub":"Aspaloyy, bağımsız bir mobil uygulama geliştirici ve dijital ürün stüdyosudur. Uygulamalarımız dünya genelinde Google Play'de mevcut.",
-    "hero.cta1":"Uygulamalarımız","hero.cta2":"Bize Yazın",
-    "apps.eyebrow":"Google Play","apps.title":"Uygulamalarımız",
-    "apps.sub":"Tüm uygulamalar sıfırdan oluşturulmuş, tam optimize edilmiş ve şu anda indirilebilir durumda.",
-    "calc.name":"Aspaloyy Calculator","calc.desc":"Android için temiz, hızlı bir hesap makinesi. Fazla izin yok, reklam yok. Sadece hesaplayın.",
-    "span.name":"Spanit","span.desc":"İspanyolcayı kolayca ve etkili şekilde öğrenin. Kelime dağarcığı, ifadeler ve pratik — hepsi bir Android uygulamasında.",
-    "tag.free":"Ücretsiz","tag.noad":"Reklamsız","play.get":"İNDİR",
-    "about.eyebrow":"Hakkımızda","about.title":"Aspaloyy Studio",
-    "about.p1":"Aspaloyy, Kırgızistan Bişkek'ten <strong>Asman</strong> tarafından kurulan bağımsız bir stüdyodur. Mobil uygulamalar oluşturuyor, AI entegre ediyor ve ölçeklenebilir dijital ürünler üretiyoruz.",
-    "about.p2":"Her ürün tam bir döngüden geçer: fikirden Google Play yayınına kadar. Sadece kod yazmıyoruz — gerçek insanların kullandığı şeyler yaratıyoruz.",
-    "chip.mobile":"Android Dev","chip.ai":"AI Integration","chip.web":"Web Dev","chip.pub":"Google Play Publisher","chip.founder":"Solo Founder",
-    "ac1.t":"Google Play Yayıncısı","ac1.d":"Resmi yayıncı. Build'den yayına kadar tam sürüm döngüsü yönetimi ve güvenlik politikası uyumu.",
-    "ac2.t":"AI & Sentetik Medya","ac2.d":"LLM entegrasyonu, dijital avatarlar, otomatik video oluşturma — en gelişmiş AI araçlarıyla çalışıyoruz.",
-    "ac3.t":"Kırgızistan → Küresel Pazar","ac3.d":"Kayseri, Türkiye'de merkezlenmiş. 5 dilde küresel kitle için ürünler geliştiriyoruz.",
-    "exp.eyebrow":"Ne Yapıyoruz","exp.title":"Uzmanlık","exp.sub":"Güvenilir ve ölçeklenebilir sistemler oluşturduğumuz dört temel alan.",
-    "e1.t":"Mobile Development","e1.d":"Native Android geliştirme. SDK, bellek & pil optimizasyonu, Privacy-First mimari, Google Play yayıncılık.",
-    "e2.t":"AI Integration","e2.d":"LLM sistemleri, özerk hafızalı ajanlar, sentetik medya ve dijital avatar video oluşturma.",
-    "e3.t":"Game Systems","e3.d":"Oyun mekaniği tasarımı, 3D render, sanal dünya ekonomileri ve mobil Spatial Computing.",
-    "e4.t":"Cloud & Web","e4.d":"Yüksek yüklü SPA ve PWA'lar. Serverless, Docker, OAuth 2.0, CI/CD ve REST API entegrasyonları.",
-    "cta.title":"Birlikte","cta.em":"yaratalım.","cta.sub":"Ortaklıklara, işbirliklerine ve yeni fikirlere açığız. Yazın — hızlıca cevap veririz."
-  },
-  de:{
-    "nav.apps":"Apps","nav.about":"Studio","nav.expertise":"Expertise","nav.founder":"Gründer","nav.cta":"Kontakt",
-    "hero.badge":"Mobile Apps & Digitales Studio · Kirgisistan",
-    "hero.line1":"Digitale Produkte.","hero.line2":"Die einfach funktionieren.",
-    "hero.sub":"Aspaloyy ist ein unabhängiger Entwickler von mobilen Apps und digitalen Produkten. Unsere Apps sind weltweit auf Google Play verfügbar.",
-    "hero.cta1":"Unsere Apps","hero.cta2":"Schreib uns",
-    "apps.eyebrow":"Google Play","apps.title":"Unsere Apps",
-    "apps.sub":"Alle Apps wurden von Grund auf neu entwickelt, vollständig optimiert und können jetzt heruntergeladen werden.",
-    "calc.name":"Aspaloyy Calculator","calc.desc":"Ein sauberer, schneller Taschenrechner für Android. Keine unnötigen Berechtigungen, keine Werbung. Einfach rechnen.",
-    "span.name":"Spanit","span.desc":"Lernen Sie Spanisch einfach und effektiv. Vokabular, Phrasen und Übungen — alles in einer Android-App.",
-    "tag.free":"Kostenlos","tag.noad":"Werbefrei","play.get":"JETZT BEI",
-    "about.eyebrow":"Über uns","about.title":"Aspaloyy Studio",
-    "about.p1":"Aspaloyy ist ein unabhängiges Studio, gegründet von <strong>Asman</strong> aus Bischkek, Kirgisistan. Wir entwickeln mobile Apps, integrieren KI und bauen skalierbare digitale Produkte.",
-    "about.p2":"Jedes Produkt durchläuft einen vollständigen Zyklus: von der Idee über die Architektur bis zur Google Play-Veröffentlichung. Wir schreiben nicht nur Code — wir bauen Dinge, die echte Menschen nutzen.",
-    "chip.mobile":"Android Dev","chip.ai":"AI Integration","chip.web":"Web Dev","chip.pub":"Google Play Publisher","chip.founder":"Solo Founder",
-    "ac1.t":"Google Play Publisher","ac1.d":"Offizieller Publisher. Vollständiges Release-Zyklusmanagement und Google-Sicherheitsrichtlinien-Compliance.",
-    "ac2.t":"KI & Synthetische Medien","ac2.d":"LLM-Integration, digitale Avatare, automatische Videogenerierung — wir arbeiten mit modernsten KI-Tools.",
-    "ac3.t":"Kirgisistan → Globaler Markt","ac3.d":"Ansässig in Kayseri, Türkei. Produkte für ein globales Publikum in 5 Sprachen.",
-    "exp.eyebrow":"Was Wir Tun","exp.title":"Expertise","exp.sub":"Vier Kernbereiche, in denen wir zuverlässige und skalierbare Systeme bauen.",
-    "e1.t":"Mobile Development","e1.d":"Native Android-Entwicklung. SDK, Speicher- & Akkuoptimierung, Privacy-First-Architektur, Google Play-Publishing.",
-    "e2.t":"KI-Integration","e2.d":"LLM-Systeme, autonome Agenten mit Gedächtnis, synthetische Medien und Videogenerierung mit digitalen Avataren.",
-    "e3.t":"Game Systems","e3.d":"Game-Mechanik-Design, 3D-Rendering, virtuelle Weltökonomien und Spatial Computing auf Mobilgeräten.",
-    "e4.t":"Cloud & Web","e4.d":"Hochlast-SPAs und PWAs. Serverless, Docker, OAuth 2.0, CI/CD-Pipelines und REST API-Integrationen.",
-    "cta.title":"Lass uns","cta.em":"gemeinsam bauen.","cta.sub":"Offen für Partnerschaften, Kooperationen und neue Ideen. Schreib uns — wir antworten schnell."
-  }
-};
-
-/* ── Theme ── */
-(function(){
-  var saved = localStorage.getItem('asp_theme');
-  if(saved){ document.documentElement.setAttribute('data-theme', saved); }
-  var btn = document.getElementById('themeBtn');
-  function updateIcon(){
-    btn.textContent = document.documentElement.getAttribute('data-theme') === 'light' ? '☽' : '☼';
-  }
-  updateIcon();
-  btn.addEventListener('click', function(){
-    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    localStorage.setItem('asp_theme', isDark ? 'light' : 'dark');
-    updateIcon();
-    COLORS = getPalette();
-  });
-})();
-
-/* ── i18n ── */
-var currentLang = localStorage.getItem('asp_lang') || 'ru';
-function setLang(lang){
-  currentLang = lang;
-  localStorage.setItem('asp_lang', lang);
-  var t = T[lang] || T.ru;
-  document.querySelectorAll('[data-i18n]').forEach(function(el){
-    var k = el.getAttribute('data-i18n');
-    if(t[k] !== undefined) el.innerHTML = t[k];
-  });
-  document.documentElement.lang = lang;
-  document.getElementById('langSelect').value = lang;
-}
-document.getElementById('langSelect').addEventListener('change', function(){ setLang(this.value); });
-setLang(currentLang);
-
-/* ── Nav scroll ── */
-window.addEventListener('scroll', function(){
-  var n = document.getElementById('nav');
-  if(window.scrollY > 40) n.classList.add('scrolled'); else n.classList.remove('scrolled');
-}, {passive:true});
-
-/* ── Reveal ── */
-var ro = new IntersectionObserver(function(es){
-  es.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
-}, {threshold:.1});
-document.querySelectorAll('.reveal').forEach(function(el){ ro.observe(el); });
-
-/* ── Canvas Background ── */
-var canvas = document.getElementById('bg-canvas');
-var ctx = canvas.getContext('2d', {alpha:false});
-var W, H;
-function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-resize();
-window.addEventListener('resize', resize, {passive:true});
-
-function getPalette(){
-  return document.documentElement.getAttribute('data-theme') === 'light'
-    ? ['#6366f1','#0891b2','#7c3aed','#db2777','#059669']
-    : ['#8b5cf6','#06b6d4','#ec4899','#10b981','#a78bfa'];
-}
-var COLORS = getPalette();
-
-function Particle(init){
-  this.x = Math.random()*W;
-  this.y = init ? Math.random()*H : H+10;
-  this.r = Math.random()*1.8+0.4;
-  this.color = COLORS[Math.floor(Math.random()*COLORS.length)];
-  this.vx = (Math.random()-.5)*.3;
-  this.vy = -(Math.random()*.5+.15);
-  this.a = Math.random()*.35+.05;
-  this.life = 0; this.max = Math.random()*280+120;
-  this.tw = Math.random()*Math.PI*2;
-}
-Particle.prototype.tick = function(){
-  this.x += this.vx; this.y += this.vy; this.life++; this.tw += .035;
-  var p = this.life/this.max;
-  this.ca = this.a * Math.sin(p*Math.PI) * (.6+.4*Math.sin(this.tw));
-  if(this.life > this.max || this.y < -10){
-    this.x = Math.random()*W; this.y = H+10;
-    this.color = COLORS[Math.floor(Math.random()*COLORS.length)];
-    this.life = 0; this.max = Math.random()*280+120;
-  }
-};
-Particle.prototype.draw = function(){
-  ctx.globalAlpha = Math.max(0, this.ca);
-  ctx.fillStyle = this.color;
-  ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI*2); ctx.fill();
-};
-
-function Star(){
-  this.x = Math.random()*W; this.y = Math.random()*H;
-  this.r = Math.random()*.5+.1;
-  this.a = Math.random()*.25+.05;
-  this.s = Math.random()*.015+.005;
-  this.t = Math.random()*Math.PI*2;
-}
-Star.prototype.tick = function(){ this.t += this.s; };
-Star.prototype.draw = function(){
-  ctx.globalAlpha = this.a*(0.5+0.5*Math.sin(this.t));
-  ctx.fillStyle = document.documentElement.getAttribute('data-theme')==='light' ? '#94a3b8' : '#e2e8f0';
-  ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI*2); ctx.fill();
-};
-
-var particles = [], stars = [];
-for(var i=0;i<55;i++) particles.push(new Particle(true));
-for(var i=0;i<80;i++) stars.push(new Star());
-
-function frame(){
-  ctx.fillStyle = document.documentElement.getAttribute('data-theme')==='light' ? '#f8f9ff' : '#070712';
-  ctx.fillRect(0,0,W,H);
-  stars.forEach(function(s){ s.tick(); s.draw(); });
-  particles.forEach(function(p){ p.tick(); p.draw(); });
-  ctx.globalAlpha = 1;
-  requestAnimationFrame(frame);
-}
-frame();
-</script>
+<script src="js/i18n.js"></script>
+<script src="js/canvas.js" defer></script>
+<script src="js/app.js" defer></script>
 </body>
 </html>

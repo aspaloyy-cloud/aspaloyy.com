@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apps — Aspaloyy</title>
+  <meta name="description" content="Aspaloyy Android apps on Google Play: Span It mobile game and Calculator utility.">
+  <meta name="theme-color" content="#07071a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .app-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .app-detail-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 56px 52px; position: relative; overflow: hidden; }
+    .app-detail-card::after { content: ''; position: absolute; inset: 0; border-radius: var(--radius-xl); pointer-events: none; }
+    .detail-amber::after { background: linear-gradient(160deg, rgba(245,158,11,.05), transparent 55%); }
+    .detail-purple::after { background: linear-gradient(160deg, rgba(139,92,246,.05), transparent 55%); }
+    .app-tagline { font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 20px; }
+    .tagline-amber { color: var(--amber); }
+    .tagline-purple { color: var(--purple); }
+    .app-feat-list { display: grid; gap: 14px; margin-top: 32px; margin-bottom: 36px; }
+    .app-feat-row { display: flex; align-items: flex-start; gap: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 18px; }
+    .app-feat-icon { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+    .feat-icon-amber { background: rgba(245,158,11,.12); }
+    .feat-icon-purple { background: var(--purple-soft); }
+    .app-feat-title { font-family: 'Unbounded', sans-serif; font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .app-feat-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
+    @media (max-width: 900px) {
+      .app-detail-grid { grid-template-columns: 1fr; gap: 28px; }
+      .app-detail-card { padding: 40px 32px; }
+    }
+    @media (max-width: 640px) {
+      .app-detail-card { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="noise"></div>
+
+<!-- NAV -->
+<nav class="nav" role="navigation">
+  <a href="../" class="nav-logo" aria-label="Aspaloyy Home">
+    <div class="nav-logo-mark">A</div>
+    Aspaloyy
+  </a>
+
+  <ul class="nav-links" id="nav-links" role="list">
+    <li><a href="../apps/" class="active" data-i18n="nav.apps">Приложения</a></li>
+    <li><a href="../about/" data-i18n="nav.founder">Основатель</a></li>
+    <li><a href="mailto:aspaloyy@gmail.com" data-i18n="nav.contact">Контакт</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <select id="langSelect" class="nav-ctrl" aria-label="Language">
+      <option value="ru">RU</option>
+      <option value="en">EN</option>
+      <option value="ky">KY</option>
+      <option value="tr">TR</option>
+      <option value="de">DE</option>
+    </select>
+    <button id="theme-toggle" class="nav-ctrl" aria-label="Toggle theme">
+      <span id="theme-icon">🌙</span>
+    </button>
+    <a href="mailto:aspaloyy@gmail.com" class="btn-nav" data-i18n="nav.cta">Написать</a>
+    <button id="burger" class="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<header class="page-hero" style="position:relative;">
+  <div class="hero-grid"></div>
+  <div class="hero-orb orb-purple" style="opacity:0.5;"></div>
+  <div class="wrap" style="position:relative;z-index:10;">
+    <div class="hero-badge" style="display:inline-flex; margin-bottom:28px;">
+      <div class="badge-dot"></div>
+      <span class="badge-text" data-i18n="appspage.hero.badge">Google Play · 2 приложения</span>
+    </div>
+    <h1 class="hero-title" style="font-size:clamp(36px,6vw,80px);">
+      <span class="gradient-text" data-i18n="appspage.hero.title1">Приложения</span><br>
+      <span data-i18n="appspage.hero.title2">Aspaloyy</span>
+    </h1>
+    <p class="hero-sub" style="margin-top:20px;" data-i18n="appspage.hero.sub">
+      Все приложения написаны с нуля, протестированы и опубликованы для Android.
+    </p>
+  </div>
+</header>
+
+<!-- APPS DETAIL -->
+<section class="section-gap bg-default">
+  <div class="wrap">
+    <div class="app-detail-grid">
+
+      <!-- Span It -->
+      <div class="app-detail-card detail-amber reveal">
+        <div class="app-icon app-icon-amber" style="margin-bottom:24px;">
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M22 8L36 28H8L22 8Z" fill="white" opacity="0.9"/>
+            <circle cx="22" cy="32" r="5" fill="white" opacity="0.7"/>
+          </svg>
+        </div>
+        <span class="eyebrow" style="color:var(--amber);" data-i18n="appspage.spanit.eyebrow">Мобильная игра</span>
+        <h2 class="section-title" style="font-size:clamp(26px,3.5vw,40px); margin-bottom:8px;">Span It</h2>
+        <div class="app-tagline tagline-amber" data-i18n="appspage.spanit.tagline">Быстро. Увлекательно. Бесплатно.</div>
+        <p class="section-body" data-i18n="appspage.spanit.desc">
+          Span It — динамичная мобильная игра для Android от Aspaloyy. Проверьте свою реакцию и смекалку. Доступна бесплатно в Google Play.
+        </p>
+
+        <div class="app-feat-list">
+          <div class="app-feat-row">
+            <div class="app-feat-icon feat-icon-amber">⚡</div>
+            <div>
+              <div class="app-feat-title" data-i18n="appspage.spanit.f1">Быстрый геймплей</div>
+              <div class="app-feat-desc" data-i18n="appspage.spanit.fd1">Динамичные раунды без пауз.</div>
+            </div>
+          </div>
+          <div class="app-feat-row">
+            <div class="app-feat-icon feat-icon-amber">🚫</div>
+            <div>
+              <div class="app-feat-title" data-i18n="appspage.spanit.f2">Без рекламы</div>
+              <div class="app-feat-desc" data-i18n="appspage.spanit.fd2">Полностью бесплатная игра без навязчивых баннеров.</div>
+            </div>
+          </div>
+          <div class="app-feat-row">
+            <div class="app-feat-icon feat-icon-amber">📱</div>
+            <div>
+              <div class="app-feat-title" data-i18n="appspage.spanit.f3">Android native</div>
+              <div class="app-feat-desc" data-i18n="appspage.spanit.fd3">Оптимизирована под производительность Android-устройств.</div>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.spanit"
+           class="btn btn-play" target="_blank" rel="noopener" aria-label="Get Span It on Google Play">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+            <path d="M3.18 23.76c.5.28 1.08.3 1.6.06L19.1 12 4.78.18C4.26-.06 3.68-.04 3.18.24 2.46.66 2 1.45 2 2.31v19.38c0 .86.46 1.65 1.18 2.07z"/>
+          </svg>
+          <div class="btn-play-inner">
+            <span class="btn-play-label" data-i18n="play.get">СКАЧАТЬ В</span>
+            <span class="btn-play-store" data-i18n="play.store">Google Play</span>
+          </div>
+        </a>
+
+        <div style="margin-top:16px; display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="app-tag app-tag-amber" data-i18n="spanit.tag1">Игра</span>
+          <span class="app-tag app-tag-amber" data-i18n="spanit.tag2">Бесплатно</span>
+          <span class="app-tag app-tag-amber" data-i18n="spanit.tag3">Android</span>
+        </div>
+      </div>
+
+      <!-- Calculator -->
+      <div class="app-detail-card detail-purple reveal d2">
+        <div class="app-icon app-icon-purple" style="margin-bottom:24px;">
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="9" y="8" width="26" height="28" rx="4" stroke="white" stroke-width="2.2" fill="none"/>
+            <path d="M14 17h16M14 22h16M14 27h8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="eyebrow" data-i18n="appspage.calc.eyebrow">Утилита</span>
+        <h2 class="section-title" style="font-size:clamp(26px,3.5vw,40px); margin-bottom:8px;">Calculator</h2>
+        <div class="app-tagline tagline-purple" data-i18n="appspage.calc.tagline">Просто. Быстро. Без лишнего.</div>
+        <p class="section-body" data-i18n="appspage.calc.desc">
+          Aspaloyy Calculator — минималистичный и быстрый калькулятор для Android. Никакой рекламы, никаких лишних разрешений. Только нужное.
+        </p>
+
+        <div class="app-feat-list">
+          <div class="app-feat-row">
+            <div class="app-feat-icon feat-icon-purple">⚡</div>
+            <div>
+              <div class="app-feat-title" data-i18n="appspage.calc.f1">Мгновенный счёт</div>
+              <div class="app-feat-desc" data-i18n="appspage.calc.fd1">Мгновенный отклик без задержек и лагов.</div>
+            </div>
+          </div>
+          <div class="app-feat-row">
+            <div class="app-feat-icon feat-icon-purple">🚫</div>
+            <div>
+              <div class="app-feat-title" data-i18n="appspage.calc.f2">Без рекламы</div>
+              <div class="app-feat-desc" data-i18n="appspage.calc.fd2">Никаких баннеров и всплывающих окон.</div>
+            </div>
+          </div>
+          <div class="app-feat-row">
+            <div class="app-feat-icon feat-icon-purple">🔒</div>
+            <div>
+              <div class="app-feat-title" data-i18n="appspage.calc.f3">Privacy-First</div>
+              <div class="app-feat-desc" data-i18n="appspage.calc.fd3">Никаких лишних разрешений. Только те, что нужны.</div>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.calculator"
+           class="btn btn-play" target="_blank" rel="noopener" aria-label="Get Calculator on Google Play">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+            <path d="M3.18 23.76c.5.28 1.08.3 1.6.06L19.1 12 4.78.18C4.26-.06 3.68-.04 3.18.24 2.46.66 2 1.45 2 2.31v19.38c0 .86.46 1.65 1.18 2.07z"/>
+          </svg>
+          <div class="btn-play-inner">
+            <span class="btn-play-label" data-i18n="play.get">СКАЧАТЬ В</span>
+            <span class="btn-play-store" data-i18n="play.store">Google Play</span>
+          </div>
+        </a>
+
+        <div style="margin-top:16px; display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="app-tag app-tag-purple" data-i18n="calc.tag1">Калькулятор</span>
+          <span class="app-tag app-tag-purple" data-i18n="calc.tag2">Бесплатно</span>
+          <span class="app-tag app-tag-purple" data-i18n="calc.tag3">Без рекламы</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-gap-sm bg-surface">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <h2 class="cta-box-title">
+        <span data-i18n="cta.title">Хотите поговорить?</span><br>
+        <em data-i18n="cta.em">На связи.</em>
+      </h2>
+      <p class="cta-box-sub" data-i18n="cta.sub">
+        Открыт для партнёрств и интересных проектов. Пишите — отвечаю быстро.
+      </p>
+      <div class="cta-links">
+        <a href="mailto:aspaloyy@gmail.com" class="cta-link cta-link-primary">✉️ aspaloyy@gmail.com</a>
+        <a href="https://t.me/aspaloyy" class="cta-link" target="_blank" rel="noopener">✈️ Telegram</a>
+        <a href="../about/" class="cta-link" data-i18n="nav.founder">Основатель</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="../" class="footer-logo" aria-label="Aspaloyy Home">
+      <div class="footer-logo-mark">A</div>
+      Aspaloyy
+    </a>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="../apps/" data-i18n="nav.apps">Приложения</a>
+      <a href="../about/" data-i18n="nav.founder">Основатель</a>
+      <a href="mailto:aspaloyy@gmail.com" data-i18n="nav.contact">Контакт</a>
+    </nav>
+    <div class="footer-copy">© 2024–2026 Aspaloyy · aspaloyy.com</div>
+  </div>
+</footer>
+
+<script src="../js/i18n.js"></script>
+<script src="../js/canvas.js" defer></script>
+<script src="../js/app.js" defer></script>
+</body>
+</html>
