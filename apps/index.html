@@ -15,7 +15,7 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="../" class="nav-brand">Aspaloyy</a>
+    <a href="../" class="nav-brand"><span class="status-dot" aria-hidden="true"></span>Aspaloyy</a>
     <ul class="nav-links">
       <li><a href="../apps/" class="active" data-i18n="nav.apps">Приложения</a></li>
       <li><a href="../about/" data-i18n="nav.about">Обо мне</a></li>
@@ -39,52 +39,63 @@
   <div class="wrap">
     <div class="page-head">
       <h1 class="page-title" data-i18n="apps.title">Приложения</h1>
+      <span class="page-count" aria-hidden="true">02</span>
     </div>
 
     <div class="app-list">
 
       <!-- Span It -->
-      <div class="app-item">
-        <div class="app-header">
-          <span class="app-emoji" aria-hidden="true">🎮</span>
-          <div>
-            <div class="app-name">Span It</div>
-            <div class="app-meta" data-i18n="spanit.meta">Мобильная игра · Бесплатно</div>
+      <div class="app-card app-card--purple">
+        <div class="app-card-head">
+          <div class="app-icon" aria-hidden="true">🎮</div>
+          <div class="app-card-titles">
+            <div class="app-card-top">
+              <span class="app-card-name">Span It</span>
+              <span class="app-index" aria-hidden="true">#01</span>
+              <span class="tag" data-i18n="spanit.type">Мобильная игра</span>
+            </div>
+            <div class="app-card-meta" data-i18n="spanit.meta">Мобильная игра · Бесплатно</div>
           </div>
         </div>
-        <p class="app-desc" data-i18n="spanit.desc">Быстрая игра для Android. Проверь реакцию.</p>
-        <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.spanit"
-           class="btn-play" target="_blank" rel="noopener" aria-label="Get Span It on Google Play">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-            <path d="M3.18 23.76c.5.28 1.08.3 1.6.06L19.1 12 4.78.18C4.26-.06 3.68-.04 3.18.24 2.46.66 2 1.45 2 2.31v19.38c0 .86.46 1.65 1.18 2.07z"/>
-          </svg>
-          <div class="btn-play-inner">
-            <span class="btn-play-label" data-i18n="play.get">СКАЧАТЬ В</span>
+        <p class="app-card-desc" data-i18n="spanit.desc">Быстрая игра для Android. Проверь реакцию.</p>
+        <div class="app-card-footer">
+          <span class="app-card-id"><span class="id-dot" aria-hidden="true"></span><span class="id-label">PKG</span>com.aspaloyy.spanit</span>
+          <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.spanit"
+             class="btn-play" target="_blank" rel="noopener" aria-label="Get Span It on Google Play">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3.18 23.76c.5.28 1.08.3 1.6.06L19.1 12 4.78.18C4.26-.06 3.68-.04 3.18.24 2.46.66 2 1.45 2 2.31v19.38c0 .86.46 1.65 1.18 2.07z"/>
+            </svg>
+            <span data-i18n="play.get">СКАЧАТЬ В</span>
             <span class="btn-play-store" data-i18n="play.store">Google Play</span>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
 
       <!-- Calculator -->
-      <div class="app-item">
-        <div class="app-header">
-          <span class="app-emoji" aria-hidden="true">🧮</span>
-          <div>
-            <div class="app-name">Calculator</div>
-            <div class="app-meta" data-i18n="calc.meta">Калькулятор · Бесплатно · Без рекламы</div>
+      <div class="app-card app-card--amber">
+        <div class="app-card-head">
+          <div class="app-icon" aria-hidden="true">🧮</div>
+          <div class="app-card-titles">
+            <div class="app-card-top">
+              <span class="app-card-name">Calculator</span>
+              <span class="app-index" aria-hidden="true">#02</span>
+              <span class="tag" data-i18n="calc.type">Утилита</span>
+            </div>
+            <div class="app-card-meta" data-i18n="calc.meta">Калькулятор · Бесплатно · Без рекламы</div>
           </div>
         </div>
-        <p class="app-desc" data-i18n="calc.desc">Простой и чистый калькулятор для Android. Без рекламы.</p>
-        <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.calculator"
-           class="btn-play" target="_blank" rel="noopener" aria-label="Get Calculator on Google Play">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-            <path d="M3.18 23.76c.5.28 1.08.3 1.6.06L19.1 12 4.78.18C4.26-.06 3.68-.04 3.18.24 2.46.66 2 1.45 2 2.31v19.38c0 .86.46 1.65 1.18 2.07z"/>
-          </svg>
-          <div class="btn-play-inner">
-            <span class="btn-play-label" data-i18n="play.get">СКАЧАТЬ В</span>
+        <p class="app-card-desc" data-i18n="calc.desc">Простой и чистый калькулятор для Android. Без рекламы.</p>
+        <div class="app-card-footer">
+          <span class="app-card-id"><span class="id-dot" aria-hidden="true"></span><span class="id-label">PKG</span>com.aspaloyy.calculator</span>
+          <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.calculator"
+             class="btn-play" target="_blank" rel="noopener" aria-label="Get Calculator on Google Play">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3.18 23.76c.5.28 1.08.3 1.6.06L19.1 12 4.78.18C4.26-.06 3.68-.04 3.18.24 2.46.66 2 1.45 2 2.31v19.38c0 .86.46 1.65 1.18 2.07z"/>
+            </svg>
+            <span data-i18n="play.get">СКАЧАТЬ В</span>
             <span class="btn-play-store" data-i18n="play.store">Google Play</span>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
 
     </div>
