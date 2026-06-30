@@ -3,12 +3,12 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:      #121212;
-  --surface: #1e1e1e;
-  --border:  rgba(255, 255, 255, 0.07);
-  --dot:     rgba(255, 255, 255, 0.09);
-  --text:    #ededed;
-  --muted:   #888;
+  --bg:      #0d1117;
+  --surface: #161b22;
+  --border:  #30363d;
+  --dot:     rgba(255, 255, 255, 0.05);
+  --text:    #e6edf3;
+  --muted:   #7d8590;
   --accent:  #a78bfa;
   --amber:   #eab308;
   --green:   #01875f;
@@ -16,12 +16,12 @@
 }
 
 [data-theme="light"] {
-  --bg:      #fafafa;
-  --surface: #ffffff;
-  --border:  rgba(0, 0, 0, 0.08);
-  --dot:     rgba(0, 0, 0, 0.10);
-  --text:    #111111;
-  --muted:   #666666;
+  --bg:      #ffffff;
+  --surface: #f6f8fa;
+  --border:  #d0d7de;
+  --dot:     rgba(0, 0, 0, 0.07);
+  --text:    #1f2328;
+  --muted:   #636c76;
   --accent:  #7c3aed;
   --amber:   #b45309;
 }
@@ -55,14 +55,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .nav.solid {
-  background: rgba(10, 10, 10, 0.88);
+  background: rgba(13, 17, 23, 0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
 
 [data-theme="light"] .nav.solid {
-  background: rgba(250, 250, 250, 0.92);
+  background: rgba(246, 248, 250, 0.92);
 }
 
 .nav-inner {
