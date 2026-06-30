@@ -31,8 +31,6 @@ window.LANG = {
     /* about page */
     "about.title":   "Асман",
     "about.born":    "Родился в 2007 г. · 18 лет",
-    "about.from":    "Из Бишкека, Кыргызстан",
-    "about.based":   "Живу в Кайсери, Турция",
     "about.bio":     "Android-разработчик. Делаю мобильные игры и приложения, публикую их в Google Play под именем Aspaloyy.",
     "about.skills":  "Навыки",
     "about.contact": "Контакт",
@@ -63,8 +61,6 @@ window.LANG = {
 
     "about.title":   "Asman",
     "about.born":    "Born 2007 · 18 y.o.",
-    "about.from":    "From Bishkek, Kyrgyzstan",
-    "about.based":   "Based in Kayseri, Turkey",
     "about.bio":     "Android developer. I make mobile games and apps, publishing them on Google Play under the name Aspaloyy.",
     "about.skills":  "Skills",
     "about.contact": "Contact",
@@ -95,8 +91,6 @@ window.LANG = {
 
     "about.title":   "Асман",
     "about.born":    "2007-жылы туулган · 18 жаш",
-    "about.from":    "Бишкектен, Кыргызстан",
-    "about.based":   "Кайсерде жашайм, Түркия",
     "about.bio":     "Android иштеп чыгуучу. Мобилдик оюндар жана колдонмолор жасайм, аларды Aspaloyy аты менен Google Play'де жарыялайм.",
     "about.skills":  "Жөндөмдөр",
     "about.contact": "Байланыш",
@@ -127,8 +121,6 @@ window.LANG = {
 
     "about.title":   "Asman",
     "about.born":    "2007 doğumlu · 18 yaşında",
-    "about.from":    "Bişkek, Kırgızistan'dan",
-    "about.based":   "Kayseri, Türkiye'de yaşıyorum",
     "about.bio":     "Android geliştiricisi. Mobil oyunlar ve uygulamalar yapıyor, Aspaloyy adıyla Google Play'de yayınlıyorum.",
     "about.skills":  "Beceriler",
     "about.contact": "İletişim",
@@ -159,8 +151,6 @@ window.LANG = {
 
     "about.title":   "Asman",
     "about.born":    "Geb. 2007 · 18 Jahre",
-    "about.from":    "Aus Bischkek, Kirgisistan",
-    "about.based":   "Wohnhaft in Kayseri, Türkei",
     "about.bio":     "Android-Entwickler. Ich erstelle mobile Spiele und Apps und veröffentliche sie unter dem Namen Aspaloyy auf Google Play.",
     "about.skills":  "Fähigkeiten",
     "about.contact": "Kontakt",
