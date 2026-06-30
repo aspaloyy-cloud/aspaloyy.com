@@ -18,11 +18,11 @@ window.LANG = {
     "apps.title": "Приложения",
 
     "spanit.type": "Мобильная игра",
-    "spanit.meta": "Мобильная игра · Бесплатно",
+    "spanit.meta": "Бесплатно",
     "spanit.desc": "Быстрая игра для Android. Проверь реакцию.",
 
     "calc.type": "Утилита",
-    "calc.meta": "Калькулятор · Бесплатно · Без рекламы",
+    "calc.meta": "Бесплатно · Без рекламы",
     "calc.desc": "Простой и чистый калькулятор для Android. Без рекламы.",
 
     "play.get":   "СКАЧАТЬ В",
@@ -49,11 +49,11 @@ window.LANG = {
     "apps.title": "Apps",
 
     "spanit.type": "Mobile Game",
-    "spanit.meta": "Mobile game · Free",
+    "spanit.meta": "Free",
     "spanit.desc": "A fast game for Android. Test your reflexes.",
 
     "calc.type": "Utility",
-    "calc.meta": "Calculator · Free · No ads",
+    "calc.meta": "Free · No ads",
     "calc.desc": "A simple, clean calculator for Android. No ads.",
 
     "play.get":   "GET IT ON",
@@ -79,11 +79,11 @@ window.LANG = {
     "apps.title": "Колдонмолор",
 
     "spanit.type": "Мобилдик оюн",
-    "spanit.meta": "Мобилдик оюн · Бекер",
+    "spanit.meta": "Бекер",
     "spanit.desc": "Android үчүн тез оюн. Реакцияңды текшер.",
 
     "calc.type": "Утилита",
-    "calc.meta": "Калькулятор · Бекер · Жарнамасыз",
+    "calc.meta": "Бекер · Жарнамасыз",
     "calc.desc": "Android үчүн жөнөкөй жана таза калькулятор. Жарнамасыз.",
 
     "play.get":   "ЖҮКТӨП АЛ",
@@ -109,11 +109,11 @@ window.LANG = {
     "apps.title": "Uygulamalar",
 
     "spanit.type": "Mobil Oyun",
-    "spanit.meta": "Mobil oyun · Ücretsiz",
+    "spanit.meta": "Ücretsiz",
     "spanit.desc": "Android için hızlı bir oyun. Reflekslerini test et.",
 
     "calc.type": "Araç",
-    "calc.meta": "Hesap makinesi · Ücretsiz · Reklamsız",
+    "calc.meta": "Ücretsiz · Reklamsız",
     "calc.desc": "Android için sade ve temiz bir hesap makinesi. Reklamsız.",
 
     "play.get":   "İNDİR",
@@ -139,11 +139,11 @@ window.LANG = {
     "apps.title": "Apps",
 
     "spanit.type": "Mobiles Spiel",
-    "spanit.meta": "Mobiles Spiel · Kostenlos",
+    "spanit.meta": "Kostenlos",
     "spanit.desc": "Ein schnelles Spiel für Android. Teste deine Reflexe.",
 
     "calc.type": "Utility",
-    "calc.meta": "Taschenrechner · Kostenlos · Werbefrei",
+    "calc.meta": "Kostenlos · Werbefrei",
     "calc.desc": "Ein einfacher, sauberer Taschenrechner für Android. Keine Werbung.",
 
     "play.get":   "JETZT BEI",
