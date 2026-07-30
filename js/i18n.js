@@ -56,7 +56,7 @@ en: {
   "home.flag.cta":    "Read about the project →",
   "home.shipped.head": "Released on Google Play",
   "home.method.head": "How I work",
-  "home.method.p":    "I am not a classically trained programmer and I do not claim a formal degree in development. What I do is take a goal and drive it to a finished result: break it into tasks, research what each task actually requires, build the pipeline, and use modern tooling as my working environment. I learn the thing and build the thing in the same motion — and I finish.",
+  "home.method.p":    "I have run the full cycle myself — from researching requirements to a published release on Google Play. I define the goal, break it into tasks, research the standards each task actually depends on, build the pipeline, and take it to the store. Modern tools, AI included, are how I move faster through research and decisions. It is all self-taught, and the two released products are the evidence.",
   "home.method.cta":  "How that worked in practice →",
 
   /* ── projects page ── */
@@ -95,10 +95,10 @@ en: {
   "who.p2":   "I build software and games, and I ship them. That last part matters to me more than any label: two products of mine are publicly available, dated, and downloadable by anyone reading this.",
 
   "work.head": "How I work",
-  "work.p1":   "I do not have a formal education in development and I do not present myself as an engineer of the classical school. My actual skill is different, and I would rather state it plainly: I take a defined goal and drive it to the required result. I break the goal into tasks, research the data and standards each task depends on using modern technology, and build the road map and pipeline for the work.",
+  "work.p1":   "I have taken applications through the entire cycle on my own: researching the requirements, designing the thing, building it, and releasing it on Google Play. The way I work is to take a defined goal and drive it to the required result — break the goal into tasks, research the data and standards each task depends on using modern technology, and build the road map and pipeline for the work. I use current tooling, AI included, to accelerate research and decision-making; the judgement about what to build and what counts as finished stays mine.",
   "work.p2":   "I learn and build in the same motion. An example. I decided to put an app on Google Play, so I went and found out what that actually takes. A developer account — which means a specific set of documents, a $25 fee, and forms filled in correctly. Then an engine to build in — which means learning an unfamiliar interface, making something small in it, and working out what the app really needs. Then publishing: keystores, app signing, Google's pre-release review, policy declarations, a published privacy policy, version codes, and release tracks — internal, closed, production.",
   "work.p3":   "None of that was taught to me in a classroom. I researched every step, verified it against the source, and did it. Then I did it a second time, for a game, and the second time was faster.",
-  "work.p4":   "I think this is what the present moment allows: you no longer have to master every layer by hand before you are permitted to build something real. I understood that early, started building, and took actual products all the way to release. The output is public — that is the part I would rather be judged on.",
+  "work.p4":   "All of it is self-taught: I have no formal degree in development and I am not going to claim one. What I would rather be judged on is the output — two products that exist, are dated, and can be downloaded right now. I think that is what this moment makes possible: you can learn a layer at the moment you need it and still ship something real, as long as you take responsibility for the result. I do.",
 
   "path.head": "The path",
   "path.1.date": "2025",
@@ -254,7 +254,7 @@ de: {
   "home.flag.cta":     "Mehr über das Projekt →",
   "home.shipped.head": "Veröffentlicht auf Google Play",
   "home.method.head":  "Wie ich arbeite",
-  "home.method.p":     "Ich bin kein klassisch ausgebildeter Programmierer und behaupte keinen formalen Abschluss in der Entwicklung. Was ich kann, ist ein Ziel bis zum fertigen Ergebnis zu führen: es in Aufgaben zerlegen, recherchieren, was jede Aufgabe tatsächlich erfordert, die Pipeline aufbauen und moderne Werkzeuge als Arbeitsumgebung nutzen. Ich lerne und baue in derselben Bewegung — und ich werde fertig.",
+  "home.method.p":     "Ich habe den gesamten Zyklus selbst durchlaufen — von der Recherche der Anforderungen bis zur veröffentlichten Version auf Google Play. Ich definiere das Ziel, zerlege es in Aufgaben, recherchiere die Standards, von denen jede Aufgabe tatsächlich abhängt, baue die Pipeline und bringe das Ergebnis in den Store. Moderne Werkzeuge, KI eingeschlossen, nutze ich, um in Recherche und Entscheidungen schneller zu sein. Alles davon ist autodidaktisch gelernt, und die zwei veröffentlichten Produkte sind der Beleg.",
   "home.method.cta":   "Wie das konkret aussah →",
 
   "proj.title": "Projekte",
@@ -291,10 +291,10 @@ de: {
   "who.p2":   "Ich baue Software und Spiele — und ich veröffentliche sie. Dieser letzte Teil ist mir wichtiger als jede Bezeichnung: zwei meiner Produkte sind öffentlich verfügbar, datiert und von jedem herunterladbar, der das hier liest.",
 
   "work.head": "Wie ich arbeite",
-  "work.p1":   "Ich habe keine formale Ausbildung in der Entwicklung und gebe mich nicht als Ingenieur der klassischen Schule aus. Meine eigentliche Stärke liegt anders, und ich sage sie lieber deutlich: Ich führe ein definiertes Ziel zum verlangten Ergebnis. Ich zerlege das Ziel in Aufgaben, recherchiere mit modernen Technologien die Daten und Standards, von denen jede Aufgabe abhängt, und baue Roadmap und Pipeline für die Arbeit.",
+  "work.p1":   "Ich habe Anwendungen eigenständig durch den gesamten Zyklus gebracht: Anforderungen recherchieren, entwerfen, umsetzen und auf Google Play veröffentlichen. Meine Arbeitsweise ist, ein definiertes Ziel zum verlangten Ergebnis zu führen — das Ziel in Aufgaben zerlegen, die Daten und Standards, von denen jede Aufgabe abhängt, mit modernen Technologien recherchieren und Roadmap und Pipeline für die Arbeit bauen. Aktuelle Werkzeuge, KI eingeschlossen, setze ich ein, um Recherche und Entscheidungen zu beschleunigen; die Entscheidung darüber, was gebaut wird und was als fertig gilt, bleibt bei mir.",
   "work.p2":   "Lernen und Bauen passieren bei mir gleichzeitig. Ein Beispiel: Ich wollte eine App auf Google Play bringen — also habe ich herausgefunden, was dafür wirklich nötig ist. Ein Entwicklerkonto: ein bestimmter Satz an Dokumenten, 25 Dollar Gebühr und korrekt ausgefüllte Formulare. Dann eine Engine: eine unbekannte Oberfläche lernen, etwas Kleines darin bauen, herausarbeiten, was die App tatsächlich braucht. Dann die Veröffentlichung: Keystores, App-Signierung, die Prüfung durch Google vor dem Release, Richtlinienangaben, eine veröffentlichte Datenschutzerklärung, Versionscodes und Release-Tracks — intern, geschlossen, Produktion.",
   "work.p3":   "Nichts davon wurde mir in einem Kurs beigebracht. Ich habe jeden Schritt recherchiert, an der Quelle geprüft und umgesetzt. Danach ein zweites Mal, für ein Spiel — und das zweite Mal ging schneller.",
-  "work.p4":   "Ich glaube, genau das erlaubt dieser Moment: man muss nicht mehr jede Schicht von Hand beherrschen, bevor man etwas Echtes bauen darf. Ich habe das früh verstanden, angefangen zu bauen und reale Produkte bis zur Veröffentlichung gebracht. Das Ergebnis ist öffentlich — daran lasse ich mich lieber messen.",
+  "work.p4":   "Alles hier ist autodidaktisch gelernt: Ich habe keinen formalen Abschluss in der Entwicklung und werde auch keinen behaupten. Woran ich lieber gemessen werde, ist das Ergebnis — zwei Produkte, die existieren, datiert sind und sich jetzt herunterladen lassen. Ich glaube, genau das macht dieser Moment möglich: Man kann eine Ebene in dem Moment lernen, in dem man sie braucht, und trotzdem etwas Echtes veröffentlichen — solange man die Verantwortung für das Ergebnis übernimmt. Das tue ich.",
 
   "path.head": "Der Weg",
   "path.1.date": "2025",
@@ -447,7 +447,7 @@ ru: {
   "home.flag.cta":     "О проекте →",
   "home.shipped.head": "Выпущено в Google Play",
   "home.method.head":  "Как я работаю",
-  "home.method.p":     "Я не программист классической школы и не заявляю формального образования в разработке. Мой навык другой: я довожу поставленную цель до нужного результата. Разбиваю цель на задачи, исследую данные и стандарты, от которых зависит каждая задача, и строю дорожную карту и пайплайн работы. Я изучаю и делаю одновременно — и дохожу до конца.",
+  "home.method.p":     "Я сам прошёл весь цикл — от исследования требований до опубликованного релиза в Google Play. Определяю цель, разбиваю её на задачи, исследую стандарты, от которых каждая задача реально зависит, строю пайплайн и довожу до стора. Современные инструменты, включая ИИ, использую, чтобы быстрее двигаться в исследовании и решениях. Всё это освоено самостоятельно, а доказательство — два выпущенных продукта.",
   "home.method.cta":   "Как это выглядело на практике →",
 
   "proj.title": "Проекты",
@@ -484,10 +484,10 @@ ru: {
   "who.p2":   "Я делаю программы и игры — и выпускаю их. Последнее для меня важнее любого звания: два моих продукта общедоступны, у них есть даты, и любой читающий это может их скачать.",
 
   "work.head": "Как я работаю",
-  "work.p1":   "У меня нет формального образования в разработке, и я не выдаю себя за инженера классической школы. Мой навык в другом, и я предпочитаю говорить это прямо: я довожу поставленную цель до нужного результата. Я расставляю задачи, исследую нужные данные и стандарты с помощью современных технологий и строю дорожные карты пайплайнов работы.",
+  "work.p1":   "Я самостоятельно прошёл весь цикл разработки и публикации приложений: от исследования требований и проектирования до релиза в Google Play. Мой метод — довести поставленную цель до нужного результата: расставить задачи, исследовать нужные данные и стандарты с помощью современных технологий и построить дорожную карту пайплайна работы. Современные инструменты, включая ИИ, использую для ускорения исследования и принятия решений; решение о том, что делать и что считать готовым, остаётся за мной.",
   "work.p2":   "Я изучаю и делаю одновременно. Пример. Решил выпустить приложение в Google Play — пошёл выяснять, что для этого реально нужно. Аккаунт разработчика: перечень документов, 25 долларов и правильно заполненные бланки. Дальше движок: разобраться в незнакомом интерфейсе, попробовать поработать, понять, что нужно приложению. Дальше публикация: кейсторы, подписи приложения, проверка Google перед релизом, декларации политик, опубликованная политика конфиденциальности, версии приложения и типы публикаций — внутренняя, закрытая, рабочая.",
   "work.p3":   "Ничему из этого меня не учили на курсе. Каждый шаг я исследовал, сверял с первоисточником и делал. Потом сделал это второй раз, для игры, и второй раз получился быстрее.",
-  "work.p4":   "Мне кажется, именно это позволяет нынешнее время: больше не нужно вручную освоить каждый слой, прежде чем тебе разрешат построить что-то настоящее. Я понял это раньше многих, начал строить и довёл реальные продукты до релиза. Результат публичен — и судить меня правильнее по нему.",
+  "work.p4":   "Всё это освоено самостоятельно: у меня нет формального образования в разработке, и я не собираюсь его заявлять. Судить меня правильнее по результату — два продукта существуют, у них есть даты, и их можно скачать прямо сейчас. Мне кажется, именно это делает возможным нынешнее время: можно осваивать слой в тот момент, когда он понадобился, и всё равно выпускать реальное — при условии, что берёшь ответственность за результат. Я беру.",
 
   "path.head": "Путь",
   "path.1.date": "2025",
@@ -640,7 +640,7 @@ tr: {
   "home.flag.cta":     "Proje hakkında →",
   "home.shipped.head": "Google Play'de yayında",
   "home.method.head":  "Nasıl çalışıyorum",
-  "home.method.p":     "Klasik eğitimden gelen bir programcı değilim ve geliştirme alanında resmî bir diploma iddia etmiyorum. Yaptığım şey farklı: belirlenmiş bir hedefi istenen sonuca kadar götürüyorum. Hedefi görevlere bölüyorum, her görevin gerçekte neye ihtiyaç duyduğunu modern teknolojilerle araştırıyorum, yol haritasını ve iş hattını kuruyorum. Öğrenmeyle yapmayı aynı anda yürütüyorum — ve bitiriyorum.",
+  "home.method.p":     "Tüm döngüyü kendim yürüttüm — gereksinimlerin araştırılmasından Google Play'de yayınlanmış bir sürüme kadar. Hedefi tanımlıyorum, görevlere bölüyorum, her görevin gerçekte dayandığı standartları araştırıyorum, iş hattını kuruyorum ve mağazaya kadar götürüyorum. Modern araçları, yapay zekâ dâhil, araştırmada ve kararlarda daha hızlı ilerlemek için kullanıyorum. Hepsini kendi kendime öğrendim; kanıtı da yayınlanmış iki ürün.",
   "home.method.cta":   "Pratikte nasıl işledi →",
 
   "proj.title": "Projeler",
@@ -677,10 +677,10 @@ tr: {
   "who.p2":   "Yazılım ve oyun yapıyorum — ve onları yayınlıyorum. Bu son kısım benim için her unvandan önemli: iki ürünüm herkese açık, tarihli ve bunu okuyan herkes tarafından indirilebilir.",
 
   "work.head": "Nasıl çalışıyorum",
-  "work.p1":   "Geliştirme alanında resmî bir eğitimim yok ve kendimi klasik okulun mühendisi gibi sunmuyorum. Gerçek becerim farklı ve bunu açıkça söylemeyi tercih ederim: belirlenmiş bir hedefi istenen sonuca kadar götürürüm. Hedefi görevlere bölerim, her görevin dayandığı verileri ve standartları modern teknolojilerle araştırırım, işin yol haritasını ve iş hattını kurarım.",
+  "work.p1":   "Uygulamaları baştan sona kendim yürüttüm: gereksinimleri araştırmak, tasarlamak, geliştirmek ve Google Play'de yayınlamak. Çalışma biçimim, belirlenmiş bir hedefi istenen sonuca kadar götürmek — hedefi görevlere bölmek, her görevin dayandığı verileri ve standartları modern teknolojilerle araştırmak, işin yol haritasını ve iş hattını kurmak. Güncel araçları, yapay zekâ dâhil, araştırmayı ve karar almayı hızlandırmak için kullanıyorum; neyin yapılacağına ve neyin bitmiş sayılacağına ise ben karar veriyorum.",
   "work.p2":   "Öğrenmek ve yapmak bende aynı anda olur. Bir örnek: Google Play'e bir uygulama koymaya karar verdim ve bunun gerçekte ne gerektirdiğini araştırdım. Geliştirici hesabı: belirli bir belge listesi, 25 dolar ücret ve doğru doldurulmuş formlar. Sonra bir oyun motoru: tanımadığım bir arayüzü öğrenmek, içinde küçük bir şey yapmak, uygulamanın gerçekte neye ihtiyacı olduğunu çıkarmak. Sonra yayınlama: keystore'lar, uygulama imzalama, Google'ın yayın öncesi incelemesi, politika bildirimleri, yayınlanmış bir gizlilik politikası, sürüm kodları ve yayın kanalları — dahili, kapalı, üretim.",
   "work.p3":   "Bunların hiçbiri bana bir derste öğretilmedi. Her adımı araştırdım, kaynağından doğruladım ve yaptım. Sonra ikinci kez, bir oyun için yaptım — ve ikincisi daha hızlı oldu.",
-  "work.p4":   "Bence şu an tam olarak buna izin veriyor: gerçek bir şey inşa etmeye hak kazanmak için artık her katmanı elle öğrenmek zorunda değilsiniz. Bunu erken anladım, inşa etmeye başladım ve gerçek ürünleri yayına kadar götürdüm. Sonuç herkese açık — ve değerlendirilmeyi tercih ettiğim kısım o.",
+  "work.p4":   "Buradaki her şeyi kendi kendime öğrendim: geliştirme alanında resmî bir diplomam yok ve varmış gibi de davranmayacağım. Değerlendirilmeyi tercih ettiğim şey sonuç — var olan, tarihli ve şu anda indirilebilen iki ürün. Bence bu dönemin mümkün kıldığı şey tam olarak bu: bir katmanı ihtiyaç duyduğun anda öğrenip yine de gerçek bir şey yayınlayabilirsin — sonucun sorumluluğunu aldığın sürece. Ben alıyorum.",
 
   "path.head": "Yol",
   "path.1.date": "2025",
@@ -833,7 +833,7 @@ ky: {
   "home.flag.cta":     "Долбоор жөнүндө →",
   "home.shipped.head": "Google Play'де чыккан",
   "home.method.head":  "Кантип иштейм",
-  "home.method.p":     "Мен классикалык мектептин программисти эмесмин жана иштеп чыгуу боюнча расмий билимим бар деп айтпайм. Менин жөндөмүм башка: коюлган максатты керектүү натыйжага чейин жеткирем. Максатты тапшырмаларга бөлөм, ар бир тапшырма көз каранды болгон маалыматты жана стандарттарды заманбап технологиялар менен изилдейм, иштин жол картасын жана пайплайнын курам. Үйрөнүү менен жасоону бир учурда алып барам — жана бүтүрөм.",
+  "home.method.p":     "Толук циклди өзүм өттүм — талаптарды изилдөөдөн Google Play'де жарыяланган релизге чейин. Максатты аныктайм, тапшырмаларга бөлөм, ар бир тапшырма чындыгында эмнеге таянганын изилдейм, пайплайн курам жана дүкөнгө чейин жеткирем. Заманбап куралдарды, ИИ кошо, изилдөөдө жана чечим кабыл алууда тезирээк жүрүү үчүн колдоном. Мунун баары өз алдынча үйрөнүлгөн, ал эми далили — чыккан эки продукт.",
   "home.method.cta":   "Бул иш жүзүндө кандай болду →",
 
   "proj.title": "Долбоорлор",
@@ -870,10 +870,10 @@ ky: {
   "who.p2":   "Мен программа жана оюн жасайм — жана аларды чыгарам. Ушул акыркысы мен үчүн ар кандай атактан маанилүү: эки продуктум ачык турат, датасы бар, бул саптарды окуган ар бир адам жүктөп алса болот.",
 
   "work.head": "Кантип иштейм",
-  "work.p1":   "Иштеп чыгуу боюнча расмий билимим жок жана өзүмдү классикалык мектептин инженери катары көрсөтпөйм. Менин жөндөмүм башка нерседе, аны түз айткым келет: коюлган максатты керектүү натыйжага чейин жеткирем. Тапшырмаларды тизем, керектүү маалыматты заманбап технологиялар менен изилдейм, иштин пайплайндарынын жол картасын курам.",
+  "work.p1":   "Мен колдонмолорду өз алдынча толук циклден өткөрдүм: талаптарды изилдөө, долбоорлоо, жасоо жана Google Play'де жарыялоо. Иштөө ыкмам — коюлган максатты керектүү натыйжага жеткирүү: тапшырмаларды тизүү, керектүү маалыматты жана стандарттарды заманбап технологиялар менен изилдөө, иштин пайплайндарынын жол картасын куруу. Заманбап куралдарды, ИИ кошо, изилдөөнү жана чечим кабыл алууну тездетүү үчүн колдоном; эмне жасалат жана эмне бүткөн деп саналат — аны өзүм чечем.",
   "work.p2":   "Мен үйрөнүү менен жасоону бир учурда алып барам. Мисал. Google Play'ге колдонмо чыгарууну чечтим — ошол үчүн эмне талап кылынарын изилдедим. Иштеп чыгуучунун аккаунту: документтердин тизмеси, 25 доллар жана бланктарды туура толтуруу. Андан кийин движок: тааныш эмес интерфейсти үйрөнүү, ичинде кичине нерсе жасап көрүү, колдонмого эмне керек экенин түшүнүү. Андан кийин жарыялоо: кейсторлор, колдонмонун колтамгасы, Google'дун релизге чейинки текшерүүсү, политикалардын декларациялары, жарыяланган купуялык политикасы, колдонмонун версиялары жана жарыялоо түрлөрү — ички, жабык, жумушчу.",
   "work.p3":   "Булардын бирине да мени курста окуткан жок. Ар бир кадамды изилдедим, түп булактан салыштырдым жана жасадым. Кийин экинчи жолу, оюн үчүн жасадым — экинчиси тезирээк болду.",
-  "work.p4":   "Менимче, бүгүнкү убак ушуга жол берет: чыныгы нерсе курууга уруксат алуу үчүн ар бир катмарды кол менен өздөштүрүү мажбур эмес. Мен буну көптөн эрте түшүндүм, курууну баштадым жана чыныгы продукттарды релизге чейин жеткирдим. Натыйжа ачык турат — мени ошол боюнча баалаган туура.",
+  "work.p4":   "Бул жердегинин баары өз алдынча үйрөнүлгөн: иштеп чыгуу боюнча расмий билимим жок жана бар деп айтпайм. Мени баалоо туура болгон нерсе — натыйжа: эки продукт бар, датасы бар, азыр эле жүктөп алууга болот. Менимче, бүгүнкү убак ушуну мүмкүн кылат: катмарды керек болгон учурда үйрөнүп, ошентсе да чыныгы нерсе чыгарууга болот — натыйжа үчүн жоопкерчиликти алсаң. Мен алам.",
 
   "path.head": "Жол",
   "path.1.date": "2025",

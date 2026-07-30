@@ -272,7 +272,7 @@ hr.divider {
   line-height: 1.78;
   color: var(--text2);
   margin-bottom: 16px;
-  max-width: 62ch;
+  max-width: 70ch;
 }
 
 .prose p:last-child { margin-bottom: 0; }
@@ -283,12 +283,38 @@ hr.divider {
   font-size: 17px;
   line-height: 1.65;
   color: var(--text);
-  max-width: 56ch;
+  max-width: 60ch;
 }
 
 /* ── HOME HERO ── */
 .hero {
   padding: 72px 0 8px;
+}
+
+/* Two columns on wide screens: identity left, facts right. Stacks below.
+   Gated at the same breakpoint as the wider --wrap so the right column
+   never gets too narrow for the fact values. */
+.hero--split { display: block; }
+.hero-side { margin-top: 34px; }
+
+@media (min-width: 1100px) {
+  :root { --wrap: 820px; }
+
+  .hero--split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 330px);
+    gap: 44px;
+    align-items: start;
+    padding-top: 84px;
+  }
+
+  /* narrower column: stack the fact label above its value */
+  .hero-side .fact { flex-direction: column; gap: 3px; }
+  .hero-side .fact-k { width: auto; padding-top: 0; }
+
+  .hero-side { margin-top: 6px; }
+  .hero--split .lede { max-width: none; }
+  .hero--split .hero-actions { margin-top: 28px; }
 }
 
 .hero-path {
@@ -530,7 +556,7 @@ hr.divider {
   font-size: 15.5px;
   line-height: 1.7;
   color: var(--muted);
-  max-width: 60ch;
+  max-width: 66ch;
 }
 
 hr.divider--tight { margin: 26px 0 0; }
@@ -623,7 +649,7 @@ hr.divider--tight { margin: 26px 0 0; }
   line-height: 1.7;
   color: var(--text2);
   margin-bottom: 20px;
-  max-width: 60ch;
+  max-width: 68ch;
 }
 
 /* ── PROJECT CARDS ── */
@@ -744,14 +770,14 @@ hr.divider--tight { margin: 26px 0 0; }
   font-size: 14.5px;
   color: var(--text2);
   line-height: 1.65;
-  max-width: 60ch;
+  max-width: 68ch;
 }
 
 .app-card-detail {
   font-size: 13.5px;
   color: var(--muted);
   line-height: 1.7;
-  max-width: 60ch;
+  max-width: 68ch;
   padding-left: 12px;
   border-left: 2px solid var(--border);
 }
@@ -865,7 +891,7 @@ hr.divider--tight { margin: 26px 0 0; }
   font-size: 14.5px;
   line-height: 1.72;
   color: var(--text2);
-  max-width: 60ch;
+  max-width: 68ch;
 }
 
 /* ── LISTS ── */
@@ -930,7 +956,7 @@ hr.divider--tight { margin: 26px 0 0; }
   font-size: 14px;
   line-height: 1.7;
   color: var(--text2);
-  max-width: 62ch;
+  max-width: 68ch;
 }
 
 .callout strong { color: var(--text); font-weight: 600; }
@@ -983,7 +1009,7 @@ hr.divider--tight { margin: 26px 0 0; }
   font-size: 13px;
   line-height: 1.65;
   color: var(--muted);
-  max-width: 60ch;
+  max-width: 66ch;
 }
 
 /* ── ABOUT ── */
