@@ -291,31 +291,10 @@ hr.divider {
   padding: 72px 0 8px;
 }
 
-/* Two columns on wide screens: identity left, facts right. Stacks below.
-   Gated at the same breakpoint as the wider --wrap so the right column
-   never gets too narrow for the fact values. */
+/* Hero is one column by default; becomes identity-left / facts-right on
+   desktop (see the DESKTOP LAYOUT block at the end of this file). */
 .hero--split { display: block; }
 .hero-side { margin-top: 34px; }
-
-@media (min-width: 1100px) {
-  :root { --wrap: 820px; }
-
-  .hero--split {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(280px, 330px);
-    gap: 44px;
-    align-items: start;
-    padding-top: 84px;
-  }
-
-  /* narrower column: stack the fact label above its value */
-  .hero-side .fact { flex-direction: column; gap: 3px; }
-  .hero-side .fact-k { width: auto; padding-top: 0; }
-
-  .hero-side { margin-top: 6px; }
-  .hero--split .lede { max-width: none; }
-  .hero--split .hero-actions { margin-top: 28px; }
-}
 
 .hero-path {
   display: block;
@@ -1266,4 +1245,197 @@ a.link-preview.lp-loaded .link-preview-emoji { display: none; }
   .timeline { padding-left: 22px; }
   .tl-item::before { left: -22px; }
   .timeline::before { left: 4px; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   DESKTOP LAYOUT
+
+   Everything above this block is the single-column layout used on phones
+   and tablets, and it stays exactly as it is. From 1000px up the page
+   becomes a real desktop layout instead of a centred phone column:
+
+     ≥1000px  the top bar turns into a fixed left sidebar; content gets
+              its own, much wider column beside it
+     ≥1240px  sections split into a heading rail and a body column, the
+              hero splits into identity + facts, lists and cards go to
+              two columns
+     ≥1600px  the content column grows a little further
+
+   The markup is identical at every width — only CSS changes.
+   ══════════════════════════════════════════════════════════════════════ */
+
+@media (min-width: 1000px) {
+  :root {
+    --rail: 244px;   /* sidebar width */
+    --wrap: 1080px;  /* content column beside the sidebar */
+  }
+
+  /* ── top bar → left sidebar ── */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--rail);
+    height: 100vh;
+    border-right: 1px solid var(--border);
+  }
+
+  /* the scroll-triggered bar styling does not apply to a sidebar */
+  .nav.solid,
+  [data-theme="light"] .nav.solid {
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: none;
+  }
+
+  .nav-inner {
+    max-width: none;
+    margin: 0;
+    padding: 28px 20px 22px;
+    flex-direction: column;
+    align-items: stretch;
+    overflow-y: auto;
+  }
+
+  .nav-brand {
+    margin: 0 0 30px;
+    font-size: 16px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 2px;
+    flex: 1 0 auto;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14.5px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .nav-links a:hover { background: var(--surface); }
+
+  .nav-links a.active {
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: inset 2px 0 0 var(--accent);
+  }
+
+  .nav-controls {
+    margin-left: 0;
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── content sits beside the sidebar ── */
+  main,
+  .footer { margin-left: var(--rail); }
+
+  .wrap { padding: 0 44px; }
+
+  .hero { padding-top: 76px; }
+  .page-head { padding-top: 70px; }
+}
+
+@media (min-width: 1240px) {
+  /* ── hero: identity left, facts right ── */
+  .hero--split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
+    gap: 56px;
+    align-items: start;
+    padding-top: 88px;
+  }
+
+  .hero-side { margin-top: 6px; }
+  .hero--split .lede { max-width: none; }
+  .hero--split .hero-actions { margin-top: 28px; }
+
+  /* narrow column: stack each fact label above its value */
+  .hero-side .fact { flex-direction: column; gap: 3px; }
+  .hero-side .fact-k { width: auto; padding-top: 0; }
+
+  /* ── sections: heading rail left, body right ──
+     Every child of .section is pushed into column 2; the heading is
+     pinned to column 1. This keeps the existing markup untouched. */
+  .section {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+    column-gap: 44px;
+    row-gap: 20px;
+    align-items: start;
+    margin-top: 38px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+  }
+
+  .section > * { grid-column: 2; }
+
+  .section-head {
+    grid-column: 1;
+    grid-row: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin-bottom: 0;
+  }
+
+  .section-head h2 { font-size: 17px; line-height: 1.35; }
+  .section-rule { display: none; }
+  .section-num { order: -1; }
+
+  /* sections that carry no heading run the full width instead */
+  .section--full { display: block; }
+
+  /* the section rules now provide the separation the divider gave */
+  hr.divider--tight { display: none; }
+
+  /* ── lists and cards use the width ── */
+  .app-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+  }
+
+  .mlist,
+  .nlist {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 32px;
+    row-gap: 12px;
+  }
+
+  .contact-row,
+  .contact-link { padding: 13px 18px; }
+
+  /* Two short paragraphs side by side instead of one narrow block in a
+     wide column. Exactly two children, so no paragraph is ever split. */
+  .prose--cols {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 44px;
+  }
+
+  .prose--cols p {
+    max-width: none;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1600px) {
+  :root { --wrap: 1180px; }
+
+  /* Give the heading rail more room so the body column does not grow
+     past a comfortable measure as the page gets wider. */
+  .section {
+    grid-template-columns: 240px minmax(0, 1fr);
+    column-gap: 52px;
+  }
 }
