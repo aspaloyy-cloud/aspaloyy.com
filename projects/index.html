@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="meta.projects.title">Projects — Asman Rahmanov</title>
+  <meta name="description" data-i18n-content="meta.projects.desc" content="Released: Calculator (May 2026) and Span It (June 2026) on Google Play. In development: Manas: Prologue and Scribe.">
+  <meta name="author" content="Asman Rahmanov">
+  <meta name="theme-color" content="#0d1117">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="canonical" href="https://aspaloyy.com/projects/">
+  <meta property="og:title" content="Projects — Asman Rahmanov">
+  <meta property="og:description" content="Two released apps on Google Play, one game in development, one research tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aspaloyy.com/projects/">
+  <meta property="og:image" content="https://aspaloyy.com/og.png">
+  <meta property="og:site_name" content="Aspaloyy">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Projects — Asman Rahmanov">
+  <meta name="twitter:description" content="Two released apps on Google Play, one game in development, one research tool.">
+  <meta name="twitter:image" content="https://aspaloyy.com/og.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/boot.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-brand"><span class="status-dot" aria-hidden="true"></span>Aspaloyy</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../projects/" class="active" data-i18n="nav.projects">Projects</a></li>
+      <li><a href="../manas/" data-i18n="nav.manas">Manas</a></li>
+      <li><a href="../scribe/" data-i18n="nav.scribe">Scribe</a></li>
+      <li><a href="../about/" data-i18n="nav.about">About</a></li>
+    </ul>
+    <div class="nav-controls">
+      <select id="langSelect" class="nav-btn" aria-label="Language">
+        <option value="en">EN</option>
+        <option value="de">DE</option>
+        <option value="ru">RU</option>
+        <option value="tr">TR</option>
+        <option value="ky">KY</option>
+      </select>
+      <button id="theme-toggle" class="nav-btn" aria-label="Toggle theme">
+        <span id="theme-icon">🌙</span>
+      </button>
+      <button id="nav-toggle" class="nav-btn nav-burger" aria-expanded="false"
+              aria-controls="nav-links" data-i18n-aria="nav.menu" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+
+    <div class="page-head">
+      <h1 class="page-title" data-i18n="proj.title">Projects</h1>
+      <span class="page-count" aria-hidden="true">04</span>
+    </div>
+    <code class="hero-path">$ ~/aspaloyy/projects</code>
+    <p class="page-lede" data-i18n="proj.lede">Two released products, one game in development, one tool I built for myself. Package names and store links are listed so that anything here can be verified directly.</p>
+
+    <hr class="divider divider--tight">
+
+    <!-- ── FLAGSHIP ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="proj.flag.head">Flagship</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">01</span>
+      </div>
+
+      <div class="app-card app-card--amber">
+        <div class="app-card-head">
+          <div class="app-icon" aria-hidden="true">🏔</div>
+          <div class="app-card-titles">
+            <div class="app-card-top">
+              <span class="app-card-name">Manas: Prologue</span>
+              <span class="badge badge--dev" data-i18n="status.dev">In development</span>
+            </div>
+            <div class="app-card-meta" data-i18n="manas.kind">3D action RPG · semi-open world · story-driven</div>
+          </div>
+        </div>
+        <p class="app-card-desc" data-i18n="manas.short">A story-driven 3D action RPG in a semi-open world, based on Manas — the largest epic in the world and part of UNESCO's intangible cultural heritage of humanity. The full trilogy is years of work, so it is being released in parts, starting with the prologue.</p>
+        <div class="app-card-footer">
+          <span class="app-card-id"><span class="id-dot" style="background:var(--amber)" aria-hidden="true"></span><span class="id-label">STATUS</span><span data-i18n="status.dev">In development</span></span>
+          <a href="../manas/" class="card-link" data-i18n="ui.more">Details →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── RELEASED ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="proj.released.head">Released</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">02</span>
+      </div>
+
+      <div class="app-list">
+
+        <!-- Span It -->
+        <div class="app-card app-card--purple">
+          <div class="app-card-head">
+            <div class="app-icon" aria-hidden="true">🎮</div>
+            <div class="app-card-titles">
+              <div class="app-card-top">
+                <span class="app-card-name">Span It</span>
+                <span class="badge badge--live" data-i18n="status.shipped">Released</span>
+                <span class="tag" data-i18n="spanit.kind">2D game · hypercasual</span>
+              </div>
+              <div class="app-card-meta" data-i18n="spanit.date">Released June 2026</div>
+            </div>
+          </div>
+          <p class="app-card-desc" data-i18n="spanit.desc">A hypercasual 2D Android game built around a single core loop.</p>
+          <p class="app-card-detail" data-i18n="spanit.detail">Two weeks from the first line to the store page, start to finish on an old laptop. AdMob modules are integrated as the monetisation path.</p>
+          <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.spanit"
+             class="link-preview" target="_blank" rel="noopener" aria-label="View Span It on Google Play">
+            <div class="link-preview-bar"></div>
+            <div class="link-preview-body">
+              <span class="link-preview-site">play.google.com</span>
+              <span class="link-preview-title">Span It – Apps on Google Play</span>
+              <span class="link-preview-desc" data-i18n="spanit.desc">A hypercasual 2D Android game built around a single core loop.</span>
+            </div>
+            <div class="link-preview-thumb">
+              <img class="link-preview-img" alt="Span It icon" loading="lazy">
+              <span class="link-preview-emoji" aria-hidden="true">🎮</span>
+            </div>
+          </a>
+          <div class="app-card-footer">
+            <span class="app-card-id"><span class="id-dot" aria-hidden="true"></span><span class="id-label" data-i18n="ui.pkg">PKG</span>com.aspaloyy.spanit</span>
+            <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.spanit"
+               class="btn-play" target="_blank" rel="noopener" aria-label="Get Span It on Google Play">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M3.18 23.76c.5.28 1.08.3 1.6.06L19.1 12 4.78.18C4.26-.06 3.68-.04 3.18.24 2.46.66 2 1.45 2 2.31v19.38c0 .86.46 1.65 1.18 2.07z"/>
+              </svg>
+              <span data-i18n="play.get">GET IT ON</span>
+              <span class="btn-play-store" data-i18n="play.store">Google Play</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Calculator -->
+        <div class="app-card app-card--blue">
+          <div class="app-card-head">
+            <div class="app-icon" aria-hidden="true">🧮</div>
+            <div class="app-card-titles">
+              <div class="app-card-top">
+                <span class="app-card-name" data-i18n="calc.name">Calculator</span>
+                <span class="badge badge--live" data-i18n="status.shipped">Released</span>
+                <span class="tag" data-i18n="calc.kind">Utility · no ads</span>
+              </div>
+              <div class="app-card-meta" data-i18n="calc.date">Released May 2026</div>
+            </div>
+          </div>
+          <p class="app-card-desc" data-i18n="calc.desc">A clean, no-advertising calculator for Android.</p>
+          <p class="app-card-detail" data-i18n="calc.detail">Built in two days. I had no development machine at the time: this app and this website were written entirely on a phone, and the final build was assembled on an old laptop.</p>
+          <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.calculator"
+             class="link-preview" target="_blank" rel="noopener" aria-label="View Calculator on Google Play">
+            <div class="link-preview-bar"></div>
+            <div class="link-preview-body">
+              <span class="link-preview-site">play.google.com</span>
+              <span class="link-preview-title">Calculator – Apps on Google Play</span>
+              <span class="link-preview-desc" data-i18n="calc.desc">A clean, no-advertising calculator for Android.</span>
+            </div>
+            <div class="link-preview-thumb">
+              <img class="link-preview-img" alt="Calculator icon" loading="lazy">
+              <span class="link-preview-emoji" aria-hidden="true">🧮</span>
+            </div>
+          </a>
+          <div class="app-card-footer">
+            <span class="app-card-id"><span class="id-dot" aria-hidden="true"></span><span class="id-label" data-i18n="ui.pkg">PKG</span>com.aspaloyy.calculator</span>
+            <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.calculator"
+               class="btn-play" target="_blank" rel="noopener" aria-label="Get Calculator on Google Play">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M3.18 23.76c.5.28 1.08.3 1.6.06L19.1 12 4.78.18C4.26-.06 3.68-.04 3.18.24 2.46.66 2 1.45 2 2.31v19.38c0 .86.46 1.65 1.18 2.07z"/>
+              </svg>
+              <span data-i18n="play.get">GET IT ON</span>
+              <span class="btn-play-store" data-i18n="play.store">Google Play</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── TOOLS ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="proj.tools.head">Tools</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">03</span>
+      </div>
+
+      <div class="app-card app-card--plain">
+        <div class="app-card-head">
+          <div class="app-icon" aria-hidden="true">📜</div>
+          <div class="app-card-titles">
+            <div class="app-card-top">
+              <span class="app-card-name">Scribe</span>
+              <span class="badge badge--internal" data-i18n="status.internal">Internal tool</span>
+            </div>
+            <div class="app-card-meta" data-i18n="scribe.kind">Research system · internal tool</div>
+          </div>
+        </div>
+        <p class="app-card-desc" data-i18n="scribe.short">A system that decodes any source of information — video, articles, threads, web pages, files, recorded speech — into structured markdown, then breaks it down into finished modules and files them into a knowledge base.</p>
+        <div class="app-card-footer">
+          <span class="app-card-id"><span class="id-dot" style="background:var(--muted)" aria-hidden="true"></span><span class="id-label">STATUS</span><span data-i18n="status.internal">Internal tool</span></span>
+          <a href="../scribe/" class="card-link" data-i18n="ui.more">Details →</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p class="footer-text">© 2026 Aspaloyy · <span data-i18n="footer.tagline">Built and maintained by Asman Rahmanov · Bishkek</span></p>
+    <nav class="footer-links" data-i18n-aria="footer.nav" aria-label="Pages">
+      <a href="../" data-i18n="ui.backhome">← Home</a>
+      <a href="../manas/" data-i18n="nav.manas">Manas</a>
+      <a href="../scribe/" data-i18n="nav.scribe">Scribe</a>
+      <a href="../about/" data-i18n="nav.about">About</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="../js/i18n.js"></script>
+<script src="../js/app.js" defer></script>
+</body>
+</html>
