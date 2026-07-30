@@ -1,97 +1,270 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — Aspaloyy</title>
-  <meta name="description" content="Asman — Android developer from Kyrgyzstan. Founder of Aspaloyy.">
+  <title data-i18n="meta.about.title">About — Asman Rahmanov</title>
+  <meta name="description" data-i18n-content="meta.about.desc" content="The full path: school, a year of self-teaching, two released apps, a sole proprietorship, and the route to a US LLC. How I work and what I have shipped.">
+  <meta name="author" content="Asman Rahmanov">
   <meta name="theme-color" content="#0d1117">
-  <meta property="og:title" content="About — Aspaloyy">
-  <meta property="og:description" content="Asman — Android developer from Kyrgyzstan. Founder of Aspaloyy.">
-  <meta property="og:type" content="website">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="canonical" href="https://aspaloyy.com/about/">
+  <meta property="og:title" content="About — Asman Rahmanov">
+  <meta property="og:description" content="The full path: school, a year of self-teaching, two released apps, and what I am building now.">
+  <meta property="og:type" content="profile">
   <meta property="og:url" content="https://aspaloyy.com/about/">
   <meta property="og:image" content="https://aspaloyy.com/og.png">
   <meta property="og:site_name" content="Aspaloyy">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About — Aspaloyy">
-  <meta name="twitter:description" content="Asman — Android developer from Kyrgyzstan. Founder of Aspaloyy.">
+  <meta name="twitter:title" content="About — Asman Rahmanov">
+  <meta name="twitter:description" content="The full path: school, a year of self-teaching, two released apps, and what I am building now.">
   <meta name="twitter:image" content="https://aspaloyy.com/og.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/boot.js"></script>
 </head>
 <body>
 
 <nav class="nav">
   <div class="nav-inner">
     <a href="../" class="nav-brand"><span class="status-dot" aria-hidden="true"></span>Aspaloyy</a>
-    <ul class="nav-links">
-      <li><a href="../apps/" data-i18n="nav.apps">Приложения</a></li>
-      <li><a href="../about/" class="active" data-i18n="nav.about">Обо мне</a></li>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../projects/" data-i18n="nav.projects">Projects</a></li>
+      <li><a href="../manas/" data-i18n="nav.manas">Manas</a></li>
+      <li><a href="../scribe/" data-i18n="nav.scribe">Scribe</a></li>
+      <li><a href="../about/" class="active" data-i18n="nav.about">About</a></li>
     </ul>
     <div class="nav-controls">
       <select id="langSelect" class="nav-btn" aria-label="Language">
-        <option value="ru">RU</option>
         <option value="en">EN</option>
-        <option value="ky">KY</option>
-        <option value="tr">TR</option>
         <option value="de">DE</option>
+        <option value="ru">RU</option>
+        <option value="tr">TR</option>
+        <option value="ky">KY</option>
       </select>
       <button id="theme-toggle" class="nav-btn" aria-label="Toggle theme">
         <span id="theme-icon">🌙</span>
       </button>
+      <button id="nav-toggle" class="nav-btn nav-burger" aria-expanded="false"
+              aria-controls="nav-links" data-i18n-aria="nav.menu" aria-label="Menu">☰</button>
     </div>
   </div>
 </nav>
 
 <main>
   <div class="wrap">
-    <section class="about-section">
 
-      <h1 class="about-name" data-i18n="about.title">Асман</h1>
+    <div class="page-head">
+      <h1 class="page-title" data-i18n="about.title">About</h1>
+    </div>
+    <code class="hero-path">$ ~/aspaloyy/about</code>
+    <p class="page-lede" data-i18n="about.lede">The full version — how I got from finishing school to two released products, and what I am building now.</p>
 
-      <code class="hero-path">$ ~/aspaloyy/about</code>
+    <hr class="divider divider--tight">
 
-      <span class="meta-chip" data-i18n="about.born">Родился в 2007 г. · 18 лет</span>
+    <!-- ── WHO ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="who.head">Who I am</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">01</span>
+      </div>
+      <div class="prose">
+        <p data-i18n="who.p1">My name is <strong>Asman Rahmanov</strong>. I was born on 18 November 2007 in Bishkek, Kyrgyzstan, and I live there. I release my work under the name Aspaloyy; once the company is registered it becomes <strong>Aspalloy</strong>.</p>
+        <p data-i18n="who.p2">I build software and games, and I ship them. That last part matters to me more than any label: two products of mine are publicly available, dated, and downloadable by anyone reading this.</p>
+      </div>
+    </section>
 
-      <p class="about-bio" data-i18n="about.bio">
-        Android-разработчик. Делаю мобильные игры и приложения, публикую их в Google Play под именем Aspaloyy.
-      </p>
+    <!-- ── METHOD ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="work.head">How I work</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">02</span>
+      </div>
+      <div class="prose">
+        <p data-i18n="work.p1">I do not have a formal education in development and I do not present myself as an engineer of the classical school. My actual skill is different, and I would rather state it plainly: I take a defined goal and drive it to the required result. I break the goal into tasks, research the data and standards each task depends on using modern technology, and build the road map and pipeline for the work.</p>
+        <p data-i18n="work.p2">I learn and build in the same motion. An example. I decided to put an app on Google Play, so I went and found out what that actually takes. A developer account — which means a specific set of documents, a $25 fee, and forms filled in correctly. Then an engine to build in — which means learning an unfamiliar interface, making something small in it, and working out what the app really needs. Then publishing: keystores, app signing, Google's pre-release review, policy declarations, a published privacy policy, version codes, and release tracks — internal, closed, production.</p>
+        <p data-i18n="work.p3">None of that was taught to me in a classroom. I researched every step, verified it against the source, and did it. Then I did it a second time, for a game, and the second time was faster.</p>
+        <p data-i18n="work.p4">I think this is what the present moment allows: you no longer have to master every layer by hand before you are permitted to build something real. I understood that early, started building, and took actual products all the way to release. The output is public — that is the part I would rather be judged on.</p>
+      </div>
+    </section>
 
-      <hr class="divider">
+    <!-- ── PATH ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="path.head">The path</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">03</span>
+      </div>
+      <ol class="timeline">
+        <li class="tl-item">
+          <div class="tl-date" data-i18n="path.1.date">2025</div>
+          <div class="tl-title" data-i18n="path.1.title">Finished school</div>
+          <p class="tl-body" data-i18n="path.1.body">Completed eleven years of school in Bishkek.</p>
+        </li>
+        <li class="tl-item">
+          <div class="tl-date" data-i18n="path.2.date">2025 — 2026</div>
+          <div class="tl-title" data-i18n="path.2.title">A year in Turkey · self-teaching</div>
+          <p class="tl-body" data-i18n="path.2.body">A year in Turkey, enrolled at a faculty of oral health. In parallel, entirely on my own, I learned development: how software is actually made, signed, published and maintained. Everything that follows on this page started in that year.</p>
+        </li>
+        <li class="tl-item">
+          <div class="tl-date" data-i18n="path.3.date">December 2025</div>
+          <div class="tl-title" data-i18n="path.3.title">aspaloyy.com · Google Play developer</div>
+          <p class="tl-body" data-i18n="path.3.body">Launched this site and registered as a developer on Google Play — documents, fee, forms, verification.</p>
+        </li>
+        <li class="tl-item">
+          <div class="tl-date" data-i18n="path.4.date">May 2026</div>
+          <div class="tl-title" data-i18n="path.4.title">Calculator released · sole proprietorship registered</div>
+          <p class="tl-body" data-i18n="path.4.body">Released Calculator (com.aspaloyy.calculator), built in two days. The website and the app were written entirely on my phone — I had no other hardware — and the final build was assembled on an old laptop. In the same month I registered a sole proprietorship in Kyrgyzstan to obtain a business payment profile.</p>
+        </li>
+        <li class="tl-item">
+          <div class="tl-date" data-i18n="path.5.date">June 2026</div>
+          <div class="tl-title" data-i18n="path.5.title">Span It released</div>
+          <p class="tl-body" data-i18n="path.5.body">Released Span It (com.aspaloyy.spanit), a 2D hypercasual game built on a single core loop. Two weeks from the first line to the store page, all of it on the old laptop, with AdMob modules integrated as the monetisation path.</p>
+        </li>
+        <li class="tl-item tl-item--now">
+          <div class="tl-date" data-i18n="path.6.date">2026 — now</div>
+          <div class="tl-title" data-i18n="path.6.title">Manas: Prologue · Scribe · Aspalloy</div>
+          <p class="tl-body" data-i18n="path.6.body">Manas: Prologue is in development. Scribe is functionally complete and in daily use. I am saving for the registration of a US LLC; after that come Steam developer registration and the rebrand to Aspalloy.</p>
+        </li>
+      </ol>
+    </section>
 
-      <p class="section-label" data-i18n="about.skills">Навыки</p>
+    <!-- ── HARDWARE ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="build.head">What it was built on</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">04</span>
+      </div>
+      <div class="callout">
+        <span data-i18n="build.p">For the first stretch I had no development machine at all. This website and the calculator were written on a phone; the final build was assembled on an old laptop, which is also the machine Span It was made on from start to finish. I mention it not as a complaint but as the clearest measure I have: most of this was method, not equipment.</span>
+      </div>
+    </section>
+
+    <!-- ── BUSINESS ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="biz.head">Running it as a business</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">05</span>
+      </div>
+      <div class="prose">
+        <p data-i18n="biz.p1">In May 2026 I registered a sole proprietorship in Kyrgyzstan for one concrete reason: a business payment profile, so that released apps could actually earn. Then I hit a wall. Kyrgyzstan is not on Google Play's list of countries eligible for a merchant profile, which made monetisation through that entity impossible.</p>
+        <p data-i18n="biz.p2">So I went and learned how international corporate structures work, and switched to the route that does work: a <strong>US LLC</strong>. I am saving for the registration now. Once it is done: Steam developer registration, and the rebrand from Aspaloyy to Aspalloy.</p>
+        <p data-i18n="biz.p3">I include this because it is the honest shape of the work. A plan met a hard constraint; the response was to research the constraint and find a legal route around it, not to drop the goal.</p>
+      </div>
+    </section>
+
+    <!-- ── NEXT ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="next.head">Next</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">06</span>
+      </div>
+      <ol class="nlist">
+        <li data-i18n="next.1">Register the US LLC — Aspalloy LLC</li>
+        <li data-i18n="next.2">Register as a Steam developer</li>
+        <li data-i18n="next.3">Complete the rebrand to Aspalloy</li>
+        <li data-i18n="next.4">Ship Manas: Prologue in parts, starting with the prologue</li>
+      </ol>
+    </section>
+
+    <!-- ── SKILLS ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="skills.head">What I work with</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">07</span>
+      </div>
       <div class="skill-list">
         <span class="skill-tag">Android</span>
-        <span class="skill-tag">Game Dev</span>
-        <span class="skill-tag">Google Play</span>
-        <span class="skill-tag">Kotlin</span>
+        <span class="skill-tag">Google Play release pipeline</span>
+        <span class="skill-tag">Keystores &amp; app signing</span>
+        <span class="skill-tag">Release tracks</span>
+        <span class="skill-tag">AdMob</span>
+        <span class="skill-tag">Game engines</span>
+        <span class="skill-tag">2D / 3D game dev</span>
+        <span class="skill-tag">HTML / CSS / JS</span>
+        <span class="skill-tag">AI-assisted development</span>
+        <span class="skill-tag">Research &amp; requirements</span>
+        <span class="skill-tag">Markdown knowledge systems</span>
+        <span class="skill-tag">Roadmaps &amp; pipelines</span>
+        <span class="skill-tag">Localisation · 5 languages</span>
+      </div>
+    </section>
+
+    <!-- ── VERIFIABLE ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="verify.head">Verifiable</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">08</span>
+      </div>
+      <div class="prose">
+        <p data-i18n="verify.p">Every claim on this page has a public counterpart. Both applications are listed under one Google Play developer account with their package names given in full; release months match the store. If anything here needs confirming for an application, the store pages are the primary source.</p>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="contact.head">Contact</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">09</span>
       </div>
 
-      <hr class="divider">
-
-      <p class="section-label" data-i18n="about.contact">Контакт</p>
       <div class="contact-list">
+        <div class="contact-row">
+          <span class="contact-key" data-i18n="contact.k.name">NAME</span>
+          <span class="contact-val">
+            <span data-i18n="id.legal">Asman Rysbaevich Rahmanov</span>
+            <small data-i18n="id.legalcyr">Рахманов Асман Рысбаевич</small>
+          </span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-key" data-i18n="contact.k.loc">LOCATION</span>
+          <span class="contact-val" data-i18n="contact.v.loc">Bishkek, Kyrgyzstan</span>
+        </div>
         <a href="mailto:aspaloyy@gmail.com" class="contact-link">
-          <span class="contact-key">EMAIL</span>aspaloyy@gmail.com
+          <span class="contact-key" data-i18n="contact.k.email">EMAIL</span>
+          <span class="contact-val">aspaloyy@gmail.com</span>
         </a>
         <a href="https://t.me/aspaloyy" class="contact-link" target="_blank" rel="noopener">
-          <span class="contact-key">TG</span>@aspaloyy
+          <span class="contact-key" data-i18n="contact.k.tg">TELEGRAM</span>
+          <span class="contact-val">@aspaloyy</span>
         </a>
         <a href="https://play.google.com/store/apps/dev?id=8055300163983735296"
            class="contact-link" target="_blank" rel="noopener">
-          <span class="contact-key">PLAY</span>Google Play
+          <span class="contact-key" data-i18n="contact.k.play">PLAY</span>
+          <span class="contact-val" data-i18n="contact.v.play">Google Play developer page</span>
         </a>
       </div>
 
+      <p class="gallery-note" style="margin-top:12px" data-i18n="contact.note">The name above is the one used in my applications and documents.</p>
+
+      <div class="callout" style="margin-top:20px">
+        <span data-i18n="contact.status">Currently applying for an <strong>Ausbildung</strong> place in Germany. The fastest way to reach me is email; I answer every message.</span>
+      </div>
     </section>
+
   </div>
 </main>
 
 <footer class="footer">
-  <div class="wrap">
-    <p class="footer-text">© 2026 Aspaloyy</p>
+  <div class="wrap footer-inner">
+    <p class="footer-text">© 2026 Aspaloyy · <span data-i18n="footer.tagline">Built and maintained by Asman Rahmanov · Bishkek</span></p>
+    <nav class="footer-links" data-i18n-aria="footer.nav" aria-label="Pages">
+      <a href="../" data-i18n="ui.backhome">← Home</a>
+      <a href="../projects/" data-i18n="nav.projects">Projects</a>
+      <a href="../manas/" data-i18n="nav.manas">Manas</a>
+      <a href="../scribe/" data-i18n="nav.scribe">Scribe</a>
+    </nav>
   </div>
 </footer>
 

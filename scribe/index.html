@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="meta.scribe.title">Scribe — research system</title>
+  <meta name="description" data-i18n-content="meta.scribe.desc" content="Scribe decodes any source — video, articles, threads, pages, files, speech — into structured markdown, then files it into a knowledge base.">
+  <meta name="author" content="Asman Rahmanov">
+  <meta name="theme-color" content="#0d1117">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="canonical" href="https://aspaloyy.com/scribe/">
+  <meta property="og:title" content="Scribe — research system">
+  <meta property="og:description" content="Decodes any source into structured markdown, then files it into a knowledge base. Built for the Manas research.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aspaloyy.com/scribe/">
+  <meta property="og:image" content="https://aspaloyy.com/og.png">
+  <meta property="og:site_name" content="Aspaloyy">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Scribe — research system">
+  <meta name="twitter:description" content="Decodes any source into structured markdown, then files it into a knowledge base.">
+  <meta name="twitter:image" content="https://aspaloyy.com/og.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/boot.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-brand"><span class="status-dot" aria-hidden="true"></span>Aspaloyy</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../projects/" data-i18n="nav.projects">Projects</a></li>
+      <li><a href="../manas/" data-i18n="nav.manas">Manas</a></li>
+      <li><a href="../scribe/" class="active" data-i18n="nav.scribe">Scribe</a></li>
+      <li><a href="../about/" data-i18n="nav.about">About</a></li>
+    </ul>
+    <div class="nav-controls">
+      <select id="langSelect" class="nav-btn" aria-label="Language">
+        <option value="en">EN</option>
+        <option value="de">DE</option>
+        <option value="ru">RU</option>
+        <option value="tr">TR</option>
+        <option value="ky">KY</option>
+      </select>
+      <button id="theme-toggle" class="nav-btn" aria-label="Toggle theme">
+        <span id="theme-icon">🌙</span>
+      </button>
+      <button id="nav-toggle" class="nav-btn nav-burger" aria-expanded="false"
+              aria-controls="nav-links" data-i18n-aria="nav.menu" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+
+    <div class="page-head">
+      <h1 class="page-title">Scribe</h1>
+      <span class="badge badge--internal" data-i18n="status.internal">Internal tool</span>
+    </div>
+    <code class="hero-path">$ ~/aspaloyy/scribe</code>
+    <p class="page-lede">
+      <span data-i18n="scribe.kind">Research system · internal tool</span><br>
+      <span data-i18n="scribe.lede">The tool I built because the research for Manas outgrew note-taking.</span>
+    </p>
+
+    <hr class="divider divider--tight">
+
+    <!-- ── WHAT ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="scribe.what.head">What it does</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">01</span>
+      </div>
+      <div class="prose">
+        <p data-i18n="scribe.what.p"><strong>Scribe</strong> decodes any source of information into structured markdown. Not a summariser — a decoder: whatever the format, what comes out is clean, structured text that can be worked with.</p>
+      </div>
+    </section>
+
+    <!-- ── SOURCES ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="scribe.io.head">Sources it reads</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">02</span>
+      </div>
+      <ul class="mlist">
+        <li data-i18n="scribe.io.1">YouTube videos</li>
+        <li data-i18n="scribe.io.2">Articles and long-form pages</li>
+        <li data-i18n="scribe.io.3">Posts and threads on X</li>
+        <li data-i18n="scribe.io.4">Any web page, from a bare link</li>
+        <li data-i18n="scribe.io.5">Social media content</li>
+        <li data-i18n="scribe.io.6">Almost any file format, PDFs included</li>
+        <li data-i18n="scribe.io.7">Spoken audio, transcribed via Whisper / Omnilingual</li>
+      </ul>
+    </section>
+
+    <!-- ── FLOW ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="scribe.flow.head">What happens next</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">03</span>
+      </div>
+      <div class="prose">
+        <p data-i18n="scribe.flow.p">From there the material is broken down semi-automatically into finished, self-contained modules and filed into a knowledge base. The point is that a subject researched once stays usable: it does not decay back into forty open tabs and a folder of half-read PDFs.</p>
+      </div>
+    </section>
+
+    <!-- ── WHY ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="scribe.why.head">Why it exists</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">04</span>
+      </div>
+      <div class="prose">
+        <p data-i18n="scribe.why.p">Manas needs real research at volume — canon, lexicon, historical detail, variant versions of the epic, academic commentary. Manual note-taking does not survive that scale. Scribe was built to make the research tractable, and it now handles everything I read for the project.</p>
+      </div>
+      <div class="hero-actions">
+        <a href="../manas/" class="btn btn-primary" data-i18n="home.flag.cta">Read about the project →</a>
+      </div>
+    </section>
+
+    <!-- ── STATUS ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="scribe.status.head">Status</h2>
+        <span class="section-rule"></span>
+        <span class="section-num">05</span>
+      </div>
+      <div class="callout">
+        <span data-i18n="scribe.status.p">Functionally it works and I use it every day. What remains is packaging: turning it into a product that does not depend on one specific machine, including a Telegram bot as the mobile entry point. It is an internal tool for now, not a public product — I would rather say that than overstate it.</span>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p class="footer-text">© 2026 Aspaloyy · <span data-i18n="footer.tagline">Built and maintained by Asman Rahmanov · Bishkek</span></p>
+    <nav class="footer-links" data-i18n-aria="footer.nav" aria-label="Pages">
+      <a href="../" data-i18n="ui.backhome">← Home</a>
+      <a href="../projects/" data-i18n="nav.projects">Projects</a>
+      <a href="../manas/" data-i18n="nav.manas">Manas</a>
+      <a href="../about/" data-i18n="nav.about">About</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="../js/i18n.js"></script>
+<script src="../js/app.js" defer></script>
+</body>
+</html>

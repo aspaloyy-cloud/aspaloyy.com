@@ -1,82 +1,182 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aspaloyy</title>
-  <meta name="description" content="Android developer from Kyrgyzstan. Mobile games and apps on Google Play.">
+  <title data-i18n="meta.home.title">Asman Rahmanov — developer, Bishkek</title>
+  <meta name="description" data-i18n-content="meta.home.desc" content="Asman Rahmanov (Aspaloyy) — developer from Bishkek, Kyrgyzstan. Two apps released on Google Play; building Manas: Prologue, a 3D action RPG based on the Kyrgyz epic.">
+  <meta name="author" content="Asman Rahmanov">
   <meta name="theme-color" content="#0d1117">
-  <meta property="og:title" content="Aspaloyy">
-  <meta property="og:description" content="Android developer from Kyrgyzstan. Mobile games and apps on Google Play.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="canonical" href="https://aspaloyy.com/">
+  <meta property="og:title" content="Asman Rahmanov — developer, Bishkek">
+  <meta property="og:description" content="Two apps released on Google Play. Building Manas: Prologue, a 3D action RPG based on the Kyrgyz epic.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aspaloyy.com/">
   <meta property="og:image" content="https://aspaloyy.com/og.png">
   <meta property="og:site_name" content="Aspaloyy">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Aspaloyy">
-  <meta name="twitter:description" content="Android developer from Kyrgyzstan. Mobile games and apps on Google Play.">
+  <meta name="twitter:title" content="Asman Rahmanov — developer, Bishkek">
+  <meta name="twitter:description" content="Two apps released on Google Play. Building Manas: Prologue, a 3D action RPG based on the Kyrgyz epic.">
   <meta name="twitter:image" content="https://aspaloyy.com/og.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/boot.js"></script>
 </head>
 <body>
 
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="nav-brand"><span class="status-dot" aria-hidden="true"></span>Aspaloyy</a>
-    <ul class="nav-links">
-      <li><a href="apps/" data-i18n="nav.apps">Приложения</a></li>
-      <li><a href="about/" data-i18n="nav.about">Обо мне</a></li>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="projects/" data-i18n="nav.projects">Projects</a></li>
+      <li><a href="manas/" data-i18n="nav.manas">Manas</a></li>
+      <li><a href="scribe/" data-i18n="nav.scribe">Scribe</a></li>
+      <li><a href="about/" data-i18n="nav.about">About</a></li>
     </ul>
     <div class="nav-controls">
       <select id="langSelect" class="nav-btn" aria-label="Language">
-        <option value="ru">RU</option>
         <option value="en">EN</option>
-        <option value="ky">KY</option>
-        <option value="tr">TR</option>
         <option value="de">DE</option>
+        <option value="ru">RU</option>
+        <option value="tr">TR</option>
+        <option value="ky">KY</option>
       </select>
       <button id="theme-toggle" class="nav-btn" aria-label="Toggle theme">
         <span id="theme-icon">🌙</span>
       </button>
+      <button id="nav-toggle" class="nav-btn nav-burger" aria-expanded="false"
+              aria-controls="nav-links" data-i18n-aria="nav.menu" aria-label="Menu">☰</button>
     </div>
   </div>
 </nav>
 
 <main>
   <div class="wrap">
+
+    <!-- ── HERO ── -->
     <section class="hero">
       <code class="hero-path">$ ~/aspaloyy</code>
-      <h1 class="hero-name">Aspaloyy</h1>
-      <p class="hero-tagline" data-i18n="home.tagline">Android-разработчик из Кыргызстана.</p>
+      <h1 class="hero-name" data-i18n="id.name">Asman Rahmanov</h1>
+      <div class="hero-role">
+        <span data-i18n="home.role">Developer from Bishkek, Kyrgyzstan</span>
+        <span class="hero-brand">Aspaloyy → Aspalloy</span>
+      </div>
+      <p class="lede" data-i18n="home.lede">I take an idea to a released product. Two of them are public on Google Play; the third is a game based on the epic I grew up inside.</p>
       <div class="hero-actions">
-        <a href="apps/" class="btn" data-i18n="home.cta1">Приложения →</a>
-        <a href="about/" class="btn" data-i18n="home.cta2">Обо мне →</a>
+        <a href="projects/" class="btn" data-i18n="home.cta.projects">Projects →</a>
+        <a href="about/" class="btn" data-i18n="home.cta.about">The full path →</a>
+      </div>
+    </section>
+
+    <!-- ── FACTS ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="facts.head">At a glance</h2>
+        <span class="section-rule"></span>
+      </div>
+      <div class="facts">
+        <div class="fact">
+          <span class="fact-k" data-i18n="facts.k1">BORN</span>
+          <span class="fact-v" data-i18n="facts.v1">18 November 2007 · Bishkek, Kyrgyzstan</span>
+        </div>
+        <div class="fact">
+          <span class="fact-k" data-i18n="facts.k3">PLAY DEV</span>
+          <span class="fact-v" data-i18n="facts.v3">Google Play developer since December 2025</span>
+        </div>
+        <div class="fact">
+          <span class="fact-k" data-i18n="facts.k4">RELEASED</span>
+          <span class="fact-v" data-i18n="facts.v4">2 apps on Google Play (2026)</span>
+        </div>
+        <div class="fact">
+          <span class="fact-k" data-i18n="facts.k5">BUILDING</span>
+          <span class="fact-v" data-i18n="facts.v5">Manas: Prologue · Scribe</span>
+        </div>
+        <div class="fact">
+          <span class="fact-k" data-i18n="facts.k6">BRAND</span>
+          <span class="fact-v" data-i18n="facts.v6">Aspaloyy, rebranding to Aspalloy</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── INTRO ── -->
+    <section class="section">
+      <div class="prose">
+        <p data-i18n="home.p1">I am 18 and I build under the name <strong>Aspaloyy</strong>. I have been a registered Google Play developer since December 2025. In May 2026 I released a calculator app, in June 2026 a hypercasual game called Span It. Both are live in the store, and both can be checked in a minute.</p>
+        <p data-i18n="home.p2">Most of my time now goes into <strong>Manas: Prologue</strong> — a story-driven 3D action RPG based on the Kyrgyz epic Manas — and into <strong>Scribe</strong>, the research system I built to feed it.</p>
+      </div>
+    </section>
+
+    <!-- ── FLAGSHIP ── -->
+    <section class="section">
+      <div class="feature">
+        <div class="feature-eyebrow">
+          <span data-i18n="status.flagship">Flagship project</span>
+          <span class="badge badge--dev" data-i18n="status.dev">In development</span>
+        </div>
+        <h2 class="feature-title">Manas: Prologue</h2>
+        <p class="feature-kind" data-i18n="manas.kind">3D action RPG · semi-open world · story-driven</p>
+        <p class="feature-desc" data-i18n="manas.short">A story-driven 3D action RPG in a semi-open world, based on Manas — the largest epic in the world and part of UNESCO's intangible cultural heritage of humanity. The full trilogy is years of work, so it is being released in parts, starting with the prologue.</p>
+        <a href="manas/" class="btn btn-primary" data-i18n="home.flag.cta">Read about the project →</a>
+      </div>
+    </section>
+
+    <!-- ── RELEASED ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="home.shipped.head">Released on Google Play</h2>
+        <span class="section-rule"></span>
       </div>
       <div class="hero-panel">
-        <div class="hero-panel-head" data-i18n="nav.apps">Приложения</div>
         <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.spanit"
            class="shelf-row" target="_blank" rel="noopener">
           <span class="shelf-icon" aria-hidden="true">🎮</span>
           <span class="shelf-name">Span It</span>
+          <span class="shelf-meta" data-i18n="spanit.date">Released June 2026</span>
           <span class="shelf-tag">game</span>
         </a>
         <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.calculator"
            class="shelf-row" target="_blank" rel="noopener">
           <span class="shelf-icon" aria-hidden="true">🧮</span>
           <span class="shelf-name">Calculator</span>
+          <span class="shelf-meta" data-i18n="calc.date">Released May 2026</span>
           <span class="shelf-tag">utility</span>
         </a>
       </div>
+      <div class="hero-actions">
+        <a href="projects/" class="btn" data-i18n="ui.more">Details →</a>
+      </div>
     </section>
+
+    <!-- ── METHOD ── -->
+    <section class="section">
+      <div class="section-head">
+        <h2 data-i18n="home.method.head">How I work</h2>
+        <span class="section-rule"></span>
+      </div>
+      <div class="prose">
+        <p data-i18n="home.method.p">I am not a classically trained programmer and I do not claim a formal degree in development. What I do is take a goal and drive it to a finished result: break it into tasks, research what each task actually requires, build the pipeline, and use modern tooling as my working environment. I learn the thing and build the thing in the same motion — and I finish.</p>
+      </div>
+      <div class="hero-actions">
+        <a href="about/" class="btn" data-i18n="home.method.cta">How that worked in practice →</a>
+      </div>
+    </section>
+
   </div>
 </main>
 
 <footer class="footer">
-  <div class="wrap">
-    <p class="footer-text">© 2026 Aspaloyy</p>
+  <div class="wrap footer-inner">
+    <p class="footer-text">© 2026 Aspaloyy · <span data-i18n="footer.tagline">Built and maintained by Asman Rahmanov · Bishkek</span></p>
+    <nav class="footer-links" data-i18n-aria="footer.nav" aria-label="Pages">
+      <a href="projects/" data-i18n="nav.projects">Projects</a>
+      <a href="manas/" data-i18n="nav.manas">Manas</a>
+      <a href="scribe/" data-i18n="nav.scribe">Scribe</a>
+      <a href="about/" data-i18n="nav.about">About</a>
+    </nav>
   </div>
 </footer>
 
