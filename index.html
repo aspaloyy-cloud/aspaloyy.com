@@ -1,184 +1,221 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="meta.home.title">Asman Rahmanov — developer, Bishkek</title>
-  <meta name="description" data-i18n-content="meta.home.desc" content="Asman Rahmanov (Aspaloyy) — developer from Bishkek, Kyrgyzstan. Two apps released on Google Play; building Manas: Prologue, a 3D action RPG based on the Kyrgyz epic.">
-  <meta name="author" content="Asman Rahmanov">
-  <meta name="theme-color" content="#0d1117">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/favicon.svg">
-  <link rel="canonical" href="https://aspaloyy.com/">
-  <meta property="og:title" content="Asman Rahmanov — developer, Bishkek">
-  <meta property="og:description" content="Two apps released on Google Play. Building Manas: Prologue, a 3D action RPG based on the Kyrgyz epic.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://aspaloyy.com/">
-  <meta property="og:image" content="https://aspaloyy.com/og.png">
-  <meta property="og:site_name" content="Aspaloyy">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Asman Rahmanov — developer, Bishkek">
-  <meta name="twitter:description" content="Two apps released on Google Play. Building Manas: Prologue, a 3D action RPG based on the Kyrgyz epic.">
-  <meta name="twitter:image" content="https://aspaloyy.com/og.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/boot.js"></script>
-</head>
-<body>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+		<title>Manas Quiz</title>
+		<style>
+html, body, #canvas {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-brand"><span class="status-dot" aria-hidden="true"></span>Aspaloyy</a>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="projects/" data-i18n="nav.projects">Projects</a></li>
-      <li><a href="manas/" data-i18n="nav.manas">Manas</a></li>
-      <li><a href="scribe/" data-i18n="nav.scribe">Scribe</a></li>
-      <li><a href="about/" data-i18n="nav.about">About</a></li>
-    </ul>
-    <div class="nav-controls">
-      <select id="langSelect" class="nav-btn" aria-label="Language">
-        <option value="en">EN</option>
-        <option value="de">DE</option>
-        <option value="ru">RU</option>
-        <option value="tr">TR</option>
-        <option value="ky">KY</option>
-      </select>
-      <button id="theme-toggle" class="nav-btn" aria-label="Toggle theme">
-        <span id="theme-icon">🌙</span>
-      </button>
-      <button id="nav-toggle" class="nav-btn nav-burger" aria-expanded="false"
-              aria-controls="nav-links" data-i18n-aria="nav.menu" aria-label="Menu">☰</button>
-    </div>
-  </div>
-</nav>
+body {
+	color: white;
+	background-color: black;
+	overflow: hidden;
+	touch-action: none;
+}
 
-<main>
-  <div class="wrap">
+#canvas {
+	display: block;
+}
 
-    <!-- ── HERO ── -->
-    <section class="hero hero--split">
-      <div class="hero-main">
-        <code class="hero-path">$ ~/aspaloyy</code>
-        <h1 class="hero-name" data-i18n="id.name">Asman Rahmanov</h1>
-        <div class="hero-role">
-          <span data-i18n="home.role">Developer from Bishkek, Kyrgyzstan</span>
-          <span class="hero-brand">Aspaloyy → Aspalloy</span>
-        </div>
-        <p class="lede" data-i18n="home.lede">I take an idea to a released product. Two of them are public on Google Play; the third is a game based on the epic I grew up inside.</p>
-        <div class="hero-actions">
-          <a href="projects/" class="btn" data-i18n="home.cta.projects">Projects →</a>
-          <a href="about/" class="btn" data-i18n="home.cta.about">The full path →</a>
-        </div>
-      </div>
+#canvas:focus {
+	outline: none;
+}
 
-      <aside class="hero-side">
-        <div class="hero-panel">
-          <div class="hero-panel-head" data-i18n="facts.head">At a glance</div>
-          <div class="fact">
-            <span class="fact-k" data-i18n="facts.k1">BORN</span>
-            <span class="fact-v" data-i18n="facts.v1">18 November 2007 · Bishkek, Kyrgyzstan</span>
-          </div>
-          <div class="fact">
-            <span class="fact-k" data-i18n="facts.k3">PLAY DEV</span>
-            <span class="fact-v" data-i18n="facts.v3">Google Play developer since December 2025</span>
-          </div>
-          <div class="fact">
-            <span class="fact-k" data-i18n="facts.k4">RELEASED</span>
-            <span class="fact-v" data-i18n="facts.v4">2 apps on Google Play (2026)</span>
-          </div>
-          <div class="fact">
-            <span class="fact-k" data-i18n="facts.k5">BUILDING</span>
-            <span class="fact-v" data-i18n="facts.v5">Manas: Prologue · Scribe</span>
-          </div>
-          <div class="fact">
-            <span class="fact-k" data-i18n="facts.k6">BRAND</span>
-            <span class="fact-v" data-i18n="facts.v6">Aspaloyy, rebranding to Aspalloy</span>
-          </div>
-        </div>
-      </aside>
-    </section>
+#status, #status-splash, #status-progress {
+	position: absolute;
+	left: 0;
+	right: 0;
+}
 
-    <!-- ── INTRO ── -->
-    <section class="section section--full">
-      <div class="prose prose--cols">
-        <p data-i18n="home.p1">I am 18 and I build under the name <strong>Aspaloyy</strong>. I have been a registered Google Play developer since December 2025. In May 2026 I released a calculator app, in June 2026 a hypercasual game called Span It. Both are live in the store, and both can be checked in a minute.</p>
-        <p data-i18n="home.p2">Most of my time now goes into <strong>Manas: Prologue</strong> — a story-driven 3D action RPG based on the Kyrgyz epic Manas — and into <strong>Scribe</strong>, the research system I built to feed it.</p>
-      </div>
-    </section>
+#status, #status-splash {
+	top: 0;
+	bottom: 0;
+}
 
-    <!-- ── FLAGSHIP ── -->
-    <section class="section section--full">
-      <div class="feature">
-        <div class="feature-eyebrow">
-          <span data-i18n="status.flagship">Flagship project</span>
-          <span class="badge badge--dev" data-i18n="status.dev">In development</span>
-        </div>
-        <h2 class="feature-title">Manas: Prologue</h2>
-        <p class="feature-kind" data-i18n="manas.kind">3D action RPG · semi-open world · story-driven</p>
-        <p class="feature-desc" data-i18n="manas.short">A story-driven 3D action RPG in a semi-open world, based on Manas — the largest epic in the world and part of UNESCO's intangible cultural heritage of humanity. The full trilogy is years of work, so it is being released in parts, starting with the prologue.</p>
-        <a href="manas/" class="btn btn-primary" data-i18n="home.flag.cta">Read about the project →</a>
-      </div>
-    </section>
+#status {
+	background-color: #1a1613;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	visibility: hidden;
+}
 
-    <!-- ── RELEASED ── -->
-    <section class="section">
-      <div class="section-head">
-        <h2 data-i18n="home.shipped.head">Released on Google Play</h2>
-        <span class="section-rule"></span>
-      </div>
-      <div class="hero-panel">
-        <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.spanit"
-           class="shelf-row" target="_blank" rel="noopener">
-          <span class="shelf-icon" aria-hidden="true">🎮</span>
-          <span class="shelf-name">Span It</span>
-          <span class="shelf-meta" data-i18n="spanit.date">Released June 2026</span>
-          <span class="shelf-tag">game</span>
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.calculator"
-           class="shelf-row" target="_blank" rel="noopener">
-          <span class="shelf-icon" aria-hidden="true">🧮</span>
-          <span class="shelf-name">Calculator</span>
-          <span class="shelf-meta" data-i18n="calc.date">Released May 2026</span>
-          <span class="shelf-tag">utility</span>
-        </a>
-      </div>
-      <div class="hero-actions">
-        <a href="projects/" class="btn" data-i18n="ui.more">Details →</a>
-      </div>
-    </section>
+#status-splash {
+	max-height: 100%;
+	max-width: 100%;
+	margin: auto;
+}
 
-    <!-- ── METHOD ── -->
-    <section class="section">
-      <div class="section-head">
-        <h2 data-i18n="home.method.head">How I work</h2>
-        <span class="section-rule"></span>
-      </div>
-      <div class="prose">
-        <p data-i18n="home.method.p">I am not a classically trained programmer and I do not claim a formal degree in development. What I do is take a goal and drive it to a finished result: break it into tasks, research what each task actually requires, build the pipeline, and use modern tooling as my working environment. I learn the thing and build the thing in the same motion — and I finish.</p>
-      </div>
-      <div class="hero-actions">
-        <a href="about/" class="btn" data-i18n="home.method.cta">How that worked in practice →</a>
-      </div>
-    </section>
+#status-splash.show-image--false {
+	display: none;
+}
 
-  </div>
-</main>
+#status-splash.fullsize--true {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}
 
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <p class="footer-text">© 2026 Aspaloyy · <span data-i18n="footer.tagline">Built and maintained by Asman Rahmanov · Bishkek</span></p>
-    <nav class="footer-links" data-i18n-aria="footer.nav" aria-label="Pages">
-      <a href="projects/" data-i18n="nav.projects">Projects</a>
-      <a href="manas/" data-i18n="nav.manas">Manas</a>
-      <a href="scribe/" data-i18n="nav.scribe">Scribe</a>
-      <a href="about/" data-i18n="nav.about">About</a>
-    </nav>
-  </div>
-</footer>
+#status-splash.use-filter--false {
+	image-rendering: pixelated;
+}
 
-<script src="js/i18n.js"></script>
-<script src="js/app.js" defer></script>
-</body>
+#status-progress, #status-notice {
+	display: none;
+}
+
+#status-progress {
+	bottom: 10%;
+	width: 50%;
+	margin: 0 auto;
+}
+
+#status-notice {
+	background-color: #5b3943;
+	border-radius: 0.5rem;
+	border: 1px solid #9b3943;
+	color: #e0e0e0;
+	font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
+	line-height: 1.3;
+	margin: 0 2rem;
+	overflow: hidden;
+	padding: 1rem;
+	text-align: center;
+	z-index: 1;
+}
+		</style>
+		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
+<link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
+<link rel="manifest" href="index.manifest.json">
+
+	</head>
+	<body>
+		<canvas id="canvas">
+			Your browser does not support the canvas tag.
+		</canvas>
+
+		<noscript>
+			Your browser does not support JavaScript.
+		</noscript>
+
+		<div id="status">
+			<img id="status-splash" class="show-image--false fullsize--true use-filter--true" src="index.png" alt="">
+			<progress id="status-progress"></progress>
+			<div id="status-notice"></div>
+		</div>
+
+		<script src="index.js"></script>
+		<script>
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":462552,"index.wasm":37902138},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
+const GODOT_THREADS_ENABLED = false;
+const engine = new Engine(GODOT_CONFIG);
+
+(function () {
+	const statusOverlay = document.getElementById('status');
+	const statusProgress = document.getElementById('status-progress');
+	const statusNotice = document.getElementById('status-notice');
+
+	let initializing = true;
+	let statusMode = '';
+
+	function setStatusMode(mode) {
+		if (statusMode === mode || !initializing) {
+			return;
+		}
+		if (mode === 'hidden') {
+			statusOverlay.remove();
+			initializing = false;
+			return;
+		}
+		statusOverlay.style.visibility = 'visible';
+		statusProgress.style.display = mode === 'progress' ? 'block' : 'none';
+		statusNotice.style.display = mode === 'notice' ? 'block' : 'none';
+		statusMode = mode;
+	}
+
+	function setStatusNotice(text) {
+		while (statusNotice.lastChild) {
+			statusNotice.removeChild(statusNotice.lastChild);
+		}
+		const lines = text.split('\n');
+		lines.forEach((line) => {
+			statusNotice.appendChild(document.createTextNode(line));
+			statusNotice.appendChild(document.createElement('br'));
+		});
+	}
+
+	function displayFailureNotice(err) {
+		console.error(err);
+		if (err instanceof Error) {
+			setStatusNotice(err.message);
+		} else if (typeof err === 'string') {
+			setStatusNotice(err);
+		} else {
+			setStatusNotice('An unknown error occurred.');
+		}
+		setStatusMode('notice');
+		initializing = false;
+	}
+
+	const missing = Engine.getMissingFeatures({
+		threads: GODOT_THREADS_ENABLED,
+	});
+
+	if (missing.length !== 0) {
+		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
+			let serviceWorkerRegistrationPromise;
+			try {
+				serviceWorkerRegistrationPromise = navigator.serviceWorker.getRegistration();
+			} catch (err) {
+				serviceWorkerRegistrationPromise = Promise.reject(new Error('Service worker registration failed.'));
+			}
+			// There's a chance that installing the service worker would fix the issue
+			Promise.race([
+				serviceWorkerRegistrationPromise.then((registration) => {
+					if (registration != null) {
+						return Promise.reject(new Error('Service worker already exists.'));
+					}
+					return registration;
+				}).then(() => engine.installServiceWorker()),
+				// For some reason, `getRegistration()` can stall
+				new Promise((resolve) => {
+					setTimeout(() => resolve(), 2000);
+				}),
+			]).then(() => {
+				// Reload if there was no error.
+				window.location.reload();
+			}).catch((err) => {
+				console.error('Error while registering service worker:', err);
+			});
+		} else {
+			// Display the message as usual
+			const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
+			displayFailureNotice(missingMsg + missing.join('\n'));
+		}
+	} else {
+		setStatusMode('progress');
+		engine.startGame({
+			'onProgress': function (current, total) {
+				if (current > 0 && total > 0) {
+					statusProgress.value = current;
+					statusProgress.max = total;
+				} else {
+					statusProgress.removeAttribute('value');
+					statusProgress.removeAttribute('max');
+				}
+			},
+		}).then(() => {
+			setStatusMode('hidden');
+		}, displayFailureNotice);
+	}
+}());
+		</script>
+	</body>
 </html>
+
