@@ -1,234 +1,122 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="meta.home.title">Asman Rahmanov — developer & freelancer</title>
-  <meta name="description" data-i18n-content="meta.home.desc" content="Asman Rahmanov — Google Play developer and freelancer. Creator of Calculator, Span It, and Antares.">
-  <meta name="author" content="Asman Rahmanov">
-  <meta name="theme-color" content="#0d1117">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/favicon.svg">
-  <link rel="canonical" href="https://aspaloyy.com/">
-  <meta property="og:title" content="Asman Rahmanov — developer & freelancer">
-  <meta property="og:description" content="Google Play developer and freelancer. Creator of Calculator, Span It, and Antares.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://aspaloyy.com/">
-  <meta property="og:image" content="https://aspaloyy.com/og.png">
-  <meta property="og:site_name" content="Aspaloyy">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Asman Rahmanov — developer & freelancer">
-  <meta name="twitter:description" content="Google Play developer and freelancer. Creator of Calculator, Span It, and Antares.">
-  <meta name="twitter:image" content="https://aspaloyy.com/og.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/boot.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asman Rakhmanov — Portfolio</title>
+    <meta name="description" content="Personal portfolio of Asman Rakhmanov (Aspalloy), developer and freelancer.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased selection:bg-zinc-800 selection:text-zinc-100 min-h-screen flex flex-col justify-between">
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-brand"><span class="status-dot" aria-hidden="true"></span>Asman Rahmanov</a>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
-      <li><a href="#about" data-i18n="nav.about">About</a></li>
-      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
-    </ul>
-    <div class="nav-controls">
-      <select id="langSelect" class="nav-btn" aria-label="Language">
-        <option value="en">EN</option>
-        <option value="ru">RU</option>
-      </select>
-      <button id="theme-toggle" class="nav-btn" aria-label="Toggle theme">
-        <span id="theme-icon">🌙</span>
-      </button>
-      <button id="nav-toggle" class="nav-btn nav-burger" aria-expanded="false"
-              aria-controls="nav-links" data-i18n-aria="nav.menu" aria-label="Menu">☰</button>
-    </div>
-  </div>
-</nav>
-
-<main>
-  <div class="wrap">
-
-    <!-- ── HERO ── -->
-    <section class="hero hero--split">
-      <div class="hero-main">
-        <h1 class="hero-name" data-i18n="id.name">Asman Rahmanov</h1>
-        <div class="hero-role">
-          <span data-i18n="home.role">Google Play Developer · Freelancer</span>
-        </div>
-        <p class="lede" data-i18n="home.lede">Novice developer creating practical mobile apps and desktop software. Focused on clean implementation and shipping finished projects.</p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary" data-i18n="home.cta.projects">View Projects ↓</a>
-          <a href="https://github.com/aspalloy" class="btn" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
-      </div>
-
-      <aside class="hero-side">
-        <div class="hero-panel">
-          <div class="hero-panel-head" data-i18n="facts.head">Overview</div>
-          <div class="fact">
-            <span class="fact-k" data-i18n="facts.k1">ROLE</span>
-            <span class="fact-v" data-i18n="facts.v1">Developer & Freelancer</span>
-          </div>
-          <div class="fact">
-            <span class="fact-k" data-i18n="facts.k2">PLATFORMS</span>
-            <span class="fact-v" data-i18n="facts.v2">Android, Windows (.NET)</span>
-          </div>
-          <div class="fact">
-            <span class="fact-k" data-i18n="facts.k3">STORE</span>
-            <span class="fact-v" data-i18n="facts.v3">2 Releases on Google Play</span>
-          </div>
-          <div class="fact">
-            <span class="fact-k" data-i18n="facts.k4">CURRENT</span>
-            <span class="fact-v" data-i18n="facts.v4">Building Antares</span>
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <!-- ── PROJECTS ── -->
-    <section class="section" id="projects">
-      <div class="section-head">
-        <h2 data-i18n="proj.title">Projects</h2>
-        <span class="section-rule"></span>
-      </div>
-
-      <div class="app-list">
-
-        <!-- Antares -->
-        <div class="app-card app-card--purple">
-          <div class="app-card-head">
-            <div class="app-icon" aria-hidden="true">🌌</div>
-            <div class="app-card-titles">
-              <div class="app-card-top">
-                <span class="app-card-name">Antares</span>
-                <span class="badge badge--dev" data-i18n="status.dev">Active Development</span>
-                <span class="tag">C# / .NET 10</span>
-              </div>
-              <div class="app-card-meta">Desktop AI Assistant & Workspace Integration</div>
+    <!-- Header / Navigation -->
+    <header class="w-full border-b border-zinc-900 bg-zinc-950/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="font-semibold text-zinc-200 tracking-tight hover:text-white transition">Asman Rakhmanov</a>
+            <div class="flex items-center space-x-6 text-sm text-zinc-400">
+                <a href="#about" class="hover:text-zinc-100 transition">About</a>
+                <a href="#projects" class="hover:text-zinc-100 transition">Projects</a>
+                <a href="https://github.com/aspaloyy-cloud" target="_blank" rel="noopener" class="hover:text-zinc-100 transition">GitHub</a>
             </div>
-          </div>
-          <p class="app-card-desc" data-i18n="antares.desc">A native desktop AI workspace assistant built on C# 13 and .NET 10. Integrates deeply with Visual Studio 2026, GitHub MCP, host systems, and local developer workflows.</p>
-          <div class="app-card-footer">
-            <span class="app-card-id"><span class="id-dot" style="background:var(--accent)" aria-hidden="true"></span><span class="id-label">TYPE</span>Desktop App</span>
-            <a href="https://github.com/aspalloy/Antares" class="card-link" target="_blank" rel="noopener">GitHub Repo ↗</a>
-          </div>
         </div>
+    </header>
 
-        <!-- Span It -->
-        <div class="app-card app-card--amber">
-          <div class="app-card-head">
-            <div class="app-icon" aria-hidden="true">🎮</div>
-            <div class="app-card-titles">
-              <div class="app-card-top">
-                <span class="app-card-name">Span It</span>
-                <span class="badge badge--live" data-i18n="status.shipped">Released</span>
-                <span class="tag">Android Game</span>
-              </div>
-              <div class="app-card-meta">Google Play Release</div>
+    <!-- Main Content -->
+    <main class="max-w-3xl mx-auto px-6 py-16 flex-grow w-full space-y-20">
+
+        <!-- Hero Section -->
+        <section id="about" class="space-y-6">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs text-zinc-400">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Available for freelance & projects</span>
             </div>
-          </div>
-          <p class="app-card-desc" data-i18n="spanit.desc">A 2D arcade game for Android centered around timing and precision. Inspired by classic mechanics like Stick Hero.</p>
-          <div class="app-card-footer">
-            <span class="app-card-id"><span class="id-dot" aria-hidden="true"></span><span class="id-label">PKG</span>com.aspaloyy.spanit</span>
-            <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.spanit"
-               class="btn-play" target="_blank" rel="noopener">
-              <span data-i18n="play.get">GET IT ON</span>
-              <span class="btn-play-store">Google Play</span>
-            </a>
-          </div>
-        </div>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+                Hi, I'm Asman.
+            </h1>
+            <p class="text-lg text-zinc-400 leading-relaxed max-w-2xl">
+                I am Asman Rakhmanov Rysbaevich, a software developer and freelancer. I build applications, explore desktop development, and publish apps on Google Play.
+            </p>
+        </section>
 
-        <!-- Calculator -->
-        <div class="app-card app-card--blue">
-          <div class="app-card-head">
-            <div class="app-icon" aria-hidden="true">🧮</div>
-            <div class="app-card-titles">
-              <div class="app-card-top">
-                <span class="app-card-name">Calculator</span>
-                <span class="badge badge--live" data-i18n="status.shipped">Released</span>
-                <span class="tag">Utility</span>
-              </div>
-              <div class="app-card-meta">Google Play Release</div>
+        <!-- Projects Section -->
+        <section id="projects" class="space-y-8">
+            <h2 class="text-xl font-semibold tracking-tight text-white border-b border-zinc-900 pb-3">Projects</h2>
+            
+            <div class="grid gap-6">
+                <!-- Antares -->
+                <div class="group p-6 rounded-2xl bg-zinc-900/50 border border-zinc-900 hover:border-zinc-800 transition">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-medium text-white text-lg">Antares</h3>
+                        <span class="text-xs px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-300 font-mono">C# / .NET 10</span>
+                    </div>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                        A desktop AI workspace assistant built with modern .NET technologies, featuring integrated MCP servers, Visual Studio IDE bridge, and modular architecture.
+                    </p>
+                </div>
+
+                <!-- Span It -->
+                <div class="group p-6 rounded-2xl bg-zinc-900/50 border border-zinc-900 hover:border-zinc-800 transition">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-medium text-white text-lg">Span It</h3>
+                        <span class="text-xs px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-300 font-mono">Android / Game</span>
+                    </div>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                        A casual mobile game published on Google Play. It is a mechanic-based arcade game inspired by traditional stick-extension gameplay (similar to Stick Hero).
+                    </p>
+                </div>
+
+                <!-- Calculator -->
+                <div class="group p-6 rounded-2xl bg-zinc-900/50 border border-zinc-900 hover:border-zinc-800 transition">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-medium text-white text-lg">Calculator</h3>
+                        <span class="text-xs px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-300 font-mono">Mobile App</span>
+                    </div>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                        A lightweight, clean, and straightforward calculator application published on Google Play, designed for everyday use without unnecessary clutter.
+                    </p>
+                </div>
             </div>
-          </div>
-          <p class="app-card-desc" data-i18n="calc.desc">A lightweight, clean calculator application for Android without ads or unnecessary permissions.</p>
-          <div class="app-card-footer">
-            <span class="app-card-id"><span class="id-dot" aria-hidden="true"></span><span class="id-label">PKG</span>com.aspaloyy.calculator</span>
-            <a href="https://play.google.com/store/apps/details?id=com.aspaloyy.calculator"
-               class="btn-play" target="_blank" rel="noopener">
-              <span data-i18n="play.get">GET IT ON</span>
-              <span class="btn-play-store">Google Play</span>
-            </a>
-          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-semibold tracking-tight text-white border-b border-zinc-900 pb-3">Get in Touch</h2>
+            <p class="text-zinc-400 text-sm">
+                You can reach out or check out my source code via GitHub.
+            </p>
+            <div class="flex space-x-4 pt-2">
+                <a href="https://github.com/aspaloyy-cloud" target="_blank" rel="noopener" class="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-sm font-medium text-zinc-200 transition">
+                    GitHub Profile
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full border-t border-zinc-900 py-8 mt-20">
+        <div class="max-w-3xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 space-y-4 sm:space-y-0">
+            <p>© <span id="year"></span> Asman Rakhmanov. All rights reserved.</p>
+            <p>Aspalloy</p>
         </div>
+    </footer>
 
-      </div>
-    </section>
-
-    <!-- ── ABOUT ── -->
-    <section class="section" id="about">
-      <div class="section-head">
-        <h2 data-i18n="about.title">About</h2>
-        <span class="section-rule"></span>
-      </div>
-      <div class="prose">
-        <p data-i18n="about.p1">I am Asman Rahmanov, a beginner software developer and freelancer based in Bishkek, Kyrgyzstan. I build applications for Android and Windows desktop environments.</p>
-        <p data-i18n="about.p2">I have published two mobile applications on Google Play (a calculator utility and the 2D game Span It). Currently, I am focused on building <strong>Antares</strong>, an AI desktop assistant for developers.</p>
-      </div>
-    </section>
-
-    <!-- ── CONTACT ── -->
-    <section class="section" id="contact">
-      <div class="section-head">
-        <h2 data-i18n="contact.head">Contact</h2>
-        <span class="section-rule"></span>
-      </div>
-
-      <div class="contact-list">
-        <div class="contact-row">
-          <span class="contact-key">NAME</span>
-          <span class="contact-val">Asman Rahmanov Rysbaevich</span>
-        </div>
-        <a href="mailto:aspaloyy@gmail.com" class="contact-link">
-          <span class="contact-key">EMAIL</span>
-          <span class="contact-val">aspaloyy@gmail.com</span>
-        </a>
-        <a href="https://t.me/aspaloyy" class="contact-link" target="_blank" rel="noopener">
-          <span class="contact-key">TELEGRAM</span>
-          <span class="contact-val">@aspaloyy</span>
-        </a>
-        <a href="https://github.com/aspalloy" class="contact-link" target="_blank" rel="noopener">
-          <span class="contact-key">GITHUB</span>
-          <span class="contact-val">github.com/aspalloy</span>
-        </a>
-        <a href="https://play.google.com/store/apps/dev?id=8055300163983735296"
-           class="contact-link" target="_blank" rel="noopener">
-          <span class="contact-key">PLAY</span>
-          <span class="contact-val">Google Play Developer Profile</span>
-        </a>
-      </div>
-    </section>
-
-  </div>
-</main>
-
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <p class="footer-text">© 2026 Asman Rahmanov</p>
-    <nav class="footer-links">
-      <a href="#projects" data-i18n="nav.projects">Projects</a>
-      <a href="#about" data-i18n="nav.about">About</a>
-      <a href="#contact" data-i18n="nav.contact">Contact</a>
-    </nav>
-  </div>
-</footer>
-
-<script src="js/i18n.js"></script>
-<script src="js/app.js" defer></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
