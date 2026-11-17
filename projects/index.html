@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects — aspaloyy</title>
+  <title>Projects — Asman Rakhmanov (aspaloyy)</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -11,33 +11,49 @@
   <header>
     <div class="container nav-container">
       <a href="../" class="logo">aspaloyy<span>.</span></a>
-      <ul class="nav-links">
-        <li><a href="../">Index</a></li>
-        <li><a href="./" class="active">Projects</a></li>
-        <li><a href="../about/">About</a></li>
-      </ul>
+      <div class="nav-right">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="../" data-i18n="nav_home">Главная</a></li>
+          <li><a href="./" class="active" data-i18n="nav_projects">Проекты</a></li>
+          <li><a href="../about/" data-i18n="nav_about">О себе</a></li>
+        </ul>
+        <div class="lang-switch">
+          <button class="lang-btn" onclick="setLang('ru')">RU</button>
+          <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
+      </div>
     </div>
   </header>
 
-  <main style="padding-top: 140px; padding-bottom: 8rem;">
+  <main style="padding-top: 120px; padding-bottom: 8rem;">
     <div class="container">
-      <div class="section-title">Portfolio</div>
-      <h2 class="section-heading">Featured Works</h2>
+      <div class="section-title" data-i18n="proj_section_title">Портфолио продуктов</div>
+      <h2 class="section-heading" data-i18n="proj_section_heading">Проекты и Релизы</h2>
       <div class="grid-3">
         <div class="card">
-          <h3>Cloud Engine</h3>
-          <p>Automated orchestration platform and microservice runtime built for extreme reliability.</p>
-          <span class="card-tag">Go / Docker / Kubernetes</span>
+          <h3>Antares</h3>
+          <p data-i18n="proj_antares_desc">Передовой ИИ-ассистент с глубокой интеграцией в Visual Studio, локальным управлением рабочей областью, автоматизацией Git и выполнением задач. Создан для максимальной продуктивности инженера.</p>
+          <span class="card-tag">#AI #Assistant #Desktop</span>
+          <div class="card-actions">
+            <span class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem; opacity: 0.7;" data-i18n="status_active">Активная разработка</span>
+          </div>
         </div>
         <div class="card">
-          <h3>Developer Hub</h3>
-          <p>Open-source tooling and documentation architecture for distributed engineering teams.</p>
-          <span class="card-tag">TypeScript / Node.js</span>
+          <h3>Aspaloyy Apps (Google Play)</h3>
+          <p data-i18n="proj_play_desc">Линейка мобильных приложений, утилит и сервисов, разрабатываемых и публикуемых на Google Play Market под разработческим именем Aspaloyy.</p>
+          <span class="card-tag">#Android #Mobile #Aspaloyy</span>
+          <div class="card-actions">
+            <a href="https://play.google.com" target="_blank" class="btn btn-google" style="font-size: 0.85rem; padding: 0.5rem 1rem;" data-i18n="btn_google_play">Google Play Market ↗</a>
+          </div>
         </div>
         <div class="card">
-          <h3>Minimal Workspace</h3>
-          <p>Distraction-free editing environment optimized for developer workflow and speed.</p>
-          <span class="card-tag">C# / .NET Core</span>
+          <h3>aspaloyy.com Hub</h3>
+          <p data-i18n="proj_hub_desc">Персональная цифровая экосистема Асмана Рахманова, спроектированная с нуля без лишнего мусора, с молниеносной загрузкой и адаптивным дизайном.</p>
+          <span class="card-tag">#Web #Architecture</span>
+          <div class="card-actions">
+            <a href="https://github.com/aspaloyy-cloud/aspaloyy.com" target="_blank" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;" data-i18n="btn_github">GitHub ↗</a>
+          </div>
         </div>
       </div>
     </div>
@@ -45,10 +61,11 @@
 
   <footer>
     <div class="container" style="display:flex; justify-content:space-between; width:100%;">
-      <div>© aspaloyy.com. All systems operational.</div>
-      <div style="font-family: var(--font-mono); color: var(--cyan);">Projects Registry</div>
+      <div data-i18n="footer_rights">© aspaloyy.com — Асман Рахманов. Все системы функционируют.</div>
+      <div style="font-family: var(--font-mono); color: var(--cyan);">Кыргызстан • Kyrgyzstan</div>
     </div>
   </footer>
 
+  <script src="../js/i18n.js"></script>
 </body>
 </html>

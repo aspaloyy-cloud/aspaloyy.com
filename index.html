@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>aspaloyy — digital engineer & architect</title>
+  <title>Asman Rakhmanov (aspaloyy) — Software Engineer & Creator of Antares</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -11,11 +11,18 @@
   <header>
     <div class="container nav-container">
       <a href="./" class="logo">aspaloyy<span>.</span></a>
-      <ul class="nav-links">
-        <li><a href="./" class="active">Index</a></li>
-        <li><a href="projects/">Projects</a></li>
-        <li><a href="about/">About</a></li>
-      </ul>
+      <div class="nav-right">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="./" class="active" data-i18n="nav_home">Главная</a></li>
+          <li><a href="projects/" data-i18n="nav_projects">Проекты</a></li>
+          <li><a href="about/" data-i18n="nav_about">О себе</a></li>
+        </ul>
+        <div class="lang-switch">
+          <button class="lang-btn" onclick="setLang('ru')">RU</button>
+          <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
+      </div>
     </div>
   </header>
 
@@ -23,12 +30,12 @@
     <section class="hero">
       <div class="container">
         <div class="hero-content">
-          <div class="badge">Engineering clean systems</div>
-          <h1>Architecting digital realities <span>with precision.</span></h1>
-          <p>Building high-performance software, robust architectures, and clean interfaces without noise or fluff.</p>
+          <div class="badge" data-i18n="hero_badge">Кыргызстан • Software Engineer</div>
+          <h1 data-i18n="hero_title">Привет, я Асман Рахманов. <span>Создаю Antares и приложения для Google Play.</span></h1>
+          <p data-i18n="hero_desc">Разработчик и программный инженер из Кыргызстана. Публикую мобильные приложения и утилиты на Google Play Market под брендом <strong>Aspaloyy</strong>, а также создаю <strong>Antares</strong> — передовой ИИ-ассистент.</p>
           <div class="cta-group">
-            <a href="projects/" class="btn btn-primary">Explore Projects</a>
-            <a href="about/" class="btn btn-secondary">System Profile</a>
+            <a href="projects/" class="btn btn-primary" data-i18n="btn_projects">Смотреть проекты</a>
+            <a href="about/" class="btn btn-secondary" data-i18n="btn_about">Об авторе</a>
           </div>
         </div>
       </div>
@@ -36,23 +43,32 @@
 
     <section>
       <div class="container">
-        <div class="section-title">Core Focus</div>
-        <h2 class="section-heading">Systems & Architecture</h2>
+        <div class="section-title" data-i18n="ecosystem_title">Экосистема</div>
+        <h2 class="section-heading" data-i18n="ecosystem_heading">Ключевые продукты</h2>
         <div class="grid-3">
           <div class="card">
-            <h3>Cloud Infrastructure</h3>
-            <p>Designing scalable cloud environments, containerized deployments, and resilient network topologies.</p>
-            <span class="card-tag">#DistributedSystems</span>
+            <h3>Antares</h3>
+            <p data-i18n="card_antares_desc">Передовой ИИ-ассистент с глубокой интеграцией в Visual Studio, локальным управлением рабочим пространством, автоматизацией Git и выполнением задач.</p>
+            <span class="card-tag">#AI #Assistant #Desktop</span>
+            <div class="card-actions">
+              <a href="projects/" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;" data-i18n="btn_details">Подробнее</a>
+            </div>
           </div>
           <div class="card">
-            <h3>High-Performance Code</h3>
-            <p>Writing optimized backend engines and fast interfaces focusing on minimal latency and clean design.</p>
-            <span class="card-tag">#CoreEngineering</span>
+            <h3>Google Play Market (Aspaloyy)</h3>
+            <p data-i18n="card_play_desc">Публикация мобильных приложений, утилит и цифровых продуктов под разработческим именем Aspaloyy на платформе Google Play.</p>
+            <span class="card-tag">#Android #Mobile #Aspaloyy</span>
+            <div class="card-actions">
+              <a href="https://play.google.com" target="_blank" class="btn btn-google" style="font-size: 0.85rem; padding: 0.5rem 1rem;" data-i18n="btn_google_play">Google Play Market ↗</a>
+            </div>
           </div>
           <div class="card">
-            <h3>Minimalist Interfaces</h3>
-            <p>Creating distraction-free digital tools and web applications driven by content and utility.</p>
-            <span class="card-tag">#UIArchitecture</span>
+            <h3>Архитектура & Системы</h3>
+            <p data-i18n="card_system_desc">Разработка высокопроизводительных бэкенд-сервисов, инструментов и чистых цифровых интерфейсов с упором на надежность и скорость.</p>
+            <span class="card-tag">#Engineering #CleanCode</span>
+            <div class="card-actions">
+              <a href="about/" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;" data-i18n="btn_stack">Стек технологий</a>
+            </div>
           </div>
         </div>
       </div>
@@ -61,10 +77,11 @@
 
   <footer>
     <div class="container" style="display:flex; justify-content:space-between; width:100%;">
-      <div>© aspaloyy.com. All systems operational.</div>
-      <div style="font-family: var(--font-mono); color: var(--cyan);">v3.0 re-engineered</div>
+      <div data-i18n="footer_rights">© aspaloyy.com — Асман Рахманов. Все системы функционируют.</div>
+      <div style="font-family: var(--font-mono); color: var(--cyan);">Кыргызстан • Kyrgyzstan</div>
     </div>
   </footer>
 
+  <script src="js/i18n.js"></script>
 </body>
 </html>

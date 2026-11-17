@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — aspaloyy</title>
+  <title>About Asman Rakhmanov (aspaloyy)</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -11,31 +11,40 @@
   <header>
     <div class="container nav-container">
       <a href="../" class="logo">aspaloyy<span>.</span></a>
-      <ul class="nav-links">
-        <li><a href="../">Index</a></li>
-        <li><a href="../projects/">Projects</a></li>
-        <li><a href="./" class="active">About</a></li>
-      </ul>
+      <div class="nav-right">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="../" data-i18n="nav_home">Главная</a></li>
+          <li><a href="../projects/" data-i18n="nav_projects">Проекты</a></li>
+          <li><a href="./" class="active" data-i18n="nav_about">О себе</a></li>
+        </ul>
+        <div class="lang-switch">
+          <button class="lang-btn" onclick="setLang('ru')">RU</button>
+          <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
+      </div>
     </div>
   </header>
 
-  <main style="padding-top: 140px; padding-bottom: 8rem;">
+  <main style="padding-top: 120px; padding-bottom: 8rem;">
     <div class="container">
-      <div class="section-title">Profile</div>
-      <h2 class="section-heading">About the Engineer</h2>
-      <div style="max-width: 750px; color: var(--text-muted); font-size: 1.1rem; display: flex; flex-direction: column; gap: 1.5rem;">
-        <p>I am a software architect and system engineer focused on creating fast, reliable, and elegant digital products. My work eliminates unnecessary complexity in favor of raw performance and clean design.</p>
-        <p>Operating at the intersection of backend engineering, distributed cloud systems, and modern web interfaces. Every line of code is written with purpose and longevity in mind.</p>
+      <div class="section-title" data-i18n="about_section_title">Профиль инженера</div>
+      <h2 class="section-heading" data-i18n="about_section_heading">Об авторе</h2>
+      <div style="max-width: 800px; color: var(--text-muted); font-size: 1.1rem; display: flex; flex-direction: column; gap: 1.5rem;">
+        <p data-i18n="about_p1">Привет! Меня зовут <strong>Асман Рахманов</strong> (известный в сети как <strong>aspaloyy</strong>). Я профессиональный разработчик и программный инженер из <strong>Кыргызстана</strong>.</p>
+        <p data-i18n="about_p2">Я создаю надежные программные системы, инструменты разработки и мобильные приложения. Под разработческим именем <strong>Aspaloyy</strong> мои продукты публикуются на платформе <strong>Google Play Market</strong>.</p>
+        <p data-i18n="about_p3">В текущий момент ключевым направлением моей работы является разработка <strong>Antares</strong> — передового ИИ-ассистента с интеграцией в Visual Studio, локальным управлением кодовой базой и автономными возможностями.</p>
       </div>
     </div>
   </main>
 
   <footer>
     <div class="container" style="display:flex; justify-content:space-between; width:100%;">
-      <div>© aspaloyy.com. All systems operational.</div>
-      <div style="font-family: var(--font-mono); color: var(--cyan);">System Profile</div>
+      <div data-i18n="footer_rights">© aspaloyy.com — Асман Рахманов. Все системы функционируют.</div>
+      <div style="font-family: var(--font-mono); color: var(--cyan);">Кыргызстан • Kyrgyzstan</div>
     </div>
   </footer>
 
+  <script src="../js/i18n.js"></script>
 </body>
 </html>
