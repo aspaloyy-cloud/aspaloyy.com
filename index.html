@@ -1,242 +1,178 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="ru" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>aspaloyy.com — Systems Architecture & Distributed Core</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Асман Рахманов — Software & Systems Architect</title>
+    <meta name="description" content="Инженер-программист из Бишкека. Создаю бэкенд-системы, распределенные сервисы и низкоуровневые компоненты.">
+    
+    <!-- Подключаем чистые современные шрифты без искусственных модификаций -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Geist', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        background: '#09090b',
+                        surface: '#121215',
+                        border: '#27272a',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
+<body class="bg-background text-zinc-100 font-sans antialiased selection:bg-zinc-200 selection:text-zinc-900 min-h-screen flex flex-col justify-between">
 
-  <!-- Background grid & lighting effects -->
-  <div class="bg-grid"></div>
-  <div class="ambient-glow"></div>
+    <main class="max-w-2xl mx-auto px-6 py-20 md:py-28 w-full">
+        
+        <!-- Header / Hero -->
+        <header class="mb-16">
+            <div class="flex items-center justify-between mb-4">
+                <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-white">
+                    Асман Рахманов
+                </h1>
+                <span class="inline-flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Bishkek, KG
+                </span>
+            </div>
+            
+            <p class="text-zinc-400 font-mono text-sm mb-6">
+                Software Engineer & Distributed Systems Architect
+            </p>
+            
+            <p class="text-zinc-300 leading-relaxed text-sm md:text-base mb-8">
+                Занимаюсь проектированием бэкенд-архитектуры, разработкой отказоустойчивых распределенных сервисов и оптимизацией производительности критичных участков кода. Предпочитаю строгую типизацию, простой код без лишних абстракций и глубокое понимание того, как работают сетевые протоколы и железо.
+            </p>
+            
+            <!-- Links / Contacts -->
+            <div class="flex flex-wrap items-center gap-4 text-xs font-mono">
+                <a href="https://github.com/aspaloyy" target="_blank" rel="noopener noreferrer" class="text-zinc-300 hover:text-white transition-colors flex items-center gap-1.5 py-1 px-2.5 rounded bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700">
+                    GitHub / aspaloyy
+                </a>
+                <a href="https://t.me/aspaloyy" target="_blank" rel="noopener noreferrer" class="text-zinc-300 hover:text-white transition-colors flex items-center gap-1.5 py-1 px-2.5 rounded bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700">
+                    Telegram / @aspaloyy
+                </a>
+                <a href="mailto:contact@aspaloyy.com" class="text-zinc-300 hover:text-white transition-colors flex items-center gap-1.5 py-1 px-2.5 rounded bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700">
+                    Email
+                </a>
+            </div>
+        </header>
 
-  <!-- Header / Navigation -->
-  <header class="site-header">
-    <div class="container nav-container">
-      <a href="#" class="logo">
-        <span class="logo-mark">▲</span>
-        <span>aspaloyy<span class="logo-tld">.com</span></span>
-      </a>
-      <nav class="nav-links">
-        <a href="#overview" class="nav-link active">Overview</a>
-        <a href="#architecture" class="nav-link">Architecture</a>
-        <a href="#terminal-section" class="nav-link">CLI / Terminal</a>
-        <a href="#projects" class="nav-link">Projects</a>
-      </nav>
-      <div class="header-actions">
-        <div class="status-indicator">
-          <span class="pulse-dot"></span>
-          <span class="status-text">US-EAST-1 // NOMINAL</span>
+        <!-- Technical Stack -->
+        <section class="mb-16">
+            <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-500 mb-4">
+                Технический стек и специализация
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+                <div class="p-3.5 bg-surface border border-border rounded-lg">
+                    <div class="text-zinc-200 font-semibold mb-1">Языки программирования</div>
+                    <div class="text-zinc-400">Go, Rust, TypeScript, Python</div>
+                </div>
+                <div class="p-3.5 bg-surface border border-border rounded-lg">
+                    <div class="text-zinc-200 font-semibold mb-1">Архитектура & Сети</div>
+                    <div class="text-zinc-400">Distributed Systems, gRPC, Raft, TCP/IP</div>
+                </div>
+                <div class="p-3.5 bg-surface border border-border rounded-lg">
+                    <div class="text-zinc-200 font-semibold mb-1">Хранилища данных</div>
+                    <div class="text-zinc-400">PostgreSQL, Redis, ClickHouse, RocksDB</div>
+                </div>
+                <div class="p-3.5 bg-surface border border-border rounded-lg">
+                    <div class="text-zinc-200 font-semibold mb-1">Инфраструктура</div>
+                    <div class="text-zinc-400">Docker, Linux, CI/CD, Nginx</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Projects -->
+        <section class="mb-16">
+            <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-500 mb-6">
+                Избранные проекты и наработки
+            </h2>
+            
+            <div class="space-y-6">
+                <!-- Project 1 -->
+                <article class="group relative bg-surface/50 border border-border hover:border-zinc-700 transition-colors p-5 rounded-lg">
+                    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+                        <h3 class="font-medium text-white text-sm md:text-base flex items-center gap-2">
+                            Distributed Event Broker
+                        </h3>
+                        <span class="text-xs font-mono text-zinc-500">Go • Raft • gRPC</span>
+                    </div>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                        Легковесный прототип распределенного брокера сообщений с поддержкой репликации на базе алгоритма Raft. Разработан для минимизации накладных расходов при сетевых переключениях и предсказуемой латентности при записи.
+                    </p>
+                    <div class="flex items-center gap-4 text-xs font-mono">
+                        <a href="https://github.com/aspaloyy" target="_blank" rel="noopener noreferrer" class="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-white transition-colors">
+                            Исходный код →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="group relative bg-surface/50 border border-border hover:border-zinc-700 transition-colors p-5 rounded-lg">
+                    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+                        <h3 class="font-medium text-white text-sm md:text-base flex items-center gap-2">
+                            Concurrency Sandbox
+                        </h3>
+                        <span class="text-xs font-mono text-zinc-500">Rust • Tokio</span>
+                    </div>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                        Набор утилит и бенчмарков для тестирования моделей параллельных вычислений, управления пулами воркеров и безопасного разделения памяти в многопоточных конвейерах обработки данных.
+                    </p>
+                    <div class="flex items-center gap-4 text-xs font-mono">
+                        <a href="https://github.com/aspaloyy" target="_blank" rel="noopener noreferrer" class="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-white transition-colors">
+                            Исходный код →
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Principles -->
+        <section class="mb-12">
+            <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-500 mb-4">
+                Инженерные принципы
+            </h2>
+            <ul class="space-y-2 text-sm text-zinc-300 font-mono">
+                <li class="flex items-start gap-2">
+                    <span class="text-zinc-500">01.</span>
+                    <span>Простота поддерживаемости превыше чрезмерного усложнения архитектуры.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-zinc-500">02.</span>
+                    <span>Отказоустойчивость закладывается на уровне проектирования, а не исправляется хотфиксами.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-zinc-500">03.</span>
+                    <span>Измерение производительности важнее догадок и микрооптимизаций «на глаз».</span>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-border bg-surface/30 py-6 px-6">
+        <div class="max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500">
+            <div>© 2026 Асман Рахманов. All rights reserved.</div>
+            <div class="flex items-center gap-4">
+                <span>Bishkek, Kyrgyzstan</span>
+                <span>•</span>
+                <span class="text-zinc-400">No AI-slop included</span>
+            </div>
         </div>
-        <a href="https://github.com/aspaloyy" target="_blank" rel="noopener" class="btn-github">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-          <span>GitHub</span>
-        </a>
-      </div>
-    </div>
-  </header>
+    </footer>
 
-  <!-- Main Content -->
-  <main class="container main-content">
-
-    <!-- Hero Section -->
-    <section id="overview" class="hero-section">
-      <div class="hero-badge">
-        <span class="badge-tag">CORE v4.2</span>
-        <span class="badge-text">Distributed Edge Runtime Engine</span>
-      </div>
-      <h1 class="hero-title">
-        High-Performance Distributed <span class="gradient-text">Systems & Runtimes</span>
-      </h1>
-      <p class="hero-description">
-        Architecting sub-millisecond execution engines, zero-copy memory meshes, and deterministic consensus layers for high-frequency cloud workloads.
-      </p>
-      
-      <div class="hero-cta">
-        <a href="#terminal-section" class="btn btn-primary">
-          <span>Launch Interactive CLI</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="https://github.com/aspaloyy" target="_blank" rel="noopener" class="btn btn-secondary">
-          <span>Explore Repositories</span>
-        </a>
-      </div>
-
-      <!-- Live Metrics Bar -->
-      <div class="metrics-bar">
-        <div class="metric-item">
-          <span class="metric-label">CLUSTER LOAD</span>
-          <span class="metric-value" id="metric-cpu">14.2%</span>
-        </div>
-        <div class="metric-divider"></div>
-        <div class="metric-item">
-          <span class="metric-label">MEMORY MESH</span>
-          <span class="metric-value" id="metric-mem">2.4 TB / 16 TB</span>
-        </div>
-        <div class="metric-divider"></div>
-        <div class="metric-item">
-          <span class="metric-label">GLOBAL P99 LATENCY</span>
-          <span class="metric-value" id="metric-latency">0.82 ms</span>
-        </div>
-        <div class="metric-divider"></div>
-        <div class="metric-item">
-          <span class="metric-label">CONSENSUS</span>
-          <span class="metric-value text-success">RAFT 3-NODE OK</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Architecture Section -->
-    <section id="architecture" class="section">
-      <div class="section-header">
-        <h2>System Architecture & Core Stack</h2>
-        <p>Engineered for deterministic execution, extreme fault tolerance, and zero-allocation performance.</p>
-      </div>
-
-      <div class="grid-cards">
-        <div class="card spotlight-card">
-          <div class="card-icon">⚡</div>
-          <h3>V8 Isolate Sandboxing</h3>
-          <p>Instantaneous cold starts (&lt; 0.4ms) with secure tenant isolation via lightweight V8 memory spaces and zero OS process overhead.</p>
-          <div class="card-footer">
-            <span class="tag">Runtime</span>
-            <span class="tag">TypeScript / Rust</span>
-          </div>
-        </div>
-
-        <div class="card spotlight-card">
-          <div class="card-icon">🔄</div>
-          <h3>Zero-Copy Memory Mesh</h3>
-          <p>Inter-node communication routed through shared ring buffers (`shm_ring`), eliminating serialization penalties across IPC boundaries.</p>
-          <div class="card-footer">
-            <span class="tag">Kernel IPC</span>
-            <span class="tag">C++ / Rust</span>
-          </div>
-        </div>
-
-        <div class="card spotlight-card">
-          <div class="card-icon">🛡️</div>
-          <h3>Deterministic Raft Sharding</h3>
-          <p>Strongly consistent distributed state storage with automated failover and epoch-based rebalancing for high-availability clusters.</p>
-          <div class="card-footer">
-            <span class="tag">Consensus</span>
-            <span class="tag">Go / Raft</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Interactive Terminal Section -->
-    <section id="terminal-section" class="section">
-      <div class="section-header">
-        <h2>Interactive Cluster CLI</h2>
-        <p>Execute live diagnostic commands against the distributed runtime node.</p>
-      </div>
-
-      <div class="terminal-window">
-        <div class="terminal-header">
-          <div class="terminal-dots">
-            <span class="dot dot-red"></span>
-            <span class="dot dot-yellow"></span>
-            <span class="dot dot-green"></span>
-          </div>
-          <div class="terminal-title">aspaloyy@edge-node-01:~</div>
-          <div class="terminal-actions">
-            <button id="terminal-clear" class="terminal-btn">Clear</button>
-          </div>
-        </div>
-        <div class="terminal-body" id="terminal-output">
-          <div class="terminal-line text-muted">ASPALOYY Edge Runtime CLI v4.2.0 (x86_64-linux-gnu)</div>
-          <div class="terminal-line text-muted">Type <span class="text-accent">help</span> to view available system commands.</div>
-          <div class="terminal-line">&nbsp;</div>
-        </div>
-        <div class="terminal-prompt-row">
-          <span class="prompt-symbol">❯</span>
-          <input type="text" id="terminal-input" placeholder="Type a command (e.g. status, metrics, deploy, benchmark)..." autocomplete="off" spellcheck="false">
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Projects Section -->
-    <section id="projects" class="section">
-      <div class="section-header">
-        <h2>Featured Distributed Repositories</h2>
-        <p>Production-grade open-source components powering high-frequency infrastructure.</p>
-      </div>
-
-      <div class="projects-grid">
-        <div class="project-card spotlight-card">
-          <div class="project-header">
-            <h3>Edge Runtime Core</h3>
-            <span class="version-badge">v1.4.0</span>
-          </div>
-          <p>Sub-millisecond cold start execution engine designed for high-frequency distributed workloads and serverless functions.</p>
-          <div class="project-code-snippet">
-            <code>cargo run --release --features="zero-copy"</code>
-            <button class="copy-btn" data-clipboard="cargo run --release --features=&quot;zero-copy&quot;">Copy</button>
-          </div>
-          <div class="project-footer">
-            <span class="lang-dot rust"></span> Rust
-            <span class="stars">★ 1.4k</span>
-          </div>
-        </div>
-
-        <div class="project-card spotlight-card">
-          <div class="project-header">
-            <h3>Telemetry Mesh</h3>
-            <span class="version-badge">v0.9.2</span>
-          </div>
-          <p>Real-time metrics aggregator and distributed observability pipeline with zero-copy buffer pools and OpenTelemetry compliance.</p>
-          <div class="project-code-snippet">
-            <code>npm install @aspaloyy/telemetry-mesh</code>
-            <button class="copy-btn" data-clipboard="npm install @aspaloyy/telemetry-mesh">Copy</button>
-          </div>
-          <div class="project-footer">
-            <span class="lang-dot ts"></span> TypeScript
-            <span class="stars">★ 890</span>
-          </div>
-        </div>
-
-        <div class="project-card spotlight-card">
-          <div class="project-header">
-            <h3>Storage Shard Engine</h3>
-            <span class="version-badge">v2.1.0</span>
-          </div>
-          <p>Deterministic consensus storage layer leveraging RAFT protocol for high-availability partitioned multi-region clusters.</p>
-          <div class="project-code-snippet">
-            <code>go get github.com/aspaloyy/shard-engine</code>
-            <button class="copy-btn" data-clipboard="go get github.com/aspaloyy/shard-engine">Copy</button>
-          </div>
-          <div class="project-footer">
-            <span class="lang-dot go"></span> Go
-            <span class="stars">★ 2.1k</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-container">
-      <div class="footer-left">
-        <span class="logo-mark">▲</span>
-        <span>© 2026 aspaloyy.com. All rights reserved.</span>
-      </div>
-      <div class="footer-links">
-        <a href="https://github.com/aspaloyy" target="_blank" rel="noopener">GitHub</a>
-        <a href="mailto:contact@aspaloyy.com">Contact</a>
-        <a href="#overview">Back to top ↑</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="assets/js/app.js"></script>
 </body>
 </html>
