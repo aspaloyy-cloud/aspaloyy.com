@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asman Rahmanov — Software & Game Developer</title>
+<meta name="description" content="Personal site of Asman Rahmanov (Aspaloyy) — software and game developer from Bishkek, Kyrgyzstan. Systems architecture, distributed core, game development.">
+<style>
+  :root{
+    --bg:#07090f;
+    --bg-2:#0b0f1a;
+    --card:rgba(255,255,255,.04);
+    --card-border:rgba(255,255,255,.09);
+    --text:#e8ecf4;
+    --muted:#93a0b4;
+    --accent:#6ea8ff;
+    --accent-2:#9b6eff;
+    --radius:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+  /* ambient background */
+  .glow{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+  .glow::before,.glow::after{
+    content:"";position:absolute;width:56vw;height:56vw;border-radius:50%;
+    filter:blur(120px);opacity:.16;
+  }
+  .glow::before{background:var(--accent);top:-22vw;left:-14vw}
+  .glow::after{background:var(--accent-2);bottom:-26vw;right:-16vw}
+  .grid{
+    position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.35;
+    background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 20%,#000 30%,transparent 75%);
+  }
+
+  header{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);background:rgba(7,9,15,.72);
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:700;letter-spacing:.06em;font-size:1.05rem}
+  .logo span{background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{color:var(--muted);font-size:.94rem;transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .burger{display:none;background:none;border:0;color:var(--text);font-size:1.5rem;cursor:pointer}
+
+  section{padding:96px 0}
+  .eyebrow{
+    display:inline-block;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:14px;font-weight:600;
+  }
+  h1{font-size:clamp(2.4rem,6vw,4rem);line-height:1.08;font-weight:800;letter-spacing:-.02em}
+  h2{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:750;letter-spacing:-.01em;margin-bottom:10px}
+  .sub{color:var(--muted);max-width:640px;margin-top:18px;font-size:1.05rem}
+  .grad{background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* hero */
+  #home{min-height:92vh;display:flex;align-items:center}
+  .hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;padding:12px 26px;border-radius:999px;font-weight:600;font-size:.95rem;
+    border:1px solid var(--card-border);background:var(--card);transition:.2s;
+  }
+  .btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.22)}
+  .btn.primary{
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    border:0;color:#05070d;
+  }
+  .hero-meta{display:flex;gap:34px;margin-top:52px;flex-wrap:wrap}
+  .hero-meta div b{display:block;font-size:1.5rem;font-weight:750}
+  .hero-meta div span{color:var(--muted);font-size:.86rem}
+
+  /* cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:38px}
+  .card{
+    background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);
+    padding:26px;transition:.25s;
+  }
+  .card:hover{transform:translateY(-4px);border-color:rgba(110,168,255,.4);background:rgba(255,255,255,.06)}
+  .card h3{font-size:1.08rem;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.94rem}
+  .tag{
+    display:inline-block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent);border:1px solid rgba(110,168,255,.35);border-radius:999px;
+    padding:3px 10px;margin-bottom:12px;
+  }
+
+  /* skills */
+  .skills{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .skill{
+    padding:9px 18px;border-radius:999px;background:var(--card);
+    border:1px solid var(--card-border);font-size:.92rem;color:var(--text);
+  }
+
+  /* contact */
+  .contact{display:flex;gap:16px;flex-wrap:wrap;margin-top:30px}
+
+  footer{
+    border-top:1px solid rgba(255,255,255,.06);padding:34px 0;color:var(--muted);
+    font-size:.88rem;text-align:center;
+  }
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.visible{opacity:1;transform:none}
+
+  @media (max-width:760px){
+    .burger{display:block}
+    .nav-links{
+      display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;
+      gap:18px;padding:22px 24px;background:rgba(7,9,15,.97);
+      border-bottom:1px solid rgba(255,255,255,.08);align-items:flex-start;
+    }
+    .nav-links.open{display:flex}
+    section{padding:70px 0}
+  }
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="grid"></div>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="#home">aspaloyy<span>.dev</span></a>
+      <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
+      <div class="nav-links" id="nav">
+        <a href="#about" onclick="closeNav()">About</a>
+        <a href="#projects" onclick="closeNav()">Projects</a>
+        <a href="#skills" onclick="closeNav()">Skills</a>
+        <a href="#contact" onclick="closeNav()">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section id="home">
+  <div class="wrap">
+    <div class="eyebrow reveal">Software &amp; Game Developer</div>
+    <h1 class="reveal">Asman Rahmanov<br><span class="grad">Builds systems that people play with.</span></h1>
+    <p class="sub reveal">Developer from Bishkek, Kyrgyzstan. Working across game development,
+      distributed systems and tooling — from narrative 3D action games to backend core infrastructure.</p>
+    <div class="hero-cta reveal">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+    <div class="hero-meta reveal">
+      <div><b>3+</b><span>Shipped products</span></div>
+      <div><b>2</b><span>Open platforms</span></div>
+      <div><b>&#9679;</b><span>Bishkek, Kyrgyzstan</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow reveal">About</div>
+    <h2 class="reveal">Architecture first, pixels second.</h2>
+    <p class="sub reveal">I care about the invisible layer: how a system is structured, how it scales,
+      how it fails. Whether it is a game loop or a distributed service, the goal is the same —
+      make it simple, make it fast, make it last.</p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow reveal">Projects</div>
+    <h2 class="reveal">Selected work</h2>
+    <div class="cards">
+      <div class="card reveal">
+        <span class="tag">Game</span>
+        <h3>Manas: Prologue</h3>
+        <p>Story-driven 3D action-RPG in a semi-open world, inspired by the Kyrgyz epic of Manas.</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag">Game</span>
+        <h3>Span It</h3>
+        <p>Hyper-casual 2D arcade game published on Google Play. Fast sessions, one-thumb controls.</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag">Tooling</span>
+        <h3>Scribe</h3>
+        <p>Internal knowledge-base system that ingests files, pages, videos and notes into structured, queryable data.</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag">Web</span>
+        <h3>aspaloyy.com</h3>
+        <p>This site. Static, dependency-free, deployed to GitHub Pages on a custom domain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow reveal">Skills</div>
+    <h2 class="reveal">Stack</h2>
+    <div class="skills reveal">
+      <span class="skill">C#</span>
+      <span class="skill">.NET</span>
+      <span class="skill">Unity</span>
+      <span class="skill">Game Architecture</span>
+      <span class="skill">Distributed Systems</span>
+      <span class="skill">TypeScript</span>
+      <span class="skill">Web</span>
+      <span class="skill">Azure</span>
+      <span class="skill">SQL</span>
+      <span class="skill">CI/CD</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="eyebrow reveal">Contact</div>
+    <h2 class="reveal">Let's build something.</h2>
+    <p class="sub reveal">Open to collaboration on games, tooling and backend systems.</p>
+    <div class="contact reveal">
+      <a class="btn" href="https://github.com/aspaloyy-cloud">GitHub</a>
+      <a class="btn" href="mailto:hello@aspaloyy.com">hello@aspaloyy.com</a>
+      <a class="btn" href="https://t.me/Aspaloyy">Telegram</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">&copy; 2025 Asman Rahmanov &middot; aspaloyy.com</div>
+</footer>
+
+<script>
+  function closeNav(){document.getElementById('nav').classList.remove('open')}
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',closeNav));
+
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
