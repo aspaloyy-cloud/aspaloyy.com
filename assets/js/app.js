@@ -1,86 +1,112 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
-  // Real-time telemetry simulation ticker
-  const updateTelemetryValues = () => {
-    const cryoEl = document.getElementById('telemetry-cryo');
-    const bandwidthEl = document.getElementById('telemetry-bandwidth');
-    const fluxEl = document.getElementById('telemetry-flux');
-    
-    if (cryoEl) {
-      const val = (4.14 + Math.random() * 0.04).toFixed(3);
-      cryoEl.textContent = `${val} K`;
-    }
-    if (bandwidthEl) {
-      const val = (14.1 + Math.random() * 0.4).toFixed(2);
-      bandwidthEl.textContent = `${val} TB/s`;
-    }
-    if (fluxEl) {
-      const val = (1284 + Math.floor(Math.random() * 12)).toLocaleString();
-      fluxEl.textContent = `${val} SFU`;
-    }
-  };
+/* ASPALOYY SYSTEMS — Production Application Script */
 
-  setInterval(updateTelemetryValues, 2000);
+document.addEventListener('DOMContentLoaded', () => {
+  // Mobile Navigation Toggle
+  const mobileToggle = document.querySelector('.mobile-toggle');
+  const navLinks = document.querySelector('.nav-links');
 
-  // Log stream simulation
-  const logContainer = document.getElementById('live-log-stream');
-  if (logContainer) {
-    const logMessages = [
-      "SYS_LOCK: Interferometer baseline recalibrated to 4.21μm",
-      "CORONAGRAPH: Solar flare detected at sector L1-Beta, telemetry buffered",
-      "QUANTUM_LINK: QKD key distribution stable across 14 nodes",
-      "SPECTROMETER: Hydrogen alpha line shift confirmed (+0.0014z)",
-      "CRYOGEN: Pulse tube cooler #2 operating at 85% efficiency",
-      "EPHEMERIS: Orbital decay correction calculated: -0.02mm/s"
-    ];
-
-    setInterval(() => {
-      const msg = logMessages[Math.floor(Math.random() * logMessages.length)];
-      const timestamp = new Date().toISOString().split('T')[1].slice(0, 8);
-      const div = document.createElement('div');
-      div.className = 'font-mono text-xs text-gray-400 py-1 border-b border-[#22222b] flex justify-between';
-      div.innerHTML = `<span class="text-sky-400">[${timestamp}]</span> <span>${msg}</span>`;
-      logContainer.prepend(div);
-      if (logContainer.children.length > 8) {
-        logContainer.lastChild.remove();
-      }
-    }, 3500);
+  if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', !expanded);
+    });
   }
 
-  // Modal Image Inspector for Gallery
-  window.openInspector = function(title, raDec, sensor, desc, imgSrc) {
-    const modal = document.getElementById('image-inspector-modal');
-    if (!modal) return;
-    document.getElementById('modal-title').textContent = title;
-    document.getElementById('modal-radec').textContent = raDec;
-    document.getElementById('modal-sensor').textContent = sensor;
-    document.getElementById('modal-desc').textContent = desc;
-    document.getElementById('modal-img').src = imgSrc || 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop';
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-  };
+  // Copy Code Buttons
+  const copyButtons = document.querySelectorAll('.copy-btn');
+  copyButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const targetSelector = button.getAttribute('data-clipboard-target');
+      const targetElement = targetSelector ? document.querySelector(targetSelector) : button.parentElement.nextElementSibling?.querySelector('pre') || button.closest('.terminal-box')?.querySelector('pre');
 
-  window.closeInspector = function() {
-    const modal = document.getElementById('image-inspector-modal');
-    if (modal) {
-      modal.classList.remove('flex');
-      modal.classList.add('hidden');
-    }
-  };
+      if (targetElement) {
+        const textToCopy = targetElement.textContent;
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          const originalText = button.textContent;
+          button.textContent = 'Copied';
+          button.style.color = 'var(--success)';
+          button.style.borderColor = 'var(--success)';
+          setTimeout(() => {
+            button.textContent = originalText;
+            button.style.color = '';
+            button.style.borderColor = '';
+          }, 2000);
+        }).catch(err => {
+          console.error('Failed to copy text: ', err);
+        });
+      }
+    });
+  });
 
-  // Contact Form Submission
-  const contactForm = document.getElementById('scientific-request-form');
+  // Tabs Functionality
+  const tabGroups = document.querySelectorAll('.tabs');
+  tabGroups.forEach(group => {
+    const buttons = group.querySelectorAll('.tab-btn');
+    const container = group.nextElementSibling; // assumes panels are direct siblings after or inside parent
+    
+    buttons.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const targetId = btn.getAttribute('data-tab');
+        const parentSection = group.closest('section') || group.parentElement;
+        const panels = parentSection.querySelectorAll('.tab-panel');
+
+        panels.forEach(panel => {
+          if (panel.id === targetId) {
+            panel.classList.add('active');
+          } else {
+            panel.classList.remove('active');
+          }
+        });
+      });
+    });
+  });
+
+  // Interactive Benchmark / Calculator (if present)
+  const calcSlider = document.querySelector('#req-slider');
+  const reqOutput = document.querySelector('#req-output');
+  const latencyOutput = document.querySelector('#latency-output');
+  const costOutput = document.querySelector('#cost-output');
+
+  if (calcSlider && reqOutput && latencyOutput && costOutput) {
+    const updateCalculations = () => {
+      const val = parseInt(calcSlider.value);
+      reqOutput.textContent = val.toLocaleString() + ' req/sec';
+      // Simulated metrics for Edge Runtime vs Traditional
+      const latency = Math.max(4.2, (18.5 - (val / 100000) * 2)).toFixed(1);
+      const cost = (val * 0.000012).toFixed(2);
+      latencyOutput.textContent = latency + ' ms';
+      costOutput.textContent = '$' + cost + ' / mo';
+    };
+    calcSlider.addEventListener('input', updateCalculations);
+    updateCalculations();
+  }
+
+  // Form Validation & Submission feedback
+  const contactForm = document.querySelector('#contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const btn = contactForm.querySelector('button[type="submit"]');
-      const originalText = btn.textContent;
-      btn.textContent = 'TRANSMITTING PACKETS...';
-      btn.disabled = true;
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Transmitting...';
+      submitBtn.disabled = true;
+
       setTimeout(() => {
-        btn.textContent = 'TRANSMISSION ACKNOWLEDGED [ID: 9942-X]';
-        btn.classList.add('bg-emerald-900', 'text-emerald-200');
+        submitBtn.textContent = 'Transmission Confirmed';
+        submitBtn.style.backgroundColor = 'var(--success)';
+        submitBtn.style.color = '#fff';
         contactForm.reset();
-      }, 1500);
+        setTimeout(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.style.backgroundColor = '';
+          submitBtn.style.color = '';
+          submitBtn.disabled = false;
+        }, 3000);
+      }, 1000);
     });
   }
 });

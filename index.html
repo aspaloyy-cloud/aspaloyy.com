@@ -1,113 +1,113 @@
 <!DOCTYPE html>
-<html lang='en' class='dark'>
+<html lang="en">
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>ASTRALIS // Deep-Space Telemetry & Interferometry Array</title>
-  <script src='https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'></script>
-  <link rel='stylesheet' href='assets/css/style.css'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>aspaloyy.com — Systems Architecture & Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class='bg-tech-grid min-h-screen flex flex-col'>
-  <header class='border-b border-[#22222b] bg-[#070709]/95 backdrop-blur sticky top-0 z-50'>
-    <div class='max-w-7xl mx-auto px-4 h-16 flex items-center justify-between'>
-      <div class='flex items-center gap-6'>
-        <a href='index.html' class='font-mono text-sm font-bold tracking-wider text-white flex items-center gap-2'>
-          <span class='w-2 h-2 rounded-full bg-sky-400 animate-pulse'></span>
-          ASTRALIS<span class='text-gray-500'>//</span>CORE
-        </a>
-        <nav class='hidden md:flex items-center gap-1 font-mono text-xs'>
-          <a href='index.html' class='px-3 py-1.5 rounded bg-[#16161b] text-white border border-[#3f3f46]'>Overview</a>
-          <a href='telemetry.html' class='px-3 py-1.5 rounded text-gray-400 hover:text-white hover:bg-[#141419] transition'>Telemetry</a>
-          <a href='missions.html' class='px-3 py-1.5 rounded text-gray-400 hover:text-white hover:bg-[#141419] transition'>Missions</a>
-          <a href='observations.html' class='px-3 py-1.5 rounded text-gray-400 hover:text-white hover:bg-[#141419] transition'>Spectroscopy</a>
-          <a href='gallery.html' class='px-3 py-1.5 rounded text-gray-400 hover:text-white hover:bg-[#141419] transition'>Archive</a>
-          <a href='about.html' class='px-3 py-1.5 rounded text-gray-400 hover:text-white hover:bg-[#141419] transition'>Manifesto</a>
-          <a href='contact.html' class='px-3 py-1.5 rounded text-gray-400 hover:text-white hover:bg-[#141419] transition'>Transmit</a>
-        </nav>
-      </div>
-      <div class='flex items-center gap-3'>
-        <span class='badge badge-success'>
-          <span class='w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping'></span>
-          SYS_ONLINE
-        </span>
-        <span class='font-mono text-xs text-gray-400 hidden sm:inline' id='telemetry-cryo'>4.152 K</span>
+<body>
+
+  <header>
+    <div class="container nav-inner">
+      <a href="/" class="logo">
+        aspaloyy<span>.com</span>
+      </a>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>Systems Nominal</span>
       </div>
     </div>
   </header>
-  <main class='flex-1 max-w-7xl mx-auto w-full px-4 py-8 space-y-12'>
-    <section class='grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4'>
-      <div class='lg:col-span-7 space-y-6'>
-        <div class='inline-flex items-center gap-2 font-mono text-xs text-sky-400 px-3 py-1 rounded bg-sky-950/30 border border-sky-800/40'>
-          <span>PROJECT_ID: AST-2026-X9</span>
-          <span>•</span>
-          <span>DISTRIBUTED ARRAY v4.2</span>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Systems Architecture & High-Performance Engineering</h1>
+      <p>Designing resilient distributed systems, low-latency runtimes, and precise digital infrastructure with zero architectural compromise.</p>
+      <div class="btn-group">
+        <a href="https://github.com/aspaloyy" target="_blank" rel="noopener" class="btn btn-primary">
+          GitHub Profile
+        </a>
+        <a href="mailto:contact@aspaloyy.com" class="btn btn-secondary">
+          Get in Touch
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Core Engineering & Stack</h2>
+      <div class="stack-list">
+        <div class="stack-item">
+          <div class="category">Language Core</div>
+          <div class="value">TypeScript / Rust / Go</div>
         </div>
-        <h1 class='text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-none'>
-          Deep-Space Interferometry & Autonomous Tracking.
-        </h1>
-        <p class='text-gray-400 text-base sm:text-lg max-w-2xl font-sans'>
-          ASTRALIS is an autonomous astronomical laboratory operating a distributed array of orbital optical interferometers. We acquire high-resolution hyperspectral datasets across deep void coordinates for astrophysicists and research institutions.
-        </p>
-        <div class='flex flex-wrap gap-4 pt-2'>
-          <a href='telemetry.html' class='btn-tech btn-tech-primary'>
-            <span>Launch Telemetry Console</span>
-            <span class='font-mono text-xs'>→</span>
-          </a>
-          <a href='missions.html' class='btn-tech'>
-            <span>Explore Orbital Fleet</span>
-          </a>
+        <div class="stack-item">
+          <div class="category">Infrastructure</div>
+          <div class="value">Linux / Docker / K8s</div>
+        </div>
+        <div class="stack-item">
+          <div class="category">Architecture</div>
+          <div class="value">Distributed / Event-Driven</div>
+        </div>
+        <div class="stack-item">
+          <div class="category">Runtime</div>
+          <div class="value">V8 Isolates / Edge</div>
         </div>
       </div>
-      <div class='lg:col-span-5 panel p-6 space-y-6 font-mono text-xs'>
-        <div class='flex justify-between items-center border-b border-[#22222b] pb-3'>
-          <span class='text-gray-400 uppercase tracking-wider'>Subsystem Status</span>
-          <span class='text-emerald-400 font-bold'>NOMINAL</span>
-        </div>
-        <div class='space-y-4'>
+    </section>
+
+    <section>
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
           <div>
-            <div class='flex justify-between text-gray-400 mb-1'>
-              <span>Cryogenic Core Temperature</span>
-              <span class='text-white' id='telemetry-cryo-card'>4.152 K</span>
-            </div>
-            <div class='w-full bg-[#16161b] h-1.5 rounded overflow-hidden'>
-              <div class='bg-sky-400 h-full w-[42%]'></div>
-            </div>
+            <h3>Edge Runtime Core</h3>
+            <p>Sub-millisecond cold start execution engine designed for high-frequency distributed workloads.</p>
           </div>
-          <div>
-            <div class='flex justify-between text-gray-400 mb-1'>
-              <span>Quantum Link Bandwidth</span>
-              <span class='text-white' id='telemetry-bandwidth'>14.24 TB/s</span>
-            </div>
-            <div class='w-full bg-[#16161b] h-1.5 rounded overflow-hidden'>
-              <div class='bg-emerald-400 h-full w-[88%]'></div>
-            </div>
-          </div>
-          <div>
-            <div class='flex justify-between text-gray-400 mb-1'>
-              <span>Interferometer Baseline Sync</span>
-              <span class='text-white'>99.98%</span>
-            </div>
-            <div class='w-full bg-[#16161b] h-1.5 rounded overflow-hidden'>
-              <div class='bg-purple-400 h-full w-[99%]'></div>
-            </div>
+          <div class="project-meta">
+            <span class="project-tag">Rust</span>
+            <span>v1.4.0</span>
           </div>
         </div>
-        <div class='bg-[#121217] p-3 rounded border border-[#22222b] text-[11px] text-gray-400 space-y-1'>
-          <div class='text-sky-400 font-semibold'>[LIVE TELEMETRY FEED]</div>
-          <div id='live-log-stream' class='space-y-1'>
-            <div class='flex justify-between'><span>[16:04:12] Baseline lock verified across 14 nodes</span><span class='text-emerald-400'>OK</span></div>
-            <div class='flex justify-between'><span>[16:04:08] Solar flux index stable at 1284 SFU</span><span class='text-emerald-400'>OK</span></div>
+
+        <div class="project-card">
+          <div>
+            <h3>Telemetry Mesh</h3>
+            <p>Real-time metrics aggregator and distributed observability pipeline with zero-copy buffers.</p>
+          </div>
+          <div class="project-meta">
+            <span class="project-tag">TypeScript</span>
+            <span>v0.9.2</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <h3>Storage Shard Engine</h3>
+            <p>Deterministic consensus storage layer leveraging RAFT protocol for high-availability clusters.</p>
+          </div>
+          <div class="project-meta">
+            <span class="project-tag">Go</span>
+            <span>v2.1.0</span>
           </div>
         </div>
       </div>
     </section>
   </main>
-  <footer class='border-t border-[#22222b] bg-[#070709] py-8 mt-16 text-gray-500 font-mono text-xs'>
-    <div class='max-w-7xl mx-auto px-4 flex justify-between items-center'>
-      <div>ASTRALIS RESEARCH LABS // ASPALOYY.COM</div>
-      <div>SECURE_CHANNEL: 256-BIT QKD</div>
+
+  <footer class="container">
+    <div>© <span id="year"></span> aspaloyy.com. All rights reserved.</div>
+    <div class="links">
+      <a href="https://github.com/aspaloyy" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:contact@aspaloyy.com">Contact</a>
     </div>
   </footer>
-  <script src='assets/js/app.js'></script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
