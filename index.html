@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASTRALIS — Deep Space Observatory & Imaging Laboratory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-sky-500 selection:text-white">
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-space-900/80 border-b border-sky-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center space-x-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-purple-600 flex items-center justify-center shadow-lg shadow-sky-500/20">
+          <i class="fa-solid fa-satellite text-white text-lg"></i>
+        </div>
+        <span class="text-2xl font-black tracking-wider bg-gradient-to-r from-white via-sky-200 to-sky-400 bg-clip-text text-transparent">ASTRALIS</span>
+      </a>
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+        <a href="index.html" class="text-sky-400">Home</a>
+        <a href="observations.html" class="text-gray-300 hover:text-sky-400 transition">Observations</a>
+        <a href="gallery.html" class="text-gray-300 hover:text-sky-400 transition">Gallery</a>
+        <a href="about.html" class="text-gray-300 hover:text-sky-400 transition">About</a>
+        <a href="contact.html" class="text-gray-300 hover:text-sky-400 transition">Contact</a>
+      </nav>
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="contact.html" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-purple-600 text-white font-semibold text-sm shadow-lg shadow-sky-500/25">
+          <i class="fa-solid fa-atom mr-2"></i>Request Access
+        </a>
+      </div>
+      <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-slate-900/95 border-b border-sky-500/10 px-4 pt-2 pb-6 space-y-3">
+      <a href="index.html" class="block py-2 text-sky-400 font-medium">Home</a>
+      <a href="observations.html" class="block py-2 text-gray-300">Observations</a>
+      <a href="gallery.html" class="block py-2 text-gray-300">Gallery</a>
+      <a href="about.html" class="block py-2 text-gray-300">About</a>
+      <a href="contact.html" class="block py-2 text-gray-300">Contact</a>
+    </div>
+  </header>
+  <main class="flex-grow">
+    <section class="relative pt-24 pb-32 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-3xl mx-auto space-y-8">
+          <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card text-xs font-mono text-sky-400 border border-sky-500/30">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>DEEP FIELD ARRAY // ONLINE [SECTOR 7G]</span>
+          </div>
+          <h1 class="text-5xl sm:text-7xl font-black tracking-tight text-white leading-none">
+            Mapping The <span class="bg-gradient-to-r from-sky-400 via-indigo-300 to-purple-500 bg-clip-text text-transparent glow-text">Deep Cosmos</span>
+          </h1>
+          <p class="text-lg text-gray-300 font-normal leading-relaxed">
+            ASTRALIS is an autonomous deep-space imaging and astrophysical research laboratory capturing hyper-spectral anomalies, exoplanetary atmospheres, and primordial nebulae.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            <a href="gallery.html" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold shadow-xl shadow-sky-500/30 flex items-center justify-center space-x-3 hover:scale-105 transition">
+              <i class="fa-solid fa-telescope"></i>
+              <span>Explore Latest Captures</span>
+            </a>
+            <a href="observations.html" class="w-full sm:w-auto px-8 py-4 rounded-2xl glass-card text-white font-bold flex items-center justify-center space-x-3 hover:bg-sky-500/10 transition">
+              <i class="fa-solid fa-chart-line"></i>
+              <span>Live Telemetry</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="border-t border-sky-500/10 bg-slate-900/90 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-sky-500 to-purple-600 flex items-center justify-center">
+          <i class="fa-solid fa-satellite text-white text-xs"></i>
+        </div>
+        <span class="text-lg font-bold tracking-wider text-white">ASTRALIS LABS</span>
+      </div>
+      <p class="text-xs text-gray-400 font-mono">© 2026 Astralis Observatory. All cosmic rights reserved.</p>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

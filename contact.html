@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Telescope Access — ASTRALIS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-sky-500 selection:text-white">
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-space-900/80 border-b border-sky-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-purple-600 flex items-center justify-center">
+          <i class="fa-solid fa-satellite text-white text-lg"></i>
+        </div>
+        <span class="text-2xl font-black tracking-wider text-white">ASTRALIS</span>
+      </a>
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+        <a href="index.html" class="text-gray-300 hover:text-sky-400">Home</a>
+        <a href="observations.html" class="text-gray-300 hover:text-sky-400">Observations</a>
+        <a href="gallery.html" class="text-gray-300 hover:text-sky-400">Gallery</a>
+        <a href="about.html" class="text-gray-300 hover:text-sky-400">About</a>
+        <a href="contact.html" class="text-sky-400">Contact</a>
+      </nav>
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="contact.html" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-purple-600 text-white font-semibold text-sm">Request Access</a>
+      </div>
+    </div>
+  </header>
+  <main class="flex-grow py-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="text-center space-y-4">
+        <span class="text-sky-400 font-mono text-sm uppercase tracking-widest">Get in Touch</span>
+        <h1 class="text-4xl sm:text-5xl font-black text-white">Request Telescope Time</h1>
+        <p class="text-gray-400">Submit an observation proposal or contact our astrophysics research team.</p>
+      </div>
+      <div class="glass-card p-8 rounded-2xl">
+        <form onsubmit="event.preventDefault(); alert('Proposal transmitted successfully to Astralis Ground Station.');" class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="text-xs font-mono text-gray-300 uppercase">Researcher Name</label>
+              <input type="text" required placeholder="Dr. Alex Vance" class="w-full bg-slate-900/60 border border-sky-500/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-500 transition">
+            </div>
+            <div class="space-y-2">
+              <label class="text-xs font-mono text-gray-300 uppercase">Institutional Email</label>
+              <input type="email" required placeholder="vance@observatory.org" class="w-full bg-slate-900/60 border border-sky-500/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-500 transition">
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="text-xs font-mono text-gray-300 uppercase">Target Coordinates / Object</label>
+            <input type="text" required placeholder="e.g., NGC 1300 or RA 03h 23m" class="w-full bg-slate-900/60 border border-sky-500/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-500 transition">
+          </div>
+          <div class="space-y-2">
+            <label class="text-xs font-mono text-gray-300 uppercase">Observation Proposal / Notes</label>
+            <rows rows="4" class="w-full"></rows>
+            <textarea required rows="4" placeholder="Describe spectral band requirements and exposure time..." class="w-full bg-slate-900/60 border border-sky-500/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sky-500 transition"></textarea>
+          </div>
+          <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-sky-500 to-purple-600 text-white font-bold shadow-lg shadow-sky-500/30 hover:shadow-sky-500/50 transition">
+            <i class="fa-solid fa-satellite-dish mr-2"></i>Transmit Proposal
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+  <footer class="border-t border-sky-500/10 bg-slate-900/90 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-gray-400 font-mono">
+      © 2026 Astralis Observatory. All cosmic rights reserved.
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

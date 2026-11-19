@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmic Gallery — ASTRALIS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-sky-500 selection:text-white">
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-space-900/80 border-b border-sky-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-purple-600 flex items-center justify-center">
+          <i class="fa-solid fa-satellite text-white text-lg"></i>
+        </div>
+        <span class="text-2xl font-black tracking-wider text-white">ASTRALIS</span>
+      </a>
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+        <a href="index.html" class="text-gray-300 hover:text-sky-400">Home</a>
+        <a href="observations.html" class="text-gray-300 hover:text-sky-400">Observations</a>
+        <a href="gallery.html" class="text-sky-400">Gallery</a>
+        <a href="about.html" class="text-gray-300 hover:text-sky-400">About</a>
+        <a href="contact.html" class="text-gray-300 hover:text-sky-400">Contact</a>
+      </nav>
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="contact.html" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-purple-600 text-white font-semibold text-sm">Request Access</a>
+      </div>
+    </div>
+  </header>
+  <main class="flex-grow py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="text-center max-w-2xl mx-auto space-y-4">
+        <span class="text-sky-400 font-mono text-sm uppercase tracking-widest">Image Archive</span>
+        <h1 class="text-4xl sm:text-5xl font-black text-white">Cosmic Visual Gallery</h1>
+        <p class="text-gray-400">High-resolution hyper-spectral captures processed by our deep neural reconstruction pipeline.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="glass-card rounded-2xl overflow-hidden p-4 space-y-4">
+          <div class="h-64 rounded-xl bg-gradient-to-tr from-purple-900 to-sky-800 flex items-center justify-center relative group">
+            <i class="fa-solid fa-hurricane text-6xl text-sky-300"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Sombrero Galaxy (M104)</h3>
+          <p class="text-gray-400 text-sm">Spindled galactic disk with prominent dust lane and supermassive black hole core.</p>
+        </div>
+        <div class="glass-card rounded-2xl overflow-hidden p-4 space-y-4">
+          <div class="h-64 rounded-xl bg-gradient-to-tr from-indigo-950 to-pink-900 flex items-center justify-center relative group">
+            <i class="fa-solid fa-meteor text-6xl text-pink-300"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Pillars of Creation</h3>
+          <p class="text-gray-400 text-sm">Cold interstellar hydrogen gas and dust in the Eagle Nebula, 6,500 light-years away.</p>
+        </div>
+        <div class="glass-card rounded-2xl overflow-hidden p-4 space-y-4">
+          <div class="h-64 rounded-xl bg-gradient-to-tr from-blue-900 to-emerald-900 flex items-center justify-center relative group">
+            <i class="fa-solid fa-ring text-6xl text-emerald-300"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Ring Nebula (M57)</h3>
+          <p class="text-gray-400 text-sm">Planetary nebula produced by a dying star shedding its outer layers into space.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="border-t border-sky-500/10 bg-slate-900/90 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-gray-400 font-mono">
+      © 2026 Astralis Observatory. All cosmic rights reserved.
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
