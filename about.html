@@ -28,8 +28,8 @@
 <body class="bg-darkbg text-zinc-100 font-sans antialiased min-h-screen flex flex-col selection:bg-zinc-700 selection:text-white">
 
     <!-- Header Navigation -->
-    <header class="border-b border-bordercolor bg-darkbg/80 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-2xl mx-auto px-6 h-16 flex items-center justify-between">
+    <header class="border-b border-bordercolor bg-darkbg/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href="index.html" class="font-semibold text-white tracking-tight hover:text-zinc-300 transition-colors">
                 Асман Рахманов
             </a>
@@ -42,40 +42,83 @@
         </div>
     </header>
 
-    <!-- Main Content: About -->
-    <main class="max-w-2xl mx-auto px-6 py-12 flex-grow w-full space-y-8">
-        <h1 class="text-2xl font-bold text-white tracking-tight">Общая информация</h1>
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto px-6 py-10 flex-grow w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left Column: Info Summary Card -->
+            <aside class="lg:col-span-4 space-y-6">
+                <div class="bg-cardbg border border-bordercolor rounded-xl p-6 space-y-5">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center font-bold text-base text-zinc-200">АР</div>
+                        <div>
+                            <h1 class="font-bold text-white text-lg">Асман Рахманов</h1>
+                            <p class="text-xs text-zinc-400 font-mono">@aspaloyy</p>
+                        </div>
+                    </div>
+                    <div class="border-t border-bordercolor pt-4 space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-zinc-500 font-mono text-xs">Дата рождения</span>
+                            <span class="text-zinc-200">20 июня 2005</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-zinc-500 font-mono text-xs">Локация</span>
+                            <span class="text-zinc-200">Бишкек, Кыргызстан</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-zinc-500 font-mono text-xs">Род деятельности</span>
+                            <span class="text-zinc-200">Разработка ПО</span>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Bio Card -->
-        <div class="bg-cardbg border border-bordercolor rounded-xl p-6 space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                <div class="space-y-1">
-                    <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">ФИО</span>
-                    <p class="font-medium text-white">Рахманов Асман Рысбаевич</p>
+                <!-- Navigation -->
+                <div class="bg-cardbg border border-bordercolor rounded-xl p-5 space-y-3">
+                    <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-400">Разделы</h2>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-zinc-300 hover:text-white flex items-center justify-between p-2 rounded-lg hover:bg-darkbg/50 transition-colors"><span>Главная лента</span> →</a></li>
+                        <li><a href="projects.html" class="text-zinc-300 hover:text-white flex items-center justify-between p-2 rounded-lg hover:bg-darkbg/50 transition-colors"><span>Проекты</span> →</a></li>
+                        <li><a href="contact.html" class="text-zinc-300 hover:text-white flex items-center justify-between p-2 rounded-lg hover:bg-darkbg/50 transition-colors"><span>Контакты</span> →</a></li>
+                    </ul>
                 </div>
-                <div class="space-y-1">
-                    <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">Дата рождения</span>
-                    <p class="font-medium text-white">20 июня 2005</p>
-                </div>
-                <div class="space-y-1">
-                    <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">Род деятельности</span>
-                    <p class="font-medium text-white">Разработчик программного обеспечения</p>
-                </div>
-                <div class="space-y-1">
-                    <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">Локация</span>
-                    <p class="font-medium text-white">Бишкек, Кыргызстан</p>
-                </div>
-            </div>
+            </aside>
 
-            <div class="border-t border-bordercolor pt-6 space-y-4">
-                <h2 class="text-sm font-semibold text-white">Биография и опыт</h2>
-                <p class="text-sm text-zinc-300 leading-relaxed">
-                    Занимаюсь программированием и созданием программных систем. Фокусируюсь на бэкенд-разработке, распределенных вычислениях и низкоуровневых аспектах взаимодействия сервисов.
-                </p>
-                <p class="text-sm text-zinc-300 leading-relaxed">
-                    Основной стек используемых технологий включает языки Go и Rust, а также реляционные базы данных и сетевые протоколы (gRPC, TCP/IP).
-                </p>
-            </div>
+            <!-- Right Column: Detailed Bio Content -->
+            <section class="lg:col-span-8 space-y-6">
+                <div class="bg-cardbg border border-bordercolor rounded-xl p-8 space-y-6">
+                    <h1 class="text-2xl font-bold text-white tracking-tight">Подробная информация</h1>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                        <div class="bg-darkbg/60 border border-bordercolor/60 rounded-xl p-4 space-y-1">
+                            <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">Полное имя</span>
+                            <p class="font-medium text-white text-sm">Рахманов Асман Рысбаевич</p>
+                        </div>
+                        <div class="bg-darkbg/60 border border-bordercolor/60 rounded-xl p-4 space-y-1">
+                            <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">Дата рождения</span>
+                            <p class="font-medium text-white text-sm">20 июня 2005</p>
+                        </div>
+                        <div class="bg-darkbg/60 border border-bordercolor/60 rounded-xl p-4 space-y-1">
+                            <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">Основной стек</span>
+                            <p class="font-medium text-white text-sm">Go, Rust, TypeScript</p>
+                        </div>
+                        <div class="bg-darkbg/60 border border-bordercolor/60 rounded-xl p-4 space-y-1">
+                            <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">Город</span>
+                            <p class="font-medium text-white text-sm">Бишкек</p>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-bordercolor pt-6 space-y-4">
+                        <h2 class="text-lg font-semibold text-white">О деятельности</h2>
+                        <p class="text-sm text-zinc-300 leading-relaxed">
+                            Занимаюсь разработкой программного обеспечения, проектированием бэкенд-архитектуры и написанием распределенных систем. Увлекаюсь низкоуровневой оптимизацией, сетевыми протоколами и созданием стабильных инструментов.
+                        </p>
+                        <p class="text-sm text-zinc-300 leading-relaxed">
+                            Этот портал используется как личная площадка для публикации заметок в формате ленты, демонстрации текущих проектов и хранения контактной информации.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </main>
 

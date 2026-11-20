@@ -28,8 +28,8 @@
 <body class="bg-darkbg text-zinc-100 font-sans antialiased min-h-screen flex flex-col selection:bg-zinc-700 selection:text-white">
 
     <!-- Header Navigation -->
-    <header class="border-b border-bordercolor bg-darkbg/80 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-2xl mx-auto px-6 h-16 flex items-center justify-between">
+    <header class="border-b border-bordercolor bg-darkbg/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href="index.html" class="font-semibold text-white tracking-tight hover:text-zinc-300 transition-colors">
                 Асман Рахманов
             </a>
@@ -42,46 +42,81 @@
         </div>
     </header>
 
-    <!-- Main Content: Projects -->
-    <main class="max-w-2xl mx-auto px-6 py-12 flex-grow w-full space-y-8">
-        <h1 class="text-2xl font-bold text-white tracking-tight">Проекты</h1>
-
-        <!-- Active Projects -->
-        <div class="space-y-4">
-            <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-400">В активной разработке</h2>
-            <div class="space-y-4">
-                <article class="bg-cardbg border border-bordercolor rounded-xl p-5 space-y-3">
-                    <div class="flex items-baseline justify-between">
-                        <h3 class="font-semibold text-white">Distributed Raft Broker</h3>
-                        <span class="text-xs font-mono text-emerald-400 bg-emerald-950/50 border border-emerald-800/60 px-2 py-0.5 rounded">Active</span>
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto px-6 py-10 flex-grow w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left Sidebar -->
+            <aside class="lg:col-span-4 space-y-6">
+                <div class="bg-cardbg border border-bordercolor rounded-xl p-6 space-y-5">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center font-bold text-base text-zinc-200">АР</div>
+                        <div>
+                            <h1 class="font-bold text-white text-lg">Асман Рахманов</h1>
+                            <p class="text-xs text-zinc-400 font-mono">@aspaloyy</p>
+                        </div>
                     </div>
                     <p class="text-sm text-zinc-300 leading-relaxed">
-                        Реализация распределенного брокера логов с консенсусом Raft на Go для репликации данных и устойчивости к сетевым сбоям.
+                        Репозитории открытого кода, утилиты и разрабатываемые системные компоненты.
                     </p>
-                    <div class="flex gap-2 text-xs font-mono text-zinc-500 pt-1">
-                        <span>Go</span><span>•</span><span>Protobuf</span><span>•</span><span>gRPC</span>
-                    </div>
-                </article>
-            </div>
-        </div>
+                </div>
 
-        <!-- Finished Projects -->
-        <div class="space-y-4 pt-4">
-            <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-400">Завершенные проекты</h2>
-            <div class="space-y-4">
-                <article class="bg-cardbg border border-bordercolor rounded-xl p-5 space-y-3">
-                    <div class="flex items-baseline justify-between">
-                        <h3 class="font-semibold text-white">Concurrency Sandbox</h3>
-                        <span class="text-xs font-mono text-zinc-500 bg-zinc-800 px-2 py-0.5 rounded">Completed</span>
+                <!-- Navigation -->
+                <div class="bg-cardbg border border-bordercolor rounded-xl p-5 space-y-3">
+                    <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-400">Разделы</h2>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-zinc-300 hover:text-white flex items-center justify-between p-2 rounded-lg hover:bg-darkbg/50 transition-colors"><span>Главная лента</span> →</a></li>
+                        <li><a href="about.html" class="text-zinc-300 hover:text-white flex items-center justify-between p-2 rounded-lg hover:bg-darkbg/50 transition-colors"><span>Обо мне</span> →</a></li>
+                        <li><a href="contact.html" class="text-zinc-300 hover:text-white flex items-center justify-between p-2 rounded-lg hover:bg-darkbg/50 transition-colors"><span>Контакты</span> →</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Right Content: Projects List -->
+            <section class="lg:col-span-8 space-y-8">
+                <div class="bg-cardbg border border-bordercolor rounded-xl p-8 space-y-6">
+                    <h1 class="text-2xl font-bold text-white tracking-tight">Репозитории и проекты</h1>
+
+                    <!-- Active Projects -->
+                    <div class="space-y-4">
+                        <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-400">В активной разработке</h2>
+                        <div class="space-y-4">
+                            <article class="bg-darkbg/70 border border-bordercolor rounded-xl p-5 space-y-3">
+                                <div class="flex items-baseline justify-between">
+                                    <h3 class="font-semibold text-white text-base">Distributed Raft Broker</h3>
+                                    <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2 py-0.5 rounded">Active</span>
+                                </div>
+                                <p class="text-sm text-zinc-300 leading-relaxed">
+                                    Реализация распределенного брокера логов с консенсусом Raft на Go для репликации данных и устойчивости к сетевым сбоям.
+                                </p>
+                                <div class="flex gap-2 text-xs font-mono text-zinc-500 pt-1">
+                                    <span>Go</span><span>•</span><span>Protobuf</span><span>•</span><span>gRPC</span>
+                                </div>
+                            </article>
+                        </div>
                     </div>
-                    <p class="text-sm text-zinc-300 leading-relaxed">
-                        Набор утилит и бенчмарков для исследования моделей многопоточности и безопасного управления памятью в Tokio.
-                    </p>
-                    <div class="flex gap-2 text-xs font-mono text-zinc-500 pt-1">
-                        <span>Rust</span><span>•</span><span>Tokio</span><span>•</span><span>Benchmarks</span>
+
+                    <!-- Finished Projects -->
+                    <div class="space-y-4 pt-2">
+                        <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-400">Завершенные проекты</h2>
+                        <div class="space-y-4">
+                            <article class="bg-darkbg/70 border border-bordercolor rounded-xl p-5 space-y-3">
+                                <div class="flex items-baseline justify-between">
+                                    <h3 class="font-semibold text-white text-base">Concurrency Sandbox</h3>
+                                    <span class="text-xs font-mono text-zinc-400 bg-zinc-800/80 px-2 py-0.5 rounded">Completed</span>
+                                </div>
+                                <p class="text-sm text-zinc-300 leading-relaxed">
+                                    Набор утилит и бенчмарков для исследования моделей многопоточности и безопасного управления памятью в Tokio.
+                                </p>
+                                <div class="flex gap-2 text-xs font-mono text-zinc-500 pt-1">
+                                    <span>Rust</span><span>•</span><span>Tokio</span><span>•</span><span>Benchmarks</span>
+                                </div>
+                            </article>
+                        </div>
                     </div>
-                </article>
-            </div>
+                </div>
+            </section>
+
         </div>
     </main>
 
