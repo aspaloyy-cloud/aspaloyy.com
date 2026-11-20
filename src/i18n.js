@@ -1,4 +1,4 @@
-export const translations = {
+﻿export const translations = {
   ru: {
     nav: {
       about: "~/about",
@@ -10,19 +10,19 @@ export const translations = {
       status: "Бишкек, Кыргызстан • Доступен для инженерных задач",
       title: "Асман Рахманов",
       subtitle: "Software & Distributed Systems Architect",
-      description: "Проектирую отказоустойчивые бэкенд-системы, разрабатываю распределенные сервисы на Go и Rust. Увлекаюсь низкоуровневой оптимизацией, сетевыми протоколами и чистой архитектурой без лишнего усложнения.",
+      description: "Проектирую отказоустойчивые бэкенд-системы, разрабатываю распределенные сервисы на Go и Rust. Фокус на низкой латентности, сетевых протоколах и чистой архитектуре без лишнего усложнения.",
       github: "GitHub (@aspaloyy)",
       telegram: "Telegram (@aspaloyy)",
       email: "Email",
     },
     terminal: {
       title: "aspaloyy@system ~ bash",
-      helpHint: "введите 'help' или кликните по командам",
+      helpHint: "введите 'help' или кликните по командам выше",
     },
     projects: {
       title: "// Избранные проекты",
       badge: "Open Source",
-      source: "GitHub →",
+      source: "GitHub ↗",
       items: [
         {
           name: "Distributed Raft Broker",
@@ -46,20 +46,20 @@ export const translations = {
       infrastructure: { title: "// Инфраструктура", items: ["• Linux / Kernel", "• Docker & Containers", "• CI/CD Pipelines", "• Nginx / Envoy"] }
     },
     principles: {
-      title: "// Принципы разработки",
-      p1: { title: "01 / Simplicity", desc: "Простой код проще поддерживать, тестировать и масштабировать. Избегаю избыточных абстракций." },
-      p2: { title: "02 / Resilience", desc: "Отказоустойчивость закладывается на уровне архитектуры сети и обработки ошибок, а не хотфиксами." },
-      p3: { title: "03 / Precision", desc: "Опираюсь на бенчмарки, метрики и профилирование, а не на догадки при оптимизации производительности." }
+      title: "// Инженерные принципы",
+      p1: { title: "01 / Simplicity", desc: "Простой код проще поддерживать, тестировать и масштабировать. Избегаем избыточных абстракций." },
+      p2: { title: "02 / Resilience", desc: "Отказоустойчивость закладывается в архитектуру сети и обработку ошибок на уровне кода." },
+      p3: { title: "03 / Precision", desc: "Опираемся на бенчмарки, метрики и профилирование, а не на догадки при оптимизации производительности." }
     },
     contact: {
-      title: "Давайте обсудим задачу или проект",
-      desc: "Открыт к интересным инженерным вызовам, разработке распределенных систем и бэкенд-архитектуре.",
-      tgBtn: "Написать в Telegram",
+      title: "Обсудим проект или задачу",
+      desc: "Открыт к интересным инженерным задачам, разработке распределенных систем и бэкенд-архитектуре.",
+      tgBtn: "Связаться в Telegram",
       emailBtn: "Отправить Email"
     },
     footer: {
       rights: "© 2026 Асман Рахманов (aspaloyy). All rights reserved.",
-      location: "Бишкек, КР",
+      location: "Бишкек, КГ",
       note: "Clean engineering, modular architecture"
     }
   },
@@ -86,7 +86,7 @@ export const translations = {
     projects: {
       title: "// Featured Projects",
       badge: "Open Source",
-      source: "GitHub →",
+      source: "GitHub ↗",
       items: [
         {
           name: "Distributed Raft Broker",
