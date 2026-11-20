@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — Асман Рахманов</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        darkbg: '#0f1115',
+                        cardbg: '#161922',
+                        bordercolor: '#262b36',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="bg-darkbg text-zinc-100 font-sans antialiased min-h-screen flex flex-col selection:bg-zinc-700 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="border-b border-bordercolor bg-darkbg/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-2xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="font-semibold text-white tracking-tight hover:text-zinc-300 transition-colors">
+                Асман Рахманов
+            </a>
+            <nav class="flex items-center gap-6 text-sm text-zinc-400">
+                <a href="index.html" class="hover:text-white transition-colors">Лента</a>
+                <a href="about.html" class="hover:text-white transition-colors">Обо мне</a>
+                <a href="projects.html" class="hover:text-white transition-colors">Проекты</a>
+                <a href="contact.html" class="text-white font-medium">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content: Contact -->
+    <main class="max-w-2xl mx-auto px-6 py-12 flex-grow w-full space-y-8">
+        <h1 class="text-2xl font-bold text-white tracking-tight">Контакты</h1>
+
+        <div class="bg-cardbg border border-bordercolor rounded-xl p-6 space-y-6">
+            <p class="text-sm text-zinc-300 leading-relaxed">
+                Связаться со мной можно через следующие платформы:
+            </p>
+            <div class="space-y-3 font-mono text-sm">
+                <div class="flex items-center justify-between p-3 bg-darkbg border border-bordercolor rounded-lg">
+                    <span class="text-zinc-400">GitHub</span>
+                    <a href="https://github.com/aspaloyy" target="_blank" class="text-white hover:underline">@aspaloyy</a>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-darkbg border border-bordercolor rounded-lg">
+                    <span class="text-zinc-400">Telegram</span>
+                    <a href="https://t.me/aspaloyy" target="_blank" class="text-white hover:underline">@aspaloyy</a>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-darkbg border border-bordercolor rounded-lg">
+                    <span class="text-zinc-400">Email</span>
+                    <a href="mailto:contact@aspaloyy.com" class="text-white hover:underline">contact@aspaloyy.com</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-bordercolor py-6 text-center text-xs text-zinc-600 font-mono">
+        <p>© 2026 Асман Рахманов. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>

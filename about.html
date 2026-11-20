@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обо мне — Асман Рахманов</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        darkbg: '#0f1115',
+                        cardbg: '#161922',
+                        bordercolor: '#262b36',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="bg-darkbg text-zinc-100 font-sans antialiased min-h-screen flex flex-col selection:bg-zinc-700 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="border-b border-bordercolor bg-darkbg/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-2xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="font-semibold text-white tracking-tight hover:text-zinc-300 transition-colors">
+                Асман Рахманов
+            </a>
+            <nav class="flex items-center gap-6 text-sm text-zinc-400">
+                <a href="index.html" class="hover:text-white transition-colors">Лента</a>
+                <a href="about.html" class="text-white font-medium">Обо мне</a>
+                <a href="projects.html" class="hover:text-white transition-colors">Проекты</a>
+                <a href="contact.html" class="hover:text-white transition-colors">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content: About -->
+    <main class="max-w-2xl mx-auto px-6 py-12 flex-grow w-full space-y-8">
+        <h1 class="text-2xl font-bold text-white tracking-tight">Общая информация</h1>
+
+        <!-- Bio Card -->
+        <div class="bg-cardbg border border-bordercolor rounded-xl p-6 space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="space-y-1">
+                    <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">ФИО</span>
+                    <p class="font-medium text-white">Рахманов Асман Рысбаевич</p>
+                </div>
+                <div class="space-y-1">
+                    <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">Дата рождения</span>
+                    <p class="font-medium text-white">20 июня 2005</p>
+                </div>
+                <div class="space-y-1">
+                    <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">Род деятельности</span>
+                    <p class="font-medium text-white">Разработчик программного обеспечения</p>
+                </div>
+                <div class="space-y-1">
+                    <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">Локация</span>
+                    <p class="font-medium text-white">Бишкек, Кыргызстан</p>
+                </div>
+            </div>
+
+            <div class="border-t border-bordercolor pt-6 space-y-4">
+                <h2 class="text-sm font-semibold text-white">Биография и опыт</h2>
+                <p class="text-sm text-zinc-300 leading-relaxed">
+                    Занимаюсь программированием и созданием программных систем. Фокусируюсь на бэкенд-разработке, распределенных вычислениях и низкоуровневых аспектах взаимодействия сервисов.
+                </p>
+                <p class="text-sm text-zinc-300 leading-relaxed">
+                    Основной стек используемых технологий включает языки Go и Rust, а также реляционные базы данных и сетевые протоколы (gRPC, TCP/IP).
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-bordercolor py-6 text-center text-xs text-zinc-600 font-mono">
+        <p>© 2026 Асман Рахманов. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>

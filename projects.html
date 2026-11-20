@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проекты — Асман Рахманов</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        darkbg: '#0f1115',
+                        cardbg: '#161922',
+                        bordercolor: '#262b36',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="bg-darkbg text-zinc-100 font-sans antialiased min-h-screen flex flex-col selection:bg-zinc-700 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="border-b border-bordercolor bg-darkbg/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-2xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="font-semibold text-white tracking-tight hover:text-zinc-300 transition-colors">
+                Асман Рахманов
+            </a>
+            <nav class="flex items-center gap-6 text-sm text-zinc-400">
+                <a href="index.html" class="hover:text-white transition-colors">Лента</a>
+                <a href="about.html" class="hover:text-white transition-colors">Обо мне</a>
+                <a href="projects.html" class="text-white font-medium">Проекты</a>
+                <a href="contact.html" class="hover:text-white transition-colors">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content: Projects -->
+    <main class="max-w-2xl mx-auto px-6 py-12 flex-grow w-full space-y-8">
+        <h1 class="text-2xl font-bold text-white tracking-tight">Проекты</h1>
+
+        <!-- Active Projects -->
+        <div class="space-y-4">
+            <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-400">В активной разработке</h2>
+            <div class="space-y-4">
+                <article class="bg-cardbg border border-bordercolor rounded-xl p-5 space-y-3">
+                    <div class="flex items-baseline justify-between">
+                        <h3 class="font-semibold text-white">Distributed Raft Broker</h3>
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-950/50 border border-emerald-800/60 px-2 py-0.5 rounded">Active</span>
+                    </div>
+                    <p class="text-sm text-zinc-300 leading-relaxed">
+                        Реализация распределенного брокера логов с консенсусом Raft на Go для репликации данных и устойчивости к сетевым сбоям.
+                    </p>
+                    <div class="flex gap-2 text-xs font-mono text-zinc-500 pt-1">
+                        <span>Go</span><span>•</span><span>Protobuf</span><span>•</span><span>gRPC</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Finished Projects -->
+        <div class="space-y-4 pt-4">
+            <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-400">Завершенные проекты</h2>
+            <div class="space-y-4">
+                <article class="bg-cardbg border border-bordercolor rounded-xl p-5 space-y-3">
+                    <div class="flex items-baseline justify-between">
+                        <h3 class="font-semibold text-white">Concurrency Sandbox</h3>
+                        <span class="text-xs font-mono text-zinc-500 bg-zinc-800 px-2 py-0.5 rounded">Completed</span>
+                    </div>
+                    <p class="text-sm text-zinc-300 leading-relaxed">
+                        Набор утилит и бенчмарков для исследования моделей многопоточности и безопасного управления памятью в Tokio.
+                    </p>
+                    <div class="flex gap-2 text-xs font-mono text-zinc-500 pt-1">
+                        <span>Rust</span><span>•</span><span>Tokio</span><span>•</span><span>Benchmarks</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-bordercolor py-6 text-center text-xs text-zinc-600 font-mono">
+        <p>© 2026 Асман Рахманов. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>
