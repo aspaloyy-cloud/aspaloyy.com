@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Асман Рахманов — Software & Systems Architect</title>
-    <meta name="description" content="Инженер-программист из Бишкека. Создаю бэкенд-системы, распределенные сервисы и низкоуровневые компоненты.">
+    <title>Asman Rakhmanov — Software & Distributed Systems Architect</title>
+    <meta name="description" content="Software engineer and distributed systems architect from Bishkek. Building high-performance backends, resilient services, and low-level components.">
     
-    <!-- Подключаем чистые современные шрифты без искусственных модификаций -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -22,154 +23,267 @@
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        background: '#09090b',
-                        surface: '#121215',
-                        border: '#27272a',
+                        background: '#070709',
+                        surface: '#0f0f13',
+                        surfaceHover: '#16161c',
+                        borderSubtle: '#1f1f28',
+                        borderBright: '#323242',
                     }
                 }
             }
         }
     </script>
-</head>
-<body class="bg-background text-zinc-100 font-sans antialiased selection:bg-zinc-200 selection:text-zinc-900 min-h-screen flex flex-col justify-between">
-
-    <main class="max-w-2xl mx-auto px-6 py-20 md:py-28 w-full">
+    <style>
+        /* Custom scrollbar & smooth effects */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #070709; }
+        ::-webkit-scrollbar-thumb { background: #272732; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f50; }
         
-        <!-- Header / Hero -->
-        <header class="mb-16">
-            <div class="flex items-center justify-between mb-4">
-                <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-white">
+        .glow-effect {
+            background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+        }
+    </style>
+</head>
+<body class="bg-background text-zinc-100 font-sans antialiased selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col justify-between glow-effect">
+
+    <!-- Top Navigation / Header bar -->
+    <header class="border-b border-borderSubtle bg-background/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
+                <span class="font-mono text-sm font-semibold tracking-tight text-white">aspaloyy.dev</span>
+            </div>
+            <nav class="flex items-center gap-6 text-xs font-mono text-zinc-400">
+                <a href="#about" class="hover:text-white transition-colors">~/about</a>
+                <a href="#projects" class="hover:text-white transition-colors">~/projects</a>
+                <a href="#stack" class="hover:text-white transition-colors">~/stack</a>
+                <a href="#contact" class="hover:text-white transition-colors">~/contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-6 py-12 md:py-20 w-full space-y-20">
+
+        <!-- Hero Section -->
+        <section class="space-y-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface border border-borderSubtle text-xs font-mono text-zinc-300">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Bishkek, Kyrgyzstan • Available for engineering roles
+            </div>
+
+            <div class="space-y-4">
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white">
                     Асман Рахманов
                 </h1>
-                <span class="inline-flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    Bishkek, KG
-                </span>
+                <p class="text-xl md:text-2xl font-mono text-indigo-400 font-medium">
+                    Software & Distributed Systems Architect
+                </p>
+                <p class="text-zinc-400 text-base md:text-lg leading-relaxed max-w-2xl">
+                    Проектирую отказоустойчивые бэкенд-системы, разрабатываю распределенные сервисы на Go и Rust. Увлекаюсь низкоуровневой оптимизацией, сетевыми протоколами и чистой архитектурой без лишнего усложнения.
+                </p>
             </div>
-            
-            <p class="text-zinc-400 font-mono text-sm mb-6">
-                Software Engineer & Distributed Systems Architect
-            </p>
-            
-            <p class="text-zinc-300 leading-relaxed text-sm md:text-base mb-8">
-                Занимаюсь проектированием бэкенд-архитектуры, разработкой отказоустойчивых распределенных сервисов и оптимизацией производительности критичных участков кода. Предпочитаю строгую типизацию, простой код без лишних абстракций и глубокое понимание того, как работают сетевые протоколы и железо.
-            </p>
-            
-            <!-- Links / Contacts -->
-            <div class="flex flex-wrap items-center gap-4 text-xs font-mono">
-                <a href="https://github.com/aspaloyy" target="_blank" rel="noopener noreferrer" class="text-zinc-300 hover:text-white transition-colors flex items-center gap-1.5 py-1 px-2.5 rounded bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700">
-                    GitHub / aspaloyy
-                </a>
-                <a href="https://t.me/aspaloyy" target="_blank" rel="noopener noreferrer" class="text-zinc-300 hover:text-white transition-colors flex items-center gap-1.5 py-1 px-2.5 rounded bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700">
-                    Telegram / @aspaloyy
-                </a>
-                <a href="mailto:contact@aspaloyy.com" class="text-zinc-300 hover:text-white transition-colors flex items-center gap-1.5 py-1 px-2.5 rounded bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700">
-                    Email
-                </a>
-            </div>
-        </header>
 
-        <!-- Technical Stack -->
-        <section class="mb-16">
-            <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-500 mb-4">
-                Технический стек и специализация
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
-                <div class="p-3.5 bg-surface border border-border rounded-lg">
-                    <div class="text-zinc-200 font-semibold mb-1">Языки программирования</div>
-                    <div class="text-zinc-400">Go, Rust, TypeScript, Python</div>
+            <!-- Quick Action Links -->
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+                <a href="https://github.com/aspaloyy" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-surface hover:bg-surfaceHover border border-borderSubtle hover:border-borderBright text-xs font-mono text-zinc-200 transition-all flex items-center gap-2 shadow-sm">
+                    <svg class="w-4 h-4 text-zinc-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub (@aspaloyy)
+                </a>
+                <a href="https://t.me/aspaloyy" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-surface hover:bg-surfaceHover border border-borderSubtle hover:border-borderBright text-xs font-mono text-zinc-200 transition-all flex items-center gap-2 shadow-sm">
+                    <svg class="w-4 h-4 text-indigo-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.257.258-.528.258l.19-3.05 5.562-5.022c.24-.213-.054-.334-.373-.121l-6.872 4.326-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.462c.535-.195 1.001.131.833.946z"/></svg>
+                    Telegram (@aspaloyy)
+                </a>
+                <a href="mailto:contact@aspaloyy.com" class="px-4 py-2 rounded-lg bg-surface hover:bg-surfaceHover border border-borderSubtle hover:border-borderBright text-xs font-mono text-zinc-200 transition-all flex items-center gap-2 shadow-sm">
+                    <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    contact@aspaloyy.com
+                </a>
+            </div>
+        </section>
+
+        <!-- Interactive Terminal Widget -->
+        <section class="border border-borderSubtle rounded-xl bg-surface overflow-hidden shadow-2xl">
+            <div class="bg-[#121217] px-4 py-3 border-b border-borderSubtle flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                    <span class="ml-2 font-mono text-xs text-zinc-400">aspaloyy@system ~ bash</span>
                 </div>
-                <div class="p-3.5 bg-surface border border-border rounded-lg">
-                    <div class="text-zinc-200 font-semibold mb-1">Архитектура & Сети</div>
-                    <div class="text-zinc-400">Distributed Systems, gRPC, Raft, TCP/IP</div>
+                <div class="text-xs font-mono text-zinc-500">v2.4.0</div>
+            </div>
+            <div class="p-6 font-mono text-sm space-y-3 bg-[#0a0a0e]">
+                <div class="text-zinc-400 flex items-center gap-2">
+                    <span class="text-indigo-400">➜</span>
+                    <span class="text-zinc-200">whoami</span>
                 </div>
-                <div class="p-3.5 bg-surface border border-border rounded-lg">
-                    <div class="text-zinc-200 font-semibold mb-1">Хранилища данных</div>
-                    <div class="text-zinc-400">PostgreSQL, Redis, ClickHouse, RocksDB</div>
+                <div class="text-zinc-300 pl-4 border-l border-indigo-500/30">
+                    Asman Rakhmanov — Systems Architect focusing on concurrency, high load, and distributed consensus protocols.
                 </div>
-                <div class="p-3.5 bg-surface border border-border rounded-lg">
-                    <div class="text-zinc-200 font-semibold mb-1">Инфраструктура</div>
-                    <div class="text-zinc-400">Docker, Linux, CI/CD, Nginx</div>
+                <div class="text-zinc-400 flex items-center gap-2 pt-2">
+                    <span class="text-indigo-400">➜</span>
+                    <span class="text-zinc-200">uptime</span>
+                </div>
+                <div class="text-zinc-300 pl-4 border-l border-indigo-500/30">
+                    5+ years of writing production code, optimizing network bottlenecks, and shipping robust systems.
                 </div>
             </div>
         </section>
 
-        <!-- Selected Projects -->
-        <section class="mb-16">
-            <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-500 mb-6">
-                Избранные проекты и наработки
-            </h2>
-            
-            <div class="space-y-6">
+        <!-- Projects Section -->
+        <section id="projects" class="space-y-6">
+            <div class="flex items-center justify-between">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-zinc-400">
+                    // Избранные проекты
+                </h2>
+                <span class="text-xs font-mono text-zinc-500">Open Source</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <!-- Project 1 -->
-                <article class="group relative bg-surface/50 border border-border hover:border-zinc-700 transition-colors p-5 rounded-lg">
-                    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
-                        <h3 class="font-medium text-white text-sm md:text-base flex items-center gap-2">
-                            Distributed Event Broker
-                        </h3>
-                        <span class="text-xs font-mono text-zinc-500">Go • Raft • gRPC</span>
+                <article class="group p-6 rounded-xl bg-surface hover:bg-surfaceHover border border-borderSubtle hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-bold text-white text-base group-hover:text-indigo-300 transition-colors">
+                                Distributed Raft Broker
+                            </h3>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Go</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm leading-relaxed">
+                            Высокопроизводительный распределенный брокер логов с реализацией консенсуса Raft. Спроектирован для стабильной репликации данных и минимальных задержек при сетевых сбоях.
+                        </p>
                     </div>
-                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
-                        Легковесный прототип распределенного брокера сообщений с поддержкой репликации на базе алгоритма Raft. Разработан для минимизации накладных расходов при сетевых переключениях и предсказуемой латентности при записи.
-                    </p>
-                    <div class="flex items-center gap-4 text-xs font-mono">
-                        <a href="https://github.com/aspaloyy" target="_blank" rel="noopener noreferrer" class="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-white transition-colors">
-                            Исходный код →
+                    <div class="pt-4 border-t border-borderSubtle flex items-center justify-between text-xs font-mono">
+                        <span class="text-zinc-500">Protobuf • gRPC • Raft</span>
+                        <a href="https://github.com/aspaloyy" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+                            GitHub →
                         </a>
                     </div>
                 </article>
 
                 <!-- Project 2 -->
-                <article class="group relative bg-surface/50 border border-border hover:border-zinc-700 transition-colors p-5 rounded-lg">
-                    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
-                        <h3 class="font-medium text-white text-sm md:text-base flex items-center gap-2">
-                            Concurrency Sandbox
-                        </h3>
-                        <span class="text-xs font-mono text-zinc-500">Rust • Tokio</span>
+                <article class="group p-6 rounded-xl bg-surface hover:bg-surfaceHover border border-borderSubtle hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-bold text-white text-base group-hover:text-indigo-300 transition-colors">
+                                Concurrency Sandbox
+                            </h3>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Rust</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm leading-relaxed">
+                            Набор утилит и бенчмарков для исследования моделей многопоточности, безопасного управления памятью и конкурентного выполнения задач в Tokio.
+                        </p>
                     </div>
-                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
-                        Набор утилит и бенчмарков для тестирования моделей параллельных вычислений, управления пулами воркеров и безопасного разделения памяти в многопоточных конвейерах обработки данных.
-                    </p>
-                    <div class="flex items-center gap-4 text-xs font-mono">
-                        <a href="https://github.com/aspaloyy" target="_blank" rel="noopener noreferrer" class="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-white transition-colors">
-                            Исходный код →
+                    <div class="pt-4 border-t border-borderSubtle flex items-center justify-between text-xs font-mono">
+                        <span class="text-zinc-500">Tokio • Async • Benchmarks</span>
+                        <a href="https://github.com/aspaloyy" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+                            GitHub →
                         </a>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- Principles -->
-        <section class="mb-12">
-            <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-500 mb-4">
-                Инженерные принципы
+        <!-- Technical Stack -->
+        <section id="stack" class="space-y-6">
+            <h2 class="text-xs font-mono uppercase tracking-widest text-zinc-400">
+                // Технологический стек
             </h2>
-            <ul class="space-y-2 text-sm text-zinc-300 font-mono">
-                <li class="flex items-start gap-2">
-                    <span class="text-zinc-500">01.</span>
-                    <span>Простота поддерживаемости превыше чрезмерного усложнения архитектуры.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                    <span class="text-zinc-500">02.</span>
-                    <span>Отказоустойчивость закладывается на уровне проектирования, а не исправляется хотфиксами.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                    <span class="text-zinc-500">03.</span>
-                    <span>Измерение производительности важнее догадок и микрооптимизаций «на глаз».</span>
-                </li>
-            </ul>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
+                <div class="p-4 rounded-xl bg-surface border border-borderSubtle space-y-2">
+                    <div class="text-indigo-400 font-semibold">// Языки</div>
+                    <div class="text-zinc-300 space-y-1">
+                        <div>• Go (Golang)</div>
+                        <div>• Rust</div>
+                        <div>• TypeScript</div>
+                        <div>• Python</div>
+                    </div>
+                </div>
+                <div class="p-4 rounded-xl bg-surface border border-borderSubtle space-y-2">
+                    <div class="text-indigo-400 font-semibold">// Архитектура</div>
+                    <div class="text-zinc-300 space-y-1">
+                        <div>• Distributed Systems</div>
+                        <div>• gRPC / Protobuf</div>
+                        <div>• Raft Consensus</div>
+                        <div>• TCP/IP & Networking</div>
+                    </div>
+                </div>
+                <div class="p-4 rounded-xl bg-surface border border-borderSubtle space-y-2">
+                    <div class="text-indigo-400 font-semibold">// Хранилища</div>
+                    <div class="text-zinc-300 space-y-1">
+                        <div>• PostgreSQL</div>
+                        <div>• Redis</div>
+                        <div>• ClickHouse</div>
+                        <div>• RocksDB</div>
+                    </div>
+                </div>
+                <div class="p-4 rounded-xl bg-surface border border-borderSubtle space-y-2">
+                    <div class="text-indigo-400 font-semibold">// Инфраструктура</div>
+                    <div class="text-zinc-300 space-y-1">
+                        <div>• Linux / Kernel</div>
+                        <div>• Docker & Containers</div>
+                        <div>• CI/CD Pipelines</div>
+                        <div>• Nginx / Envoy</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Engineering Principles -->
+        <section class="space-y-6">
+            <h2 class="text-xs font-mono uppercase tracking-widest text-zinc-400">
+                // Принципы разработки
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div class="p-5 rounded-xl bg-surface border border-borderSubtle space-y-2">
+                    <div class="font-mono text-indigo-400 font-bold">01 / Simplicity</div>
+                    <p class="text-zinc-400 text-xs leading-relaxed">
+                        Простой код проще поддерживать, тестировать и масштабировать. Избегаю избыточных абстракций.
+                    </p>
+                </div>
+                <div class="p-5 rounded-xl bg-surface border border-borderSubtle space-y-2">
+                    <div class="font-mono text-indigo-400 font-bold">02 / Resilience</div>
+                    <p class="text-zinc-400 text-xs leading-relaxed">
+                        Отказоустойчивость закладывается на уровне архитектуры сети и обработки ошибок, а не хотфиксами.
+                    </p>
+                </div>
+                <div class="p-5 rounded-xl bg-surface border border-borderSubtle space-y-2">
+                    <div class="font-mono text-indigo-400 font-bold">03 / Precision</div>
+                    <p class="text-zinc-400 text-xs leading-relaxed">
+                        Опираюсь на бенчмарки, метрики и профилирование, а не на догадки при оптимизации производительности.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="p-8 rounded-2xl bg-gradient-to-br from-surface to-[#12121c] border border-borderSubtle text-center space-y-4">
+            <h2 class="text-xl font-bold text-white">Давайте обсудим задачу или проект</h2>
+            <p class="text-zinc-400 text-sm max-w-md mx-auto">
+                Открыт к интересным инженерным вызовам, разработке распределенных систем и бэкенд-архитектуре.
+            </p>
+            <div class="pt-2 flex justify-center gap-4 text-xs font-mono">
+                <a href="https://t.me/aspaloyy" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-colors shadow-lg shadow-indigo-600/20">
+                    Написать в Telegram
+                </a>
+                <a href="mailto:contact@aspaloyy.com" class="px-5 py-2.5 rounded-lg bg-surface hover:bg-surfaceHover border border-borderSubtle text-zinc-200 transition-colors">
+                    Отправить Email
+                </a>
+            </div>
         </section>
 
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-border bg-surface/30 py-6 px-6">
-        <div class="max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500">
-            <div>© 2026 Асман Рахманов. All rights reserved.</div>
+    <footer class="border-t border-borderSubtle bg-background/50 py-8 px-6 mt-20">
+        <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500">
+            <div>© 2026 Асман Рахманов (aspaloyy). All rights reserved.</div>
             <div class="flex items-center gap-4">
-                <span>Bishkek, Kyrgyzstan</span>
+                <span>Bishkek, KG</span>
                 <span>•</span>
-                <span class="text-zinc-400">No AI-slop included</span>
+                <span class="text-zinc-400">Clean engineering, zero AI-slop</span>
             </div>
         </div>
     </footer>
