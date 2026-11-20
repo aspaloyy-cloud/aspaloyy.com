@@ -6,7 +6,7 @@
     <title>Проекты — Асман Рахманов</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,175 +17,95 @@
                         sans: ['Geist', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
-                    colors: {
-                        dark: {
-                            900: '#09090b',
-                            800: '#121215',
-                            700: '#18181b',
-                            600: '#27272a',
-                            500: '#3f3f46',
-                        }
-                    }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-[#09090b] text-[#e4e4e7] font-sans antialiased selection:bg-zinc-700 selection:text-white min-h-screen flex flex-col">
+<body class="bg-[#0c0c0e] text-[#ededed] font-sans antialiased selection:bg-zinc-700 selection:text-white min-h-screen flex flex-col justify-between">
 
-    <!-- Header Navigation -->
-    <header class="border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="font-mono font-bold text-white tracking-wider flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+    <!-- Header -->
+    <header class="w-full border-b border-zinc-800/60 bg-[#0c0c0e]/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="font-mono font-medium text-white hover:text-zinc-300 transition-colors">
                 aspaloyy
             </a>
-            <nav class="flex items-center gap-6 text-sm font-medium">
+            <nav class="flex items-center gap-6 text-sm font-mono">
                 <a href="index.html" class="text-zinc-400 hover:text-white transition-colors">Главная</a>
-                <a href="about.html" class="text-zinc-400 hover:text-white transition-colors">Обо мне</a>
-                <a href="projects.html" class="text-white transition-colors">Проекты</a>
+                <a href="about.html" class="text-zinc-400 hover:text-white transition-colors">О себе</a>
+                <a href="projects.html" class="text-white">Проекты</a>
                 <a href="contact.html" class="text-zinc-400 hover:text-white transition-colors">Контакты</a>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content Container (Wide Layout) -->
-    <main class="max-w-7xl mx-auto px-6 py-12 flex-grow w-full">
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 py-16 w-full flex-grow">
         
-        <!-- Page Header -->
-        <div class="mb-12 border-b border-zinc-800/80 pb-8">
-            <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-3">Проекты</h1>
-            <p class="text-zinc-400 font-mono text-sm">Активные разработки, распределенные системы и исследовательские репозитории</p>
-        </div>
+        <section class="mb-12">
+            <h1 class="text-3xl font-semibold tracking-tight text-white mb-2">
+                Проекты
+            </h1>
+            <p class="text-sm font-mono text-zinc-400">
+                Исходный код, инструменты и разрабатываемые системы
+            </p>
+        </section>
 
-        <div class="space-y-8">
-            
-            <!-- Category: Active Systems -->
-            <div>
-                <h2 class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-6">Активные в разработке</h2>
-                
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <!-- Project 1 -->
-                    <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-8 flex flex-col justify-between hover:border-zinc-700 transition-all">
-                        <div>
-                            <div class="flex justify-between items-center mb-4">
-                                <span class="font-mono text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded">Active Development</span>
-                                <span class="font-mono text-xs text-zinc-500">Go / Raft</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-white mb-3">Distributed Raft Broker</h3>
-                            <p class="text-zinc-300 text-sm leading-relaxed mb-6">
-                                Высокопроизводительный распределенный брокер логов с собственной реализацией протокола консенсуса Raft. Спроектирован для стабильной репликации данных между нодами, минимальных задержек при обработке сообщений и автоматического восстановления при потере сетевого соединения.
-                            </p>
-                            
-                            <div class="space-y-2 mb-6 font-mono text-xs text-zinc-400">
-                                <div class="flex items-center gap-2">
-                                    <span class="text-zinc-600">•</span>
-                                    <span>Детерминированный выбор лидера и репликация состояния</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="text-zinc-600">•</span>
-                                    <span>Бинарный протокол поверх gRPC и Protobuf</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="text-zinc-600">•</span>
-                                    <span>Эффективный append-only лог на диске</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-between pt-6 border-t border-zinc-800/80 font-mono text-xs">
-                            <span class="text-zinc-500">Go • Protobuf • gRPC • Raft</span>
-                            <a href="https://github.com/aspaloyy" target="_blank" class="px-4 py-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 rounded-lg text-white font-semibold transition-all flex items-center gap-1.5">
-                                GitHub ↗
-                            </a>
-                        </div>
+        <!-- Projects Grid -->
+        <section class="space-y-6">
+            <div class="p-6 bg-zinc-900/40 border border-zinc-800/80 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div class="space-y-2 max-w-2xl">
+                    <div class="flex items-center gap-3">
+                        <h2 class="text-lg font-medium text-white">Distributed Raft Broker</h2>
+                        <span class="px-2 py-0.5 bg-zinc-800 text-zinc-300 text-xs font-mono rounded">Go</span>
                     </div>
-
-                    <!-- Project 2 -->
-                    <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-8 flex flex-col justify-between hover:border-zinc-700 transition-all">
-                        <div>
-                            <div class="flex justify-between items-center mb-4">
-                                <span class="font-mono text-xs text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 rounded">Research & Core</span>
-                                <span class="font-mono text-xs text-zinc-500">Rust / Tokio</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-white mb-3">Concurrency Sandbox</h3>
-                            <p class="text-zinc-300 text-sm leading-relaxed mb-6">
-                                Набор утилит и бенчмарков для исследования моделей многопоточности, безопасного управления памятью и конкурентного выполнения задач в асинхронном рантайме Tokio. Проект нацелен на анализ накладных расходов при передаче данных между потоками.
-                            </p>
-                            
-                            <div class="space-y-2 mb-6 font-mono text-xs text-zinc-400">
-                                <div class="flex items-center gap-2">
-                                    <span class="text-zinc-600">•</span>
-                                    <span>Инструменты профилирования async-задач</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="text-zinc-600">•</span>
-                                    <span>Тестирование безблокировочных (lock-free) структур данных</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="text-zinc-600">•</span>
-                                    <span>Сравнение производительности с классическими примитивами синхронизации</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-between pt-6 border-t border-zinc-800/80 font-mono text-xs">
-                            <span class="text-zinc-500">Rust • Tokio • Concurrency</span>
-                            <a href="https://github.com/aspaloyy" target="_blank" class="px-4 py-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 rounded-lg text-white font-semibold transition-all flex items-center gap-1.5">
-                                GitHub ↗
-                            </a>
-                        </div>
-                    </div>
+                    <p class="text-sm text-zinc-400">
+                        Высокопроизводительный распределенный брокер логов с реализацией алгоритма консенсуса Raft. Предназначен для надежной репликации данных и устойчивости к сетевым сбоям.
+                    </p>
                 </div>
+                <a href="https://github.com/aspaloyy" target="_blank" rel="noopener" class="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-mono rounded transition-colors text-center whitespace-nowrap">
+                    GitHub →
+                </a>
             </div>
 
-            <!-- Category: Additional Modules -->
-            <div class="pt-8">
-                <h2 class="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-6">Инфраструктурные компоненты и утилиты</h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-6">
-                        <div class="font-mono text-xs text-zinc-500 mb-2">Network Protocol</div>
-                        <h3 class="text-lg font-bold text-white mb-2">TCP Custom Framing</h3>
-                        <p class="text-sm text-zinc-400 mb-4">
-                            Легковесная библиотека на Go для разделения сетевых потоков на пакеты с фиксированными заголовками и контрольными суммами.
-                        </p>
-                        <div class="font-mono text-xs text-zinc-500">Go • Network • TCP</div>
+            <div class="p-6 bg-zinc-900/40 border border-zinc-800/80 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div class="space-y-2 max-w-2xl">
+                    <div class="flex items-center gap-3">
+                        <h2 class="text-lg font-medium text-white">Concurrency Sandbox</h2>
+                        <span class="px-2 py-0.5 bg-zinc-800 text-zinc-300 text-xs font-mono rounded">Rust</span>
                     </div>
-
-                    <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-6">
-                        <div class="font-mono text-xs text-zinc-500 mb-2">Storage Engine</div>
-                        <h3 class="text-lg font-bold text-white mb-2">LSM Log Indexer</h3>
-                        <p class="text-sm text-zinc-400 mb-4">
-                            Экспериментальный индексер логов на основе концепции Log-Structured Merge-tree для быстрого поиска по текстовым архивам.
-                        </p>
-                        <div class="font-mono text-xs text-zinc-500">Rust • LSM • Disk I/O</div>
-                    </div>
-
-                    <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-6">
-                        <div class="font-mono text-xs text-zinc-500 mb-2">Automation</div>
-                        <h3 class="text-lg font-bold text-white mb-2">Deploy CLI Tool</h3>
-                        <p class="text-sm text-zinc-400 mb-4">
-                            Минималистичная утилита командной строки для деплоя статических сервисов и управления конфигурациями через SSH.
-                        </p>
-                        <div class="font-mono text-xs text-zinc-500">Go • SSH • CLI</div>
-                    </div>
+                    <p class="text-sm text-zinc-400">
+                        Набор утилит и бенчмарков для исследования моделей многопоточности, безопасного управления памятью и конкурентного выполнения задач в Tokio.
+                    </p>
                 </div>
+                <a href="https://github.com/aspaloyy" target="_blank" rel="noopener" class="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-mono rounded transition-colors text-center whitespace-nowrap">
+                    GitHub →
+                </a>
             </div>
 
-        </div>
+            <div class="p-6 bg-zinc-900/40 border border-zinc-800/80 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div class="space-y-2 max-w-2xl">
+                    <div class="flex items-center gap-3">
+                        <h2 class="text-lg font-medium text-white">CLI System Toolkit</h2>
+                        <span class="px-2 py-0.5 bg-zinc-800 text-zinc-300 text-xs font-mono rounded">Python / Bash</span>
+                    </div>
+                    <p class="text-sm text-zinc-400">
+                        Набор консольных утилит для мониторинга процессов, анализа системных логов и автоматизации локальных задач разработки.
+                    </p>
+                </div>
+                <a href="https://github.com/aspaloyy" target="_blank" rel="noopener" class="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-mono rounded transition-colors text-center whitespace-nowrap">
+                    GitHub →
+                </a>
+            </div>
+        </section>
 
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-zinc-800/80 bg-zinc-950 py-8 mt-auto font-mono text-xs text-zinc-500">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div>© 2026 Асман Рахманов. Все права защищены.</div>
-            <div class="flex items-center gap-6">
-                <span>Бишкек, KG</span>
-                <a href="https://github.com/aspaloyy" target="_blank" class="hover:text-white transition-colors">GitHub</a>
-                <a href="https://t.me/aspaloyy" target="_blank" class="hover:text-white transition-colors">Telegram</a>
-            </div>
+    <footer class="w-full border-t border-zinc-800/60 bg-[#0c0c0e]">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between text-xs font-mono text-zinc-500">
+            <span>© 2026 Асман Рахманов</span>
+            <span>Бишкек, KG</span>
         </div>
     </footer>
 
