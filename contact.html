@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты — Асман Рахманов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,97 +14,133 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        sans: ['Geist', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        darkbg: '#0f1115',
-                        cardbg: '#161922',
-                        bordercolor: '#262b36',
+                        dark: {
+                            900: '#09090b',
+                            800: '#121215',
+                            700: '#18181b',
+                            600: '#27272a',
+                            500: '#3f3f46',
+                        }
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body class="bg-darkbg text-zinc-100 font-sans antialiased min-h-screen flex flex-col selection:bg-zinc-700 selection:text-white">
+<body class="bg-[#09090b] text-[#e4e4e7] font-sans antialiased selection:bg-zinc-700 selection:text-white min-h-screen flex flex-col">
 
     <!-- Header Navigation -->
-    <header class="border-b border-bordercolor bg-darkbg/90 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="font-semibold text-white tracking-tight hover:text-zinc-300 transition-colors">
-                Асман Рахманов
+    <header class="border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="font-mono font-bold text-white tracking-wider flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                aspaloyy
             </a>
-            <nav class="flex items-center gap-6 text-sm text-zinc-400">
-                <a href="index.html" class="hover:text-white transition-colors">Лента</a>
-                <a href="about.html" class="hover:text-white transition-colors">Обо мне</a>
-                <a href="projects.html" class="hover:text-white transition-colors">Проекты</a>
-                <a href="contact.html" class="text-white font-medium">Контакты</a>
+            <nav class="flex items-center gap-6 text-sm font-medium">
+                <a href="index.html" class="text-zinc-400 hover:text-white transition-colors">Главная</a>
+                <a href="about.html" class="text-zinc-400 hover:text-white transition-colors">Обо мне</a>
+                <a href="projects.html" class="text-zinc-400 hover:text-white transition-colors">Проекты</a>
+                <a href="contact.html" class="text-white transition-colors">Контакты</a>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content Grid -->
-    <main class="max-w-6xl mx-auto px-6 py-10 flex-grow w-full">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <!-- Main Content Container (Wide Layout) -->
+    <main class="max-w-7xl mx-auto px-6 py-12 flex-grow w-full">
+        
+        <!-- Page Header -->
+        <div class="mb-12 border-b border-zinc-800/80 pb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-3">Контакты</h1>
+            <p class="text-zinc-400 font-mono text-sm">Прямые каналы связи и репозитории</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
-            <!-- Left Sidebar -->
-            <aside class="lg:col-span-4 space-y-6">
-                <div class="bg-cardbg border border-bordercolor rounded-xl p-6 space-y-5">
-                    <div class="flex items-center gap-4">
-                        <div class="w-14 h-14 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center font-bold text-base text-zinc-200">АР</div>
-                        <div>
-                            <h1 class="font-bold text-white text-lg">Асман Рахманов</h1>
-                            <p class="text-xs text-zinc-400 font-mono">@aspaloyy</p>
-                        </div>
-                    </div>
-                    <p class="text-sm text-zinc-300 leading-relaxed">
-                        Прямые каналы связи и социальные профили.
+            <!-- Left Column: Contact Cards -->
+            <div class="lg:col-span-6 space-y-6">
+                <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-8 space-y-6">
+                    <h2 class="text-xl font-bold text-white tracking-tight">Связаться напрямую</h2>
+                    <p class="text-zinc-300 text-sm leading-relaxed">
+                        Вы можете связаться со мной через мессенджеры или электронную почту по вопросам разработки, архитектуры или совместных проектов.
                     </p>
-                </div>
 
-                <!-- Navigation -->
-                <div class="bg-cardbg border border-bordercolor rounded-xl p-5 space-y-3">
-                    <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-400">Разделы</h2>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="index.html" class="text-zinc-300 hover:text-white flex items-center justify-between p-2 rounded-lg hover:bg-darkbg/50 transition-colors"><span>Главная лента</span> →</a></li>
-                        <li><a href="about.html" class="text-zinc-300 hover:text-white flex items-center justify-between p-2 rounded-lg hover:bg-darkbg/50 transition-colors"><span>Обо мне</span> →</a></li>
-                        <li><a href="projects.html" class="text-zinc-300 hover:text-white flex items-center justify-between p-2 rounded-lg hover:bg-darkbg/50 transition-colors"><span>Проекты</span> →</a></li>
-                    </ul>
-                </div>
-            </aside>
+                    <div class="space-y-4 font-mono text-sm">
+                        <a href="https://t.me/aspaloyy" target="_blank" class="flex items-center justify-between p-4 bg-zinc-900 border border-zinc-800 rounded-lg hover:border-zinc-700 transition-all group">
+                            <div class="flex items-center gap-3">
+                                <span class="text-zinc-500">Telegram:</span>
+                                <span class="text-white font-medium">@aspaloyy</span>
+                            </div>
+                            <span class="text-zinc-500 group-hover:text-white transition-colors">↗</span>
+                        </a>
 
-            <!-- Right Content: Contact Channels -->
-            <section class="lg:col-span-8 space-y-8">
-                <div class="bg-cardbg border border-bordercolor rounded-xl p-8 space-y-6">
-                    <h1 class="text-2xl font-bold text-white tracking-tight">Контакты</h1>
-                    <p class="text-sm text-zinc-300 leading-relaxed">
-                        Связаться со мной можно через следующие платформы и официальные каналы связи:
-                    </p>
-                    <div class="space-y-3 font-mono text-sm pt-2">
-                        <div class="flex items-center justify-between p-4 bg-darkbg/70 border border-bordercolor rounded-xl">
-                            <span class="text-zinc-400">GitHub</span>
-                            <a href="https://github.com/aspaloyy" target="_blank" class="text-white hover:underline">@aspaloyy</a>
-                        </div>
-                        <div class="flex items-center justify-between p-4 bg-darkbg/70 border border-bordercolor rounded-xl">
-                            <span class="text-zinc-400">Telegram</span>
-                            <a href="https://t.me/aspaloyy" target="_blank" class="text-white hover:underline">@aspaloyy</a>
-                        </div>
-                        <div class="flex items-center justify-between p-4 bg-darkbg/70 border border-bordercolor rounded-xl">
-                            <span class="text-zinc-400">Email</span>
-                            <a href="mailto:contact@aspaloyy.com" class="text-white hover:underline">contact@aspaloyy.com</a>
-                        </div>
+                        <a href="https://github.com/aspaloyy" target="_blank" class="flex items-center justify-between p-4 bg-zinc-900 border border-zinc-800 rounded-lg hover:border-zinc-700 transition-all group">
+                            <div class="flex items-center gap-3">
+                                <span class="text-zinc-500">GitHub:</span>
+                                <span class="text-white font-medium">github.com/aspaloyy</span>
+                            </div>
+                            <span class="text-zinc-500 group-hover:text-white transition-colors">↗</span>
+                        </a>
+
+                        <a href="mailto:contact@aspaloyy.com" class="flex items-center justify-between p-4 bg-zinc-900 border border-zinc-800 rounded-lg hover:border-zinc-700 transition-all group">
+                            <div class="flex items-center gap-3">
+                                <span class="text-zinc-500">Email:</span>
+                                <span class="text-white font-medium">contact@aspaloyy.com</span>
+                            </div>
+                            <span class="text-zinc-500 group-hover:text-white transition-colors">↗</span>
+                        </a>
                     </div>
                 </div>
-            </section>
+            </div>
+
+            <!-- Right Column: System / Location Info -->
+            <div class="lg:col-span-6 space-y-6">
+                <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-8 font-mono text-sm space-y-6">
+                    <h3 class="text-xs font-semibold text-zinc-400 uppercase tracking-wider border-b border-zinc-800 pb-3">
+                        Географическая и системная информация
+                    </h3>
+                    
+                    <div class="space-y-4 text-zinc-300">
+                        <div class="flex justify-between items-center">
+                            <span class="text-zinc-500">Город / Страна</span>
+                            <span class="text-white">Бишкек, Кыргызстан</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-zinc-500">Часовой пояс</span>
+                            <span class="text-white">GMT+6 (ALMT)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-zinc-500">Основной язык</span>
+                            <span class="text-white">Русский, English</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-zinc-500">Статус сети</span>
+                            <span class="flex items-center gap-1.5 text-emerald-400">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                Online / Reachable
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
+
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-bordercolor py-6 text-center text-xs text-zinc-600 font-mono">
-        <p>© 2026 Асман Рахманов. Все права защищены.</p>
+    <footer class="border-t border-zinc-800/80 bg-zinc-950 py-8 mt-auto font-mono text-xs text-zinc-500">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>© 2026 Асман Рахманов. Все права защищены.</div>
+            <div class="flex items-center gap-6">
+                <span>Бишкек, KG</span>
+                <a href="https://github.com/aspaloyy" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                <a href="https://t.me/aspaloyy" target="_blank" class="hover:text-white transition-colors">Telegram</a>
+            </div>
+        </div>
     </footer>
 
 </body>

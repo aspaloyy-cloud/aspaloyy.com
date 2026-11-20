@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Обо мне — Асман Рахманов</title>
+    <title>О себе — Асман Рахманов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,120 +14,156 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        sans: ['Geist', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        darkbg: '#0f1115',
-                        cardbg: '#161922',
-                        bordercolor: '#262b36',
+                        dark: {
+                            900: '#09090b',
+                            800: '#121215',
+                            700: '#18181b',
+                            600: '#27272a',
+                            500: '#3f3f46',
+                        }
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body class="bg-darkbg text-zinc-100 font-sans antialiased min-h-screen flex flex-col selection:bg-zinc-700 selection:text-white">
+<body class="bg-[#09090b] text-[#e4e4e7] font-sans antialiased selection:bg-zinc-700 selection:text-white min-h-screen flex flex-col">
 
     <!-- Header Navigation -->
-    <header class="border-b border-bordercolor bg-darkbg/90 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="font-semibold text-white tracking-tight hover:text-zinc-300 transition-colors">
-                Асман Рахманов
+    <header class="border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="font-mono font-bold text-white tracking-wider flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                aspaloyy
             </a>
-            <nav class="flex items-center gap-6 text-sm text-zinc-400">
-                <a href="index.html" class="hover:text-white transition-colors">Лента</a>
-                <a href="about.html" class="text-white font-medium">Обо мне</a>
-                <a href="projects.html" class="hover:text-white transition-colors">Проекты</a>
-                <a href="contact.html" class="hover:text-white transition-colors">Контакты</a>
+            <nav class="flex items-center gap-6 text-sm font-medium">
+                <a href="index.html" class="text-zinc-400 hover:text-white transition-colors">Главная</a>
+                <a href="about.html" class="text-white transition-colors">Обо мне</a>
+                <a href="projects.html" class="text-zinc-400 hover:text-white transition-colors">Проекты</a>
+                <a href="contact.html" class="text-zinc-400 hover:text-white transition-colors">Контакты</a>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content Grid -->
-    <main class="max-w-6xl mx-auto px-6 py-10 flex-grow w-full">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <!-- Main Content Container (Wide Layout) -->
+    <main class="max-w-7xl mx-auto px-6 py-12 flex-grow w-full">
+        
+        <!-- Page Header -->
+        <div class="mb-12 border-b border-zinc-800/80 pb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-3">О себе</h1>
+            <p class="text-zinc-400 font-mono text-sm">Факты, биографические данные и инженерный бэкграунд</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
-            <!-- Left Column: Info Summary Card -->
-            <aside class="lg:col-span-4 space-y-6">
-                <div class="bg-cardbg border border-bordercolor rounded-xl p-6 space-y-5">
-                    <div class="flex items-center gap-4">
-                        <div class="w-14 h-14 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center font-bold text-base text-zinc-200">АР</div>
-                        <div>
-                            <h1 class="font-bold text-white text-lg">Асман Рахманов</h1>
-                            <p class="text-xs text-zinc-400 font-mono">@aspaloyy</p>
-                        </div>
-                    </div>
-                    <div class="border-t border-bordercolor pt-4 space-y-3 text-sm">
-                        <div class="flex justify-between">
-                            <span class="text-zinc-500 font-mono text-xs">Дата рождения</span>
-                            <span class="text-zinc-200">20 июня 2005</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-zinc-500 font-mono text-xs">Локация</span>
-                            <span class="text-zinc-200">Бишкек, Кыргызстан</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-zinc-500 font-mono text-xs">Род деятельности</span>
-                            <span class="text-zinc-200">Разработка ПО</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Navigation -->
-                <div class="bg-cardbg border border-bordercolor rounded-xl p-5 space-y-3">
-                    <h2 class="text-xs font-mono uppercase tracking-wider text-zinc-400">Разделы</h2>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="index.html" class="text-zinc-300 hover:text-white flex items-center justify-between p-2 rounded-lg hover:bg-darkbg/50 transition-colors"><span>Главная лента</span> →</a></li>
-                        <li><a href="projects.html" class="text-zinc-300 hover:text-white flex items-center justify-between p-2 rounded-lg hover:bg-darkbg/50 transition-colors"><span>Проекты</span> →</a></li>
-                        <li><a href="contact.html" class="text-zinc-300 hover:text-white flex items-center justify-between p-2 rounded-lg hover:bg-darkbg/50 transition-colors"><span>Контакты</span> →</a></li>
-                    </ul>
-                </div>
-            </aside>
-
-            <!-- Right Column: Detailed Bio Content -->
-            <section class="lg:col-span-8 space-y-6">
-                <div class="bg-cardbg border border-bordercolor rounded-xl p-8 space-y-6">
-                    <h1 class="text-2xl font-bold text-white tracking-tight">Подробная информация</h1>
+            <!-- Left Column: Factual Profile -->
+            <div class="lg:col-span-5 space-y-6">
+                <div class="bg-zinc-900/60 border border-zinc-800/80 rounded-xl p-8 font-mono text-sm space-y-6">
+                    <h3 class="text-xs font-semibold text-zinc-400 uppercase tracking-wider border-b border-zinc-800 pb-3">
+                        Анкетные данные
+                    </h3>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-                        <div class="bg-darkbg/60 border border-bordercolor/60 rounded-xl p-4 space-y-1">
-                            <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">Полное имя</span>
-                            <p class="font-medium text-white text-sm">Рахманов Асман Рысбаевич</p>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="text-zinc-500 text-xs mb-1">ФИО</div>
+                            <div class="text-white font-medium text-base">Рахманов Асман Рысбаевич</div>
                         </div>
-                        <div class="bg-darkbg/60 border border-bordercolor/60 rounded-xl p-4 space-y-1">
-                            <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">Дата рождения</span>
-                            <p class="font-medium text-white text-sm">20 июня 2005</p>
+                        <div>
+                            <div class="text-zinc-500 text-xs mb-1">Псевдоним / Никнейм</div>
+                            <div class="text-white font-medium">Aspaloyy</div>
                         </div>
-                        <div class="bg-darkbg/60 border border-bordercolor/60 rounded-xl p-4 space-y-1">
-                            <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">Основной стек</span>
-                            <p class="font-medium text-white text-sm">Go, Rust, TypeScript</p>
+                        <div>
+                            <div class="text-zinc-500 text-xs mb-1">Дата рождения</div>
+                            <div class="text-white font-medium">20 июня 2005 г.</div>
                         </div>
-                        <div class="bg-darkbg/60 border border-bordercolor/60 rounded-xl p-4 space-y-1">
-                            <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider">Город</span>
-                            <p class="font-medium text-white text-sm">Бишкек</p>
+                        <div>
+                            <div class="text-zinc-500 text-xs mb-1">Локация</div>
+                            <div class="text-white font-medium">Бишкек, Кыргызстан</div>
+                        </div>
+                        <div>
+                            <div class="text-zinc-500 text-xs mb-1">Основной род деятельности</div>
+                            <div class="text-white font-medium">Разработка ПО, системная архитектура, распределенные вычисления</div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="border-t border-bordercolor pt-6 space-y-4">
-                        <h2 class="text-lg font-semibold text-white">О деятельности</h2>
-                        <p class="text-sm text-zinc-300 leading-relaxed">
-                            Занимаюсь разработкой программного обеспечения, проектированием бэкенд-архитектуры и написанием распределенных систем. Увлекаюсь низкоуровневой оптимизацией, сетевыми протоколами и созданием стабильных инструментов.
+                <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-6 font-mono text-xs space-y-3">
+                    <div class="text-zinc-400 uppercase tracking-wider font-semibold mb-2">Ключевые принципы</div>
+                    <div class="flex items-start gap-2 text-zinc-300">
+                        <span class="text-emerald-500">›</span>
+                        <span>Минимизация абстракций ради контроля над производительностью.</span>
+                    </div>
+                    <div class="flex items-start gap-2 text-zinc-300">
+                        <span class="text-emerald-500">›</span>
+                        <span>Строгая типизация и детерминированная обработка ошибок.</span>
+                    </div>
+                    <div class="flex items-start gap-2 text-zinc-300">
+                        <span class="text-emerald-500">›</span>
+                        <span>Отказоустойчивость и корректная репликация в условиях сетевых сбоев.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Narrative & Background -->
+            <div class="lg:col-span-7 space-y-8">
+                <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-8 space-y-6">
+                    <h2 class="text-2xl font-bold text-white tracking-tight">Профессиональный профиль</h2>
+                    
+                    <div class="space-y-4 text-zinc-300 leading-relaxed text-base">
+                        <p>
+                            Я занимаюсь проектированием программного обеспечения с упором на надежность, высокую скорость работы и эффективное использование системных ресурсов. Мой стек преимущественно строится вокруг системных языков программирования (<span class="text-white font-mono">Go</span>, <span class="text-white font-mono">Rust</span>), сетевых протоколов и распределенных архитектур.
                         </p>
-                        <p class="text-sm text-zinc-300 leading-relaxed">
-                            Этот портал используется как личная площадка для публикации заметок в формате ленты, демонстрации текущих проектов и хранения контактной информации.
+                        <p>
+                            В сферу моих интересов входят алгоритмы консенсуса, управление конкурентными задачами, оптимизация работы с памятью и создание модульных инфраструктурных компонентов, которые стабильно функционируют под нагрузкой.
+                        </p>
+                    </div>
+
+                    <div class="border-t border-zinc-800 pt-6 space-y-4">
+                        <h3 class="text-lg font-bold text-white">Инженерный подход</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">
+                            Предпочитаю прозрачные архитектурные решения без избыточных фреймворков и «магии». Каждый компонент системы должен иметь четкое назначение, понятную стоимость выполнения и предсказуемое поведение при отказах оборудования или сети.
                         </p>
                     </div>
                 </div>
-            </section>
+
+                <!-- Timeline / Experience Block -->
+                <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-8 space-y-6">
+                    <h3 class="text-xl font-bold text-white tracking-tight">Направления работы и исследования</h3>
+                    
+                    <div class="space-y-6 font-mono text-sm">
+                        <div class="border-l-2 border-zinc-700 pl-4 space-y-1">
+                            <div class="text-xs text-zinc-500">2024 — Настоящее время</div>
+                            <div class="text-white font-bold">Распределенные брокеры и консенсус</div>
+                            <div class="text-zinc-400 text-xs leading-relaxed">Разработка отказоустойчивых модулей репликации логов на Go с использованием протокола Raft и gRPC.</div>
+                        </div>
+
+                        <div class="border-l-2 border-zinc-700 pl-4 space-y-1">
+                            <div class="text-xs text-zinc-500">Исследования</div>
+                            <div class="text-white font-bold">Конкурентное выполнение в Tokio (Rust)</div>
+                            <div class="text-zinc-400 text-xs leading-relaxed">Создание бенчмарков и песочниц для оценки эффективности асинхронных рантаймов и управления памятью.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
+
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-bordercolor py-6 text-center text-xs text-zinc-600 font-mono">
-        <p>© 2026 Асман Рахманов. Все права защищены.</p>
+    <footer class="border-t border-zinc-800/80 bg-zinc-950 py-8 mt-auto font-mono text-xs text-zinc-500">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>© 2026 Асман Рахманов. Все права защищены.</div>
+            <div class="flex items-center gap-6">
+                <span>Бишкек, KG</span>
+                <a href="https://github.com/aspaloyy" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                <a href="https://t.me/aspaloyy" target="_blank" class="hover:text-white transition-colors">Telegram</a>
+            </div>
+        </div>
     </footer>
 
 </body>
